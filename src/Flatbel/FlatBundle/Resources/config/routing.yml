@@ -1,0 +1,8 @@
+# src/Blogger/BlogBundle/Resources/config/routing.yml
+FlatbelFlatBundle_homepage:
+    path:     /
+    defaults: { _controller: "FlatbelFlatBundle:Page:index" }
+    requirements:
+         methods:  GET
+
+

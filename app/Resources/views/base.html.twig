@@ -1,0 +1,115 @@
+<!-- app/Resources/views/base.html.twig -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
+    <title>{% block title %}Flatbel{% endblock %} - Flatbel</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    {% block stylesheets %}
+        {#<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>#}
+        {#<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>#}
+        {#<link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />#}
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/carousel.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('js/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css">
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+
+
+<section id="wrapper">
+    <!-- Хэдер -->
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">FLATBEL</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
+                            <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
+                            <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
+                            <li><a data-toggle="modal" href="#myModal">Войти\Регистрация</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Хэдер -->
+
+    <!-- Вход и регистрация -->
+    <div class="modal fade" id="myModal" align="center">
+        <div class="panel panel-success" style="width: 50%" align="center">
+            <div class="modal-header panel-heading">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>Войдите или Зарегестрируйтесь</h3>
+            </div>
+            <div class="modal-body panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form>
+                            <label>Авторизация</label>
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <form>
+                            <label>Регистрация</label>
+                            <label for="inputEmail" class="sr-only">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Вход и регистрация -->
+
+    <section>
+        {% block slide %}{% endblock %}
+    </section>
+    <section>
+        {% block filter %}{% endblock %}
+    </section>
+    <section>
+        {% block body %}{% endblock %}
+    </section>
+
+    {% block footer %}
+    <div id="footer">
+            <footer class="panel-footer">
+                <div>
+                    <div align="center">
+                        <div><a href="{{ path('FlatbelFlatBundle_homepage') }}">FLATBEL</a>
+                        <p>&#169;<span id="copyright-year"></span> All Rights Reserved <a href="#">Terms of Use and Privacy Policy</a>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </div>
+    {% endblock %}
+</section>
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,4 @@
+flatbel_flat:
+    resource: "@FlatbelFlatBundle/Resources/config/routing.yml"
+    prefix:   /
+
