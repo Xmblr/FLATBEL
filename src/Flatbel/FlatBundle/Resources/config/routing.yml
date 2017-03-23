@@ -5,8 +5,9 @@ FlatbelFlatBundle_homepage:
     requirements:
          methods:  GET
 
-FlatbelFlatBundle_register:
-    path:     /register
-    defaults: { _controller: "FlatbelFlatBundle:Page:register" }
+
+FlatbelFlatBundle_flat_show:
+    path:  /{description}
+    defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
-         methods:  GET|POST
+        methods:  GET

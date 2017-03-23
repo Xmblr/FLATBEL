@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ flat.description }}{% endblock %}
+
+{% block body %}
+    <article>
+        <section>
+            <div class="block" style="margin-top: 4%">
+                <header>
+                    <h1>{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h1>
+                </header>
+                <div class="row">
+                    <img src="{{ asset(['images/', flat.mainphoto]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['images/', flat.photo1]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['images/', flat.photo2]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['images/', flat.photo3]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                </div>
+                <div class="row">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            Тип квартиры
+                            {{ flat.flattype }}
+                        </div>
+                        <div class="list-group-item">
+                            Кол-во спальных мест
+                            {{ flat.numberofbeds }}
+                        </div>
+                        <div class="list-group-item">
+                            Кол-во комнат
+                            {{ flat.rooms }}
+                        </div>
+                        <div class="list-group-item">
+                            Этаж
+                            {{ flat.floor }}
+                        </div>
+                        <div class="list-group-item">
+                            Ближайшее метро
+                            {{ flat.metro }}
+                        </div><div class="list-group-item">
+                            Номер телефона
+                            <a href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

@@ -11,34 +11,26 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form class="navbar-form">
-                            <label>Авторизация</label>
-                            <label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                        </form>
+                        {#<form class="navbar-form">#}
+                            {#<label>Авторизация</label>#}
+                            {#<label for="inputEmail" class="sr-only">Email address</label>#}
+                            {#<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>#}
+                            {#<label for="inputPassword" class="sr-only">Password</label>#}
+                            {#<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
+                            {#<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>#}
+                        {#</form>#}
                     </div>
                     <div class="col-lg-6">
                         <label>Регистрация</label>
                         {{ form_start(form, { 'action': path('FlatbelFlatBundle_register'), 'method': 'POST', 'attr': {'class': 'navbar-form'} }) }}
                         {{ form_errors(form) }}
 
-                        {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_row(form.password, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email address'}}) }}
+                        {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
 
                         {{ form_rest(form) }}
 
                         <input type="submit" value="Зарегестрироваться" class="btn btn-lg btn-primary btn-block" />
-                        {#<form>#}
-                            {#<label>Регистрация</label>#}
-                            {#<label for="inputEmail" class="sr-only">Email address</label>#}
-                            {#<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>#}
-                            {#<label for="inputPassword" class="sr-only">Password</label>#}
-                            {#<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
-                            {#<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>#}
-                        {#</form>#}
                     </div>
                 </div>
             </div>

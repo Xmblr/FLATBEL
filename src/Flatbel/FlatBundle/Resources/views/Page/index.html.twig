@@ -54,5 +54,31 @@
 {% endblock %}
 
 {% block body %}
+    <div class="row">
+        {% for flat in flats %}
+            <div class="col-lg-4">
+                <label class="alert-info">
+                    <article class="text-center">
+                        <header>
+                            <h2>
+                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">{{ flat.streettype }} {{ flat.street }} - {{ flat.home }}</a>
+                            </h2>
+                        </header>
 
+                        <img src="{{ asset(['images/', flat.mainphoto]|join) }}" style="width: 200px"/>
+                        <div class="snippet">
+                            <p>{{ flat.about(100) }}</p>
+                            <p class="continue"><a
+                                        href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">Подробнее...</a>
+                            </p>
+                        </div>
+                    </article>
+                </label>
+            </div>
+
+
+        {% else %}
+            <p>There are no blog entries for symblog</p>
+        {% endfor %}
+    </div>
 {% endblock %}
