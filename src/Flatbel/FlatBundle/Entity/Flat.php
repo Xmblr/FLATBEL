@@ -3,10 +3,13 @@
 namespace Flatbel\FlatBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use function PasswordCompat\binary\check;
+use function PasswordCompat\binary\checklogo;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Flatbel\FlatBundle\Entity\Repository\FlatRepository")
  * @ORM\Table(name="Flat_new")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Flat
 {
@@ -643,7 +646,7 @@ class Flat
      */
     public function getMicrowave()
     {
-        return $this->microwave;
+        return $this->parking;
     }
 
     /**
@@ -962,4 +965,6 @@ class Flat
     {
         return $this->photo3;
     }
+
+
 }

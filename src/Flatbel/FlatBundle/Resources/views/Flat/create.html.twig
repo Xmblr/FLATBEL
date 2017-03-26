@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Создание квартиры{% endblock %}
+
+{% block body %}
+    <article>
+        <section>
+            <div class="block" style="margin-top: 4%">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Добавьте свою квартиру</h1>
+                    </div>
+                    <div class="panel-body">
+                        {% include 'FlatbelFlatBundle:Flat:form.html.twig' with {'form': form} %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}

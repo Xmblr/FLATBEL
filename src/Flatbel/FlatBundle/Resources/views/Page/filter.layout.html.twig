@@ -1,0 +1,144 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">Подберите себе квартиру</h1>
+    </div>
+    <div class="panel-body">
+        <form method="post" action="#" name="search-form" >
+            <div class="form-group">
+                <label for="flattype">Тип квартиры</label>
+                <select id="flattype" name="flattype">
+                    <option>Не важно</option>
+                    <option>VIP</option>
+                    <option>Евро</option>
+                    <option>Стандарт</option>
+                    <option>Бюджет</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numberofbeds">Количество спальных мест</label>
+                <select id="numberofbeds" name="numberofbeds" >
+                    <option>Не важно</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>2+1</option>
+                    <option>2+2</option>
+                    <option>2+2+1</option>
+                    <option>2+2+2</option>
+                    <option>+6</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="metro">Метро рядом</label>
+                <select id="metro" name="metro">
+                    <option>Не важно</option>
+                    <option>Каменная горка</option>
+                    <option>Кунцевщина</option>
+                    <option>Спортивная</option>
+                    <option>Пушкинская</option>
+                    <option>Молодежная</option>
+                    <option>Фрунзенская</option>
+                    <option>Немига</option>
+                    <option>Купаловская</option>
+                    <option>Первомайская</option>
+                    <option>Пролетарская</option>
+                    <option>Тракторный завод</option>
+                    <option>Партизанская</option>
+                    <option>Автозаводская</option>
+                    <option>Могилевская</option>
+                    <option>Малиновка</option>
+                    <option>Петровщина</option>
+                    <option>Михалова</option>
+                    <option>Грушевка</option>
+                    <option>Институт Культуры</option>
+                    <option>Площадь Ленина</option>
+                    <option>Октбярьская</option>
+                    <option>Площадь Победы</option>
+                    <option>Площадь Якуба Коласа</option>
+                    <option>Академия Наук</option>
+                    <option>Парк Челюскинцев</option>
+                    <option>Московская</option>
+                    <option>Восток</option>
+                    <option>Борисовский тракт</option>
+                    <option>Уручье</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rooms">Кол-во комнат</label>
+                <select id="rooms" name="rooms">
+                    <option>Не важно</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Цена (BYN)<br></label>
+                <input name="amount" id="amount" width="32%">
+                <p> </p>
+                <div id="slider-range" style="width: 32%"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="typeprice">Тип цены</label>
+                <select id="typeprice" name="typeprice">
+                    <option>За сутки</option>
+                    <option>За час</option>
+                </select>
+            </div>
+            <ul class="checkbox list-inline">
+                <li>
+                    <label>
+                        <input type="checkbox"  name="parking"><span>Паркинг</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="wifi"><span>Wi-fi</span>
+                    </label>
+                </li>
+                <li>
+                    <label >
+                        <input type="checkbox" name="microwave"><span>СВЧ</span>
+                    </label>
+                </li>
+                <li>
+                    <label >
+                        <input type="checkbox" name="tv"><span>TV</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="fridge"><span>Холодильник</span>
+                    </label>
+                </li>
+                <li>
+                    <label >
+                        <input type="checkbox" name="shower"><span>Душ</span>
+                    </label>
+                </li>
+            </ul>
+            <button class="btn btn-md btn-success">Поиск</button>
+        </form>
+    </div>
+</div>
+
+<!-- Слайдер-->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $( function() {
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 500,
+            values: [ 75, 300 ],
+            step:10,
+            slide: function( event, ui ) {
+                $( "#amount" ).val(ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+            }
+        });
+        $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+    } );
+</script>
+<!-- Слайдер-->

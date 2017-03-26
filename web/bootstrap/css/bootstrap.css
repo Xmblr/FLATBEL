@@ -333,10 +333,10 @@ th {
 .glyphicon-th-list:before {
   content: "\e012";
 }
-.glyphicon-ok:before {
+.glyphicon-ok,.glyphicon-1:before {
   content: "\e013";
 }
-.glyphicon-remove:before {
+.glyphicon-remove,.glyphicon-:before {
   content: "\e014";
 }
 .glyphicon-zoom-in:before {

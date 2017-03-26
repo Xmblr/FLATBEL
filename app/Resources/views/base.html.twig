@@ -12,7 +12,7 @@
         {#<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>#}
         {#<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>#}
         {#<link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />#}
-        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/carousel.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('js/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css">
     {% endblock %}
@@ -36,6 +36,7 @@
                             <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
                             <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
                             <li><a href="#">Войти\Регистрация</a></li>
+                            <li><a href="{{ path('FlatbelFlatBundle_flat_create') }}" >Добавьте свою квартиру</a></li>
                         </ul>
                     </div>
                 </div>

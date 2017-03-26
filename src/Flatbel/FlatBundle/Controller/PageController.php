@@ -3,6 +3,8 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use Flatbel\FlatBundle\Entity\Flat;
+use Flatbel\FlatBundle\Form\FlatType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Email;
@@ -14,18 +16,12 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $flats = $em->createQueryBuilder()
-            ->select('f')
-            ->from('FlatbelFlatBundle:Flat',  'f')
-            ->addOrderBy('f.id', 'DESC')
-            ->getQuery()
-            ->getResult();
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')
+            ->getFlats();
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats
         ));
     }
-
-
 
 }

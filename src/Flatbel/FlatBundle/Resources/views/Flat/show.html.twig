@@ -18,29 +18,88 @@
                 <div class="row">
                     <div class="list-group">
                         <div class="list-group-item">
-                            Тип квартиры
+                            Тип квартиры:
                             {{ flat.flattype }}
                         </div>
                         <div class="list-group-item">
-                            Кол-во спальных мест
+                            Кол-во спальных мест:
                             {{ flat.numberofbeds }}
                         </div>
                         <div class="list-group-item">
-                            Кол-во комнат
+                            Кол-во комнат:
                             {{ flat.rooms }}
                         </div>
                         <div class="list-group-item">
-                            Этаж
+                            Этажей в доме:
+                            {{ flat.floorhome }}
+                        </div>
+                        <div class="list-group-item">
+                            Этаж:
                             {{ flat.floor }}
                         </div>
                         <div class="list-group-item">
-                            Ближайшее метро
+                            Ближайшее метро:
                             {{ flat.metro }}
                         </div><div class="list-group-item">
-                            Номер телефона
+                            Номер телефона:
                             <a href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a>
                         </div>
-
+                        <div class="list-group-item">
+                            Цена за день:
+                            {{ flat.priceday }}
+                        </div>
+                        <div class="list-group-item">
+                            Цена за час:
+                            {{ flat.pricehour }}
+                        </div>
+                        <div class="list-group-item">
+                            Цена за ночь:
+                            {{ flat.pricenight }}
+                        </div>
+                        <div class="list-group-item">
+                            Цена за месяц:
+                            {{ flat.pricemounth }}
+                        </div>
+                        <div class="list-group-item">
+                            Телефизор:
+                            <span class="glyphicon glyphicon-{{ flat.tv }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Wi-Fi:
+                            <span class="glyphicon glyphicon-{{ flat.wifi }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Паркинг:
+                            <span class="glyphicon glyphicon-{{ flat.parking }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Микроволновка:
+                            <span class="glyphicon glyphicon-{{ flat.microwave }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Посудомоечная машина:
+                            <span class="glyphicon glyphicon-{{ flat.washer }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Ванна:
+                            <span class="glyphicon glyphicon-{{ flat.bath }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Душ:
+                            <span class="glyphicon glyphicon-{{ flat.shower }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Холодильник:
+                            <span class="glyphicon glyphicon-{{ flat.fridge }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Посуда:
+                            <span class="glyphicon glyphicon-{{ flat.dishes }}" aria-hidden="true"></span>
+                        </div>
+                        <div class="list-group-item">
+                            Постельное бельё:
+                            <span class="glyphicon glyphicon-{{ flat.linens }}" aria-hidden="true"></span>
+                        </div>
                     </div>
                 </div>
             </div>

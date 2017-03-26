@@ -6,8 +6,15 @@ FlatbelFlatBundle_homepage:
          methods:  GET
 
 
+FlatbelFlatBundle_flat_create:
+    path: /create
+    defaults: { _controller: "FlatbelFlatBundle:Flat:create" }
+    requirements:
+        methods: POST
+
 FlatbelFlatBundle_flat_show:
     path:  /{description}
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET
+
