@@ -646,7 +646,7 @@ class Flat
      */
     public function getMicrowave()
     {
-        return $this->parking;
+        return $this->microwave;
     }
 
     /**

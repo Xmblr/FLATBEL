@@ -574,7 +574,7 @@ class Flat
      */
     public function getTv()
     {
-        return checklogo($this->tv);
+        return $this->tv;
     }
 
     /**
@@ -598,7 +598,7 @@ class Flat
      */
     public function getWifi()
     {
-        return checklogo($this->wifi);
+        return $this->wifi;
     }
 
     /**
@@ -622,7 +622,7 @@ class Flat
      */
     public function getParking()
     {
-        return checklogo($this->parking);
+        return $this->parking;
     }
 
     /**
@@ -646,7 +646,7 @@ class Flat
      */
     public function getMicrowave()
     {
-        return checklogo($this->parking);
+        return $this->parking;
     }
 
     /**
@@ -670,7 +670,7 @@ class Flat
      */
     public function getWasher()
     {
-        return checklogo($this->washer);
+        return $this->washer;
     }
 
     /**
@@ -694,7 +694,7 @@ class Flat
      */
     public function getBath()
     {
-        return checklogo($this->bath);
+        return $this->bath;
     }
 
     /**
@@ -718,7 +718,7 @@ class Flat
      */
     public function getShower()
     {
-        return checklogo($this->shower);
+        return $this->shower;
     }
 
     /**
@@ -742,7 +742,7 @@ class Flat
      */
     public function getFridge()
     {
-        return checklogo($this->fridge);
+        return $this->fridge;
     }
 
     /**
@@ -766,7 +766,7 @@ class Flat
      */
     public function getDishes()
     {
-        return checklogo($this->dishes);
+        return $this->dishes;
     }
 
     /**
@@ -790,7 +790,7 @@ class Flat
      */
     public function getLinens()
     {
-        return checklogo($this->linens);
+        return $this->linens;
     }
 
     /**
