@@ -1,0 +1,11 @@
+{{ form_start(form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
+                {{ form_errors(form) }}
+
+{{ form_row(form.flattype) }}
+{{ form_row(form.numberofbeds) }}
+
+{{ form_rest(form) }}
+
+<p>
+    <input type="submit" value="Фильтровать">
+</p>

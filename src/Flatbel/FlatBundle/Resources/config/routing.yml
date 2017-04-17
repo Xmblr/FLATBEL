@@ -3,14 +3,14 @@ FlatbelFlatBundle_homepage:
     path:     /
     defaults: { _controller: "FlatbelFlatBundle:Page:index" }
     requirements:
-         methods:  GET
-
+         methods:  POST
 
 FlatbelFlatBundle_flat_create:
     path: /create
     defaults: { _controller: "FlatbelFlatBundle:Flat:create" }
     requirements:
         methods: POST
+
 
 FlatbelFlatBundle_flat_show:
     path:  /{description}

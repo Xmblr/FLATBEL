@@ -24,7 +24,7 @@ class FlatController extends Controller
 
         if(!$flat)
         {
-            throw $this->createNotFoundException('Oops... Unable to find Flats');
+            throw $this->createNotFoundException('Уупс... Квартира не найдены');
         }
 
         return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat'=>$flat));
@@ -39,6 +39,7 @@ class FlatController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
+
                 $em = $this->getDoctrine()
                     ->getManager();
                 $em->persist($flat);
@@ -54,11 +55,4 @@ class FlatController extends Controller
             'form' => $form->createView()
         ));
     }
-
-
-
-
-
-
-
 }

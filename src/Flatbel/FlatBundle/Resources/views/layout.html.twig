@@ -2,5 +2,18 @@
 {% extends '::base.html.twig' %}
 
 {% block filter %}
-    {% include'FlatbelFlatBundle:Page:filter.layout.html.twig' %}
+    <article>
+        <section>
+            <div class="block" style="margin-top: 4%">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Фильтр</h1>
+                    </div>
+                    <div class="panel-body">
+                        {% include 'FlatbelFlatBundle:Page:filter.html.twig' with {'form': form} %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
 {% endblock %}

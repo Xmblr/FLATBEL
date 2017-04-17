@@ -3,8 +3,7 @@
 namespace Flatbel\FlatBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use function PasswordCompat\binary\check;
-use function PasswordCompat\binary\checklogo;
+
 
 /**
  * @ORM\Entity(repositoryClass="Flatbel\FlatBundle\Entity\Repository\FlatRepository")

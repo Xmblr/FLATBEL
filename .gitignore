@@ -11,6 +11,3 @@
 /bin/
 /composer.phar
 /.idea
-.idea/inspectionProfiles/
-src/Flatbel/FlatBundle/Entity/Repository/
-src/Flatbel/FlatBundle/Form/
