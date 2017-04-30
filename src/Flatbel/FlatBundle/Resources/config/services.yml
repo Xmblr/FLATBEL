@@ -1,4 +1,10 @@
 services:
+  acme_user.password_resetting:
+        class: Flatbel\FlatBundle\EventListener\PasswordResettingListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
 #    flatbel_flat.example:
 #        class: Flatbel\FlatBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

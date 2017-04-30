@@ -1,5 +1,5 @@
-{{ form_start(form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
-                {{ form_widget(form) }}
+{{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
+                {{ form_widget(create_form) }}
 <p>
     <input type="submit" value="Добавить квартиру">
 </p>

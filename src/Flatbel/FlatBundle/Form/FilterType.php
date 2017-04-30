@@ -20,7 +20,8 @@ class FilterType extends AbstractType
                 'choices'  => array(
                     'Не важно' => 'Не важно',
                     'VIP' => 'VIP',
-                    'Стандарт' => 'Стандарт'
+                    'Стандарт' => 'Стандарт',
+                    'Бюджет' => 'Бюджет'
                 )))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(

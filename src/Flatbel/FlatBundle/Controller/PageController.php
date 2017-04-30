@@ -3,12 +3,15 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use Flatbel\FlatBundle\Entity\Contact;
 use Flatbel\FlatBundle\Entity\Flat;
+use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
-use Flatbel\FlatBundle\Form\FlatType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Email;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class PageController extends Controller
 {
@@ -16,14 +19,14 @@ class PageController extends Controller
     {
         $flat = new Flat();
 
-        $form = $this->createForm(FilterType::class, $flat);
+        $filter_form = $this->createForm(FilterType::class, $flat);
 
-        $form->handleRequest($request);
+        $filter_form->handleRequest($request);
 
         $em = $this->getDoctrine()
             ->getManager();
 
-        if ($form->isValid()) {
+        if ($filter_form->isValid()) {
 
             $flats = $em->getRepository('FlatbelFlatBundle:Flat')
                 ->getFlats(
@@ -34,11 +37,11 @@ class PageController extends Controller
 
 
             // Redirect - This is important to prevent users re-posting
-            // the form if they refresh the page
+            // the filter_form if they refresh the page
             // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
             return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
                 'flats' => $flats,
-                'form' => $form->createView()
+                'filter_form' => $filter_form->createView()
             ));
         }
 
@@ -46,9 +49,48 @@ class PageController extends Controller
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats,
-            'form' => $form->createView()
+            'filter_form' => $filter_form->createView()
         ));
     }
 
+    public function contactAction(Request $request)
+    {
+        $contact = new Contact();
 
+        $contact_form = $this->createForm(ContactType::class, $contact);
+
+        if ($request->isMethod($request::METHOD_POST)) {
+            $contact_form->handleRequest($request);
+
+            if ($contact_form->isValid()) {
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Contact enquiry from symblog')
+                    ->setFrom('enquiries@symblog.co.uk')
+                    ->setTo($this->container->getParameter('flatbel_flat.emails.contact_email'))
+                    ->setBody($this->renderView('FlatbelFlatBundle:Page:contactEmail.txt.twig', array('contact' => $contact)));
+
+
+                $this->get('mailer')->send($message);
+
+                $this->get('session')->getFlashBag()->add('contact-notice', 'Ваше сообщение успешно отправлено. Спасибо!');
+
+
+                // Redirect - This is important to prevent users re-posting
+                // the contact_form if they refresh the page
+                return $this->redirect($this->generateUrl('FlatbelFlatBundle_contact'));
+            }
+        }
+
+        return $this->render('FlatbelFlatBundle:Page:contact.html.twig', array(
+            'contact_form' => $contact_form->createView()
+        ));
+    }
+
+    /**
+     * @Route("/admin")
+     */
+    public function adminAction()
+    {
+        return new Response('<html><body>Admin page!</body></html>');
+    }
 }

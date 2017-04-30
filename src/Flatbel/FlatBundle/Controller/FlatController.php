@@ -24,7 +24,7 @@ class FlatController extends Controller
 
         if(!$flat)
         {
-            throw $this->createNotFoundException('Уупс... Квартира не найдены');
+            throw $this->createNotFoundException('Уупс... Квартиры не найдены');
         }
 
         return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat'=>$flat));
@@ -34,11 +34,11 @@ class FlatController extends Controller
     {
        $flat = new Flat();
 
-       $form = $this->createForm(FlatType::class, $flat);
+       $create_form = $this->createForm(FlatType::class, $flat);
 
-            $form->handleRequest($request);
+            $create_form->handleRequest($request);
 
-            if ($form->isValid()) {
+            if ($create_form->isValid()) {
 
                 $em = $this->getDoctrine()
                     ->getManager();
@@ -46,13 +46,13 @@ class FlatController extends Controller
                 $em->flush();
 
                 // Redirect - This is important to prevent users re-posting
-                // the form if they refresh the page
+                // the create_form if they refresh the page
                 return $this->redirect($this->generateUrl('FlatbelFlatBundle_flat_create'));
             }
 
 
         return $this->render('FlatbelFlatBundle:Flat:create.html.twig', array(
-            'form' => $form->createView()
+            'create_form' => $create_form->createView()
         ));
     }
 }

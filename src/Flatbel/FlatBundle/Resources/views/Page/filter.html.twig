@@ -1,10 +1,10 @@
-{{ form_start(form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
-                {{ form_errors(form) }}
+{{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
+                {{ form_errors(filter_form) }}
 
-{{ form_row(form.flattype) }}
-{{ form_row(form.numberofbeds) }}
+{{ form_row(filter_form.flattype) }}
+{{ form_row(filter_form.numberofbeds) }}
 
-{{ form_rest(form) }}
+{{ form_rest(filter_form) }}
 
 <p>
     <input type="submit" value="Фильтровать">
