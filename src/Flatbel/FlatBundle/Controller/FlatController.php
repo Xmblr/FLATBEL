@@ -4,6 +4,7 @@ namespace Flatbel\FlatBundle\Controller;
 
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Form\FlatType;
+use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -53,6 +54,44 @@ class FlatController extends Controller
 
         return $this->render('FlatbelFlatBundle:Flat:create.html.twig', array(
             'create_form' => $create_form->createView()
+        ));
+    }
+
+    public function flatsAction(Request $request)
+    {
+        $flat = new Flat();
+
+        $filter_form = $this->createForm(FilterType::class, $flat);
+
+        $filter_form->handleRequest($request);
+
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        if ($filter_form->isValid()) {
+
+            $flats = $em->getRepository('FlatbelFlatBundle:Flat')
+                ->getFlats(
+                    $flat->getFlattype(),
+                    $flat->getNumberofbeds(),
+                    $flat->getMetro(),
+                    null);
+
+
+            // Redirect - This is important to prevent users re-posting
+            // the filter_form if they refresh the page
+            // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
+            return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+                'flats' => $flats,
+                'filter_form' => $filter_form->createView()
+            ));
+        }
+
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null);
+
+        return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+            'flats' => $flats,
+            'filter_form' => $filter_form->createView()
         ));
     }
 }

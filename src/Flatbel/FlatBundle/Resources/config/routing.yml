@@ -5,12 +5,6 @@ FlatbelFlatBundle_homepage:
     requirements:
          methods:  POST
 
-#FlatbelFlatBundle_login:
-#    path: /login
-#    defaults: { _controller: "FlatbelFlatBundle:Page:contact"}
-#    requirements:
-#        methods: POST
-
 FlatbelFlatBundle_contact:
     path: /contact
     defaults: { _controller: "FlatbelFlatBundle:Page:contact"}
@@ -23,9 +17,14 @@ FlatbelFlatBundle_flat_create:
     requirements:
         methods: POST
 
+FlatbelFlatBundle_flat_flats:
+    path: /flats
+    defaults: { _controller: "FlatbelFlatBundle:Flat:flats" }
+    requirements:
+        methods: POST
 
 FlatbelFlatBundle_flat_show:
-    path:  /{description}
+    path:  /flats/{description}
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET

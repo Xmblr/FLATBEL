@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Квартиры{% endblock %}
+
+{% block body %}
+    <div class="row" style="width: 100%">
+        {% for flat in flats %}
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ asset(['images/', flat.mainphoto]|join) }}" alt="photo" style="width: 70%"/>
+                    <div class="caption">
+                        <h2>
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">{{ flat.streettype }} {{ flat.street }}
+                            - {{ flat.home }}</a>
+                        </h2>
+                        <p>
+                            {{ flat.about(100) }}
+                        </p>
+                        <p class="continue">
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">Подробнее...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            <p>There are no blog entries for symblog</p>
+        {% endfor %}
+    </div>
+{% endblock %}

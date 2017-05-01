@@ -22,7 +22,9 @@ class FilterType extends AbstractType
                     'VIP' => 'VIP',
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
-                )))
+                ),
+                'choices_as_values' => true
+            ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
                     'Не важно' => 'Не важно',
@@ -34,7 +36,9 @@ class FilterType extends AbstractType
                     '6' => '6',
                     '6+' => '7',
 
-                )))
+                ),
+                'choices_as_values' => true
+            ))
             ->add('metro',ChoiceType::class, array(
                 'choices'  => array(
                     'Не важно' => 'Не важно',
@@ -68,7 +72,9 @@ class FilterType extends AbstractType
                     'Борисовский тракт'=>'Борисовский тракт',
                     'Уручье'=>'Уручье'
 
-                )))
+                ),
+                'choices_as_values' => true
+            ))
             ->add('rooms',ChoiceType::class, array(
                 'choices'  => array(
                     'Не важно' => 'Не важно',
@@ -76,8 +82,10 @@ class FilterType extends AbstractType
                     '2' => '2',
                     '3' => '3',
                     '4+' => '4',
-                    )))
-            ->add('pricehour', 'choice')
+                    ),
+                'choices_as_values' => true
+            ))
+            ->add('pricehour', 'Symfony\Component\Form\Extension\Core\Type\MoneyType')
 //            ->add('rooms')
 //            ->add('street')
 //            ->add('streettype')

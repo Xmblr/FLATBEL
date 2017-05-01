@@ -9,14 +9,11 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     {% block stylesheets %}
-        {#<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>#}
-        {#<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>#}
-        {#<link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />#}
         <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/carousel.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('js/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css">
     {% endblock %}
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
 
@@ -32,34 +29,25 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{ path('FlatbelFlatBundle_contact') }}">Обратная связь</a> </li>
+                            <li><a href="{{ path('FlatbelFlatBundle_contact') }}">Обратная связь</a></li>
                             <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
                             <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
                             <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
-                            <li><a href="{{ path('FlatbelFlatBundle_flat_create') }}" >Добавьте свою квартиру</a></li>
-                            <li>
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                                        <a href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            <li><a href="{{ path('FlatbelFlatBundle_flat_create') }}">Добавьте свою квартиру</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav" style="float: right">
+
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li><a href="{{ path('fos_user_profile_show') }}">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ app.user.username }}
                                         </a>
-                                    {% else %}
-                                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                    {% endif %}
+                                    </li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                                {% else %}
+                                    <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
+                                    <li><a href="{{ path('fos_user_registration_register') }}">Зарегестрироваться</a></li>
+                                {% endif %}
 
-                                {% for type, messages in app.session.flashBag.all %}
-                                    {% for message in messages %}
-                                        <div class="{{ type }}">
-                                            {{ message|trans({}, 'FOSUserBundle') }}
-                                        </div>
-                                    {% endfor %}
-                                {% endfor %}
-
-                                <div>
-                                    {% block fos_user_content %}
-                                    {% endblock fos_user_content %}
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -79,19 +67,35 @@
         {% block body %}{% endblock %}
     </section>
 
+    <section style="margin-top: 5%">
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <div>
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+    </section>
+
     {% block footer %}
-    <div id="footer">
+        <div id="footer">
             <footer class="panel-footer">
                 <div>
                     <div align="center">
                         <div><a href="{{ path('FlatbelFlatBundle_homepage') }}">FLATBEL</a>
-                        <p>&#169;<span id="copyright-year"></span> All Rights Reserved <a href="#">Terms of Use and Privacy Policy</a>
-                        </p>
+                            <p>&#169;<span id="copyright-year"></span> All Rights Reserved <a href="#">Terms of Use and
+                                    Privacy Policy</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </footer>
-    </div>
+        </div>
     {% endblock %}
 </section>
 
