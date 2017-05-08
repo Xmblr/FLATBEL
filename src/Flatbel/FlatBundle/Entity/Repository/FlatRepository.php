@@ -12,16 +12,22 @@ use Composer\DependencyResolver\Request;
  */
 class FlatRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getFlats($flattype, $numberofbeds, $metro, $limit)
+    public function getFlats($flattype, $numberofbeds, $metro, $limit, $payornot)
     {
         $qb = $this->createQueryBuilder('f')
             ->select('f')
             ->addOrderBy('f.id', 'DESC');
 
 
+
         if (false == is_null($limit))
             $qb->setMaxResults($limit);
 
+        if ($payornot == 1)
+        {
+            $qb->andWhere('f.payornot = :payornot')
+                ->setParameter('payornot', $payornot);
+        }
         if ($flattype != 'Не важно')
         {
             $qb->andWhere('f.flattype = :flattype')

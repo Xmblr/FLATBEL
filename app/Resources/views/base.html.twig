@@ -20,7 +20,8 @@
 
 <section id="wrapper">
     <!-- Хэдер -->
-    <div class="navbar-wrapper">
+    {% block header %}
+        <div class="navbar-wrapper">
         <div class="container">
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
@@ -54,6 +55,7 @@
             </nav>
         </div>
     </div>
+    {% endblock %}
     <!-- Хэдер -->
 
 
@@ -67,20 +69,6 @@
         {% block body %}{% endblock %}
     </section>
 
-    <section style="margin-top: 5%">
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
-    </section>
 
     {% block footer %}
         <div id="footer">
@@ -88,7 +76,7 @@
                 <div>
                     <div align="center">
                         <div><a href="{{ path('FlatbelFlatBundle_homepage') }}">FLATBEL</a>
-                            <p>&#169;<span id="copyright-year"></span> All Rights Reserved <a href="#">Terms of Use and
+                            <p>&#169;<span id="copyright-year"></span> Все права защищены <a href="#">Terms of Use and
                                     Privacy Policy</a>
                             </p>
                         </div>
@@ -104,7 +92,6 @@
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('') }}"></script>
 {% endblock %}
 </body>
 </html>

@@ -14,8 +14,8 @@ class FlatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('userid')
-            ->add('payornot')
+            //->add('userid')
+            //->add('payornot')
             ->add('flattype')
             ->add('numberofbeds')
             ->add('rooms')
@@ -41,7 +41,7 @@ class FlatType extends AbstractType
             ->add('linens')
             ->add('telnumber')
             ->add('about')
-            ->add('description')
+            //->add('description')
             ->add('mainphoto')
             ->add('photo1')
             ->add('photo2')

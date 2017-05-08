@@ -3,15 +3,14 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use APY\DataGridBundle\Grid\Grid;
 use Flatbel\FlatBundle\Entity\Contact;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
+use APY\DataGridBundle\Grid\Source\Entity;
 
 class PageController extends Controller
 {
@@ -33,7 +32,8 @@ class PageController extends Controller
                     $flat->getFlattype(),
                     $flat->getNumberofbeds(),
                     $flat->getMetro(),
-                    null);
+                    null,
+                    $flat->getPayornot());
 
 
             // Redirect - This is important to prevent users re-posting
@@ -45,7 +45,7 @@ class PageController extends Controller
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1);
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats,
@@ -86,11 +86,5 @@ class PageController extends Controller
         ));
     }
 
-    /**
-     * @Route("/admin")
-     */
-    public function adminAction()
-    {
-        return new Response('<html><body>Admin page!</body></html>');
-    }
+
 }

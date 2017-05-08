@@ -28,4 +28,3 @@ FlatbelFlatBundle_flat_show:
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET
-
