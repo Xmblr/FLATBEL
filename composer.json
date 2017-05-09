@@ -24,7 +24,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures" : "dev-master",
         "friendsofsymfony/user-bundle": "~2.0",
-        "kitpages/data-grid-bundle": "~2.5"
+        "apy/datagrid-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

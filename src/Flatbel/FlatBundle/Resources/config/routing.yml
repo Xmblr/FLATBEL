@@ -30,7 +30,6 @@ FlatbelFlatBundle_flat_show:
         methods:  GET
 
 FlatbelFlatBunde_grid:
-    path: /grid
+    path: /profile/flats
     defaults: { _controller: "FlatbelFlatBundle:Page:grid" }
-    requirements:
-        methods: POST|GET
+

@@ -3,6 +3,7 @@
 namespace Flatbel\FlatBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use APY\DataGridBundle\Grid\Mapping as GRID;
 
 
 /**

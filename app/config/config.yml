@@ -11,7 +11,8 @@ parameters:
 
 framework:
     #esi:             ~
-    translator:      { fallbacks: ["ru"] }
+    translator:      { fallbacks: ["%locale%"] }
+    default_locale: ru
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -121,11 +122,3 @@ fos_user:
         token_generator:        fos_user.util.token_generator.default
         user_manager:           fos_user.user_manager.default
 
-#KitpagesDataGridBundle
-kitpages_data_grid:
-    grid:
-        default_twig: KitpagesDataGridBundle:Grid:grid.html.twig
-    paginator:
-        default_twig: KitpagesDataGridBundle:Paginator:paginator.html.twig
-        item_count_in_page: 50
-        visible_page_count_in_paginator: 5
