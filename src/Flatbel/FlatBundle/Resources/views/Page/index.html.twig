@@ -76,7 +76,10 @@
                 </div>
 
         {% else %}
-            <p>There are no blog entries for symblog</p>
+            <p>Квартиры не найдены</p>
         {% endfor %}
+    </div>
+    <div class="row" align="center">
+        <a href="{{ path('FlatbelFlatBundle_flat_flats') }}">Смотреть все квартиры</a>
     </div>
 {% endblock %}

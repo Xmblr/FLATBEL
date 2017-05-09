@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% embed kitpages_data_grid.grid.default_twig with {'grid': grid} %}
+
+        {% block kit_grid_thead_column %}
+            <th>Action</th>
+        {% endblock %}
+
+        {% block kit_grid_tbody_column %}
+            <td><a href="#">Edit</a></td>
+        {% endblock %}
+
+    {% endembed %}
+{% endblock %}

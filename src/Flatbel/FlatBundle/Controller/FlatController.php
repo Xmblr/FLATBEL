@@ -65,6 +65,7 @@ class FlatController extends Controller
 
     public function flatsAction(Request $request)
     {
+
         $flat = new Flat();
 
         $filter_form = $this->createForm(FilterType::class, $flat);

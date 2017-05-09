@@ -3,14 +3,14 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
-use APY\DataGridBundle\Grid\Grid;
 use Flatbel\FlatBundle\Entity\Contact;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use APY\DataGridBundle\Grid\Source\Entity;
+use Kitpages\DataGridBundle\Grid\GridConfig;
+use Kitpages\DataGridBundle\Grid\Field;
 
 class PageController extends Controller
 {
@@ -86,5 +86,34 @@ class PageController extends Controller
         ));
     }
 
+    public function gridAction (Request $request)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'У Вас нету доступа к этой странице');
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $flat = new Flat();
+        $em = $this->getDoctrine()
+            ->getManager();
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1);
+        // create query builder
+        $repository = $this->getDoctrine()->getRepository('FlatbelFlatBundle:Flat');
+        $queryBuilder = $repository->createQueryBuilder('flat')
+            ->where('flat.userid = :userid')
+            ->setParameter('userid', $user->getId())
+        ;
 
+        $gridConfig = new GridConfig();
+        $gridConfig
+            ->setQueryBuilder($queryBuilder)
+            ->setCountFieldName('flat.id')
+            ->addField('flat.id', array('filterable' => true))
+            ->addField('flat.flattype', array('filterable' => true))
+        ;
+
+        $gridManager = $this->get('kitpages_data_grid.grid_manager');
+        $grid = $gridManager->getGrid($gridConfig, $request);
+
+        return $this->render('FlatbelFlatBundle:Page:grid.html.twig', array(
+            'grid' => $grid
+        ));
+    }
 }

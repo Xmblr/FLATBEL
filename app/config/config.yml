@@ -121,29 +121,11 @@ fos_user:
         token_generator:        fos_user.util.token_generator.default
         user_manager:           fos_user.user_manager.default
 
-#    service:
-#        mailer: fos_user.mailer.twig_swift
-#    registration:
-#        form:
-#            type: Flatbel\FlatBundle\Form\RegistrationType # or 'fos_user_registration' on Symfony < 2.8
-#            name: fos_user_registration_form
-#            validation_groups: [Registration, Default]
-#        confirmation:
-#            from_email:
-#                address:        registration@flatbel.by
-#                sender_name:    Demo Registration
-#            enabled: true
-#            template:   '@FOSUser/Registration/email.txt.twig'
-#    resetting:
-#        email:
-#            template:   email/password_resetting.email.twig
-#            from_email:
-#                address:        resetting@flatbel.by
-#                sender_name:    Demo Resetting
-#    use_listener: false
-#    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-#    firewall_name: main
-#    user_class: Flatbel\FlatBundle\Entity\User
-#    from_email:
-#        address: "%mailer_user%"
-#        sender_name: "%mailer_user%"
+#KitpagesDataGridBundle
+kitpages_data_grid:
+    grid:
+        default_twig: KitpagesDataGridBundle:Grid:grid.html.twig
+    paginator:
+        default_twig: KitpagesDataGridBundle:Paginator:paginator.html.twig
+        item_count_in_page: 50
+        visible_page_count_in_paginator: 5

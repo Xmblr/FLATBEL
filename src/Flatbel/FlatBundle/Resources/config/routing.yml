@@ -28,3 +28,9 @@ FlatbelFlatBundle_flat_show:
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET
+
+FlatbelFlatBunde_grid:
+    path: /grid
+    defaults: { _controller: "FlatbelFlatBundle:Page:grid" }
+    requirements:
+        methods: POST|GET
