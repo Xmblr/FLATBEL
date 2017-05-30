@@ -2,9 +2,14 @@
 
 namespace Flatbel\FlatBundle\Form;
 
+use Doctrine\DBAL\Types\TextType;
+use Doctrine\ORM\Query\AST\BetweenExpression;
+use Sonata\AdminBundle\Form\Type\Filter\NumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,7 +28,7 @@ class FilterType extends AbstractType
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
                 ),
-                'choices_as_values' => true
+                'choices_as_values' => true, 'label' => 'Flat Type',
             ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
@@ -37,7 +42,7 @@ class FilterType extends AbstractType
                     '6+' => '7',
 
                 ),
-                'choices_as_values' => true
+                'choices_as_values' => true, 'label'=>'Number of beds'
             ))
             ->add('metro',ChoiceType::class, array(
                 'choices'  => array(
@@ -73,7 +78,7 @@ class FilterType extends AbstractType
                     'Уручье'=>'Уручье'
 
                 ),
-                'choices_as_values' => true
+                'choices_as_values' => true, 'label'=>'Metro',
             ))
             ->add('rooms',ChoiceType::class, array(
                 'choices'  => array(
@@ -83,10 +88,9 @@ class FilterType extends AbstractType
                     '3' => '3',
                     '4+' => '4',
                     ),
-                'choices_as_values' => true
+                'choices_as_values' => true,'label'=>'Rooms'
             ))
-            ->add('pricehour', 'Symfony\Component\Form\Extension\Core\Type\MoneyType')
-//            ->add('rooms')
+            ->add('pricehour', MoneyType::class, array('label'=>'Price for hour'))
 //            ->add('street')
 //            ->add('streettype')
 //            ->add('priceday')

@@ -8,6 +8,12 @@ services:
         class: Flatbel\FlatBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    admin.user:
+        class: Flatbel\FlatBundle\Admin\UserAdmin
+        arguments: [~, Flatbel\FlatBundle\Entity\User,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

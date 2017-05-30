@@ -1,11 +1,65 @@
-{{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
+{{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'small'} }) }}
                 {{ form_errors(filter_form) }}
 
-{{ form_row(filter_form.flattype) }}
-{{ form_row(filter_form.numberofbeds) }}
+    <div class="range">
+        <div class="range">
+            <div class="cell-md-3">
+                <div class="form-group">
+                    {{ form_row(filter_form.flattype) }}
+                </div>
+            </div>
+            <div class="cell-md-2">
+                <div class="form-group">
+                    {{ form_row(filter_form.numberofbeds) }}
+                </div>
+            </div>
+            <div class="cell-md-4">
+                <div class="form-group">
+                    {{ form_row(filter_form.metro) }}
+                </div>
+            </div>
+            <div class="cell-md-2">
+                <div class="form-group">
+                    {{ form_row(filter_form.rooms) }}
+                </div>
+            </div>
+        </div>
+        <div class="range offset-top-15">
+            <div class="cell-xs">
+                <div class="form-group">
+                    {{ form_row(filter_form.pricehour) }}
+                </div>
+            </div>
+            <div class="cell-xs offset-top-15 offset-xs-top-0">
+                <div class="form-group">
+                    <label class="form-group-label">Return</label>
+                    <input type="text" data-time-picker="date"
+                           data-constraints="@Required" name="return"
+                           class="form-control">
+                </div>
+            </div>
+            <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
+                <div class="range">
+                    <div class="cell-xs-6">
+                        <div class="form-group">
+                            <label class="form-group-label">Adults (16+)</label>
+                            <input type="number" min="0" value="2"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
+                        <div class="form-group">
+                            <label class="form-group-label">Children</label>
+                            <input type="number" min="0" value="0"
+                                   class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
+                <input type="submit" value="Фильтровать" class="btn btn-primary btn-sm btn-naira btn-naira-up">
+            </div>
+        </div>
+    </div>
 
 {{ form_rest(filter_form) }}
-
-<p>
-    <input type="submit" value="Фильтровать">
-</p>
