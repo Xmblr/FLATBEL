@@ -90,7 +90,8 @@ class FilterType extends AbstractType
                     ),
                 'choices_as_values' => true,'label'=>'Rooms'
             ))
-            ->add('pricehour', MoneyType::class, array('label'=>'Price for hour'))
+            ->add('pricehour', TextType::INTEGER, array('label'=>'Price at'))
+            ->add('priceday', TextType::INTEGER, array('label'=>'Price to'))
 //            ->add('street')
 //            ->add('streettype')
 //            ->add('priceday')

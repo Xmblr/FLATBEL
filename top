@@ -1,0 +1,89 @@
+[33mcommit 0ec06d414d5e9694dd8a61553ef19faf44b83a09[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue Jun 20 12:39:46 2017 +0300
+
+    Test
+
+[33mcommit e3c140ab994bba1373793cff398b371428f6d943[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue Jun 20 11:11:27 2017 +0300
+
+    the latest version
+
+[33mcommit 12417cb2caa68ce07a77caaa659a540be2c24929[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue May 30 22:14:06 2017 +0300
+
+    First steps at add template
+
+[33mcommit f8afbc637fcea8d1e06622f27ebe5ccc2d2fb4a1[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue May 9 17:57:04 2017 +0300
+
+    Deleted KitpagesDataGridBundle. APYDataGridBundle was installed.
+
+[33mcommit 28a3bfe65f8ec050f65d472e7bf4c125f6384317[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue May 9 11:22:34 2017 +0300
+
+    KitpagesGridBundle install done
+
+[33mcommit 10a2b9a14e1115d1d194719df8cfe7ad513f6dbd[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Mon May 8 15:51:56 2017 +0300
+
+    just in case. Security is done. We proceed to the Grid. DataGridBundle deleted
+
+[33mcommit 7654de7084308515822a948d18f88c6e76ab68a6[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Mon May 8 15:50:46 2017 +0300
+
+    just in case. Security is done. We proceed to the Grid
+
+[33mcommit fb540b9e38d8684dfb3acca75bde07ae4845c0cf[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Mon May 1 23:08:24 2017 +0300
+
+    Registration and login done.
+
+[33mcommit d406999da208d80f58e2ca5b2483fbded65f69e6[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Sun Apr 30 15:39:36 2017 +0300
+
+    Registration and Loggind done at 50%
+
+[33mcommit 381054ce38e8d6794e695d9a407fd7f2f025a743[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue Apr 18 00:50:58 2017 +0300
+
+    Filter done
+
+[33mcommit 48921ef7cd00e84175760e3fdd68182b50da66fa[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Tue Mar 28 18:27:34 2017 +0300
+
+    Realized the addition of apartments. SECOND TRY
+
+[33mcommit 50c1f646c1df6d7453ad7b01623543df1aa765b9[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Sun Mar 26 18:33:29 2017 +0300
+
+    Realized the addition of apartments
+
+[33mcommit 984fccc450093de8f48d323a98ba41e09ffc846e[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Thu Mar 23 17:02:36 2017 +0300
+
+    A full list of flats, and a detailed view of each record
+
+[33mcommit c1ce3afe72872fccea62f65ec5ecd31c6a97a3e3[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Sat Feb 25 20:44:58 2017 +0300
+
+    Second commit. Register done at 50%
+
+[33mcommit 42e48ec4ea0e9a9bcb03c85ec2cbef6415717508[m
+Author: XMblr <mkirill97@gmail.com>
+Date:   Sat Feb 25 19:38:46 2017 +0300
+
+    First commit. Done 50% of index page

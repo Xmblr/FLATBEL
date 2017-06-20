@@ -25,35 +25,21 @@
             </div>
         </div>
         <div class="range offset-top-15">
-            <div class="cell-xs">
+            <div class="cell-md-8">
                 <div class="form-group">
-                    {{ form_row(filter_form.pricehour) }}
+                    <div id="slider" style=""></div>
                 </div>
             </div>
-            <div class="cell-xs offset-top-15 offset-xs-top-0">
-                <div class="form-group">
-                    <label class="form-group-label">Return</label>
-                    <input type="text" data-time-picker="date"
-                           data-constraints="@Required" name="return"
-                           class="form-control">
+            <div class="cell-md-2" hidden>
+                <div class="form-group" >
+                    <div id="slider"></div>
+                    {{ form_row(filter_form.pricehour, { 'attr': {'class': 'form-control','value':0} }) }}
                 </div>
             </div>
-            <div class="cell-sm-6 cell-lg-4 offset-top-15 offset-sm-top-0">
-                <div class="range">
-                    <div class="cell-xs-6">
-                        <div class="form-group">
-                            <label class="form-group-label">Adults (16+)</label>
-                            <input type="number" min="0" value="2"
-                                   class="form-control">
-                        </div>
-                    </div>
-                    <div class="cell-xs-6 offset-top-15 offset-xs-top-0">
-                        <div class="form-group">
-                            <label class="form-group-label">Children</label>
-                            <input type="number" min="0" value="0"
-                                   class="form-control">
-                        </div>
-                    </div>
+            <div class="cell-md-2" hidden>
+                <div class="form-group">
+                    <div id="slider"></div>
+                    {{ form_row(filter_form.priceday, { 'attr': {'class': 'form-control','value':1000} }) }}
                 </div>
             </div>
             <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
