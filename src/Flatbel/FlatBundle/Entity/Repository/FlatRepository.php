@@ -12,13 +12,29 @@ use Composer\DependencyResolver\Request;
  */
 class FlatRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getFlats($flattype, $numberofbeds, $metro, $limit, $payornot)
+    public function getFlats($flattype, $numberofbeds, $metro, $limit, $payornot, $pricehour, $priceday)
     {
         $qb = $this->createQueryBuilder('f')
             ->select('f')
             ->addOrderBy('f.id', 'DESC');
 
+        if ($flattype != 'Не важно')
+        {
+            $qb->andWhere('f.flattype = :flattype')
+                ->setParameter('flattype', $flattype);
+        }
 
+        if ($numberofbeds != 'Не важно')
+        {
+            $qb->andWhere('f.numberofbeds = :numberofbeds')
+                ->setParameter('numberofbeds', $numberofbeds);
+        }
+
+        if ($metro != 'Не важно')
+        {
+            $qb->andWhere('f.metro = :metro')
+                ->setParameter('metro', $metro);
+        }
 
         if (false == is_null($limit))
             $qb->setMaxResults($limit);
@@ -28,22 +44,10 @@ class FlatRepository extends \Doctrine\ORM\EntityRepository
             $qb->andWhere('f.payornot = :payornot')
                 ->setParameter('payornot', $payornot);
         }
-        if ($flattype != 'Не важно')
-        {
-            $qb->andWhere('f.flattype = :flattype')
-                ->setParameter('flattype', $flattype);
-        }
-        if ($numberofbeds != 'Не важно')
-        {
-            $qb->andWhere('f.numberofbeds = :numberofbeds')
-                ->setParameter('numberofbeds', $numberofbeds);
-        }
-        if ($metro != 'Не важно')
-        {
-            $qb->andWhere('f.metro = :metro')
-                ->setParameter('metro', $metro);
-        }
 
+        $qb -> andWhere('f.priceday BETWEEN :pricehour AND :priceday')
+            ->setParameter('pricehour', $pricehour)
+            ->setParameter('priceday', $priceday);
 
         return $qb->getQuery()
             ->getResult();

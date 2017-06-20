@@ -32,7 +32,9 @@ class PageController extends Controller
                     $flat->getNumberofbeds(),
                     $flat->getMetro(),
                     null,
-                    $flat->getPayornot());
+                    $flat->getPayornot(),
+                    $flat->getPricehour(),
+                    $flat->getPriceday());
 
 
             // Redirect - This is important to prevent users re-posting
@@ -44,7 +46,7 @@ class PageController extends Controller
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1,0,1000);
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats,
