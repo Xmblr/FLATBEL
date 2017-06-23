@@ -4,11 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-    app.form.registration:
-        class: Flatbel\FlatBundle\Form\RegistrationType
-        tags:
-            - { name: form.type, alias: app_user_registration }
-
     admin.user:
         class: Flatbel\FlatBundle\Admin\UserAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\User,~]

@@ -101,7 +101,7 @@ fos_user:
             enabled:    true # change to true for required email confirmation
             template:   '@FOSUser/Registration/email.txt.twig'
         form:
-            type:               Flatbel\FlatBundle\Form\RegistrationType # or 'fos_user_registration' on Symfony < 2.8
+            type:               fos_user_registration # or 'fos_user_registration' on Symfony < 2.8
             name:               fos_user_registration_form
             validation_groups:  [Registration, Default]
     resetting:
@@ -112,7 +112,7 @@ fos_user:
                 sender_name:    Resetting
             template:   email/password_resetting.email.twig
         form:
-            type:               FOS\UserBundle\Form\Type\ResettingFormType # or 'fos_user_resetting' on Symfony < 2.8
+            type:               fos_user_resetting # or 'fos_user_resetting' on Symfony < 2.8
             name:               fos_user_resetting_form
             validation_groups:  [ResetPassword, Default]
     service:

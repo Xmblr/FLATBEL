@@ -11,12 +11,12 @@
     <link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>
     <!-- Stylesheets-->
     {% block stylesheets %}
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('js/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/grid.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="{{ asset('slider/css/iThing.css') }}" rel="stylesheet" type="text/css"/>
-        {#<link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">#}
         {#<link href="{{ asset('css/carousel.css') }}" rel="stylesheet" type="text/css">#}
     {% endblock %}
 </head>
@@ -128,7 +128,6 @@
                 $("#flatbel_flatbundle_filter_pricehour").val(data.values.min);
                 $("#flatbel_flatbundle_filter_priceday").val(data.values.max);
             });
-
         //-->
     </script>
     <!-- slider -->
