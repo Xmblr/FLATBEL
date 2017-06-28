@@ -1,5 +1,199 @@
-{{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': 'flatbel'} }) }}
-                {{ form_widget(create_form) }}
-<p>
-    <input type="submit" value="Добавить квартиру">
-</p>
+<section class="section-80 section-md-120">
+    <div class="shell shell-wide text-lg-left">
+        <div class="cell-lg-5">
+            <div class="inset-lg-left-80">
+                <h1 class="offset-top-20 text-ubold">Добавьте свою квартиру</h1>
+                <h3 class="offset-top-30">Основная информация</h3>
+                <hr class="divider divider-lg-left divider-primary divider-80">
+            </div>
+            <div class="inset-lg-left-80 section-md-top-30 ">
+                {{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': ' text-left'} }) }}
+                {{ form_errors(create_form) }}
+
+                <div class="range">
+                    <div class="range">
+                        <div class="cell-md-4">
+                            <div class="form-group">
+                                {{ form_row(create_form.flattype) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.numberofbeds) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.rooms) }}
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-5">
+                                        {{ form_row(create_form.streettype) }}
+                                    </div>
+                                    <div class="cell-md-7">
+                                        {{ form_row(create_form.street, {'attr' : {'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.home, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.pricehour, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.priceday, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.pricenight, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.floorhome, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.floor, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.metro) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inset-lg-left-80">
+                <h3 class="offset-top-30">Дополнительная информация</h3>
+                <hr class="divider divider-lg-left divider-primary divider-80">
+            </div>
+            <div class="inset-lg-left-80 section-md-top-30 ">
+                <div class="range">
+                    <div class="range">
+                        <div class="cell-md-4">
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.tv) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.tv) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.wifi) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.wifi) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.parking) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.parking) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.microwave) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.microwave) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.washer) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.washer) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.bath) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.bath) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.shower) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.shower) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.fridge) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.fridge) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.dishes) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.dishes) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-4">
+                                        {{ form_label(create_form.linens) }}
+                                    </div>
+                                    <div class="cell-md-2">
+                                        {{ form_widget(create_form.linens) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.telnumber) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.about, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.mainphoto, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo1, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo2, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo3, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            {{ form_rest (create_form) }}
+                            <input type="submit" value="Добавить квартиру"
+                                   class="btn btn-primary btn-sm btn-naira btn-naira-up">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

@@ -2,14 +2,10 @@
 
 namespace Flatbel\FlatBundle\Form;
 
-use Doctrine\DBAL\Types\TextType;
-use Doctrine\ORM\Query\AST\BetweenExpression;
-use Sonata\AdminBundle\Form\Type\Filter\NumberType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -90,8 +86,8 @@ class FilterType extends AbstractType
                     ),
                 'choices_as_values' => true,'label'=>'Rooms'
             ))
-            ->add('pricehour', TextType::INTEGER, array('label'=>'Price at'))
-            ->add('priceday', TextType::INTEGER, array('label'=>'Price to'))
+            ->add('pricehour', IntegerType::class)
+            ->add('priceday', IntegerType::class)
 //            ->add('street')
 //            ->add('streettype')
 //            ->add('priceday')

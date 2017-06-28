@@ -4,6 +4,7 @@ namespace Flatbel\FlatBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -75,10 +76,6 @@ class Flat
      */
     protected $pricenight;
 
-    /**
-     * @ORM\Column(type="integer", length=50)
-     */
-    protected $pricemounth;
 
     /**
      * @ORM\Column(type="integer", length=50)
@@ -146,12 +143,15 @@ class Flat
     protected $linens;
 
     /**
-     * @ORM\Column(type="text", length=1000)
+     * @ORM\Column(type="string", length=1000)
+     * @Assert\Regex(
+     *     pattern     = "^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$",
+     *     htmlPattern = "^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$")
      */
     protected $telnumber;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="text", length=1000)
      */
     protected $about;
 
@@ -457,29 +457,6 @@ class Flat
         return $this->pricenight;
     }
 
-    /**
-     * Set pricemounth
-     *
-     * @param integer $pricemounth
-     *
-     * @return Flat
-     */
-    public function setPricemounth($pricemounth)
-    {
-        $this->pricemounth = $pricemounth;
-
-        return $this;
-    }
-
-    /**
-     * Get pricemounth
-     *
-     * @return integer
-     */
-    public function getPricemounth()
-    {
-        return $this->pricemounth;
-    }
 
     /**
      * Set floorhome
