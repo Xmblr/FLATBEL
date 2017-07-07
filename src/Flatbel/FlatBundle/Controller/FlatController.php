@@ -8,6 +8,8 @@ use Flatbel\FlatBundle\Form\FlatType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use  Flatbel\FlatBundle\Service\FileUploader;
+
 
 
 /**
@@ -35,18 +37,63 @@ class FlatController extends Controller
     {
         $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
         $flat = new Flat();
-
         $create_form = $this->createForm(FlatType::class, $flat);
-
         $create_form->handleRequest($request);
 
         if ($create_form->isValid()) {
+
+            if($flat->getMainphoto())
+            {
+                $mainphotofile = $flat->getMainphoto();
+                $mainphotofileName = md5(uniqid()).'.'.$mainphotofile->guessExtension();
+
+                $mainphotofile->move(
+                    $this->getParameter('photo_directory'),
+                    $mainphotofileName
+                );
+            }
+            if($flat->getPhoto1())
+            {
+                $photo1file = $flat->getPhoto1();
+                $photo1fileName = md5(uniqid()).'.'.$photo1file->guessExtension();
+
+                $photo1file->move(
+                    $this->getParameter('photo_directory'),
+                    $photo1fileName
+                );
+            }
+            if($flat->getPhoto2())
+            {
+                $photo2file = $flat->getPhoto2();
+                $photo2fileName = md5(uniqid()).'.'.$photo2file->guessExtension();
+
+                $photo2file->move(
+                    $this->getParameter('photo_directory'),
+                    $photo2fileName
+                );
+            }
+            if($flat->getPhoto3())
+            {
+                $photo3file = $flat->getPhoto3();
+                $photo3fileName = md5(uniqid()).'.'.$photo3file->guessExtension();
+
+                $photo3file->move(
+                    $this->getParameter('photo_directory'),
+                    $photo3fileName
+                );
+            }
+
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $flat
                 ->setUserid($user->getId())
                 ->setPayornot(0)
-                ->setDescription($description);
+                ->setDescription($description)
+                ->setMainphoto($mainphotofileName)
+                ->setPhoto1($photo1fileName)
+                ->setPhoto2($photo2fileName)
+                ->setPhoto3($photo3fileName)
+                ;
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($flat);

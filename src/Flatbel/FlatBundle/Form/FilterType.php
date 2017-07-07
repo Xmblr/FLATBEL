@@ -88,16 +88,6 @@ class FilterType extends AbstractType
             ))
             ->add('pricehour', IntegerType::class)
             ->add('priceday', IntegerType::class)
-//            ->add('street')
-//            ->add('streettype')
-//            ->add('priceday')
-//            ->add('pricehour')
-//            ->add('pricenight')
-//            ->add('pricemounth')
-//            ->add('metro')
-//            ->add('tv')
-//            ->add('wifi')
-//            ->add('parking')
         ;
     }
 

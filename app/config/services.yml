@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+    FlatbelFlatFileUploader:
+        class: Flatbel\FlatBundle\Service\FileUploader
+        arguments:
+            $targetDir: '%photo_directory%'
+
     admin.user:
         class: Flatbel\FlatBundle\Admin\UserAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\User,~]

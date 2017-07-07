@@ -60,7 +60,7 @@ class FlatType extends AbstractType
             ->add('home',null,array('label'=>'Номер дома'))
             ->add('priceday',null,array('label'=>'Цена за день'))
             ->add('pricehour',null,array('label'=>'Цена за час'))
-            ->add('pricenight',null,array('label'=>'Цена за час'))
+            ->add('pricenight',null,array('label'=>'Цена за ночь'))
             ->add('floorhome',null,array('label'=>'Число этажей в дома'))
             ->add('floor',null,array('label'=>'Этаж'))
             ->add('metro',ChoiceType::class, array(

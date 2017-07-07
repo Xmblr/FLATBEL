@@ -10,10 +10,10 @@
                     <h1>{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h1>
                 </header>
                 <div class="row">
-                    <img src="{{ asset(['images/', flat.mainphoto]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
-                    <img src="{{ asset(['images/', flat.photo1]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
-                    <img src="{{ asset(['images/', flat.photo2]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
-                    <img src="{{ asset(['images/', flat.photo3]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['uploads/photos/', flat.photo1]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['uploads/photos/', flat.photo2]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
+                    <img src="{{ asset(['uploads/photos/', flat.photo3]|join) }}" alt="{{ flat.description }} image not found" style="width: 150px"/>
                 </div>
                 <div class="row">
                     <div class="list-group">
@@ -55,10 +55,6 @@
                         <div class="list-group-item">
                             Цена за ночь:
                             {{ flat.pricenight }}
-                        </div>
-                        <div class="list-group-item">
-                            Цена за месяц:
-                            {{ flat.pricemounth }}
                         </div>
                         <div class="list-group-item">
                             Телефизор:

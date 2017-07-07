@@ -8,7 +8,7 @@
 
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="{{ asset(['images/', flat.mainphoto]|join) }}" alt="photo" style="width: 70%"/>
+                    <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" alt="photo" style="width: 70%"/>
                     <div class="caption">
                         <h2>
                             <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">{{ flat.streettype }} {{ flat.street }}
