@@ -11,13 +11,10 @@
     <link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>
     <!-- Stylesheets-->
     {% block stylesheets %}
-        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+        {% stylesheets '@bootstrap_css' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+        {% endstylesheets %}
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('js/jquery-ui/jquery-ui.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/grid.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('slider/css/iThing.css') }}" rel="stylesheet" type="text/css"/>
-        {#<link href="{{ asset('css/carousel.css') }}" rel="stylesheet" type="text/css">#}
     {% endblock %}
 </head>
 <body>
@@ -115,22 +112,12 @@
 </div>
 <!-- Java script-->
 {% block javascripts %}
+    {% javascripts '@jquery' '@bootstrap_js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     <script src="{{ asset('js/core.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('slider/jQAllRangeSliders-min.js') }}"></script>
-    <!-- slider -->
-    <script>
-        //<!--
-        $("#slider")
-            .editRangeSlider({arrows:false},{bounds: {min: 0, max: 1000}},{defaultValues:{min: 0, max: 1000}},{step: 1})
-            .on("valuesChanging",function (e, data) {
-                $("#flatbel_flatbundle_filter_pricehour").val(data.values.min);
-                $("#flatbel_flatbundle_filter_priceday").val(data.values.max);
-            });
-        //-->
-    </script>
-    <!-- slider -->
+
 {% endblock %}
 </body>
 </html>

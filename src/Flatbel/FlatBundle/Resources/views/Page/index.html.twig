@@ -1,5 +1,11 @@
 {% extends 'FlatbelFlatBundle::layout.html.twig' %}
 
+{% block stylesheets %}
+
+    <link href="{{ asset('slider/css/iThing.css') }}" rel="stylesheet" type="text/css"/>
+    {{ parent() }}
+{% endblock %}
+
 {% block slide %}
     <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"
          class="swiper-container swiper-slider">
@@ -23,16 +29,20 @@
                             {% for flat in flats %}
                                 <div class="col-lg-4">
                                     <div class="post-blog post-blog-type-2">
-                                        <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" width="420" height="300" alt="photo" class="img-responsive"/>
+                                        <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
+                                            <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" width="420"
+                                                 height="300" alt="photo" class="img-responsive"/>
+                                        </a>
                                         <div class="post-blog-caption">
                                             <h4 class="post-blog-title text-bold">
-                                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">{{ flat.streettype }} {{ flat.street }}
+                                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
                                                     - {{ flat.home }}</a>
                                             </h4>
                                             <p class="text-base">
                                                 {{ flat.about(100) }}
                                             </p>
-                                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}" class="post-blog-link">Подробнее...</a>
+                                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"
+                                               class="post-blog-link">Подробнее...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -43,14 +53,41 @@
                     </div>
                 </div>
             </div>
-            {% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats'%}
+            {% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}
                 <div class="offset-top-100 offset-lg-top-100" align="center">
-                    <div class="view-animate fadeInUpSmall delay-08"><a href="{{ path('FlatbelFlatBundle_flat_flats') }}"
-                                                                        class="btn btn-primary btn-naira btn-naira-up"><span
+                    <div class="view-animate fadeInUpSmall delay-08"><a
+                                href="{{ path('FlatbelFlatBundle_flat_flats') }}"
+                                class="btn btn-primary btn-naira btn-naira-up"><span
                                     class="icon mdi mdi-arrow-right-bold"></span><span>Смотреть все квартиры</span></a>
                     </div>
                 </div>
             {% endif %}
         </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('js/core.min.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('slider/jQAllRangeSliders-min.js') }}"></script>
+    <!-- slider -->
+    <script>
+        //<!--
+        $("#slider")
+            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 1000}}, {
+                defaultValues: {
+                    min: 0,
+                    max: 1000
+                }
+            }, {step: 1})
+            .on("valuesChanging", function (e, data) {
+                $("#flatbel_flatbundle_filter_pricehour").val(data.values.min);
+                $("#flatbel_flatbundle_filter_priceday").val(data.values.max);
+            });
+        //-->
+    </script>
+    <!-- slider -->
+    {#{{ parent() }}#}
 {% endblock %}

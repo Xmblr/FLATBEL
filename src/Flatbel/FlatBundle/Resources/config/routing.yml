@@ -24,10 +24,11 @@ FlatbelFlatBundle_flat_flats:
         methods: POST
 
 FlatbelFlatBundle_flat_show:
-    path:  /flats/{description}
+    path:  /flats/{description}id={id}
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET
+        id: \d+
 
 FlatbelFlatBunde_grid:
     path: /profile/flats

@@ -26,7 +26,10 @@
         "friendsofsymfony/user-bundle": "~2.0",
         "apy/datagrid-bundle": "dev-master",
         "sonata-project/admin-bundle": "^3.17",
-        "sonata-project/doctrine-orm-admin-bundle": "^3.1"
+        "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+        "twitter/bootstrap": "3.*",
+        "components/jquery": "3.*",
+        "symfony/assetic-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

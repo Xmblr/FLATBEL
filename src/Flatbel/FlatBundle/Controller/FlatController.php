@@ -20,11 +20,11 @@ class FlatController extends Controller
     /**
      * Show a flat entry
      */
-    public function showAction($description)
+    public function showAction($description,$id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $flat = $em->getRepository('FlatbelFlatBundle:Flat')->findOneBy(array('description' => $description));
+        $flat = $em->getRepository('FlatbelFlatBundle:Flat')->findOneBy(array('description'=>$description,'id' => $id));
 
         if (!$flat) {
             throw $this->createNotFoundException('Уупс... Квартиры не найдены');

@@ -11,14 +11,14 @@
                     <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" alt="photo" style="width: 70%"/>
                     <div class="caption">
                         <h2>
-                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">{{ flat.streettype }} {{ flat.street }}
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
                             - {{ flat.home }}</a>
                         </h2>
                         <p>
                             {{ flat.about(100) }}
                         </p>
                         <p class="continue">
-                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description }) }}">Подробнее...</a>
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">Подробнее...</a>
                         </p>
                     </div>
                 </div>

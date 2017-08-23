@@ -1,5 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/grid.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
 {% block body %}
     {{ grid(grid) }}
 {% endblock %}
