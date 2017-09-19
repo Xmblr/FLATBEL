@@ -27,7 +27,7 @@
                     <div>
                         <div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">
                             {% for flat in flats %}
-                                <div class="col-lg-4">
+                                <div class="col-lg-12" style="width: 80%; margin-left: 10%">
                                     <div class="post-blog post-blog-type-2">
                                         <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
                                             <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" width="420"
@@ -58,7 +58,7 @@
                     <div class="view-animate fadeInUpSmall delay-08"><a
                                 href="{{ path('FlatbelFlatBundle_flat_flats') }}"
                                 class="btn btn-primary btn-naira btn-naira-up"><span
-                                    class="icon mdi mdi-arrow-right-bold"></span><span>Смотреть все квартиры</span></a>
+                                    class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>
                     </div>
                 </div>
             {% endif %}
