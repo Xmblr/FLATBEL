@@ -94,14 +94,10 @@ class PageController extends Controller
         $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
 
         $source = new Entity('FlatbelFlatBundle:Flat');
-//        $em = $this->getDoctrine()
-//            ->getManager();
-//        $source = $em->getRepository('FlatbelFlatBundle:Flat')
-//            ->getFlats('Не важно','Не важно','Не важно',null,1,1,100);
-//        $em = $this->getDoctrine()->getManager();
-//        $source = $em->getRepository('FlatbelFlatBundle:Flat')->findOneBy(array('userid'=>$userId));
         $grid = $this->get('grid');
-        $grid->setSource($source);
+        $grid->setSource($source)
+            ->hideColumns('userid')
+            ->setDefaultFilters(array('userid'=>$userId));
         return $grid->getGridResponse('FlatbelFlatBundle:Page:grid.html.twig');
     }
 }

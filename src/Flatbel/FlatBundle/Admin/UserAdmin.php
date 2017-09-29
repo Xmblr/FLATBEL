@@ -17,7 +17,7 @@ class UserAdmin extends AbstractAdmin
                 ->add('username', 'text')
                 ->add('email', 'text')
                 ->add('password', 'text')
-                ->add('name', 'text')
+//                ->add('name', 'text')
             ->end()
         ;
     }
@@ -30,7 +30,7 @@ class UserAdmin extends AbstractAdmin
             ->add('email')
             ->add('enabled')
             ->add('roles')
-            ->add('name')
+//            ->add('name')
         ;
     }
 
@@ -49,7 +49,7 @@ class UserAdmin extends AbstractAdmin
             ->add('email')
             ->add('enabled')
             ->add('roles')
-            ->add('name')
+//            ->add('name')
         ;
     }
 }
