@@ -24,7 +24,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures" : "dev-master",
         "friendsofsymfony/user-bundle": "~2.0",
-        "apy/datagrid-bundle": "dev-master",
+        "apy/datagrid-bundle": "3.0.*",
         "sonata-project/admin-bundle": "^3.17",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1",
         "twitter/bootstrap": "3.*",

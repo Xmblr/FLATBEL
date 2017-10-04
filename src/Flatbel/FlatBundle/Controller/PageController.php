@@ -10,6 +10,16 @@ use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use APY\DataGridBundle\Grid\Action\MassAction;
+use APY\DataGridBundle\Grid\Action\DeleteMassAction;
+use APY\DataGridBundle\Grid\Column\BlankColumn;
+use APY\DataGridBundle\Grid\Column\DateColumn;
+use APY\DataGridBundle\Grid\Action\RowAction;
+use APY\DataGridBundle\Grid\Column\ActionsColumn;
+
+use Symfony\Component\Routing\Annotation\Route;
+
+
 
 class PageController extends Controller
 {
@@ -87,17 +97,55 @@ class PageController extends Controller
         ));
     }
 
+    /**
+     * @Route("/profile/flats", name="my_grid_route")
+     */
     public function gridAction()
     {
-        $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
-
-        $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
-
         $source = new Entity('FlatbelFlatBundle:Flat');
+
+
+
+        // Get a grid instance
         $grid = $this->get('grid');
-        $grid->setSource($source)
-            ->hideColumns('userid')
-            ->setDefaultFilters(array('userid'=>$userId));
+
+        // Set the source
+        $grid->setSource($source);
+
+        // Set the selector of the number of items per page
+        $grid->setLimits(array(5, 10, 15));
+
+        // Set the default page
+        $grid->setDefaultPage(1);
+
+        // Add a delete mass action
+        $grid->addMassAction(new DeleteMassAction());
+
+        // Add row actions in the default row actions column
+        $myRowAction = new RowAction('Edit', 'route_to_edit');
+        $grid->addRowAction($myRowAction);
+
+        $myRowAction = new RowAction('Delete', 'route_to_delete', true, '_self');
+        $grid->addRowAction($myRowAction);
+
+        // Custom actions column in the wanted position
+        $myActionsColumn = new ActionsColumn('info_column','Info');
+        $grid->addColumn($myActionsColumn, 1);
+
+        $myRowAction = new RowAction('Show', 'route_to_show');
+        $myRowAction->setColumn('info_column');
+        $grid->addRowAction($myRowAction);
+
         return $grid->getGridResponse('FlatbelFlatBundle:Page:grid.html.twig');
+//        $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
+//
+//        $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+//
+//        $source = new Entity('FlatbelFlatBundle:Flat');
+//        $grid = $this->get('grid');
+//        $grid->setSource($source)
+//            ->hideColumns('userid')
+//            ->setDefaultFilters(array('userid'=>$userId));
+//        return $grid->getGridResponse('FlatbelFlatBundle:Page:grid.html.twig');
     }
 }

@@ -169,3 +169,4 @@ assetic:
         jquery:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
+

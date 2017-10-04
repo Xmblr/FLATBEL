@@ -16,8 +16,7 @@ class UserAdmin extends AbstractAdmin
             ->with('Content', array('class' => 'col-md-9'))
                 ->add('username', 'text')
                 ->add('email', 'text')
-                ->add('password', 'text')
-//                ->add('name', 'text')
+                ->add('enabled')
             ->end()
         ;
     }

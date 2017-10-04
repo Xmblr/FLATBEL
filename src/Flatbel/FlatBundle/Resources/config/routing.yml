@@ -34,3 +34,14 @@ FlatbelFlatBunde_grid:
     path: /profile/flats
     defaults: { _controller: "FlatbelFlatBundle:Page:grid" }
 
+route_to_show:
+    path: /profile/flats/show
+    defaults: { _controller: "web_profiler.controller.exception:showAction"}
+
+route_to_edit:
+    path: /profile/flats/edit
+    defaults: { _controller: "web_profiler.controller.exception:showAction"}
+
+route_to_delete:
+    path: /profile/flats/delete
+    defaults: { _controller: "web_profiler.controller.exception:showAction"}

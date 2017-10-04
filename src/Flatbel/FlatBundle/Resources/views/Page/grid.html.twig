@@ -6,5 +6,11 @@
 {% endblock %}
 
 {% block body %}
-    {{ grid(grid) }}
+    <section style="margin: 2%">
+        <div class="row">
+            <div style="overflow-x: scroll">
+                {{ grid(grid) }}
+            </div>
+        </div>
+    </section>
 {% endblock %}
