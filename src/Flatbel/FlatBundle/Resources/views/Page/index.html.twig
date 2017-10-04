@@ -27,7 +27,7 @@
                     <div>
                         <div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">
                             {% for flat in flats %}
-                                <div class="col-lg-4">
+                                <div class="col-lg-4" style="margin-top: 2%">
                                     <div class="post-blog post-blog-type-2">
                                         <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
                                             <img src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}" width="420"
