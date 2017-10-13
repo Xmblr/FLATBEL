@@ -9895,7 +9895,7 @@ h3,
     h3,
     .h3 {
         line-height: 1.16667;
-        font-size: 36px;
+        font-size: 23px;
     }
 }
 
@@ -30921,7 +30921,7 @@ html:not(.ie-10) .not-animated {
     height: 20px;
     line-height: 20px;
     font-size: 22px;
-    font-family: "Material Design Icons";
+    font-family: "FontAwesome";
     cursor: pointer;
     color: #22a9bf;
     transition: .3s all ease;
@@ -30936,7 +30936,7 @@ html:not(.ie-10) .not-animated {
 }
 
 .stepper-arrow.up:before {
-    content: '\f239';
+    content: '\f106';
 }
 
 .stepper-arrow.down {
@@ -30944,7 +30944,7 @@ html:not(.ie-10) .not-animated {
 }
 
 .stepper-arrow.down:before {
-    content: '\f236';
+    content: '\f107';
 }
 
 .stepper.disabled .stepper-arrow {
@@ -34401,7 +34401,7 @@ ul ul, ul ol, ol ul, ol ol {
     transform: translateY(-50%);
     right: 12px;
     width: 20px;
-    font-family: "Material Design Icons";
+    font-family: "FontAwesome";
     font-size: 20px;
     color: #ad146a;
     text-align: center;
@@ -34409,7 +34409,7 @@ ul ul, ul ol, ol ul, ol ol {
 }
 
 .responsive-tabs .resp-accordion .resp-arrow:before {
-    content: "\f505";
+    content: "\f107";
 }
 
 @media (min-width: 992px) {
@@ -34425,7 +34425,7 @@ ul ul, ul ol, ol ul, ol ol {
 }
 
 .responsive-tabs .resp-accordion.resp-tab-active .resp-arrow:before {
-    content: "\f466";
+    content: "\f106";
 }
 
 .responsive-tabs .resp-tab-content {
@@ -34545,16 +34545,16 @@ ul ul, ul ol, ol ul, ol ol {
         position: relative;
     }
 
-    .responsive-tabs-classic[data-type="vertical"] .resp-tabs-list:not(.nav-custom-tabs):after, .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs):after {
-        width: 100%;
-        height: 1px;
-        content: "";
-        background: #e4e4e4;
-        position: absolute;
-        left: 0;
-        top: 100%;
-        z-index: 0;
-    }
+    /*.responsive-tabs-classic[data-type="vertical"] .resp-tabs-list:not(.nav-custom-tabs):after, .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs):after {*/
+        /*width: 100%;*/
+        /*height: 1px;*/
+        /*content: "";*/
+        /*background: #e4e4e4;*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*top: 100%;*/
+        /*z-index: 0;*/
+    /*}*/
 
     .responsive-tabs-classic[data-type="vertical"] .resp-tabs-list:not(.nav-custom-tabs) li, .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs) li {
         padding-top: 10px;
@@ -34659,7 +34659,7 @@ ul ul, ul ol, ol ul, ol ol {
 
 @media (min-width: 1200px) {
     .page .responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs) li {
-        padding: 12px 40px;
+        padding: 12px 0px;
     }
 
     .responsive-tabs-classic[data-type="vertical"] .resp-tabs-list:not(.nav-custom-tabs) {
@@ -35804,4 +35804,16 @@ a.pswp__share--download:hover {
     color: #3e3f40;
 }
 
+input[type="text"]::placeholder
+{ color: #C0C0C0; }
+
 /*# sourceMappingURL=style.css.map */
+
+/*
+.responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs) li a:hover {
+      color: #c62a82;
+  }
+
+.responsive-tabs-classic[data-type="horizontal"] .resp-tabs-list:not(.nav-custom-tabs) li a:active {
+    color: #c62a82;
+}
