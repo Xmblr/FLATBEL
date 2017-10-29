@@ -98,11 +98,8 @@ class FlatAdmin extends AbstractAdmin
 
                 ->add('telnumber',null,array('label'=>'Номер телефона'))
                 ->add('about',null,array('label'=>'Описание'))
-                ->add('mainphoto','text')
-                ->add('photo1','text')
-                ->add('photo2','text')
-                ->add('photo3','text')
             ->end()
+
             ->with('Дополнительная информация',array('class'=>'col-md-4'))
                 ->add('tv',null,array('label'=>'Телевизор'))
                 ->add('wifi',null,array('label'=>'Wi-Fi'))
@@ -114,6 +111,27 @@ class FlatAdmin extends AbstractAdmin
                 ->add('fridge',null,array('label'=>'Холодильник'))
                 ->add('dishes',null,array('label'=>'Посуда'))
                 ->add('linens',null,array('label'=>'Постельное бельё'))
+                ->add('payornot')
+                ->remove('description')
+            ->end()
+
+            ->with('Фотографии',array('class'=>'col-md-8'))
+                ->add('mainphoto', 'sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                ))
+                ->add('photo1','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                ))
+                ->add('photo2','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                ))
+                ->add('photo3','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                ))
             ->end()
         ;
     }
@@ -145,10 +163,7 @@ class FlatAdmin extends AbstractAdmin
             ->addIdentifier('fridge')
             ->addIdentifier('dishes')
             ->addIdentifier('linens')
-
-
-
-        ;
+           ;
     }
 
     public function toString($object)

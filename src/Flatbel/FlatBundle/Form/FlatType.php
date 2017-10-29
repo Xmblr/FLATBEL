@@ -57,12 +57,12 @@ class FlatType extends AbstractType
                 'choices_as_values' => true, 'label'=>'Тип', 'placeholder'=>'Выбрать...'
             ))
             ->add('street', TextType::class, array('label'=>'Название'))
-            ->add('home',null,array('label'=>'Номер дома'))
-            ->add('priceday',null,array('label'=>'Цена за день'))
-            ->add('pricehour',null,array('label'=>'Цена за час'))
-            ->add('pricenight',null,array('label'=>'Цена за ночь'))
-            ->add('floorhome',null,array('label'=>'Число этажей в дома'))
-            ->add('floor',null,array('label'=>'Этаж'))
+            ->add('home',TextType::class,array('label'=>'Номер дома'))
+            ->add('priceday',TextType::class,array('label'=>'Цена за день'))
+            ->add('pricehour',TextType::class,array('label'=>'Цена за час'))
+            ->add('pricenight',TextType::class,array('label'=>'Цена за ночь'))
+            ->add('floorhome',TextType::class,array('label'=>'Число этажей в дома'))
+            ->add('floor',TextType::class,array('label'=>'Этаж'))
             ->add('metro',ChoiceType::class, array(
                 'choices'  => array(
                     'Каменная горка'=>'Каменная горка',
@@ -111,10 +111,30 @@ class FlatType extends AbstractType
             ->add('telnumber',null,array('label'=>'Номер телефона'))
             ->add('about',null,array('label'=>'Описание'))
             //->add('description')
-            ->add('mainphoto', FileType::class,array('label'=>'Главное фото'))
-            ->add('photo1', FileType::class,array('label'=>'Фото №1'))
-            ->add('photo2', FileType::class,array('label'=>'Фото №2'))
-            ->add('photo3', FileType::class,array('label'=>'Фото №3'))
+//            ->add('mainphoto', FileType::class,array('label'=>'Главное фото'))
+//            ->add('photo1', FileType::class,array('label'=>'Фото №1'))
+//            ->add('photo2', FileType::class,array('label'=>'Фото №2'))
+//            ->add('photo3', FileType::class,array('label'=>'Фото №3'))
+            ->add('mainphoto', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Главное фото'
+            ))
+            ->add('photo1','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Фото №1'
+            ))
+            ->add('photo2','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Фото №2'
+            ))
+            ->add('photo3','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Фото №3'
+            ))
         ;
     }
     

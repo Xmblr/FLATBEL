@@ -7,7 +7,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: ru
     photo_directory: 'uploads/photos/'
 
 framework:
@@ -38,6 +38,10 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+    form:
+        resources:
+            - 'FlatbelFlatBundle:Form:media_widgets.html.twig'
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -50,6 +54,8 @@ doctrine:
         charset: UTF8
         options:
           1002: 'SET NAMES UTF8'
+        types:
+          json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -61,6 +67,9 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            ApplicationSonataMediaBundle: ~
+            SonataMediaBundle: ~
 
 
 # Swiftmailer Configuration
@@ -131,6 +140,10 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
         # ...
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role
+
 
 assetic:
     debug:          "%kernel.debug%"
@@ -170,3 +183,37 @@ assetic:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
 
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: default # you need to set a context
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+        flatphotos:
+            providers:
+                - sonata.media.provider.image
+
+            formats:
+                big:   { width: 500 , quality: 70}
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  "%kernel.root_dir%/../web/uploads/media"
+            create:     false

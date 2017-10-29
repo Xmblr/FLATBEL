@@ -10,10 +10,7 @@ use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use APY\DataGridBundle\Grid\Action\MassAction;
 use APY\DataGridBundle\Grid\Action\DeleteMassAction;
-use APY\DataGridBundle\Grid\Column\BlankColumn;
-use APY\DataGridBundle\Grid\Column\DateColumn;
 use APY\DataGridBundle\Grid\Action\RowAction;
 use APY\DataGridBundle\Grid\Column\ActionsColumn;
 
@@ -52,7 +49,7 @@ class PageController extends Controller
             // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
             return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
                 'flats' => $flats,
-                'filter_form' => $filter_form->createView()
+                'filter_form' => $filter_form->createView(),
             ));
         }
 
@@ -60,7 +57,7 @@ class PageController extends Controller
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats,
-            'filter_form' => $filter_form->createView()
+            'filter_form' => $filter_form->createView(),
         ));
     }
 

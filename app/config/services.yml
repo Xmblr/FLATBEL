@@ -19,6 +19,14 @@ services:
         arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Flat }
+
+    admin.admin:
+        class: Flatbel\FlatBundle\Admin\AdminAdmin
+        arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Admin}
+
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

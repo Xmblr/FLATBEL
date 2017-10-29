@@ -163,28 +163,35 @@ class Flat
     protected $description;
 
     /**
-     * @ORM\Column(type="string", length=1000)
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     *
      */
     protected $mainphoto;
 
     /**
-     * @ORM\Column(type="string", length=1000)
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
+//     * @ORM\Column(type="string", length=1000)
+//     * @Assert\File(mimeTypes={ "image/jpeg" })
+
     protected $photo1;
 
     /**
-     * @ORM\Column(type="string", length=1000)
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
+//     * @ORM\Column(type="string", length=1000)
+//     * @Assert\File(mimeTypes={ "image/jpeg" })
+
     protected $photo2;
 
 
     /**
-     * @ORM\Column(type="string", length=1000)
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
+//     * @ORM\Column(type="string", length=1000)
+//     * @Assert\File(mimeTypes={ "image/jpeg" })
+
     protected $photo3;
 
 

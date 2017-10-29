@@ -33,7 +33,7 @@
                                     <div class="item active">
                                         <div style="height: 400px; position: relative;">
                                             <img class="first-slide"
-                                                 src="{{ asset(['uploads/photos/', flat.mainphoto]|join) }}"
+                                                 src="{% path flat.mainphoto, 'big' %}"
                                                  style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
                                                  alt="{{ flat.description }} image not found">
                                         </div>
@@ -42,7 +42,7 @@
                                     <div class="item">
                                         <div style="height: 400px; position: relative;">
                                             <img class="first-slide"
-                                                 src="{{ asset(['uploads/photos/', flat.photo1]|join) }}"
+                                                 src="{% path flat.photo1, 'big' %}"
                                                  style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
                                                  alt="{{ flat.description }} image not found">
                                         </div>
@@ -50,7 +50,7 @@
                                     <div class="item">
                                         <div style="height: 400px; position: relative;">
                                             <img class="first-slide"
-                                                 src="{{ asset(['uploads/photos/', flat.photo2]|join) }}"
+                                                 src="{% path flat.photo2, 'big' %}"
                                                  style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
                                                  alt="{{ flat.description }} image not found">
                                         </div>
@@ -58,7 +58,7 @@
                                     <div class="item">
                                         <div style="height: 400px; position: relative;">
                                             <img class="first-slide"
-                                                 src="{{ asset(['uploads/photos/', flat.photo3]|join) }}"
+                                                 src="{% path flat.photo3, 'big' %}"
                                                  style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
                                                  alt="{{ flat.description }} image not found">
                                         </div>
