@@ -2,6 +2,7 @@
 
 namespace Flatbel\FlatBundle\Admin;
 
+use Doctrine\DBAL\Types\TextType;
 use Flatbel\FlatBundle\Entity\User;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -16,7 +17,7 @@ class AdminAdmin extends AbstractAdmin
         $formMapper
 
             ->with('Основная информация', array('class' => 'col-md-8'))
-                ->remove('userid')
+                ->add('userid', TextType::TEXT, array('disabled'=>true))
                 ->add('flattype', 'choice', array(
                     'choices'  => array(
                         'VIP' => 'VIP',
@@ -112,8 +113,7 @@ class AdminAdmin extends AbstractAdmin
                 ->add('fridge',null,array('label'=>'Холодильник'))
                 ->add('dishes',null,array('label'=>'Посуда'))
                 ->add('linens',null,array('label'=>'Постельное бельё'))
-                ->remove('payornot')
-                ->remove('description')
+
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))
@@ -135,6 +135,11 @@ class AdminAdmin extends AbstractAdmin
                 ))
             ->end()
         ;
+    }
+
+    public function prePersist($flat)
+    {
+
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -178,7 +183,6 @@ class AdminAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('userid')
             ->add('payornot')
             ->add('flattype')
             ->add('numberofbeds')

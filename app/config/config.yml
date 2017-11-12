@@ -142,8 +142,15 @@ sonata_block:
         # ...
 sonata_admin:
     security:
-        handler: sonata.admin.security.handler.role
-
+        handler: sonata.admin.security.handler.noop
+    dashboard:
+        groups:
+            app.admin.group.admin:
+                label: Admin
+                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN]
+            app.admin.group.user:
+                label: User
+                roles: [ ROLE_USER ]
 
 assetic:
     debug:          "%kernel.debug%"

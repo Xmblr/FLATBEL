@@ -18,27 +18,21 @@ class AppKernel extends Kernel
             new Flatbel\FlatBundle\FlatbelFlatBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new APY\DataGridBundle\APYDataGridBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-
-            // And finally, the storage and SonataAdminBundle
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
 
-            // ...
+            // SonataMediaBundle
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-
-            // You need to add this dependency to make media functional
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            // ...
-
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

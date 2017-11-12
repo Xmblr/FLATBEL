@@ -112,7 +112,6 @@ class FlatAdmin extends AbstractAdmin
                 ->add('dishes',null,array('label'=>'Посуда'))
                 ->add('linens',null,array('label'=>'Постельное бельё'))
                 ->add('payornot')
-                ->remove('description')
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))

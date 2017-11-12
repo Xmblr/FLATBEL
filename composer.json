@@ -22,14 +22,16 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "doctrine/data-fixtures" : "dev-master",
+        "doctrine/data-fixtures": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0",
-        "apy/datagrid-bundle": "3.0.*",
         "sonata-project/admin-bundle": "^3.17",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1",
         "twitter/bootstrap": "3.*",
         "components/jquery": "3.*",
-        "symfony/assetic-bundle": "dev-master"
+        "symfony/assetic-bundle": "dev-master",
+        "cocur/slugify": "v3",
+        "sonata-project/media-bundle": "^3.8",
+        "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

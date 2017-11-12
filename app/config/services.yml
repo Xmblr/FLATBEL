@@ -13,18 +13,19 @@ services:
         class: Flatbel\FlatBundle\Admin\UserAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\User,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: User }
+            - { name: sonata.admin, manager_type: orm, label: "User", group: "app.admin.group.admin" }
+        public: true
     admin.flat:
         class: Flatbel\FlatBundle\Admin\FlatAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Flat }
+            - { name: sonata.admin, manager_type: orm, label: Flat, group: "app.admin.group.admin" }
 
     admin.admin:
         class: Flatbel\FlatBundle\Admin\AdminAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Admin}
+            - { name: sonata.admin, manager_type: orm, label: Admin, group: "app.admin.group.user" }
 
 
 #    service_name:
