@@ -23,7 +23,7 @@ services:
 
     admin.admin:
         class: Flatbel\FlatBundle\Admin\AdminAdmin
-        arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
+        arguments: [~, Flatbel\FlatBundle\Entity\Flat, FlatbelFlatBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Admin, group: "app.admin.group.user" }
 

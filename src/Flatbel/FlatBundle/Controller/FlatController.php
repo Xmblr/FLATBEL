@@ -8,7 +8,7 @@ use Flatbel\FlatBundle\Form\FlatType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use  Flatbel\FlatBundle\Service\FileUploader;
+use Flatbel\FlatBundle\Service\FileUploader;
 
 
 
