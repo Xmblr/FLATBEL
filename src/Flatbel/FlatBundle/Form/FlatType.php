@@ -98,6 +98,15 @@ class FlatType extends AbstractType
                 ),
                 'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
             ))
+            ->add('city',ChoiceType::class, array(
+                'choices'  => array(
+                    'Не важно' => null,
+                    'Минск' => 'Минск',
+                    'Гродно' => 'Гродно',
+                    'Орша' => 'Орша',
+                ),
+                'choices_as_values' => true,'label'=>'City'
+            ))
             ->add('tv',null,array('label'=>'Телевизор'))
             ->add('wifi',null,array('label'=>'Wi-Fi'))
             ->add('parking',null,array('label'=>'Стоянка'))

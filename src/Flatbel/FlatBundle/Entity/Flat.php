@@ -23,12 +23,12 @@ class Flat
     protected $id;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer", length=50, nullable=true)
      */
     protected $userid;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean", length=50, nullable=true)
      */
     protected $payornot;
 
@@ -158,9 +158,19 @@ class Flat
     protected $about;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $description;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $city;
+
+    /**
+     * @return mixed
+     */
+
 
     /**
      *
@@ -858,6 +868,19 @@ class Flat
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
     }
 
     /**

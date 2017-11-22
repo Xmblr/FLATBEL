@@ -6,6 +6,7 @@ namespace Flatbel\FlatBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -85,6 +86,15 @@ class FilterType extends AbstractType
                     '4+' => '4',
                     ),
                 'choices_as_values' => true,'label'=>'Rooms'
+            ))
+            ->add('city',ChoiceType::class, array(
+                'choices'  => array(
+                    'Не важно' => null,
+                    'Минск' => 'Минск',
+                    'Гродно' => 'Гродно',
+                    'Орша' => 'Орша',
+                ),
+                'choices_as_values' => true,'label'=>'City'
             ))
             ->add('pricehour', IntegerType::class)
             ->add('priceday', IntegerType::class)

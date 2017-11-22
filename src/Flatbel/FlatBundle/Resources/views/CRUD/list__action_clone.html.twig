@@ -1,3 +1,5 @@
 {% block sonata_admin_content %}
-    <a class="btn btn-sm" href="{{ admin.generateObjectUrl('clone', object) }}">clone</a>
+    <a class="btn btn-sm" href="{{ admin.generateObjectUrl('clone', object) }}">Clone</a>
+    <a class="btn btn-sm" href="{{ admin.generateObjectUrl('edit', object) }}">Edit</a>
+    <a class="btn btn-sm" href="{{ admin.generateObjectUrl('delete', object) }}">Remove</a>
 {% endblock %}

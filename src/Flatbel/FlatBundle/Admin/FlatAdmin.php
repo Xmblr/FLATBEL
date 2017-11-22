@@ -95,7 +95,15 @@ class FlatAdmin extends AbstractAdmin
                     ),
                     'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
                 ))
-
+                ->add('city','choice', array(
+                    'choices'  => array(
+                        'Не важно' => null,
+                        'Минск' => 'Минск',
+                        'Гродно' => 'Гродно',
+                        'Орша' => 'Орша',
+                    ),
+                    'choices_as_values' => true,'label'=>'City'
+                ))
                 ->add('telnumber',null,array('label'=>'Номер телефона'))
                 ->add('about',null,array('label'=>'Описание'))
             ->end()
@@ -140,6 +148,7 @@ class FlatAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('userid')
+            ->addIdentifier('city')
             ->addIdentifier('payornot')
             ->addIdentifier('flattype')
             ->addIdentifier('numberofbeds')

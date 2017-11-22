@@ -131,6 +131,7 @@ class FlatController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
+                    $flat->getCity(),
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -144,7 +145,7 @@ class FlatController extends Controller
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,0,1000);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,null,0,1000);
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'flats' => $flats,

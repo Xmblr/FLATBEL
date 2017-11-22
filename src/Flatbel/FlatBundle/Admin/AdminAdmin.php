@@ -128,7 +128,15 @@ class AdminAdmin extends AbstractAdmin
                     ),
                     'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
                 ))
-
+            ->add('city','choice', array(
+                'choices'  => array(
+                    'Не важно' => null,
+                    'Минск' => 'Минск',
+                    'Гродно' => 'Гродно',
+                    'Орша' => 'Орша',
+                ),
+                'choices_as_values' => true,'label'=>'City'
+            ))
                 ->add('telnumber',null,array('label'=>'Номер телефона'))
                 ->add('about',null,array('label'=>'Описание'))
             ->end()
@@ -175,8 +183,15 @@ class AdminAdmin extends AbstractAdmin
     {
 
         $listMapper
+            ->add('_action', null, array(
+                'actions' => array(
+                    'clone' => array(
+                        'template' => 'FlatbelFlatBundle:CRUD:list__action_clone.html.twig'
+                    )
+                )
+            ))
             ->addIdentifier('id')
-            ->addIdentifier('userid')
+            ->addIdentifier('city')
             ->addIdentifier('payornot')
             ->addIdentifier('flattype')
             ->addIdentifier('numberofbeds')
@@ -199,13 +214,6 @@ class AdminAdmin extends AbstractAdmin
             ->addIdentifier('fridge')
             ->addIdentifier('dishes')
             ->addIdentifier('linens')
-            ->add('_action', null, array(
-                'actions' => array(
-                    'clone' => array(
-                        'template' => 'FlatbelFlatBundle:CRUD:list__action_clone.html.twig'
-                    )
-                )
-            ))
            ;
     }
 
