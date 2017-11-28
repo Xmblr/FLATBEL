@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 class FlatType extends AbstractType
 {
@@ -98,14 +100,18 @@ class FlatType extends AbstractType
                 ),
                 'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
             ))
-            ->add('city',ChoiceType::class, array(
-                'choices'  => array(
-                    'Не важно' => null,
-                    'Минск' => 'Минск',
-                    'Гродно' => 'Гродно',
-                    'Орша' => 'Орша',
-                ),
-                'choices_as_values' => true,'label'=>'City'
+            ->add('city',EntityType::class, array(
+                'class'  => 'FlatbelFlatBundle:City',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.name', 'ASC');
+                },
+            ))
+            ->add('city', EntityType::class, array('class' => 'FlatbelFlatBundle:City',
+                'choice_label' => 'getName',
+                'multiple' => false,
+                'expanded' => false,
+                'required' => false,
             ))
             ->add('tv',null,array('label'=>'Телевизор'))
             ->add('wifi',null,array('label'=>'Wi-Fi'))

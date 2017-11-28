@@ -42,62 +42,24 @@ class FlatController extends Controller
 
         if ($create_form->isValid()) {
 
-//            if($flat->getMainphoto())
-//            {
-//                $mainphotofile = $flat->getMainphoto();
-//                $mainphotofileName = md5(uniqid()).'.'.$mainphotofile->guessExtension();
-//
-//                $mainphotofile->move(
-//                    $this->getParameter('photo_directory'),
-//                    $mainphotofileName
-//                );
-//            }
-//            if($flat->getPhoto1())
-//            {
-//                $photo1file = $flat->getPhoto1();
-//                $photo1fileName = md5(uniqid()).'.'.$photo1file->guessExtension();
-//
-//                $photo1file->move(
-//                    $this->getParameter('photo_directory'),
-//                    $photo1fileName
-//                );
-//            }
-//            if($flat->getPhoto2())
-//            {
-//                $photo2file = $flat->getPhoto2();
-//                $photo2fileName = md5(uniqid()).'.'.$photo2file->guessExtension();
-//
-//                $photo2file->move(
-//                    $this->getParameter('photo_directory'),
-//                    $photo2fileName
-//                );
-//            }
-//            if($flat->getPhoto3())
-//            {
-//                $photo3file = $flat->getPhoto3();
-//                $photo3fileName = md5(uniqid()).'.'.$photo3file->guessExtension();
-//
-//                $photo3file->move(
-//                    $this->getParameter('photo_directory'),
-//                    $photo3fileName
-//                );
-//            }
-
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
+            $city = $flat->getCity()->getUrl();
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $flat
                 ->setUserid($user->getId())
                 ->setPayornot(0)
                 ->setDescription($description)
-//                ->setMainphoto($mainphotofileName)
-//                ->setPhoto1($photo1fileName)
-//                ->setPhoto2($photo2fileName)
-//                ->setPhoto3($photo3fileName)
+                ->setCity($city)
                 ;
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($flat);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', $flat->getCity())
+            ;
 
             // Redirect - This is important to prevent users re-posting
             // the create_form if they refresh the page
@@ -110,7 +72,7 @@ class FlatController extends Controller
         ));
     }
 
-    public function flatsAction(Request $request)
+    public function flatsAction(Request $request, $city)
     {
 
         $flat = new Flat();
@@ -122,6 +84,11 @@ class FlatController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
+        if ($city == 'global')
+        {
+            $city = null;
+        }
+
         if ($filter_form->isValid()) {
 
             $flats = $em->getRepository('FlatbelFlatBundle:Flat')
@@ -131,7 +98,7 @@ class FlatController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
-                    $flat->getCity(),
+                    $city,
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -139,17 +106,19 @@ class FlatController extends Controller
             // Redirect - This is important to prevent users re-posting
             // the filter_form if they refresh the page
             // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
-            return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+            return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
                 'flats' => $flats,
-                'filter_form' => $filter_form->createView()
+                'filter_form' => $filter_form->createView(),
+                'city' => $city,
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,null,0,1000);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$city,0,1000);
 
-        return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+        return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
             'flats' => $flats,
-            'filter_form' => $filter_form->createView()
+            'filter_form' => $filter_form->createView(),
+            'city' => $city,
         ));
     }
 

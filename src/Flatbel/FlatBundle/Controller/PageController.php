@@ -1,18 +1,13 @@
 <?php
-// src/Blogger/BlogBundle/Controller/PageController.php
 
 namespace Flatbel\FlatBundle\Controller;
 
-use APY\DataGridBundle\Grid\Source\Entity;
 use Flatbel\FlatBundle\Entity\Contact;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Form\ContactType;
 use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use APY\DataGridBundle\Grid\Action\DeleteMassAction;
-use APY\DataGridBundle\Grid\Action\RowAction;
-use APY\DataGridBundle\Grid\Column\ActionsColumn;
 
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,6 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends Controller
 {
     public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $city = $em->getRepository('FlatbelFlatBundle:City')->getCity();
+
+        return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+            'city'=>$city
+        ));
+    }
+
+    public function cityAction(Request $request, $city)
     {
         $flat = new Flat();
 
@@ -31,6 +37,11 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
+        if ($city == 'global')
+        {
+            $city = null;
+        }
+
         if ($filter_form->isValid()) {
 
             $flats = $em->getRepository('FlatbelFlatBundle:Flat')
@@ -40,7 +51,7 @@ class PageController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
-                    $flat->getCity(),
+                    $city,
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -48,17 +59,22 @@ class PageController extends Controller
             // Redirect - This is important to prevent users re-posting
             // the filter_form if they refresh the page
             // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
-            return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+            return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
                 'flats' => $flats,
                 'filter_form' => $filter_form->createView(),
+                'city' => $city,
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, null, 0,1000);
 
-        return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
+
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $city, 0,1000);
+
+        return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
             'flats' => $flats,
             'filter_form' => $filter_form->createView(),
+            'city' => $city,
+
         ));
     }
 

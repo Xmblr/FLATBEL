@@ -1,4 +1,4 @@
-{{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_homepage'), 'method': 'POST', 'attr': {'class': 'small'} }) }}
+{{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_city',{'city':city}), 'method': 'POST', 'attr': {'class': 'small'} }) }}
                 {{ form_errors(filter_form) }}
 
     <div class="range" style="text-align: left">
@@ -23,11 +23,7 @@
                     {{ form_row(filter_form.rooms) }}
                 </div>
             </div>
-            <div class="cell-md-2">
-                <div class="form-group">
-                    {{ form_row(filter_form.city) }}
-                </div>
-            </div>
+
         </div>
         <div class="range offset-top-15">
             <div class="cell-md-8">

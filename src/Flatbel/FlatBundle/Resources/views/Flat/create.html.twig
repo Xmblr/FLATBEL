@@ -3,5 +3,15 @@
 {% block title %}Создание квартиры{% endblock %}
 
 {% block body %}
+    {# Вывод сообщения об успешном добавлении квартиры #}
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {# Вывод сообщения об успешном добавлении квартиры #}
+
     {% include 'FlatbelFlatBundle:Flat:form.html.twig' with {'create_form': create_form} %}
 {% endblock %}

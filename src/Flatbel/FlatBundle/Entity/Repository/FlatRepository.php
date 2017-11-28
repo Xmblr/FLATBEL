@@ -45,7 +45,7 @@ class FlatRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('payornot', $payornot);
         }
 
-        if ($city != null)
+        if ($city != 'Global')
         {
             $qb->andWhere('f.city = :city')
                 ->setParameter('city', $city);

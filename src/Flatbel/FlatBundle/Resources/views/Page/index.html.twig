@@ -1,92 +1,36 @@
-{% extends 'FlatbelFlatBundle::layout.html.twig' %}
-
-{% block stylesheets %}
-
-    <link href="{{ asset('slider/css/iThing.css') }}" rel="stylesheet" type="text/css"/>
-    {{ parent() }}
-{% endblock %}
-
-{% block slide %}
-    <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"
-         class="swiper-container swiper-slider">
-        <div class="swiper-wrapper">
-            <div data-slide-bg="{{ asset('img/slide-1.jpg') }}" class="swiper-slide"></div>
-            <div data-slide-bg="{{ asset('img/slide-2.jpg') }}" class="swiper-slide"></div>
-            <div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>
-        </div>
-    </div>
-{% endblock %}
+{% extends "::base.html.twig" %}
 
 {% block body %}
-    <section class="section-80 section-md-120 bg-gray-lighter">
-        <div class="shell shell-wide">
-            <h2 data-wow-delay="0.2s" class="offset-top-20 text-ubold wow fadeInUp">Каталог квартир</h2>
-            <hr data-wow-delay="0.3s" class="divider divider-primary divider-80 wow fadeInUp">
-            <div class="range offset-md-top-90 offset-top-50">
-                <div>
-                    <div>
-                        <div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">
-                            {% for flat in flats %}
-                                <div class="col-lg-4" style="margin-top: 2%">
-                                    <div class="post-blog post-blog-type-2">
-                                        <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
-                                            <img src="{% path flat.mainphoto, 'big' %}" style="display: inline-block; width: 420px; height: 300px; overflow: hidden;" alt="photo" class="img-responsive"/>
-                                        </a>
-                                        <div class="post-blog-caption">
-                                            <h4 class="post-blog-title text-bold">
-                                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
-                                                    - {{ flat.home }}</a>
-                                            </h4>
-                                            <p class="text-base">
-                                                {{ flat.about(100) }}
-                                            </p>
-                                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"
-                                               class="post-blog-link">Подробнее...</a>
+    <div class="row">
+        <img src="{{ asset('img/slide-1.jpg') }}">
+        <div class="swiper-onSlider" style="margin-top: 5%">
+            <div class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
+                <div class="range range-xs-center">
+                    <div class="cell-xl-6 cell-lg-9 cell-md-11">
+                        <div data-type="horizontal"
+                             class="responsive-tabs text-md-left nav-custom-dark view-animate fadeInUpSmall">
+                            <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+
+                                <div>
+                                    <h1 style="text-align: center; color: white">Выберите город</h1>
+                                </div>
+                                <form>
+                                    <div class="form-group">
+                                        <div class="dropdown">
+                                            <select onchange="location = this.value">
+                                                <option>Выберите...</option>
+                                            {% for city in city %}
+                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}" >{{ city.name }}</option>
+                                            {% endfor %}
+                                            </select>
                                         </div>
                                     </div>
-                                </div>
-                            {% else %}
-                                <h2>Квартиры не найдены</h2>
-                            {% endfor %}
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}
-                <div class="offset-top-100 offset-lg-top-100" align="center">
-                    <div class="view-animate fadeInUpSmall delay-08"><a
-                                href="{{ path('FlatbelFlatBundle_flat_flats') }}"
-                                class="btn btn-primary btn-naira btn-naira-up"><span
-                                    class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>
-                    </div>
-                </div>
-            {% endif %}
         </div>
-    </section>
-{% endblock %}
-
-{% block javascripts %}
-
-    <script src="{{ asset('js/core.min.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('slider/jQAllRangeSliders-min.js') }}"></script>
-    <!-- slider -->
-    <script>
-        //<!--
-        $("#slider")
-            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 1000}}, {
-                defaultValues: {
-                    min: 0,
-                    max: 1000
-                }
-            }, {step: 1})
-            .on("valuesChanging", function (e, data) {
-                $("#flatbel_flatbundle_filter_pricehour").val(data.values.min);
-                $("#flatbel_flatbundle_filter_priceday").val(data.values.max);
-            });
-        //-->
-    </script>
-    <!-- slider -->
-    {#{{ parent() }}#}
+    </div>
 {% endblock %}
