@@ -1,3 +1,28 @@
+{#{% block sonata_media_type_widget %}#}
+    {#<div class="row">#}
+
+
+    {#</div>#}
+    {#<div class="row">#}
+        {#<div class="col-md-2 pull-left">#}
+            {#{{ block('form_widget') }}#}
+            {#{{ form_start(form) }}#}
+            {#{{ form_errors(form) }}#}
+
+            {#<div hidden>#}
+
+                {#{{ form_widget(form.unlink, {'attr' : {'hidden':'true'}}) }}#}
+            {#</div>#}
+
+            {#{{ form_widget(form.binaryContent, {'attr' : {'hidden':'true'}}) }}#}
+
+            {#{{ form_rest (form) }}#}
+        {#</div>#}
+
+        {#</div>#}
+
+
+{#{% endblock sonata_media_type_widget %}#}
 {% block sonata_media_type_widget %}
     <div class="row">
         <div class="col-md-4 pull-left">
@@ -14,7 +39,7 @@
             {% endif %}
         </div>
 
-        <div class="col-md-3 pull-left"><strong>{{ 'widget_headline_information'|trans({}, 'SonataMediaBundle') }}</strong></div>
+        {#<div class="col-md-3 pull-left"><strong>{{ 'widget_headline_information'|trans({}, 'SonataMediaBundle') }}</strong></div>#}
         <div class="col-md-2 pull-left"><strong>{{ 'link_media'|trans({}, 'SonataMediaBundle') }}</strong></div>
     </div>
     <div class="row">
@@ -29,19 +54,29 @@
                 </div>
             {% endif %}
         </div>
-        <div class="col-md-3 pull-left">
-            {% if value is not empty and value.providerReference %}
-                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.providerName|trans({}, 'SonataMediaBundle') }}</span>
-                <br />
-                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.context|trans({}, 'SonataMediaBundle') }}</span>
-            {% else %}
-                <strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['provider']|trans({}, 'SonataMediaBundle') }}</span>
-                <br />
-                <strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['context']|trans({}, 'SonataMediaBundle') }}</span>
-            {% endif %}
-        </div>
+        {#<div class="col-md-3 pull-left">#}
+            {#{% if value is not empty and value.providerReference %}#}
+                {#<strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.providerName|trans({}, 'SonataMediaBundle') }}</span>#}
+                {#<br />#}
+                {#<strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ value.context|trans({}, 'SonataMediaBundle') }}</span>#}
+            {#{% else %}#}
+                {#<strong>{{ 'widget_label_type'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['provider']|trans({}, 'SonataMediaBundle') }}</span>#}
+                {#<br />#}
+                {#<strong>{{ 'widget_label_context'|trans({}, 'SonataMediaBundle') }}:</strong> <span type="label">{{ form.vars['context']|trans({}, 'SonataMediaBundle') }}</span>#}
+            {#{% endif %}#}
+        {#</div>#}
         <div class="col-md-2 pull-left">
-            {{ block('form_widget') }}
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div hidden>
+
+            {{ form_widget(form.unlink, {'attr' : {'hidden':'true'}}) }}
+            </div>
+
+            {{ form_widget(form.binaryContent, {'attr' : {'hidden':'true'}}) }}
+
+            {{ form_rest (form) }}
         </div>
     </div>
 {% endblock sonata_media_type_widget %}

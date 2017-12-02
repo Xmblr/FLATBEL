@@ -13,10 +13,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
 
 
 class AdminAdmin extends AbstractAdmin
 {
+    protected $baseRouteName = 'user';
+    protected $baseRoutePattern = 'user';
     public function createQuery($context = 'list')
     {
         $userid = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser()->getId();
@@ -43,6 +47,13 @@ class AdminAdmin extends AbstractAdmin
         $formMapper
 
             ->with('Основная информация', array('class' => 'col-md-8'))
+                ->add('city',EntityType::class, array(
+                    'class'  => 'FlatbelFlatBundle:City',
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->orderBy('u.name', 'ASC');
+                    },
+                ))
                 ->add('userid','choice', array(
                     'choices'  => array(
                         $userid => $userid
@@ -128,15 +139,7 @@ class AdminAdmin extends AbstractAdmin
                     ),
                     'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
                 ))
-            ->add('city','choice', array(
-                'choices'  => array(
-                    'Не важно' => null,
-                    'Минск' => 'Минск',
-                    'Гродно' => 'Гродно',
-                    'Орша' => 'Орша',
-                ),
-                'choices_as_values' => true,'label'=>'City'
-            ))
+
                 ->add('telnumber',null,array('label'=>'Номер телефона'))
                 ->add('about',null,array('label'=>'Описание'))
             ->end()
@@ -156,10 +159,16 @@ class AdminAdmin extends AbstractAdmin
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))
-                ->add('mainphoto', 'sonata_media_type', array(
-                    'provider' => 'sonata.media.provider.image',
-                    'context'  => 'flatphotos',
-                ))
+//                ->add('mainphoto', 'sonata_media_type', array(), array('link_parameters' => array('context' => 'flatphotos')))
+            ->add('mainphoto', 'sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos'
+            ))
+//            ->add('image', 'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'news')))
+//                ->add('mainphoto', 'sonata_media_type', array(
+//                    'provider' => 'sonata.media.provider.image',
+//                    'context'  => 'flatphotos',
+//                ))
                 ->add('photo1','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
@@ -221,7 +230,7 @@ class AdminAdmin extends AbstractAdmin
     {
         return $object instanceof User
             ? $object->getUsername()
-            : 'Flat'; // shown in the breadcrumb on the create view
+            : 'Admin'; // shown in the breadcrumb on the create view
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

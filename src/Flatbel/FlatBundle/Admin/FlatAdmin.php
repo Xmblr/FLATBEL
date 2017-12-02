@@ -10,12 +10,15 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class FlatAdmin extends AbstractAdmin
 {
+    protected $baseRouteName = 'admin';
+    protected $baseRoutePattern = 'admin';
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
 
             ->with('Основная информация', array('class' => 'col-md-8'))
                 ->add('userid')
+            ->add('city')
                 ->add('flattype', 'choice', array(
                     'choices'  => array(
                         'VIP' => 'VIP',

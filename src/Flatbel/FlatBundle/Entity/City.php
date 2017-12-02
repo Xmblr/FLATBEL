@@ -13,7 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class City
 {
-
+    public function __toString() {
+        return $this->getUrl();
+    }
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
