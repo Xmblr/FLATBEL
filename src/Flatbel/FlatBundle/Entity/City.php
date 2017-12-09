@@ -5,16 +5,20 @@ namespace Flatbel\FlatBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="Flatbel\FlatBundle\Entity\Repository\CityRepository")
  * @ORM\Table(name="City")
  * @ORM\HasLifecycleCallbacks()
+ *
  */
 class City
 {
+
+
     public function __toString() {
-        return $this->getUrl();
+        return $this->getName();
     }
     /**
      * @ORM\Id

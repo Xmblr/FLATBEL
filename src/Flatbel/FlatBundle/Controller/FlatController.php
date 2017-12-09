@@ -43,13 +43,13 @@ class FlatController extends Controller
         if ($create_form->isValid()) {
 
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
-            $city = $flat->getCity()->getUrl();
+
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $flat
                 ->setUserid($user->getId())
                 ->setPayornot(0)
                 ->setDescription($description)
-                ->setCity($city)
+
                 ;
             $em = $this->getDoctrine()
                 ->getManager();
@@ -58,7 +58,7 @@ class FlatController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', $flat->getCity())
+                ->add('success','Квартира успешно добавлена!')
             ;
 
             // Redirect - This is important to prevent users re-posting
@@ -86,7 +86,11 @@ class FlatController extends Controller
 
         if ($city == 'global')
         {
-            $city = null;
+            $cityId = null;
+        }
+        else
+        {
+            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
         }
 
         if ($filter_form->isValid()) {
@@ -98,7 +102,7 @@ class FlatController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
-                    $city,
+                    $cityId,
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -113,7 +117,7 @@ class FlatController extends Controller
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$city,0,1000);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$cityId,0,1000);
 
         return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
             'flats' => $flats,
@@ -122,7 +126,7 @@ class FlatController extends Controller
         ));
     }
 
-    function translate($_str) {
+    public function translate($_str) {
         $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
         $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
         return str_replace($rus, $lat, $_str);

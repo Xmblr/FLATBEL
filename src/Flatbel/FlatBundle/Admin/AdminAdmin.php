@@ -2,35 +2,34 @@
 
 namespace Flatbel\FlatBundle\Admin;
 
-use Doctrine\DBAL\Types\TextType;
 use Flatbel\FlatBundle\Entity\User;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
-
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AdminAdmin extends AbstractAdmin
 {
     protected $baseRouteName = 'user';
     protected $baseRoutePattern = 'user';
-    public function createQuery($context = 'list')
+
+    public function getUserId ()
     {
         $userid = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser()->getId();
-
+        return $userid;
+    }
+    public function createQuery($context = 'list')
+    {
         $query = parent::createQuery($context);
         $query->andWhere(
             $query->expr()->eq($query->getRootAliases()[0].'.userid',':userid')
 
         );
-        $query->setParameter('userid',$userid);
+        $query->setParameter('userid',$this->getUserId());
         return $query;
     }
 
@@ -39,27 +38,52 @@ class AdminAdmin extends AbstractAdmin
         $collection->add('clone', $this->getRouterIdParameter().'/clone');
 
     }
+    public function translate($_str) {
+        $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
+        $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
+        return str_replace($rus, $lat, $_str);
+    }
 
+    public function prePersist($flat)
+    {
+        $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
+        $flat->setDescription($description);
+        $flat->setUserid($this->getUserId());
+        $flat->setPayornot(0);
+//        $flat->setCity($flat->getCity()->getUrl());
+    }
+    public function preUpdate($flat)
+    {
+
+        if ($this->getUserId() == $flat->getUserid())
+        {
+            $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
+            $flat->setDescription($description);
+//            $flat->setCity($flat->getCity()->getUrl());
+        }
+        else
+        {
+            throw new AccessDeniedException();
+        }
+
+    }
+
+    public function preEdit($flat)
+    {
+        throw new AccessDeniedException();
+    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $userid = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser()->getId();
-        $formMapper
 
+        $formMapper
             ->with('Основная информация', array('class' => 'col-md-8'))
-                ->add('city',EntityType::class, array(
+
+                ->add('city','entity', array(
                     'class'  => 'FlatbelFlatBundle:City',
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('u')
-                            ->orderBy('u.name', 'ASC');
-                    },
+                    'label'=>'Город', 'placeholder'=>'Выбрать...'
                 ))
-                ->add('userid','choice', array(
-                    'choices'  => array(
-                        $userid => $userid
-                    ),
-                    'choices_as_values' => true
-                ))
+
                 ->add('flattype', 'choice', array(
                     'choices'  => array(
                         'VIP' => 'VIP',
@@ -159,16 +183,11 @@ class AdminAdmin extends AbstractAdmin
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))
-//                ->add('mainphoto', 'sonata_media_type', array(), array('link_parameters' => array('context' => 'flatphotos')))
-            ->add('mainphoto', 'sonata_media_type', array(
-                'provider' => 'sonata.media.provider.image',
-                'context'  => 'flatphotos'
-            ))
-//            ->add('image', 'sonata_type_model_list', array(), array('link_parameters' => array('context' => 'news')))
-//                ->add('mainphoto', 'sonata_media_type', array(
-//                    'provider' => 'sonata.media.provider.image',
-//                    'context'  => 'flatphotos',
-//                ))
+
+                ->add('mainphoto', 'sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos'
+                ))
                 ->add('photo1','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',

@@ -125,11 +125,6 @@ class FlatType extends AbstractType
             ->add('linens',null,array('label'=>'Постельное бельё'))
             ->add('telnumber',null,array('label'=>'Номер телефона'))
             ->add('about',null,array('label'=>'Описание'))
-            //->add('description')
-//            ->add('mainphoto', FileType::class,array('label'=>'Главное фото'))
-//            ->add('photo1', FileType::class,array('label'=>'Фото №1'))
-//            ->add('photo2', FileType::class,array('label'=>'Фото №2'))
-//            ->add('photo3', FileType::class,array('label'=>'Фото №3'))
             ->add('mainphoto', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context'  => 'flatphotos',

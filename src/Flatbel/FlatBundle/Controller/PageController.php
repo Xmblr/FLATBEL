@@ -68,7 +68,7 @@ class PageController extends Controller
 
 
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $city, 0,120);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $city, 0,1000);
 
         return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
             'flats' => $flats,
