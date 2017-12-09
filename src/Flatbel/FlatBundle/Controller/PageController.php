@@ -19,7 +19,7 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $city = $em->getRepository('FlatbelFlatBundle:City')->getCity();
+        $city = $em->getRepository('FlatbelFlatBundle:City')->getCity("Не важно");
 
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'city'=>$city
@@ -39,7 +39,11 @@ class PageController extends Controller
 
         if ($city == 'global')
         {
-            $city = null;
+            $cityId = null;
+        }
+        else
+        {
+            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
         }
 
         if ($filter_form->isValid()) {
@@ -51,7 +55,7 @@ class PageController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
-                    $city,
+                    $cityId,
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -68,7 +72,7 @@ class PageController extends Controller
 
 
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $city, 0,1000);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $cityId, 0,1000);
 
         return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
             'flats' => $flats,

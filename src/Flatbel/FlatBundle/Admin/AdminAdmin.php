@@ -50,7 +50,7 @@ class AdminAdmin extends AbstractAdmin
         $flat->setDescription($description);
         $flat->setUserid($this->getUserId());
         $flat->setPayornot(0);
-        $flat->setCity($flat->getCity()->getUrl());
+//        $flat->setCity($flat->getCity()->getUrl());
     }
     public function preUpdate($flat)
     {
@@ -59,7 +59,7 @@ class AdminAdmin extends AbstractAdmin
         {
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
             $flat->setDescription($description);
-            $flat->setCity($flat->getCity()->getUrl());
+//            $flat->setCity($flat->getCity()->getUrl());
         }
         else
         {
@@ -81,7 +81,6 @@ class AdminAdmin extends AbstractAdmin
 
                 ->add('city','entity', array(
                     'class'  => 'FlatbelFlatBundle:City',
-
                     'label'=>'Город', 'placeholder'=>'Выбрать...'
                 ))
 

@@ -43,13 +43,13 @@ class FlatController extends Controller
         if ($create_form->isValid()) {
 
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
-            $city = $flat->getCity()->getUrl();
+
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $flat
                 ->setUserid($user->getId())
                 ->setPayornot(0)
                 ->setDescription($description)
-                ->setCity($city)
+
                 ;
             $em = $this->getDoctrine()
                 ->getManager();
@@ -86,7 +86,11 @@ class FlatController extends Controller
 
         if ($city == 'global')
         {
-            $city = null;
+            $cityId = null;
+        }
+        else
+        {
+            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
         }
 
         if ($filter_form->isValid()) {
@@ -98,7 +102,7 @@ class FlatController extends Controller
                     $flat->getMetro(),
                     null,
                     $flat->getPayornot(),
-                    $city,
+                    $cityId,
                     $flat->getPricehour(),
                     $flat->getPriceday());
 
@@ -113,7 +117,7 @@ class FlatController extends Controller
             ));
         }
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$city,0,1000);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$cityId,0,1000);
 
         return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
             'flats' => $flats,

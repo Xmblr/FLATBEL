@@ -87,15 +87,6 @@ class FilterType extends AbstractType
                     ),
                 'choices_as_values' => true,'label'=>'Rooms'
             ))
-//            ->add('city',ChoiceType::class, array(
-//                'choices'  => array(
-//                    'Не важно' => 'Global',
-//                    'Минск' => 'Minsk',
-//                    'Гродно' => 'Grodno',
-//                    'Орша' => 'Orsha',
-//                ),
-//                'choices_as_values' => true,'label'=>'City'
-//            ))
             ->add('pricehour', IntegerType::class)
             ->add('priceday', IntegerType::class)
         ;

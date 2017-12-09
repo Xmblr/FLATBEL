@@ -16,6 +16,12 @@ class FlatAdmin extends AbstractAdmin
     protected $baseRouteName = 'admin';
     protected $baseRoutePattern = 'admin';
 
+    public function getUserId ()
+    {
+        $userid = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser()->getId();
+        return $userid;
+    }
+
     public function translate($_str) {
         $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
         $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
@@ -26,25 +32,23 @@ class FlatAdmin extends AbstractAdmin
     {
         $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
         $flat->setDescription($description);
-        $flat->setCity($flat->getCity()->getUrl());
+//        $flat->setCity($flat->getCity()->getUrl());
     }
     public function preUpdate($flat)
     {
         $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
         $flat->setDescription($description);
-        $flat->setCity($flat->getCity()->getUrl());
+//        $flat->setCity($flat->getCity()->getUrl());
     }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $userid = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser()->getId();
         $formMapper
 
             ->with('Основная информация', array('class' => 'col-md-8'))
-                ->add('userid',null,array('data'=>$userid))
+                ->add('userid',null)
                 ->add('city',EntityType::class, array(
                     'class'  => 'FlatbelFlatBundle:City',
-
                     'choices_as_values' => true,'label'=>'Город', 'placeholder'=>'Выбрать...'
                 ))
                 ->add('flattype', 'choice', array(

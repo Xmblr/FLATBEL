@@ -15,10 +15,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class City
 {
-    public function __construct()
-    {
-        $this->flats = new ArrayCollection();
-    }
+
 
     public function __toString() {
         return $this->getName();
@@ -39,27 +36,6 @@ class City
      * @ORM\Column(type="string", length=100)
      */
     protected $url;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Flatbel\FlatBundle\Entity\Flat", mappedBy="city")
-     */
-    protected $flats;
-
-    /**
-     * @return mixed
-     */
-    public function getFlats()
-    {
-        return $this->flats;
-    }
-
-    /**
-     * @param mixed $flats
-     */
-    public function setFlats($flats)
-    {
-        $this->flats = $flats;
-    }
 
     /**
      * @return mixed

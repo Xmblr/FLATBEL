@@ -163,9 +163,8 @@ class Flat
     protected $description;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City", inversedBy="flats")
-     * @ORM\JoinColumn(name="flat_id", referencedColumnName="id")
+     *
+     * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City")
      */
     protected $city;
 
