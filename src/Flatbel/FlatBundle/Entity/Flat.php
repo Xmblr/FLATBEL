@@ -164,13 +164,10 @@ class Flat
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City", inversedBy="flats")
+     * @ORM\JoinColumn(name="flat_id", referencedColumnName="id")
      */
     protected $city;
-
-    /**
-     * @return mixed
-     */
-
 
     /**
      *
