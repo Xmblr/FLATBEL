@@ -14,14 +14,81 @@
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
+
+
 <!-- Page-->
-<div class="page text-center">
+
+<div class="page">
     <!-- Page Header-->
     <div>
-        <header class="page-header">
+
+        <header class="an-header">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"
+                                                            class="reveal-inline-block brand-name">
+                                <img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"
+                                     class="img-responsive center-block">
+                            </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
+                                    <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
+                                    <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
+                                </ul>
+                            </li>
+
+
+
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default" href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a></li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;" class="sign-up-link" href="{{ path('fos_user_profile_show') }}">
+                                            <span class="glyphicon glyphicon-user"
+                                                  aria-hidden="true"></span> {{ app.user.username }}
+                                    </a>
+                                </li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                            {% else %}
+                                <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
+                                <li><a href="{{ path('fos_user_registration_register') }}">Зарегестрироваться</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+
+       {# <header class="page-header">
             <!-- RD Navbar-->
             <div class="rd-navbar-wrap bg-gray-dark">
                 <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
@@ -74,7 +141,7 @@
                     </div>
                 </nav>
             </div>
-        </header>
+        </header>#}
         <!-- Swiper-->
         <section>
             <div class="swiper-slide-wrapper">
@@ -116,7 +183,11 @@
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script src="{{ asset('js/core.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    {#<script src="{{ asset('js/selectize.min.js') }}"></script>#}
+    <script src="{{ asset('js/scripts.js') }}"></script>
+
 
 {% endblock %}
 </body>

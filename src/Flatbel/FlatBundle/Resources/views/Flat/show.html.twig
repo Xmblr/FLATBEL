@@ -7,307 +7,307 @@
 {% endblock %}
 
 {% block body %}
-    <article>
-        <section style="margin: 2% 7%">
 
-            <div class="row">
-                {#Title#}
-                {#<div class="row">#}
-                {#<h1 style="font-size: 24px">{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h1>#}
-                {#</div>#}
-                {#Photo and main information#}
-                <div class="row" style="margin-top: 2%">
-                    <div class="col-md-8">
-                        <div>
-                            <!-- Carousel
-                            ================================================== -->
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                                </ol>
-                                <div class="carousel-inner " role="listbox" style="max-height: 400px">
-                                    <div class="item active">
-                                        <div style="height: 400px; position: relative;">
-                                            <img class="first-slide"
-                                                 src="{% path flat.mainphoto, 'big' %}"
-                                                 style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
-                                                 alt="{{ flat.description }} image not found">
-                                        </div>
+    <div class="an-inner-banner">
 
-                                    </div>
-                                    <div class="item">
-                                        <div style="height: 400px; position: relative;">
-                                            <img class="first-slide"
-                                                 src="{% path flat.photo1, 'big' %}"
-                                                 style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
-                                                 alt="{{ flat.description }} image not found">
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div style="height: 400px; position: relative;">
-                                            <img class="first-slide"
-                                                 src="{% path flat.photo2, 'big' %}"
-                                                 style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
-                                                 alt="{{ flat.description }} image not found">
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div style="height: 400px; position: relative;">
-                                            <img class="first-slide"
-                                                 src="{% path flat.photo3, 'big' %}"
-                                                 style="position: absolute; margin: auto; left: 0; top: 0; bottom: 0; right: 0; max-height: 400px"
-                                                 alt="{{ flat.description }} image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div><!-- /.carousel -->
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h1 class="panel-title"
-                                    style="font-size: 24px">{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h1>
-                            </div>
-                            <ul class="list-group" style="text-align: left">
-                                <li class="list-group-item">
-                                    Кол-во спальных мест:
-                                    {{ flat.numberofbeds }}
-                                </li>
-                                <li class="list-group-item">
-                                    Кол-во комнат:
-                                    {{ flat.rooms }}
-                                </li>
-                                <li class="list-group-item">
-                                    Ближайшее метро:
-                                    {{ flat.metro }}
-                                </li>
-                                <li class="list-group-item">
-                                    Цена за день:
-                                    {{ flat.priceday }}
-                                </li>
-                                <li class="list-group-item">
-                                    Цена за час:
-                                    {{ flat.pricehour }}
-                                </li>
-                                <li class="list-group-item">
-                                    Город:
-                                    {{ flat.city }}
-                                </li>
-                            </ul>
-                            <div class="panel-body">
-                                {{ flat.about }}<br>
-                                <br>
-                                Телефон:
-                                <a href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a><br>
+        <div class="container">
+            <div class="an-advertise">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="ad-details">
 
+                            <h1><a href="#">{{ flat.streettype }} {{ flat.street }} - {{ flat.home }}</a></h1>
+                            <div class="listing-meta">
+                                {#<span><a class="color-hotel" href="#">Restaurant/Fine Dining</a></span>#}
+                                {#<span class="user"><span class="meta-italic">By:</span><a href="#">Fiona Wilson</a></span>#}
+                                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                                <span><i class="fa fa-building-o"
+                                         aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i
+                                            class="fa fa-bed" aria-hidden="true"></i>{{ flat.numberofbeds }} спальное место</span>
+                                <span><i class="fa fa-map-marker" aria-hidden="true"></i>{{ flat.city }}</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                {#Additional information#}
-                <div data-type="horizontal" class="responsive-tabs responsive responsive-tabs-classic horizontal text-left">
-                    <ul class="resp-tabs-list tabs-1 text-center tabs-group-default">
-                        <li>Карта</li>
-                        <li>Дополнительные характеристики</li>
-                        <li>Другие квартиры</li>
-                    </ul>
-                    <div class="resp-tabs-container text-sm-left tabs-group-default">
-                        <div>
-                            <div class="panel panel-default" style="height:450px">
-                                <div class="panel-body">
-                                    <p>"Map" in developing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="list-group" style="text-align: left">
-                                <div class="list-group-item">
-                                    Телефизор:
-                                    <span class="glyphicon glyphicon-{% if flat.tv == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Wi-Fi:
-                                    <span class="glyphicon glyphicon-{% if flat.wifi == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Паркинг:
-                                    <span class="glyphicon glyphicon-{% if flat.parking == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Микроволновка:
-                                    <span class="glyphicon glyphicon-{% if flat.microwave == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Посудомоечная машина:
-                                    <span class="glyphicon glyphicon-{% if flat.washer == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Ванна:
-                                    <span class="glyphicon glyphicon-{% if flat.bath == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Душ:
-                                    <span class="glyphicon glyphicon-{% if flat.shower == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Холодильник:
-                                    <span class="glyphicon glyphicon-{% if flat.fridge == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Посуда:
-                                    <span class="glyphicon glyphicon-{% if flat.dishes == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                                <div class="list-group-item">
-                                    Постельное бельё:
-                                    <span class="glyphicon glyphicon-{% if flat.linens == 1 %}ok{% else %}remove{% endif %}"
-                                          aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="panel panel-default" style="height: 450px">
-                                <div class="panel-body">
-                                    <p>"Another flats" in developing</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-sm-4">
 
+
+                        <div class="ad-price">
+
+                            <div> <!-- Only required for left/right tabs -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active h1" id="tab1"
+                                         style="margin-bottom:0px; margin-top:0px;">
+                                        <p style="margin-bottom:0px;">{{ flat.priceday }}/сутки</p>
+                                    </div>
+                                    <div class="tab-pane h1" id="tab2" style="margin-bottom:0px; margin-top:0px;">
+                                        <p style="margin-bottom:0px;"> {{ flat.priceday }}/сутки</p>
+                                    </div>
+                                    <div class="tab-pane h1" id="tab3" style="margin-bottom:0px; margin-top:0px;">
+                                        <p style="margin-bottom:0px;">{{ flat.priceday }}/сутки</p>
+                                    </div>
+                                </div>
+                                <span class="listing-meta">
+                                    <span class="meta-italic">Перевести в:</span>
+                                    <span class="active"><a href="#tab1" data-toggle="tab">BYN</a></span>
+                                    <span><a href="#tab2" data-toggle="tab">USD</a></span>
+                                    <span><a href="#tab3" data-toggle="tab">RUS</a></span>
+                                </span>
+
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
             </div>
+        </div> <!-- end an-advertise -->
+    </div> <!-- end cotnainer -->
+    <!-- an-header-banner -->
 
-            {#----------------#}
-            {#<div class="col-md-4">#}
 
 
-            {#<div style="margin-top: 2%">#}
-            {#<ul class="nav nav-tabs">#}
-            {#<li class="active"><a href="#menu1">Основное</a></li>#}
-            {#<li><a href="#menu2">Дополнительно</a></li>#}
-            {#<li><a href="#menu3">Карта</a></li>#}
-            {#</ul>#}
+    <div class="container">
 
-            {#<div class="tab-content">#}
-            {#<div id="menu1" class="tab-pane fade in active">#}
-            {#<div class="list-group" style="text-align: left">#}
-            {#<div class="list-group-item">#}
-            {#Тип квартиры:#}
-            {#{{ flat.flattype }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Кол-во спальных мест:#}
-            {#{{ flat.numberofbeds }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Кол-во комнат:#}
-            {#{{ flat.rooms }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Этажей в доме:#}
-            {#{{ flat.floorhome }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Этаж:#}
-            {#{{ flat.floor }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Ближайшее метро:#}
-            {#{{ flat.metro }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Номер телефона:#}
-            {#<a href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Цена за день:#}
-            {#{{ flat.priceday }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Цена за час:#}
-            {#{{ flat.pricehour }}#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Цена за ночь:#}
-            {#{{ flat.pricenight }}#}
-            {#</div>#}
-            {#</div>#}
-            {#</div>#}
-            {#<div id="menu2" class="tab-pane fade">#}
-            {#<div class="list-group" style="text-align: left">#}
-            {#<div class="list-group-item">#}
-            {#Телефизор:#}
-            {#<span class="glyphicon glyphicon-{% if flat.tv == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Wi-Fi:#}
-            {#<span class="glyphicon glyphicon-{% if flat.wifi == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Паркинг:#}
-            {#<span class="glyphicon glyphicon-{% if flat.parking == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Микроволновка:#}
-            {#<span class="glyphicon glyphicon-{% if flat.microwave == 1 %}ok{% else %}remove{% endif %}"#}
-            {#aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Посудомоечная машина:#}
-            {#<span class="glyphicon glyphicon-{% if flat.washer == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Ванна:#}
-            {#<span class="glyphicon glyphicon-{% if flat.bath == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Душ:#}
-            {#<span class="glyphicon glyphicon-{% if flat.shower == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Холодильник:#}
-            {#<span class="glyphicon glyphicon-{% if flat.fridge == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Посуда:#}
-            {#<span class="glyphicon glyphicon-{% if flat.dishes == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#<div class="list-group-item">#}
-            {#Постельное бельё:#}
-            {#<span class="glyphicon glyphicon-{% if flat.linens == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
-            {#</div>#}
-            {#</div>#}
-            {#</div>#}
-            {#<div id="menu3" class="tab-pane fade">#}
-            {##}
-            {#</div>#}
-            {#</div>#}
-            {#</div>#}
+        {#Title#}
+        {#<div class="row">#}
+        {#<h1 style="font-size: 24px">{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h1>#}
+        {#</div>#}
+        {#Photo and main information#}
+        <div class="row" style="margin-top: 2%">
+            <div class="col-md-8">
+                <div>
+                    <!-- Carousel
+                    ================================================== -->
+                    <div class="owl-carousel listing-slider owl-theme"
+                         style="box-shadow: 0 6px 25px 0 rgba(55, 66, 73, 0.2);">
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.mainphoto, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.photo1, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.photo2, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                    </div>
 
-            {#</div>#}
-        </section>
-    </article>
+                </div><!-- /.carousel -->
+
+                <div class="an-blog-post">
+                    <p style="text-align:justify;">{{ flat.about }}</p>
+                    <h3>Дополнительные характеристики:</h3>
+
+                    <div class="an-listing-features-list">
+                        <ul>
+                            <li><i class="fa fa-{% if flat.tv == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Телевизор
+                            </li>
+                            <li><i class="fa fa-{% if flat.wifi == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Wi-fi
+                            </li>
+                            <li><i class="fa fa-{% if flat.parking == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Паркинг
+                            </li>
+                            <li><i class="fa fa-{% if flat.microwave == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Микроволновка
+                            </li>
+                            <li><i class="fa fa-{% if flat.washer == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Стиральная машина
+                            </li>
+                            <li><i class="fa fa-{% if flat.bath == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Ванна
+                            </li>
+                            <li><i class="fa fa-{% if flat.shower == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Душ
+                            </li>
+
+                            <li><i class="fa fa-{% if flat.fridge == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Холодильник
+                            </li>
+                            <li><i class="fa fa-{% if flat.dishes == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Посуда
+                            </li>
+                            <li><i class="fa fa-{% if flat.linens == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Постельное белье
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="an-sidebar">
+                    <div class="widget-contact-details no-margin">
+
+                        <div class="contact-info">
+                            <h2>Квартира на сутки
+                                - {{ flat.city }}</br>{{ flat.streettype }} {{ flat.street }} {{ flat.home }}</h2>
+
+                            <div class="listing-meta">
+                                        <span><i class="fa fa-bed" aria-hidden="true"></i>Кол-во спальных мест:
+                                            {{ flat.numberofbeds }}</span>
+                                <span><i class="fa fa-building-o" aria-hidden="true"></i>Кол-во комнат:
+                                    {{ flat.rooms }}</span>
+                                <span><a href="#"><i class="fa fa-subway" aria-hidden="true"></i>Ближайшее метро:
+                                        {{ flat.metro }}</a></span>
+                                <span><a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена за день:
+                                        {{ flat.priceday }} BYN</a></span>
+                                <span><a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена за час:
+                                                от {{ flat.pricehour }} BYN</a></span>
+                                <span><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>Город:
+                                        {{ flat.city }}</a></span>
+                            </div>
+                        </div>
+                    </div> <!-- end widget-contact-details -->
+                    <div class="widget-opening-hours no-margin">
+
+
+
+                        <h4>Контактные данные:</h4>
+                        <div class="hours-list-single">
+
+                            <span><i class="fa fa-phone" aria-hidden="true"></i> Телефон: <a style="color:white;"
+                                                                                             href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a></span>
+                        </div>
+
+                    </div>
+
+
+
+                    </div> <!-- end an-news-container -->
+                </div> <!-- end an-sidebar -->
+
+            </div>
+        </div>
+        {#Additional information#}
+
+    </div>
+
+
+    {#----------------#}
+    {#<div class="col-md-4">#}
+
+
+    {#<div style="margin-top: 2%">#}
+    {#<ul class="nav nav-tabs">#}
+    {#<li class="active"><a href="#menu1">Основное</a></li>#}
+    {#<li><a href="#menu2">Дополнительно</a></li>#}
+    {#<li><a href="#menu3">Карта</a></li>#}
+    {#</ul>#}
+
+    {#<div class="tab-content">#}
+    {#<div id="menu1" class="tab-pane fade in active">#}
+    {#<div class="list-group" style="text-align: left">#}
+    {#<div class="list-group-item">#}
+    {#Тип квартиры:#}
+    {#{{ flat.flattype }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Кол-во спальных мест:#}
+    {#{{ flat.numberofbeds }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Кол-во комнат:#}
+    {#{{ flat.rooms }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Этажей в доме:#}
+    {#{{ flat.floorhome }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Этаж:#}
+    {#{{ flat.floor }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Ближайшее метро:#}
+    {#{{ flat.metro }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Номер телефона:#}
+    {#<a href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Цена за день:#}
+    {#{{ flat.priceday }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Цена за час:#}
+    {#{{ flat.pricehour }}#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Цена за ночь:#}
+    {#{{ flat.pricenight }}#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#<div id="menu2" class="tab-pane fade">#}
+    {#<div class="list-group" style="text-align: left">#}
+    {#<div class="list-group-item">#}
+    {#Телефизор:#}
+    {#<span class="glyphicon glyphicon-{% if flat.tv == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Wi-Fi:#}
+    {#<span class="glyphicon glyphicon-{% if flat.wifi == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Паркинг:#}
+    {#<span class="glyphicon glyphicon-{% if flat.parking == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Микроволновка:#}
+    {#<span class="glyphicon glyphicon-{% if flat.microwave == 1 %}ok{% else %}remove{% endif %}"#}
+    {#aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Посудомоечная машина:#}
+    {#<span class="glyphicon glyphicon-{% if flat.washer == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Ванна:#}
+    {#<span class="glyphicon glyphicon-{% if flat.bath == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Душ:#}
+    {#<span class="glyphicon glyphicon-{% if flat.shower == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Холодильник:#}
+    {#<span class="glyphicon glyphicon-{% if flat.fridge == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Посуда:#}
+    {#<span class="glyphicon glyphicon-{% if flat.dishes == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#<div class="list-group-item">#}
+    {#Постельное бельё:#}
+    {#<span class="glyphicon glyphicon-{% if flat.linens == 1 %}ok{% else %}remove{% endif %}" aria-hidden="true"></span>#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#<div id="menu3" class="tab-pane fade">#}
+    {##}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+
+    {#</div>#}
+
 {% endblock %}
 
 {% block javascripts %}

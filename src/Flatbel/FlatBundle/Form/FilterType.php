@@ -25,7 +25,7 @@ class FilterType extends AbstractType
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
                 ),
-                'choices_as_values' => true, 'label' => 'Flat Type',
+                'choices_as_values' => true, 'label' => 'Тип квартиры',
             ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
@@ -39,7 +39,7 @@ class FilterType extends AbstractType
                     '6+' => '7',
 
                 ),
-                'choices_as_values' => true, 'label'=>'Number of beds'
+                'choices_as_values' => true, 'label'=>'Кол-во спальных мест'
             ))
             ->add('metro',ChoiceType::class, array(
                 'choices'  => array(
@@ -75,7 +75,7 @@ class FilterType extends AbstractType
                     'Уручье'=>'Уручье'
 
                 ),
-                'choices_as_values' => true, 'label'=>'Metro',
+                'choices_as_values' => true, 'label'=>'Метро',
             ))
             ->add('rooms',ChoiceType::class, array(
                 'choices'  => array(
@@ -85,7 +85,7 @@ class FilterType extends AbstractType
                     '3' => '3',
                     '4+' => '4',
                     ),
-                'choices_as_values' => true,'label'=>'Rooms'
+                'choices_as_values' => true,'label'=>'Кол-во комнат'
             ))
 //            ->add('city',ChoiceType::class, array(
 //                'choices'  => array(

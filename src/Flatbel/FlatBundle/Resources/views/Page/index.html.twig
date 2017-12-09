@@ -1,36 +1,37 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <div class="row">
-        <img src="{{ asset('img/slide-1.jpg') }}">
-        <div class="swiper-onSlider" style="margin-top: 5%">
-            <div class="shell shell-wide section-70 section-xl-top-200 section-xl-bottom-220">
-                <div class="range range-xs-center">
-                    <div class="cell-xl-6 cell-lg-9 cell-md-11">
-                        <div data-type="horizontal"
-                             class="responsive-tabs text-md-left nav-custom-dark view-animate fadeInUpSmall">
-                            <div class="resp-tabs-container nav-custom-tab nav-custom-wide">
+    <div class="row" style="background-image: url({{ asset('img/slide-1.jpg') }})">
+
+
+    <div class="container" style="padding-top: 10%;padding-bottom: 10%;">
+                                <div class="search-fields" style="background-color:white;">
+                                    <div class="row">
 
                                 <div>
-                                    <h1 style="text-align: center; color: white">Выберите город</h1>
+                                    <h1 style="text-align: center; ">Выберите город</h1>
                                 </div>
                                 <form>
                                     <div class="form-group">
-                                        <div class="dropdown">
-                                            <select onchange="location = this.value">
+                                        <div class="an-default-select-wrapper minimal">
+                                            <div class="selectize-control single">
+
+                                            <select class="selectize-input items full has-options has-items" onchange="location = this.value">
                                                 <option>Выберите...</option>
-                                            {% for city in city %}
-                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}" >{{ city.name }}</option>
-                                            {% endfor %}
+                                                {% for city in city %}
+                                                    <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}">{{ city.name }}</option>
+                                                {% endfor %}
+                                                <div class="selectize-dropdown single" >
+                                                    <div class="selectize-dropdown-content"></div>
+                                                </div>
                                             </select>
+
+                                            </div>
                                         </div>
                                     </div>
+                                    </div>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                </div>
     </div>
+
 {% endblock %}

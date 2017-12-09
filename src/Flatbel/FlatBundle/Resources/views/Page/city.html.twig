@@ -6,6 +6,9 @@
     {{ parent() }}
 {% endblock %}
 
+
+
+
 {% block slide %}
     <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"
          class="swiper-container swiper-slider">
@@ -15,54 +18,114 @@
             <div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>
         </div>
     </div>
+
+
+
+
+
 {% endblock %}
 
 {% block body %}
-    <section class="section-80 section-md-120 bg-gray-lighter">
-        <div class="shell shell-wide">
-            <h2 data-wow-delay="0.2s" class="offset-top-20 text-ubold wow fadeInUp">Каталог квартир</h2>
-            <hr data-wow-delay="0.3s" class="divider divider-primary divider-80 wow fadeInUp">
-            <div class="range offset-md-top-90 offset-top-50">
-                <div>
-                    <div>
-                        <div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">
-                            {% for flat in flats %}
-                                <div class="col-lg-4" style="margin-top: 2%">
-                                    <div class="post-blog post-blog-type-2">
-                                        <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
-                                            <img src="{% path flat.mainphoto, 'big' %}" style="display: inline-block; width: 420px; height: 300px; overflow: hidden;" alt="photo" class="img-responsive"/>
-                                        </a>
-                                        <div class="post-blog-caption">
-                                            <h4 class="post-blog-title text-bold">
-                                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
-                                                    - {{ flat.home }}</a>
-                                            </h4>
-                                            <p class="text-base">
-                                                {{ flat.about(100) }}
-                                            </p>
-                                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"
-                                               class="post-blog-link">Подробнее...</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% else %}
-                                <h2>Квартиры не найдены</h2>
-                            {% endfor %}
+
+<div class="container" style="margin-top: 4%;">
+
+        {% for flat in flats %}
+            <div class="col-md-4 col-sm-4">
+                <div class="an-listing-single">
+                    <div class="listing-img-container"
+                         style="background: url('{% path flat.mainphoto, 'big' %}') center center no-repeat;
+                                 background-size: cover;">
+                        <span class="an-badge bg-property">{{ flat.city }}</span>
+                        <div class="listing-hover-content">
+
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i> {{ flat.telnumber }}
+
+                            </p>
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
+                                <button class="an-btn an-btn-black icon-left small-padding"><i class="fa fa-info-circle"
+                                                                                               aria-hidden="true"></i>Подробнее...
+                                </button>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-            {% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}
-                <div class="offset-top-100 offset-lg-top-100" align="center">
-                    <div class="view-animate fadeInUpSmall delay-08"><a
-                                href="{{ path('FlatbelFlatBundle_flat_flats',{'city':city}) }}"
-                                class="btn btn-primary btn-naira btn-naira-up"><span
-                                    class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>
+                    <div class="listing-content">
+                        <div class="listing-name">
+
+                            <div class="col-md-8" style="padding-left:0px;">
+                                <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
+                                        - {{ flat.home }}</a></h3>
+                            </div>
+                            <div class="col-md-4" style="padding-right:0px; font-size:14px;">
+                                <p>{{ flat.priceday }} BYN/сут</p></div>
+
+
+                            <p>{{ flat.about(110) }}...</p>
+                        </div>
+                        <div class="listing-meta"><span><i class="fa fa-building-o"
+                                                           aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i
+                                        class="fa fa-bed" aria-hidden="true"></i>{{ flat.numberofbeds }} спальное место</span>
+                            <i class="fa fa-wifi" aria-hidden="true"></i>
+
+                            <i class="fa fa-car" aria-hidden="true"></i></div>
                     </div>
-                </div>
-            {% endif %}
-        </div>
-    </section>
+                </div> <!-- end listing-single -->
+
+    </div>
+        {% else %}
+
+            <h2>Квартиры не найдены</h2>
+        {% endfor %}
+    </div>
+
+
+    {#<section class="section-80 section-md-120 bg-gray-lighter">#}
+    {#<div class="shell shell-wide">#}
+    {#<h2 data-wow-delay="0.2s" class="offset-top-20 text-ubold wow fadeInUp">Каталог квартир</h2>#}
+    {#<hr data-wow-delay="0.3s" class="divider divider-primary divider-80 wow fadeInUp">#}
+    {#<div class="range offset-md-top-90 offset-top-50">#}
+    {#<div>#}
+    {#<div>#}
+    {#<div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">#}
+    {#{% for flat in flats %}#}
+    {#<div class="col-lg-9" style="margin-top: 2%">#}
+    {#<div class="post-blog post-blog-type-2">#}
+    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">#}
+    {#<div style="background-image: url({% path flat.mainphoto, 'big' %}); height:300px; background-size: auto 100%;"></div>#}
+
+    {#</a>#}
+    {#<div class="post-blog-caption">#}
+    {#<h4 class="post-blog-title text-bold">#}
+    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}#}
+    {#- {{ flat.home }}</a>#}
+    {#</h4>#}
+    {#<p class="text-base">#}
+    {#{{ flat.about(110) }}...#}
+    {#</p>#}
+    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"#}
+    {#class="post-blog-link">Подробнее...</a>#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#{% else %}#}
+    {#<h2>Квартиры не найдены</h2>#}
+    {#{% endfor %}#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#{% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}#}
+    {#<div class="offset-top-100 offset-lg-top-100" align="center">#}
+    {#<div class="view-animate fadeInUpSmall delay-08"><a#}
+    {#href="{{ path('FlatbelFlatBundle_flat_flats',{'city':city}) }}"#}
+    {#class="btn btn-primary btn-naira btn-naira-up"><span#}
+    {#class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>#}
+    {#</div>#}
+    {#</div>#}
+    {#{% endif %}#}
+    {#</div>#}
+    {#</section>#}
 {% endblock %}
 
 {% block javascripts %}

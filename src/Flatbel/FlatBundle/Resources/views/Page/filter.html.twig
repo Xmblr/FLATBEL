@@ -1,32 +1,40 @@
 {{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_city',{'city':city}), 'method': 'POST', 'attr': {'class': 'small'} }) }}
                 {{ form_errors(filter_form) }}
 
+<div class="row" style="background-image: url({{ asset('img/slide-1.jpg') }})">
+<div class="container" style="padding-top: 10%;padding-bottom: 10%;">
+    <div class="search-fields" style="background-color:white;">
     <div class="range" style="text-align: left">
+        <div class="row">
         <div class="range">
-            <div class="cell-md-2">
+            <div class="col-md-3 an-default-select-wrapper minimal">
                 <div class="form-group">
-                    {{ form_row(filter_form.flattype) }}
+                    <div class="an-default-select-wrapper minimal">
+                        <div class="selectize-control single">
+                    {{ form_row(filter_form.flattype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="cell-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
-                    {{ form_row(filter_form.numberofbeds) }}
+                    {{ form_row(filter_form.numberofbeds , { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                 </div>
             </div>
-            <div class="cell-md-3">
+            <div class="col-md-3">
                 <div class="form-group">
-                    {{ form_row(filter_form.metro) }}
+                    {{ form_row(filter_form.metro , { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                 </div>
             </div>
-            <div class="cell-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
-                    {{ form_row(filter_form.rooms) }}
+                    {{ form_row(filter_form.rooms , { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                 </div>
             </div>
 
         </div>
         <div class="range offset-top-15">
-            <div class="cell-md-8">
+            <div class="col-md-9">
                 <div class="form-group">
                     <div id="slider" style=""></div>
                 </div>
@@ -40,13 +48,23 @@
             <div class="cell-md-2" hidden>
                 <div class="form-group">
                     <div id="slider"></div>
-                    {{ form_row(filter_form.priceday, { 'attr': {'class': 'form-control','value':1000} }) }}
+                    {{ form_row(filter_form.priceday, { 'attr': {'class': 'form-control','value':120} }) }}
                 </div>
             </div>
-            <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0">
-                <input type="submit" value="Фильтровать" class="btn btn-primary btn-sm btn-naira btn-naira-up">
-            </div>
+           <div class="col-md-3">
+               <div class="cell-lg-clear-flex cell-sm-bottom cell-lg text-center text-lg-right offset-top-15 offset-lg-top-0" style="padding-top:40px;">
+                   <input type="submit" value="Фильтровать" class="an-btn an-btn-default">
+               </div>
+           </div>
         </div>
     </div>
+</div>
+    </div></div>
+
+</div>
+
+
+
+
 
 {{ form_rest(filter_form) }}
