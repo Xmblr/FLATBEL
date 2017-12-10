@@ -52,15 +52,15 @@
                     </div>
                 </div>
             </div>
-            {% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}
-                <div class="offset-top-100 offset-lg-top-100" align="center">
-                    <div class="view-animate fadeInUpSmall delay-08"><a
-                                href="{{ path('FlatbelFlatBundle_flat_flats',{'city':city}) }}"
-                                class="btn btn-primary btn-naira btn-naira-up"><span
-                                    class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>
-                    </div>
-                </div>
-            {% endif %}
+            {#{% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}#}
+                {#<div class="offset-top-100 offset-lg-top-100" align="center">#}
+                    {#<div class="view-animate fadeInUpSmall delay-08"><a#}
+                                {#href="{{ path('FlatbelFlatBundle_flat_flats',{'city':city}) }}"#}
+                                {#class="btn btn-primary btn-naira btn-naira-up"><span#}
+                                    {#class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>#}
+                    {#</div>#}
+                {#</div>#}
+            {#{% endif %}#}
         </div>
     </section>
 {% endblock %}
@@ -75,10 +75,10 @@
     <script>
         //<!--
         $("#slider")
-            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 1000}}, {
+            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 200}}, {
                 defaultValues: {
                     min: 0,
-                    max: 1000
+                    max: 200
                 }
             }, {step: 1})
             .on("valuesChanging", function (e, data) {

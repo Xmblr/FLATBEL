@@ -19,6 +19,7 @@
                                         <div class="dropdown">
                                             <select onchange="location = this.value">
                                                 <option>Выберите...</option>
+                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':'Global'}) }}" >Не важно</option>
                                             {% for city in city %}
                                                 <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}" >{{ city.name }}</option>
                                             {% endfor %}
