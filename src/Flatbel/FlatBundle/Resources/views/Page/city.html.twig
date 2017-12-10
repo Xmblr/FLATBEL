@@ -6,16 +6,24 @@
     {{ parent() }}
 {% endblock %}
 
-{% block slide %}
-    <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"
-         class="swiper-container swiper-slider">
-        <div class="swiper-wrapper">
-            <div data-slide-bg="{{ asset('img/slide-1.jpg') }}" class="swiper-slide"></div>
-            <div data-slide-bg="{{ asset('img/slide-2.jpg') }}" class="swiper-slide"></div>
-            <div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>
-        </div>
-    </div>
-{% endblock %}
+
+
+
+{#{% block slide %}#}
+    {#<div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"#}
+         {#class="swiper-container swiper-slider">#}
+        {#<div class="swiper-wrapper">#}
+            {#<div data-slide-bg="{{ asset('img/slide-1.jpg') }}" class="swiper-slide"></div>#}
+            {#<div data-slide-bg="{{ asset('img/slide-2.jpg') }}" class="swiper-slide"></div>#}
+            {#<div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>#}
+        {#</div>#}
+    {#</div>#}
+
+
+
+
+
+{#{% endblock %}#}
 
 {% block body %}
 
@@ -34,17 +42,18 @@
                                 <i class="fa fa-phone" aria-hidden="true"></i> {{ flat.telnumber }}
 
                             </p>
-                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">
-                                <button class="an-btn an-btn-black icon-left small-padding"><i class="fa fa-info-circle"
-                                                                                               aria-hidden="true"></i>Подробнее...
+
+                                <button class="an-btn an-btn-black icon-left small-padding"><a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"><i class="fa fa-info-circle"
+                                                                                               aria-hidden="true"></i>Подробнее...</a>
                                 </button>
-                            </a>
+
+                            <p style="color:white; text-align:center; font-size:11px;">{{ flat.about(140) }}...</p>
                         </div>
                     </div>
                     <div class="listing-content">
                         <div class="listing-name">
 
-                            <div class="col-md-8" style="padding-left:0px;">
+                            <div class="col-md-8" style="padding-left:0px; padding-right:0px;">
                                 <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
                                         - {{ flat.home }}</a></h3>
@@ -53,7 +62,7 @@
                                 <p>{{ flat.priceday }} BYN/сут</p></div>
 
 
-                            <p>{{ flat.about(110) }}...</p>
+
                         </div>
                         <div class="listing-meta"><span><i class="fa fa-building-o"
                                                            aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i

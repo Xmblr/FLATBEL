@@ -1,25 +1,25 @@
 {{ form_start(filter_form, { 'action': path('FlatbelFlatBundle_city',{'city':city}), 'method': 'POST', 'attr': {'class': 'small'} }) }}
                 {{ form_errors(filter_form) }}
 
-<div class="row" style="background-image: url({{ asset('img/slide-1.jpg') }})">
+<div style="background-image: url({{ asset('img/slide-1.jpg') }})">
 <div class="container" style="padding-top: 10%;padding-bottom: 10%;">
     <div class="search-fields" style="background-color:white;">
     <div class="range" style="text-align: left">
         <div class="row">
         <div class="range">
-            <div class="col-md-3 an-default-select-wrapper minimal">
+            <div class="col-md-3">
                 <div class="form-group">
-                    <div class="an-default-select-wrapper minimal">
-                        <div class="selectize-control single">
+
                     {{ form_row(filter_form.flattype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
+
                     {{ form_row(filter_form.numberofbeds , { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                 </div>
+
             </div>
             <div class="col-md-3">
                 <div class="form-group">

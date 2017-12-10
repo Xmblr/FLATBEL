@@ -2340,7 +2340,8 @@ padding-bottom:5px;}
     .search-fields {
         padding: 15px;
         padding-bottom: 15px;
-        width: 87%; } }
+        margin-left: 5%;
+        width: 90%; } }
 
 .search-submit {
     position: relative;
@@ -4185,3 +4186,11 @@ max-height:300px;}
 }
 
 .select2 {display: none;}
+
+@media (max-width: 768px) {
+    .listing-name {
+        text-align:center;
+}
+.listing-meta {
+    font-size:11px;
+}}
