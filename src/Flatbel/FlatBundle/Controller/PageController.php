@@ -54,7 +54,6 @@ class PageController extends Controller
                     $flat->getNumberofbeds(),
                     $flat->getMetro(),
                     null,
-                    $flat->getPayornot(),
                     $cityId,
                     $flat->getPricehour(),
                     $flat->getPriceday());
@@ -72,7 +71,7 @@ class PageController extends Controller
 
 
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null,1, $cityId, 0,200);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, $cityId, 0,200);
 
         return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
             'flats' => $flats,
