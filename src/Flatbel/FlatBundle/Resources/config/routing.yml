@@ -17,11 +17,11 @@ FlatbelFlatBundle_flat_create:
     requirements:
         methods: POST
 
-FlatbelFlatBundle_flat_flats:
-    path: /flats/kvartiry-na-sytki-{city}
-    defaults: { _controller: "FlatbelFlatBundle:Flat:flats" }
-    requirements:
-        methods: GET|POST
+#FlatbelFlatBundle_flat_flats:
+#    path: /flats/kvartiry-na-sytki-{city}
+#    defaults: { _controller: "FlatbelFlatBundle:Flat:flats" }
+#    requirements:
+#        methods: GET|POST
 
 FlatbelFlatBundle_flat_show:
     path:  /flats/{description}id={id}

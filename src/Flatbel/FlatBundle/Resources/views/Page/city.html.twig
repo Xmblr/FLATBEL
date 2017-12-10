@@ -6,9 +6,6 @@
     {{ parent() }}
 {% endblock %}
 
-
-
-
 {% block slide %}
     <div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"
          class="swiper-container swiper-slider">
@@ -18,11 +15,6 @@
             <div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>
         </div>
     </div>
-
-
-
-
-
 {% endblock %}
 
 {% block body %}
@@ -138,10 +130,10 @@
     <script>
         //<!--
         $("#slider")
-            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 1000}}, {
+            .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 200}}, {
                 defaultValues: {
                     min: 0,
-                    max: 1000
+                    max: 200
                 }
             }, {step: 1})
             .on("valuesChanging", function (e, data) {

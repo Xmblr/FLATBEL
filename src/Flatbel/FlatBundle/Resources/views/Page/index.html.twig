@@ -24,6 +24,10 @@
                                                 <div class="selectize-dropdown single" >
                                                     <div class="selectize-dropdown-content"></div>
                                                 </div>
+                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':'Global'}) }}" >Не важно</option>
+                                            {% for city in city %}
+                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}" >{{ city.name }}</option>
+                                            {% endfor %}
                                             </select>
 
                                             </div>
@@ -33,5 +37,4 @@
                                 </form>
                                 </div>
     </div>
-
 {% endblock %}

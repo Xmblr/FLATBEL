@@ -72,59 +72,59 @@ class FlatController extends Controller
         ));
     }
 
-    public function flatsAction(Request $request, $city)
-    {
-
-        $flat = new Flat();
-
-        $filter_form = $this->createForm(FilterType::class, $flat);
-
-        $filter_form->handleRequest($request);
-
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        if ($city == 'global')
-        {
-            $cityId = null;
-        }
-        else
-        {
-            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
-        }
-
-        if ($filter_form->isValid()) {
-
-            $flats = $em->getRepository('FlatbelFlatBundle:Flat')
-                ->getFlats(
-                    $flat->getFlattype(),
-                    $flat->getNumberofbeds(),
-                    $flat->getMetro(),
-                    null,
-                    $flat->getPayornot(),
-                    $cityId,
-                    $flat->getPricehour(),
-                    $flat->getPriceday());
-
-
-            // Redirect - This is important to prevent users re-posting
-            // the filter_form if they refresh the page
-            // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
-            return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
-                'flats' => $flats,
-                'filter_form' => $filter_form->createView(),
-                'city' => $city,
-            ));
-        }
-
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$cityId,0,1000);
-
-        return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
-            'flats' => $flats,
-            'filter_form' => $filter_form->createView(),
-            'city' => $city,
-        ));
-    }
+//    public function flatsAction(Request $request, $city)
+//    {
+//
+//        $flat = new Flat();
+//
+//        $filter_form = $this->createForm(FilterType::class, $flat);
+//
+//        $filter_form->handleRequest($request);
+//
+//        $em = $this->getDoctrine()
+//            ->getManager();
+//
+//        if ($city == 'global')
+//        {
+//            $cityId = null;
+//        }
+//        else
+//        {
+//            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
+//        }
+//
+//        if ($filter_form->isValid()) {
+//
+//            $flats = $em->getRepository('FlatbelFlatBundle:Flat')
+//                ->getFlats(
+//                    $flat->getFlattype(),
+//                    $flat->getNumberofbeds(),
+//                    $flat->getMetro(),
+//                    null,
+//                    $flat->getPayornot(),
+//                    $cityId,
+//                    $flat->getPricehour(),
+//                    $flat->getPriceday());
+//
+//
+//            // Redirect - This is important to prevent users re-posting
+//            // the filter_form if they refresh the page
+//            // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
+//            return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
+//                'flats' => $flats,
+//                'filter_form' => $filter_form->createView(),
+//                'city' => $city,
+//            ));
+//        }
+//
+//        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$cityId,0,1000);
+//
+//        return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
+//            'flats' => $flats,
+//            'filter_form' => $filter_form->createView(),
+//            'city' => $city,
+//        ));
+//    }
 
     public function translate($_str) {
         $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
