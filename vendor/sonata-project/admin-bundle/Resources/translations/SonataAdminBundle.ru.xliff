@@ -56,7 +56,7 @@
             </trans-unit>
             <trans-unit id="link_action_create">
                 <source>link_action_create</source>
-                <target>Добавить новый</target>
+                <target>Добавить новую квартиру</target>
             </trans-unit>
             <trans-unit id="link_action_list">
                 <source>link_action_list</source>
@@ -72,11 +72,11 @@
             </trans-unit>
             <trans-unit id="link_add">
                 <source>link_add</source>
-                <target>Добавить новый</target>
+                <target>Добавить новую квартиру</target>
             </trans-unit>
             <trans-unit id="link_list">
                 <source>link_list</source>
-                <target>Список</target>
+                <target>Список квартир</target>
             </trans-unit>
             <trans-unit id="link_reset_filter">
                 <source>link_reset_filter</source>

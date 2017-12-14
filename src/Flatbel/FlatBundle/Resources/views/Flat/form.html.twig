@@ -1,14 +1,9 @@
-<section class="section-80 section-md-120">
-    <div class="shell shell-wide text-lg-left">
-        <div class="cell-lg-5">
-            <div class="inset-lg-left-80">
+<div class="container" style="margin-top: 4%;">
                 <h1 class="offset-top-20 text-ubold" style="font-size: 34px;">Добавьте свою квартиру</h1>
 
-            </div>
-            <div class="inset-lg-left-80 section-md-top-30 ">
+
                 {{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': ' text-left'} }) }}
                 {{ form_errors(create_form) }}
-            </div>
             <div class="row">
 
                 <div class="col-md-4">
@@ -21,18 +16,18 @@
                             <div class="range">
                                 <div class="cell-md-12">
                                     <div class="form-group">
-                                        {{ form_row(create_form.flattype) }}
+                                        {{ form_row(create_form.flattype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ form_row(create_form.numberofbeds) }}
+                                        {{ form_row(create_form.numberofbeds, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ form_row(create_form.rooms) }}
+                                        {{ form_row(create_form.rooms, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-5">
-                                                {{ form_row(create_form.streettype) }}
+                                                {{ form_row(create_form.streettype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                             </div>
                                             <div class="cell-md-7">
                                                 {{ form_row(create_form.street, {'attr' : {'class':'form-control'}}) }}
@@ -58,10 +53,10 @@
                                         {{ form_row(create_form.floor, {'attr' : {'class':'form-control'}}) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ form_row(create_form.metro) }}
+                                        {{ form_row(create_form.metro, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ form_row(create_form.city) }}
+                                        {{ form_row(create_form.city, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
                                 </div>
                             </div>
@@ -80,109 +75,94 @@
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.tv) }}
                                                 {{ form_label(create_form.tv) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.tv) }}
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.wifi) }}
                                                 {{ form_label(create_form.wifi) }}
                                             </div>
-                                            <div class="cell-md-2 checkbox-custom">
-                                                {{ form_widget(create_form.wifi) }}
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.parking) }}
                                                 {{ form_label(create_form.parking) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.parking) }}
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.microwave) }}
                                                 {{ form_label(create_form.microwave) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.microwave) }}
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.washer) }}
                                                 {{ form_label(create_form.washer) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.washer) }}
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.bath) }}
                                                 {{ form_label(create_form.bath) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.bath) }}
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.shower) }}
                                                 {{ form_label(create_form.shower) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.shower) }}
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.fridge) }}
                                                 {{ form_label(create_form.fridge) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.fridge) }}
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.dishes) }}
                                                 {{ form_label(create_form.dishes) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.dishes) }}
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="range">
                                             <div class="cell-md-6">
+                                                {{ form_widget(create_form.linens) }}
                                                 {{ form_label(create_form.linens) }}
                                             </div>
-                                            <div class="cell-md-2">
-                                                {{ form_widget(create_form.linens) }}
-                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.telnumber, {'attr' : {'class':'form-control','placeholder':'Пример: +375291234567'} }) }}
                                     </div>
                                     <div class="form-group">
                                         {{ form_row(create_form.about, {'attr' : {'class':'form-control'}}) }}
+                                        {{ form_row(create_form.telnumber, {'attr' : {'class':'form-control','placeholder':'Пример: +375291234567'} }) }}
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -221,10 +201,6 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-</section>
 
-
+</div>
 

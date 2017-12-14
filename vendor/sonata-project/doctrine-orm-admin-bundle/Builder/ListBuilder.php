@@ -79,7 +79,7 @@ class ListBuilder implements ListBuilderInterface
      */
     public function fixFieldDescription(AdminInterface $admin, FieldDescriptionInterface $fieldDescription)
     {
-        if ($fieldDescription->getName() == '_action') {
+        if ($fieldDescription->getName() === '_action' || $fieldDescription->getType() === 'actions') {
             $this->buildActionFieldDescription($fieldDescription);
         }
 
@@ -127,21 +127,25 @@ class ListBuilder implements ListBuilderInterface
                         $fieldDescription->setTemplate(
                             'SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig'
                         );
+
                         break;
                     case ClassMetadataInfo::ONE_TO_ONE:
                         $fieldDescription->setTemplate(
                             'SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig'
                         );
+
                         break;
                     case ClassMetadataInfo::ONE_TO_MANY:
                         $fieldDescription->setTemplate(
                             'SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig'
                         );
+
                         break;
                     case ClassMetadataInfo::MANY_TO_MANY:
                         $fieldDescription->setTemplate(
                             'SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig'
                         );
+
                         break;
                 }
             }
@@ -164,7 +168,7 @@ class ListBuilder implements ListBuilderInterface
         }
 
         if (null === $fieldDescription->getType()) {
-            $fieldDescription->setType('action');
+            $fieldDescription->setType('actions');
         }
 
         if (null === $fieldDescription->getOption('name')) {

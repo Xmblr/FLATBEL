@@ -31,7 +31,7 @@ class ResizeFormListener implements EventSubscriberInterface
     /**
      * @var bool
      */
-    private $resizeOnBind;
+    private $resizeOnSubmit;
 
     /**
      * @var array
@@ -46,20 +46,20 @@ class ResizeFormListener implements EventSubscriberInterface
     /**
      * @var \Closure
      */
-    private $preBindDataCallback;
+    private $preSubmitDataCallback;
 
     /**
      * @param string        $type
      * @param array         $typeOptions
-     * @param bool          $resizeOnBind
-     * @param \Closure|null $preBindDataCallback
+     * @param bool          $resizeOnSubmit
+     * @param \Closure|null $preSubmitDataCallback
      */
-    public function __construct($type, array $typeOptions = array(), $resizeOnBind = false, $preBindDataCallback = null)
+    public function __construct($type, array $typeOptions = array(), $resizeOnSubmit = false, $preSubmitDataCallback = null)
     {
         $this->type = $type;
-        $this->resizeOnBind = $resizeOnBind;
+        $this->resizeOnSubmit = $resizeOnSubmit;
         $this->typeOptions = $typeOptions;
-        $this->preBindDataCallback = $preBindDataCallback;
+        $this->preSubmitDataCallback = $preSubmitDataCallback;
     }
 
     /**
@@ -69,7 +69,9 @@ class ResizeFormListener implements EventSubscriberInterface
     {
         return array(
             FormEvents::PRE_SET_DATA => 'preSetData',
+            // NEXT_MAJOR: change `preBind` to `preSubmit`
             FormEvents::PRE_SUBMIT => 'preBind',
+            // NEXT_MAJOR: change `onBind` to `onSubmit`
             FormEvents::SUBMIT => 'onBind',
         );
     }
@@ -121,7 +123,7 @@ class ResizeFormListener implements EventSubscriberInterface
         // BC prevention for class extending this one.
         if (get_called_class() !== 'Sonata\CoreBundle\Form\EventListener\ResizeFormListener') {
             @trigger_error(
-                'The '.__METHOD__.' method is deprecated since 2.3 and will be renamed in 4.0.'
+                __METHOD__.' method is deprecated since 2.3 and will be renamed in 4.0.'
                 .' Use '.__CLASS__.'::preSubmit instead.',
                 E_USER_DEPRECATED
             );
@@ -137,7 +139,7 @@ class ResizeFormListener implements EventSubscriberInterface
      */
     public function preSubmit(FormEvent $event)
     {
-        if (!$this->resizeOnBind) {
+        if (!$this->resizeOnSubmit) {
             return;
         }
 
@@ -164,8 +166,8 @@ class ResizeFormListener implements EventSubscriberInterface
                     'property_path' => '['.$name.']',
                 );
 
-                if ($this->preBindDataCallback) {
-                    $buildOptions['data'] = call_user_func($this->preBindDataCallback, $value);
+                if ($this->preSubmitDataCallback) {
+                    $buildOptions['data'] = call_user_func($this->preSubmitDataCallback, $value);
                 }
 
                 $options = array_merge($this->typeOptions, $buildOptions);
@@ -192,7 +194,7 @@ class ResizeFormListener implements EventSubscriberInterface
         // BC prevention for class extending this one.
         if (get_called_class() !== 'Sonata\CoreBundle\Form\EventListener\ResizeFormListener') {
             @trigger_error(
-                'The '.__METHOD__.' is deprecated since 2.3 and will be renamed in 4.0.'
+                __METHOD__.' is deprecated since 2.3 and will be renamed in 4.0.'
                 .' Use '.__CLASS__.'::onSubmit instead.',
                 E_USER_DEPRECATED
             );
@@ -208,7 +210,7 @@ class ResizeFormListener implements EventSubscriberInterface
      */
     public function onSubmit(FormEvent $event)
     {
-        if (!$this->resizeOnBind) {
+        if (!$this->resizeOnSubmit) {
             return;
         }
 

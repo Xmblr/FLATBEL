@@ -121,7 +121,7 @@ sonata_type_immutable_array
 The ``Immutable Array`` allows you to edit an array property by defining a type per key.
 
 The type has a ``keys`` parameter which contains the definition for each key.
-A definition is an array with 3 options:
+A definition is either a ``FormBuilder`` instance, or an array with 3 options:
 
 * key name,
 * type: a type name or a ``FormType`` instance,
@@ -156,8 +156,6 @@ Each value has a different type: `integer`, `url`, or `string` for instance.
 Now, the property can be edited by setting a type for each type:
 
 .. code-block:: php
-
-        <?php
 
     <?php
     // src/AppBundle/Admin/PageAdmin.php
@@ -445,6 +443,7 @@ Many of the `standard date picker options`_ are available by adding options with
                         'dp_collapse'           => true,
                         'dp_calendar_weeks'     => false,
                         'dp_view_mode'          => 'days',
+                        'dp_min_view_mode'      => 'days',
                 ))
 
                 // or sonata_type_date_picker if you don't need the time
@@ -488,12 +487,12 @@ Example with ``doctrine_orm_date_range`` filter:
         // ...
     }
 
-sonata_type_color_picker
+sonata_type_color
 ------------------------
 
-This type a simple color picker from AdminLTE colors. Its available as service, and inherit from ``choice`` default form types.
+This is HTML5 input type color.
 
-.. image:: ../images/colorpicker.png
+.. image:: ../images/color.png
 
 In order to use it, you'll need to perform a bit of setup:
 
@@ -503,9 +502,8 @@ In order to use it, you'll need to perform a bit of setup:
 
         # app/config/config.yml
         twig:
-            form:
-                resources:
-                    - 'SonataCoreBundle:Form:colorpicker.html.twig'
+            form_themes:
+                - 'SonataCoreBundle:Form:color.html.twig'
 
 Finally, in your form, you may use the form type as follows:
 
@@ -519,7 +517,7 @@ Finally, in your form, you may use the form type as follows:
         protected function configureFormFields(FormMapper $formMapper)
         {
             $formMapper
-                ->add('color', 'sonata_type_color_selector')
+                ->add('color', 'sonata_type_color')
                 // ...
             ;
         }

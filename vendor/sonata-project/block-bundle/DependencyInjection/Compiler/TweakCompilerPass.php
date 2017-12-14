@@ -38,27 +38,27 @@ class TweakCompilerPass implements CompilerPassInterface
             $arguments = $definition->getArguments();
 
             // Replace empty block id with service id
-            if (strlen($arguments[0]) == 0) {
-                $definition->replaceArgument(0, $id);
+            if (empty($arguments) || strlen($arguments[0]) == 0) {
+                $definition->setArgument(0, $id);
             } elseif ($id != $arguments[0] && 0 !== strpos(
                 $container->getParameterBag()->resolveValue($definition->getClass()),
                 'Sonata\\BlockBundle\\Block\\Service\\'
             )) {
                 // NEXT_MAJOR: Remove deprecation notice
                 @trigger_error(
-                    sprintf('Using service id %s different from block id %s is deprecated since 3.x and will be removed in 4.0.', $id, $arguments[0]),
+                    sprintf('Using service id %s different from block id %s is deprecated since 3.3 and will be removed in 4.0.', $id, $arguments[0]),
                     E_USER_DEPRECATED
                 );
             }
 
-            $manager->addMethodCall('add', array($id, $id, isset($parameters[$id]) ? $parameters[$id]['contexts'] : array()));
+            $manager->addMethodCall('add', [$id, $id, isset($parameters[$id]) ? $parameters[$id]['contexts'] : []]);
         }
 
         foreach ($container->findTaggedServiceIds('sonata.block.menu') as $id => $attributes) {
-            $registry->addMethodCall('add', array(new Reference($id)));
+            $registry->addMethodCall('add', [new Reference($id)]);
         }
 
-        $services = array();
+        $services = [];
         foreach ($container->findTaggedServiceIds('sonata.block.loader') as $id => $tags) {
             $services[] = new Reference($id);
         }
@@ -79,12 +79,12 @@ class TweakCompilerPass implements CompilerPassInterface
 
         foreach ($container->getParameter('sonata_block.blocks') as $service => $settings) {
             if (count($settings['settings']) > 0) {
-                $definition->addMethodCall('addSettingsByType', array($service, $settings['settings'], true));
+                $definition->addMethodCall('addSettingsByType', [$service, $settings['settings'], true]);
             }
         }
         foreach ($container->getParameter('sonata_block.blocks_by_class') as $class => $settings) {
             if (count($settings['settings']) > 0) {
-                $definition->addMethodCall('addSettingsByClass', array($class, $settings['settings'], true));
+                $definition->addMethodCall('addSettingsByClass', [$class, $settings['settings'], true]);
             }
         }
     }

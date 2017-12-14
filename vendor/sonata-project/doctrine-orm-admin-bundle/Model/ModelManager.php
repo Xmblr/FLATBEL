@@ -82,8 +82,10 @@ class ModelManager implements ModelManagerInterface, LockInterface
     {
         $nameElements = explode('.', $propertyFullName);
         $lastPropertyName = array_pop($nameElements);
+        $propertyName = $lastPropertyName;
         $class = $baseClass;
         $parentAssociationMappings = array();
+        $parentEmbeddedMappings = array();
 
         foreach ($nameElements as $nameElement) {
             $metadata = $this->getMetadata($class);
@@ -92,13 +94,27 @@ class ModelManager implements ModelManagerInterface, LockInterface
                 $parentAssociationMappings[] = $metadata->associationMappings[$nameElement];
                 $class = $metadata->getAssociationTargetClass($nameElement);
             } elseif (isset($metadata->embeddedClasses[$nameElement])) {
-                $parentAssociationMappings = array();
-                $lastPropertyName = $propertyFullName;
-                $class = $baseClass;
+                $parentEmbeddedMappings[] = array(
+                    'class' => $class,
+                    'field' => $nameElement,
+                );
+                $class = $metadata->embeddedClasses[$nameElement]['class'];
             }
         }
 
-        return array($this->getMetadata($class), $lastPropertyName, $parentAssociationMappings);
+        // Support for multi-level embedded properties
+        if (!empty($parentEmbeddedMappings)) {
+            $baseEmbeddedMapping = current($parentEmbeddedMappings);
+            $class = $baseEmbeddedMapping['class'];
+
+            $propertyName = '';
+            foreach ($parentEmbeddedMappings as $embeddedMapping) {
+                $propertyName .= $embeddedMapping['field'].'.';
+            }
+            $propertyName .= $lastPropertyName;
+        }
+
+        return array($this->getMetadata($class), $propertyName, $parentAssociationMappings);
     }
 
     /**
@@ -373,6 +389,7 @@ class ModelManager implements ModelManagerInterface, LockInterface
         foreach ($metadata->getIdentifierValues($entity) as $name => $value) {
             if (!is_object($value)) {
                 $identifiers[] = $value;
+
                 continue;
             }
 
@@ -380,6 +397,7 @@ class ModelManager implements ModelManagerInterface, LockInterface
             $type = $fieldType && Type::hasType($fieldType) ? Type::getType($fieldType) : null;
             if ($type) {
                 $identifiers[] = $type->convertToDatabaseValue($value, $platform);
+
                 continue;
             }
 
@@ -509,7 +527,11 @@ class ModelManager implements ModelManagerInterface, LockInterface
         $query->setMaxResults($maxResult);
 
         if ($query instanceof ProxyQueryInterface) {
-            $query->addOrderBy($query->getSortBy(), $query->getSortOrder());
+            $sortBy = $query->getSortBy();
+
+            if (!empty($sortBy)) {
+                $query->addOrderBy($sortBy, $query->getSortOrder());
+            }
 
             $query = $query->getQuery();
         }

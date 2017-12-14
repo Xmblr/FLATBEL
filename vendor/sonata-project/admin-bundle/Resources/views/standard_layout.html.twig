@@ -91,7 +91,7 @@ file that was distributed with this source code.
             {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
 
             {% if _title is not empty %}
-                {{ _title|raw }}
+                {{ _title|striptags|raw }}
             {% else %}
                 {% if action is defined %}
                     -
@@ -224,29 +224,29 @@ file that was distributed with this source code.
                 <aside class="main-sidebar">
                     <section class="sidebar">
                         {% block sonata_side_nav %}
-                            {% block sonata_sidebar_search %}
-                                <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
-                                    <div class="input-group custom-search-form">
-                                        <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-flat" type="submit">
-                                                <i class="fa fa-search" aria-hidden="true"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </form>
-                            {% endblock sonata_sidebar_search %}
+                            {#{% block sonata_sidebar_search %}#}
+                                {#<form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">#}
+                                    {#<div class="input-group custom-search-form">#}
+                                        {#<input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">#}
+                                        {#<span class="input-group-btn">#}
+                                            {#<button class="btn btn-flat" type="submit">#}
+                                                {#<i class="fa fa-search" aria-hidden="true"></i>#}
+                                            {#</button>#}
+                                        {#</span>#}
+                                    {#</div>#}
+                                {#</form>#}
+                            {#{% endblock sonata_sidebar_search %}#}
 
                             {% block side_bar_before_nav %} {% endblock %}
                             {% block side_bar_nav %}
                                 {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
                             {% endblock side_bar_nav %}
                             {% block side_bar_after_nav %}
-                                <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
-                                    {% block side_bar_after_nav_content %}
-                                        <a href="https://sonata-project.org" rel="noreferrer" target="_blank">sonata project</a>
-                                    {% endblock %}
-                                </p>
+                                {#<p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">#}
+                                    {#{% block side_bar_after_nav_content %}#}
+                                        {#<a href="https://sonata-project.org" rel="noreferrer" target="_blank">sonata project</a>#}
+                                    {#{% endblock %}#}
+                                {#</p>#}
                             {% endblock %}
                         {% endblock sonata_side_nav %}
                     </section>

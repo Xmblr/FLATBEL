@@ -600,7 +600,7 @@ textarea.an-form-control, .an-edit-profile .file-input textarea.form-control,
     display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
-    font-family: "FontAwesome", sans-serif;
+    font-family: "Century Gothic", sans-serif;
     text-align: center;
     vertical-align: middle;
     touch-action: manipulation;
@@ -3701,7 +3701,8 @@ p.with-bg {
     position: relative;
     max-width: 600px;
     padding: 15px;
-    z-index: 20; }
+    z-index: 20;
+text-align:center;}
 .an-login-register-content .content .logo {
     position: relative;
     margin-bottom: 30px;
@@ -3750,7 +3751,8 @@ p.with-bg {
     position: relative;
     padding: 15px 0 30px; }
 .an-login-register-content .terms {
-    padding: 0 0 30px; }
+    padding: 0 0 30px;
+    color: white;}
 
 .an-contact-us-content {
     position: relative; }

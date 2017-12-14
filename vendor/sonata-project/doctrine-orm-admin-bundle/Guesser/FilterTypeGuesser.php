@@ -13,6 +13,7 @@ namespace Sonata\DoctrineORMAdminBundle\Guesser;
 
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Sonata\AdminBundle\Model\ModelManagerInterface;
+use Sonata\DoctrineORMAdminBundle\Model\MissingPropertyMetadataException;
 use Symfony\Component\Form\Guess\Guess;
 use Symfony\Component\Form\Guess\TypeGuess;
 
@@ -45,7 +46,7 @@ class FilterTypeGuesser extends AbstractTypeGuesser
                 case ClassMetadataInfo::ONE_TO_MANY:
                 case ClassMetadataInfo::MANY_TO_ONE:
                 case ClassMetadataInfo::MANY_TO_MANY:
-                    // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8)
+                    // NEXT_MAJOR: Remove ternary (when requirement of Symfony is >= 2.8).
                     $options['operator_type'] = method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
                         ? 'Sonata\CoreBundle\Form\Type\EqualType'
                         : 'sonata_type_equal';
@@ -64,6 +65,10 @@ class FilterTypeGuesser extends AbstractTypeGuesser
 
                     return new TypeGuess('doctrine_orm_model', $options, Guess::HIGH_CONFIDENCE);
             }
+        }
+
+        if (!array_key_exists($propertyName, $metadata->fieldMappings)) {
+            throw new MissingPropertyMetadataException($class, $property);
         }
 
         $options['field_name'] = $metadata->fieldMappings[$propertyName]['fieldName'];
