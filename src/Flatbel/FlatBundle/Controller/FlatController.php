@@ -20,7 +20,7 @@ class FlatController extends Controller
     /**
      * Show a flat entry
      */
-    public function showAction($description,$id)
+    public function showAction($city, $description, $id)
     {
         $em = $this->getDoctrine()->getManager();
 

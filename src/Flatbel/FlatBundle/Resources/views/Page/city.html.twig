@@ -43,8 +43,11 @@
 
                             </p>
 
-                                <button class="an-btn an-btn-black icon-left small-padding"><a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"><i class="fa fa-info-circle"
-                                                                                               aria-hidden="true"></i>Подробнее...</a>
+                                <button class="an-btn an-btn-black icon-left small-padding">
+                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        Подробнее...
+                                    </a>
                                 </button>
 
                             <p style="color:white; text-align:center; font-size:11px;">{{ flat.about(140) }}...</p>
@@ -55,7 +58,7 @@
 
                             <div class="col-md-8" style="padding-left:0px; padding-right:0px;">
                                 <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
+                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
                                         - {{ flat.home }}</a></h3>
                             </div>
                             <div class="col-md-4" style="padding-right:0px; font-size:14px;">
