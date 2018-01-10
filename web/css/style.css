@@ -1795,7 +1795,7 @@ padding-bottom:5px;}
     color: #fda737; }
 
 .listing-meta {
-    position: relative;
+    /*position: relative;*/
     padding-top: 5px;
     margin: 0;
     font-size: 13px;

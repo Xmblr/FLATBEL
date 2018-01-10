@@ -267,11 +267,11 @@ sonata_media:
 sonata_seo:
     encoding:         UTF-8
     page:
-        title:            Flatbel
+        title:
         default:          sonata.seo.page.default
         metas:
             name:
-                keywords:             foo bar
+#                keywords:             foo bar
                 description:          The description
                 robots:               index, follow
 

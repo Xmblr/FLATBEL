@@ -35,13 +35,14 @@
 
                             </p>
 
-                            <button class="an-btn an-btn-black icon-left small-padding">
-                                <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">
-                                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                    Подробнее...
-                                </a>
-                            </button>
+                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">
+                                <span class="an-btn an-btn-black icon-left small-padding">
 
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                        Подробнее...
+
+                                </span>
+                            </a>
                             <p style="color:white; text-align:center; font-size:11px;">{{ flat.about(140) }}...</p>
                         </div>
                     </div>
@@ -61,9 +62,14 @@
                         <div class="listing-meta"><span><i class="fa fa-building-o"
                                                            aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i
                                         class="fa fa-bed" aria-hidden="true"></i>{{ flat.numberofbeds }} спальное место</span>
-                            <i class="fa fa-wifi" aria-hidden="true"></i>
+                            {% if flat.wifi == 1 %}
+                                <i class="fa fa-wifi" aria-hidden="true"></i>
+                            {% endif %}
 
-                            <i class="fa fa-car" aria-hidden="true"></i></div>
+                            {% if flat.parking == 1 %}
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                            {% endif %}
+                        </div>
                     </div>
                 </div> <!-- end listing-single -->
 
