@@ -43,6 +43,69 @@ class City
     protected $description;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $text;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $h1;
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getH1()
+    {
+        return $this->h1;
+    }
+
+    /**
+     * @param mixed $h1
+     */
+    public function setH1($h1)
+    {
+        $this->h1 = $h1;
+    }
+
+    /**
      * @return mixed
      */
     public function getDescription()

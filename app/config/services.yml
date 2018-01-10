@@ -30,6 +30,12 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Admin, group: "app.admin.group.user" }
         public: true
 
+    admin.city:
+        class: Flatbel\FlatBundle\Admin\CityAdmin
+        arguments: [~, Flatbel\FlatBundle\Entity\City,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "City", group: "app.admin.group.admin" }
+        public: true
 
 #    service_name:
 #        class: AppBundle\Directory\ClassName
