@@ -32,6 +32,7 @@ file that was distributed with this source code.
 
 {% block show %}
     <div class="sonata-ba-view">
+
         {{ sonata_block_render_event('sonata.admin.show.top', { 'admin': admin, 'object': object }) }}
 
         {% set has_tab = (admin.showtabs|length == 1 and admin.showtabs|keys[0] != 'default') or admin.showtabs|length > 1 %}

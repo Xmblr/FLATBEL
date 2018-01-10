@@ -156,39 +156,39 @@ sonata_admin:
     templates:
         layout:                         FlatbelFlatBundle:Admin:standard_layout.html.twig
         ajax:                           FlatbelFlatBundle:Admin:ajax_layout.html.twig
-        list:                           FlatbelFlatBundle:Admin:CRUD:list.html.twig
-        show:                           FlatbelFlatBundle:Admin:CRUD:show.html.twig
-        show_compare:                   FlatbelFlatBundle:Admin:CRUD:show_compare.html.twig
-        edit:                           FlatbelFlatBundle:Admin:CRUD:edit.html.twig
-        history:                        FlatbelFlatBundle:Admin:CRUD:history.html.twig
-        preview:                        FlatbelFlatBundle:Admin:CRUD:preview.html.twig
-        delete:                         FlatbelFlatBundle:Admin:CRUD:delete.html.twig
-        batch:                          FlatbelFlatBundle:Admin:CRUD:list__batch.html.twig
-        acl:                            FlatbelFlatBundle:Admin:CRUD:acl.html.twig
-        action:                         FlatbelFlatBundle:Admin:CRUD:action.html.twig
-        select:                         FlatbelFlatBundle:Admin:CRUD:list__select.html.twig
-        filter:                         FlatbelFlatBundle:Admin:Form:filter_admin_fields.html.twig
-        dashboard:                      FlatbelFlatBundle:Admin:dashboard.html.twig
-        search:                         FlatbelFlatBundle:Admin:Core:search.html.twig
-        batch_confirmation:             FlatbelFlatBundle:Admin:CRUD:batch_confirmation.html.twig
-        inner_list_row:                 FlatbelFlatBundle:Admin:CRUD:list_inner_row.html.twig
-        base_list_field:                FlatbelFlatBundle:Admin:CRUD:base_list_field.html.twig
-        list_block:                     FlatbelFlatBundle:Admin:block_admin_list.html.twig
-        user_block:                     FlatbelFlatBundle:Admin:Core:user_block.html.twig
-        add_block:                      FlatbelFlatBundle:Admin:Core:add_block.html.twig
-        pager_links:                    FlatbelFlatBundle:Admin:Pager:links.html.twig
-        pager_results:                  FlatbelFlatBundle:Admin:Pager:results.html.twig
-        tab_menu_template:              FlatbelFlatBundle:Admin:Core:tab_menu_template.html.twig
-        history_revision_timestamp:     FlatbelFlatBundle:Admin:CRUD:history_revision_timestamp.html.twig
-        short_object_description:       FlatbelFlatBundle:Admin:Helper:short-object-description.html.twig
-        search_result_block:            FlatbelFlatBundle:Admin:Block:block_search_result.html.twig
-        action_create:                  FlatbelFlatBundle:Admin:dashboard__action_create.html.twig
-        button_acl:                     FlatbelFlatBundle:Admin:Button:acl_button.html.twig
-        button_create:                  FlatbelFlatBundle:Admin:Button:create_button.html.twig
-        button_edit:                    FlatbelFlatBundle:Admin:Button:edit_button.html.twig
-        button_history:                 FlatbelFlatBundle:Admin:Button:history_button.html.twig
-        button_list:                    FlatbelFlatBundle:Admin:Button:list_button.html.twig
-        button_show:                    FlatbelFlatBundle:Admin:Button:show_button.html.twig
+        list:                           FlatbelFlatBundle:Admin:CRUD/list.html.twig
+        show:                           FlatbelFlatBundle:Admin:CRUD/show.html.twig
+        show_compare:                   FlatbelFlatBundle:Admin:CRUD/show_compare.html.twig
+        edit:                           FlatbelFlatBundle:Admin:CRUD/edit.html.twig
+        history:                        FlatbelFlatBundle:Admin:CRUD/history.html.twig
+        preview:                        FlatbelFlatBundle:Admin:CRUD/preview.html.twig
+        delete:                         FlatbelFlatBundle:Admin:CRUD/delete.html.twig
+        batch:                          FlatbelFlatBundle:Admin:CRUD/list__batch.html.twig
+        acl:                            FlatbelFlatBundle:Admin:CRUD/acl.html.twig
+        action:                         FlatbelFlatBundle:Admin:CRUD/action.html.twig
+        select:                         FlatbelFlatBundle:Admin:CRUD/list__select.html.twig
+        filter:                         FlatbelFlatBundle:Admin:Form/filter_admin_fields.html.twig
+        dashboard:                      FlatbelFlatBundle:Admin:Core/dashboard.html.twig
+        search:                         FlatbelFlatBundle:Admin:Core/search.html.twig
+        batch_confirmation:             FlatbelFlatBundle:Admin:CRUD/batch_confirmation.html.twig
+        inner_list_row:                 FlatbelFlatBundle:Admin:CRUD/list_inner_row.html.twig
+        base_list_field:                FlatbelFlatBundle:Admin:CRUD/base_list_field.html.twig
+        list_block:                     FlatbelFlatBundle:Admin:Block/block_admin_list.html.twig
+        user_block:                     FlatbelFlatBundle:Admin:Core/user_block.html.twig
+        add_block:                      FlatbelFlatBundle:Admin:Core/add_block.html.twig
+        pager_links:                    FlatbelFlatBundle:Admin:Pager/links.html.twig
+        pager_results:                  FlatbelFlatBundle:Admin:Pager/results.html.twig
+        tab_menu_template:              FlatbelFlatBundle:Admin:Core/tab_menu_template.html.twig
+        history_revision_timestamp:     FlatbelFlatBundle:Admin:CRUD/history_revision_timestamp.html.twig
+        short_object_description:       FlatbelFlatBundle:Admin:Helper/short-object-description.html.twig
+        search_result_block:            FlatbelFlatBundle:Admin:Block/block_search_result.html.twig
+        action_create:                  FlatbelFlatBundle:Admin:CRUD/dashboard__action_create.html.twig
+        button_acl:                     FlatbelFlatBundle:Admin:Button/acl_button.html.twig
+        button_create:                  FlatbelFlatBundle:Admin:Button/create_button.html.twig
+        button_edit:                    FlatbelFlatBundle:Admin:Button/edit_button.html.twig
+        button_history:                 FlatbelFlatBundle:Admin:Button/history_button.html.twig
+        button_list:                    FlatbelFlatBundle:Admin:Button/list_button.html.twig
+        button_show:                    FlatbelFlatBundle:Admin:Button/show_button.html.twig
 
 assetic:
     debug:          "%kernel.debug%"
@@ -267,11 +267,11 @@ sonata_media:
 sonata_seo:
     encoding:         UTF-8
     page:
-        title:
+        title:            Flatbel
         default:          sonata.seo.page.default
         metas:
             name:
-#                keywords:             foo bar
+                keywords:             foo bar
                 description:          The description
                 robots:               index, follow
 
