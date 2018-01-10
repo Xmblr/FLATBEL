@@ -244,12 +244,12 @@ sonata_seo:
 
                 # Open Graph information
                 # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
-                'og:site_name':       Sonata Project Sandbox
-                'og:description':     A demo of the some rich bundles for your Symfony2 projects
+                'og:site_name':       Flatbel.by
+                'og:description':     Аренда квартир на сутки. Недорого. Большой каталог объявлений.
 
             http-equiv:
                 'Content-Type':         text/html; charset=utf-8
-                #'X-Ua-Compatible':      IE=EmulateIE7
+                'X-Ua-Compatible':      IE=EmulateIE7
 
             charset:
                 UTF-8:    ''

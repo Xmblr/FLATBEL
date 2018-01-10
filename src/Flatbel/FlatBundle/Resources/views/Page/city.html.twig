@@ -6,9 +6,6 @@
     {{ parent() }}
 {% endblock %}
 
-
-
-
 {#{% block slide %}#}
     {#<div data-simulate-touch="false" data-autoplay="3500" data-slide-effect="fade"#}
          {#class="swiper-container swiper-slider">#}
@@ -18,11 +15,6 @@
             {#<div data-slide-bg="{{ asset('img/slide-3.jpg') }}" class="swiper-slide"></div>#}
         {#</div>#}
     {#</div>#}
-
-
-
-
-
 {#{% endblock %}#}
 
 {% block body %}
@@ -83,53 +75,6 @@
         {% endfor %}
     </div>
 
-
-    {#<section class="section-80 section-md-120 bg-gray-lighter">#}
-    {#<div class="shell shell-wide">#}
-    {#<h2 data-wow-delay="0.2s" class="offset-top-20 text-ubold wow fadeInUp">Каталог квартир</h2>#}
-    {#<hr data-wow-delay="0.3s" class="divider divider-primary divider-80 wow fadeInUp">#}
-    {#<div class="range offset-md-top-90 offset-top-50">#}
-    {#<div>#}
-    {#<div>#}
-    {#<div data-wow-delay="0.4s" class="offset-top-20 wow fadeInRight">#}
-    {#{% for flat in flats %}#}
-    {#<div class="col-lg-9" style="margin-top: 2%">#}
-    {#<div class="post-blog post-blog-type-2">#}
-    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">#}
-    {#<div style="background-image: url({% path flat.mainphoto, 'big' %}); height:300px; background-size: auto 100%;"></div>#}
-
-    {#</a>#}
-    {#<div class="post-blog-caption">#}
-    {#<h4 class="post-blog-title text-bold">#}
-    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}#}
-    {#- {{ flat.home }}</a>#}
-    {#</h4>#}
-    {#<p class="text-base">#}
-    {#{{ flat.about(110) }}...#}
-    {#</p>#}
-    {#<a href="{{ path('FlatbelFlatBundle_flat_show', { 'description': flat.description,'id': flat.id }) }}"#}
-    {#class="post-blog-link">Подробнее...</a>#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
-    {#{% else %}#}
-    {#<h2>Квартиры не найдены</h2>#}
-    {#{% endfor %}#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
-    {#{% if app.request.get('_route') != 'FlatbelFlatBundle_flat_flats' %}#}
-    {#<div class="offset-top-100 offset-lg-top-100" align="center">#}
-    {#<div class="view-animate fadeInUpSmall delay-08"><a#}
-    {#href="{{ path('FlatbelFlatBundle_flat_flats',{'city':city}) }}"#}
-    {#class="btn btn-primary btn-naira btn-naira-up"><span#}
-    {#class="icon mdi fa-arrow-right"></span><span>Смотреть все квартиры</span></a>#}
-    {#</div>#}
-    {#</div>#}
-    {#{% endif %}#}
-    {#</div>#}
-    {#</section>#}
 {% endblock %}
 
 {% block javascripts %}
@@ -140,7 +85,7 @@
     <script src="{{ asset('slider/jQAllRangeSliders-min.js') }}"></script>
     <!-- slider -->
     <script>
-        //<!--
+
         $("#slider")
             .editRangeSlider({arrows: false}, {bounds: {min: 0, max: 200}}, {
                 defaultValues: {
@@ -152,8 +97,8 @@
                 $("#flatbel_flatbundle_filter_pricehour").val(data.values.min);
                 $("#flatbel_flatbundle_filter_priceday").val(data.values.max);
             });
-        //-->
+
     </script>
     <!-- slider -->
-    {#{{ parent() }}#}
+
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use Flatbel\FlatBundle\Entity\City;
 use Flatbel\FlatBundle\Entity\Contact;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Form\ContactType;
@@ -21,6 +22,11 @@ class PageController extends Controller
 
         $city = $em->getRepository('FlatbelFlatBundle:City')->getCity("Не важно");
 
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('Flatbel - Flatbel')
+            ->addMeta('name', 'description', 'Главная страница. Выберите город');
+
         return $this->render('FlatbelFlatBundle:Page:index.html.twig', array(
             'city'=>$city
         ));
@@ -28,16 +34,23 @@ class PageController extends Controller
 
     public function cityAction(Request $request, $city)
     {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $description = $em->getRepository('FlatbelFlatBundle:City')->findOneBy(array('url' => $city))->getDescription();
+
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('Flatbel - Квартиры в городе '. $this->translate($city))
+            ->addMeta('name', 'description', $description);
+
         $flat = new Flat();
 
         $filter_form = $this->createForm(FilterType::class, $flat);
 
         $filter_form->handleRequest($request);
 
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        if ($city == 'global')
+        if ($city == 'Global')
         {
             $cityId = null;
         }
@@ -83,6 +96,11 @@ class PageController extends Controller
 
     public function contactAction(Request $request)
     {
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('Flatbel - Свяжитесь с нами')
+            ->addMeta('name', 'description', 'Свяжитесь с нами');
+
         $contact = new Contact();
 
         $contact_form = $this->createForm(ContactType::class, $contact);
@@ -112,6 +130,12 @@ class PageController extends Controller
         return $this->render('FlatbelFlatBundle:Page:contact.html.twig', array(
             'contact_form' => $contact_form->createView()
         ));
+    }
+
+    public function translate($_str) {
+        $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
+        $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
+        return str_replace($lat, $rus, $_str);
     }
 
 }

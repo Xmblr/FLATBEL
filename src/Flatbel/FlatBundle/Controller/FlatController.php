@@ -30,11 +30,21 @@ class FlatController extends Controller
             throw $this->createNotFoundException('Уупс... Квартиры не найдены');
         }
 
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('Flatbel - '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
+            ->addMeta('name', 'description', $description);
+
         return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat));
     }
 
     public function createAction(Request $request)
     {
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('Flatbel - Создание квартиры')
+            ->addMeta('name', 'description', 'Создание квартиры');
+
         $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
         $flat = new Flat();
         $create_form = $this->createForm(FlatType::class, $flat);
@@ -72,59 +82,6 @@ class FlatController extends Controller
         ));
     }
 
-//    public function flatsAction(Request $request, $city)
-//    {
-//
-//        $flat = new Flat();
-//
-//        $filter_form = $this->createForm(FilterType::class, $flat);
-//
-//        $filter_form->handleRequest($request);
-//
-//        $em = $this->getDoctrine()
-//            ->getManager();
-//
-//        if ($city == 'global')
-//        {
-//            $cityId = null;
-//        }
-//        else
-//        {
-//            $cityId = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
-//        }
-//
-//        if ($filter_form->isValid()) {
-//
-//            $flats = $em->getRepository('FlatbelFlatBundle:Flat')
-//                ->getFlats(
-//                    $flat->getFlattype(),
-//                    $flat->getNumberofbeds(),
-//                    $flat->getMetro(),
-//                    null,
-//                    $flat->getPayornot(),
-//                    $cityId,
-//                    $flat->getPricehour(),
-//                    $flat->getPriceday());
-//
-//
-//            // Redirect - This is important to prevent users re-posting
-//            // the filter_form if they refresh the page
-//            // return $this->redirect($this->generateUrl('FlatbelFlatBundle_homepage'));
-//            return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
-//                'flats' => $flats,
-//                'filter_form' => $filter_form->createView(),
-//                'city' => $city,
-//            ));
-//        }
-//
-//        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, 0,$cityId,0,1000);
-//
-//        return $this->render('FlatbelFlatBundle:Flat:flats.html.twig', array(
-//            'flats' => $flats,
-//            'filter_form' => $filter_form->createView(),
-//            'city' => $city,
-//        ));
-//    }
 
     public function translate($_str) {
         $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');

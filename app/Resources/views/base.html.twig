@@ -2,12 +2,12 @@
 <html lang="en" class="wide smoothscroll wow-animation">
 <head>
     <!-- Site Title-->
-    <title>{% block title %}Flatbel{% endblock %} - Flatbel</title>
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {#<title>{% block title %}Flatbel{% endblock %} - Flatbel</title>#}
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
     <link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>
     {% block stylesheets %}
         {% stylesheets '@bootstrap_css' %}
@@ -88,60 +88,6 @@
             </nav>
         </header>
 
-       {# <header class="page-header">
-            <!-- RD Navbar-->
-            <div class="rd-navbar-wrap bg-gray-dark">
-                <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-                     data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-                     data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="1px"
-                     data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" class="rd-navbar">
-                    <div class="rd-navbar-inner">
-                        <!-- RD Navbar Panel-->
-                        <div class="rd-navbar-panel">
-                            <!-- RD Navbar Toggle-->
-                            <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span>
-                            </button>
-                            <!-- RD Navbar Brand-->
-                            <div class="rd-navbar-brand">
-                                <a href="{{ path('FlatbelFlatBundle_homepage') }}"
-                                   class="reveal-inline-block brand-name">
-                                    <img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"
-                                         class="img-responsive center-block">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="rd-navbar-nav-wrap">
-                            <!-- RD Navbar Nav-->
-                            <ul class="rd-navbar-nav">
-                                <li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>
-                                <li><a href="{{ path('FlatbelFlatBundle_contact') }}">Обратная связь</a>
-                                    <!-- RD Navbar Dropdown-->
-                                    <ul class="rd-navbar-dropdown">
-                                        <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
-                                        <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
-                                        <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{ path('FlatbelFlatBundle_flat_create') }}">Добавьте свою квартиру</a>
-                                </li>
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    <li><a href="{{ path('fos_user_profile_show') }}">
-                                            <span class="glyphicon glyphicon-user"
-                                                  aria-hidden="true"></span> {{ app.user.username }}
-                                        </a>
-                                    </li>
-                                    <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
-                                {% else %}
-                                    <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
-                                    <li><a href="{{ path('fos_user_registration_register') }}">Зарегестрироваться</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>#}
         <!-- Swiper-->
         <section>
             <div class="swiper-slide-wrapper">
@@ -185,7 +131,6 @@
     <script src="{{ asset('js/core.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-    {#<script src="{{ asset('js/selectize.min.js') }}"></script>#}
     <script src="{{ asset('js/scripts.js') }}"></script>
 
 
