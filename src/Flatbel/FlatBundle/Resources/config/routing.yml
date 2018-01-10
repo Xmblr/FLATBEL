@@ -24,10 +24,10 @@ FlatbelFlatBundle_flat_create:
 #        methods: GET|POST
 
 FlatbelFlatBundle_flat_show:
-    path:  /flats/{description}id={id}
+    path:  /kvartiry-na-sytki-{city}/{description}id={id}
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
-        methods:  GET
+        methods:  GET|POST
         id: \d+
 
 FlatbelFlatBundle_city:

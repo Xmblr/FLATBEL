@@ -38,8 +38,31 @@ class City
     protected $url;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $description;
+
+    /**
      * @return mixed
      */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+
+
     public function getUrl()
     {
         return $this->url;

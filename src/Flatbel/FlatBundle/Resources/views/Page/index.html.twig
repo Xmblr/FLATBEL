@@ -1,37 +1,38 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <div class="row" style="background-image: url({{ asset('img/slide-1.jpg') }})">
+<div class="row" style="background-image: url({{ asset('img/slide-1.jpg') }})">
 
 
     <div class="container" style="padding-top: 10%;padding-bottom: 10%;">
-                                <div class="search-fields" style="background-color:white;">
-                                    <div class="row">
+    <div class="search-fields" style="background-color:white;">
+        <div class="row">
 
-                                <div>
-                                    <h1 style="text-align: center; ">Выберите город</h1>
+            <div>
+                <h1 style="text-align: center; ">Выберите город</h1>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <div class="an-default-select-wrapper minimal">
+                        <div class="selectize-control single">
+
+                            <select class="selectize-input items full has-options has-items"
+                                    onchange="location = this.value">
+                                <option>Выберите...</option>
+                                {#<option value="{{ path('FlatbelFlatBundle_city',{'city':'Global'}) }}">Не важно</option>#}
+                                {% for city in city %}
+                                    <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}">{{ city.name }}</option>
+                                {% endfor %}
+                                <div class="selectize-dropdown single">
+                                    <div class="selectize-dropdown-content"></div>
                                 </div>
-                                <form>
-                                    <div class="form-group">
-                                        <div class="an-default-select-wrapper minimal">
-                                            <div class="selectize-control single">
+                            </select>
 
-                                            <select class="selectize-input items full has-options has-items" onchange="location = this.value">
-                                                <option>Выберите...</option>
-                                                <option value="{{ path('FlatbelFlatBundle_city',{'city':'Global'}) }}" >Не важно</option>
-                                                {% for city in city %}
-                                                    <option value="{{ path('FlatbelFlatBundle_city',{'city':city.url}) }}">{{ city.name }}</option>
-                                                {% endfor %}
-                                                <div class="selectize-dropdown single" >
-                                                    <div class="selectize-dropdown-content"></div>
-                                                </div>
-                                            </select>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </form>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}
