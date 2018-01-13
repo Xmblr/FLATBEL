@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-11-04T14:15:10Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="233dba0b65a301010184c98f8067c89f9c4b6eac" resname="link_media">
+        <source>link_media</source>
+        <target state="new">link_media</target>
+        <jms:reference-file line="18">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e807bdd5b952d17a8c56c1fd4ce171dda0b257f2" resname="no_linked_media">
+        <source>no_linked_media</source>
+        <target state="new">no_linked_media</target>
+        <jms:reference-file line="13">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bee3adb7be481ef23023cca8a1d174fd1d535ab4" resname="widget_headline_information">
+        <source>widget_headline_information</source>
+        <target state="new">widget_headline_information</target>
+        <jms:reference-file line="17">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8fed1ef320d37db8d57fd70b625d6ebc47dc760" resname="widget_label_context">
+        <source>widget_label_context</source>
+        <target state="new">widget_label_context</target>
+        <jms:reference-file line="36">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+        <jms:reference-file line="40">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d849ad1ffac368bc024cad18b1d32beb5c4b8c62" resname="widget_label_type">
+        <source>widget_label_type</source>
+        <target state="new">widget_label_type</target>
+        <jms:reference-file line="34">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+        <jms:reference-file line="38">\..\src\Flatbel\FlatBundle\Resources\views\Form\media_widgets.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

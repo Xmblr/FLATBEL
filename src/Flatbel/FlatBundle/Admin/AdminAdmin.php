@@ -11,6 +11,10 @@ use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Validator\Constraints\Image;
+use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Show\ShowMapper;
+
 
 class AdminAdmin extends AbstractAdmin
 {
@@ -209,8 +213,8 @@ class AdminAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-
         $listMapper
+
             ->add('_action', null, array(
                 'actions' => array(
                     'clone' => array(
