@@ -146,10 +146,10 @@ sonata_admin:
     dashboard:
         groups:
             app.admin.group.admin:
-                label: Admin
+                label: Администратор
                 roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN]
             app.admin.group.user:
-                label: User
+                label: Пользователь
                 roles: [ ROLE_USER ]
     title:      Flatbel
     title_logo: Logo.png

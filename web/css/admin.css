@@ -1,0 +1,44 @@
+.main-sidebar, .left-side {
+    top:auto;
+}
+
+.navbar-brand img {
+    height:60px;
+    width:60px;
+    padding-right:0px;
+}
+
+body.fixed .content-header .navbar.stuck {
+    position:relative;
+}
+
+.content-wrapper, .right-side, .main-footer {
+    margin-left:0px;
+}
+
+.skin-black .sidebar-menu > li:hover > a, .skin-black .sidebar-menu > li.active > a {
+    color: black;
+    background: white;
+    border-left-color: #fff;
+}
+
+.skin-black .treeview-menu > li.active > a, .skin-black .treeview-menu > li > a:hover {
+    color: black;
+}
+
+.skin-black .sidebar-menu > li > .treeview-menu {
+    margin: 0 1px;
+    background: white;
+}
+
+.fixed .content-wrapper, .fixed .right-side {
+    padding-top: 0px;
+}
+
+.skin-black .sidebar a {
+    color: black;
+}
+
+footer {
+    position:relative;
+}

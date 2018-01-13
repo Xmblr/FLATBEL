@@ -13,28 +13,28 @@ services:
         class: Flatbel\FlatBundle\Admin\UserAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\User,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "User", group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: "Полтьзователи", group: "app.admin.group.admin" }
         public: true
 
     admin.flat:
         class: Flatbel\FlatBundle\Admin\FlatAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\Flat,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Flat, group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: "Квартиры Админ", group: "app.admin.group.admin" }
         public: true
 
     admin.admin:
         class: Flatbel\FlatBundle\Admin\AdminAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\Flat, FlatbelFlatBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Admin, group: "app.admin.group.user" }
+            - { name: sonata.admin, manager_type: orm, label: "Квартиры", group: "app.admin.group.user" }
         public: true
 
     admin.city:
         class: Flatbel\FlatBundle\Admin\CityAdmin
         arguments: [~, Flatbel\FlatBundle\Entity\City,~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "City", group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: "Города", group: "app.admin.group.admin" }
         public: true
 
 #    service_name:

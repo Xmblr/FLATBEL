@@ -24,69 +24,84 @@ file that was distributed with this source code.
 
 <!DOCTYPE html>
 <html {% block html_attributes %}class="no-js"{% endblock %}>
-    <head>
-        {% block meta_tags %}
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta charset="UTF-8">
-            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        {% endblock %}
+<head>
+    {% block meta_tags %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    {% endblock %}
 
-        {% block stylesheets %}
-            {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
-                <link rel="stylesheet" href="{{ asset(stylesheet) }}">
-            {% endfor %}
-        {% endblock %}
+    {#{% block stylesheets %}#}
+    {#{% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}#}
+    {#<link rel="stylesheet" href="{{ asset(stylesheet) }}">#}
+    {#{% endfor %}#}
+    {#{% endblock %}#}
 
-        {% block javascripts %}
-            {% block sonata_javascript_config %}
-                <script>
-                    window.SONATA_CONFIG = {
-                        CONFIRM_EXIT: {% if sonata_admin.adminPool.getOption('confirm_exit') %}true{% else %}false{% endif %},
-                        USE_SELECT2: {% if sonata_admin.adminPool.getOption('use_select2') %}true{% else %}false{% endif %},
-                        USE_ICHECK: {% if sonata_admin.adminPool.getOption('use_icheck') %}true{% else %}false{% endif %},
-                        USE_STICKYFORMS: {% if sonata_admin.adminPool.getOption('use_stickyforms') %}true{% else %}false{% endif %}
-                    };
-                    window.SONATA_TRANSLATIONS = {
-                        CONFIRM_EXIT: '{{ 'confirm_exit'|trans({}, 'SonataAdminBundle')|escape('js') }}'
-                    };
 
-                    // http://getbootstrap.com/getting-started/#support-ie10-width
-                    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-                        var msViewportStyle = document.createElement('style');
-                        msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
-                        document.querySelector('head').appendChild(msViewportStyle);
-                    }
-                </script>
-            {% endblock %}
+    {% block stylesheets %}
+        {#{% stylesheets '@bootstrap_css' %}#}
+        {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
+        {#{% endstylesheets %}#}
+        {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
+            <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+        {% endfor %}
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    {% endblock %}
 
-            {% block sonata_javascript_pool %}
-                {% for javascript in sonata_admin.adminPool.getOption('javascripts', []) %}
-                    <script src="{{ asset(javascript) }}"></script>
-                {% endfor %}
-            {% endblock %}
 
-            {% set locale = app.request.locale %}
-            {# localize moment #}
-            {% if locale[:2] != 'en' %}
-                <script src="{{ asset(
-                    'bundles/sonatacore/vendor/moment/locale/' ~
-                    locale|lower|replace({'_':'-'}) ~
-                    '.js'
-                ) }}"></script>
-            {% endif %}
+    {% block javascripts %}
+    {% block sonata_javascript_config %}
+        <script>
+            window.SONATA_CONFIG = {
+                CONFIRM_EXIT: {% if sonata_admin.adminPool.getOption('confirm_exit') %}true{% else %}false{% endif %},
+                USE_SELECT2: {% if sonata_admin.adminPool.getOption('use_select2') %}true{% else %}false{% endif %},
+                USE_ICHECK: {% if sonata_admin.adminPool.getOption('use_icheck') %}true{% else %}false{% endif %},
+                USE_STICKYFORMS: {% if sonata_admin.adminPool.getOption('use_stickyforms') %}true{% else %}false{% endif %}
+            };
+            window.SONATA_TRANSLATIONS = {
+                CONFIRM_EXIT: '{{ 'confirm_exit'|trans({}, 'SonataAdminBundle')|escape('js') }}'
+            };
 
-            {# localize select2 #}
-            {% if sonata_admin.adminPool.getOption('use_select2') %}
-                {% if locale == 'pt' %}{% set locale = 'pt_PT' %}{% endif %}
+            // http://getbootstrap.com/getting-started/#support-ie10-width
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement('style');
+                msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+                document.querySelector('head').appendChild(msViewportStyle);
+            }
+        </script>
+    {% endblock %}
 
-                {# omit default EN locale #}
-                {% if locale[:2] != 'en' %}
-                    <script src="{{ asset('bundles/sonatacore/vendor/select2/select2_locale_' ~ locale|replace({'_':'-'}) ~ '.js') }}"></script>
-                {% endif %}
-            {% endif %}
-        {% endblock %}
+    {% block sonata_javascript_pool %}
+        {% for javascript in sonata_admin.adminPool.getOption('javascripts', []) %}
+        <script src="{{ asset(javascript) }}"></script>
+        {% endfor %}
+    {% endblock %}
 
-        <title>
+        {% set locale = app.request.locale %}
+        {# localize moment #}
+        {% if locale[:2] != 'en' %}
+        <script src="{{ asset(
+            'bundles/sonatacore/vendor/moment/locale/' ~
+            locale|lower|replace({'_':'-'}) ~
+            '.js'
+        ) }}"></script>
+        {% endif %}
+
+        {# localize select2 #}
+        {% if sonata_admin.adminPool.getOption('use_select2') %}
+        {% if locale == 'pt' %}{% set locale = 'pt_PT' %}{% endif %}
+
+        {# omit default EN locale #}
+        {% if locale[:2] != 'en' %}
+        <script src="{{ asset('bundles/sonatacore/vendor/select2/select2_locale_' ~ locale|replace({'_':'-'}) ~ '.js') }}"></script>
+        {% endif %}
+        {% endif %}
+    {% endblock %}
+
+    <title>
         {% block sonata_head_title %}
             {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
 
@@ -113,266 +128,739 @@ file that was distributed with this source code.
                 {% endif %}
             {% endif %}
         {% endblock %}
-        </title>
-    </head>
-    <body
-            {% block body_attributes -%}
-                class="sonata-bc skin-black fixed
+    </title>
+</head>
+<body
+        {% block body_attributes -%}
+            class="sonata-bc skin-black fixed
                 {% if app.request.cookies.get('sonata_sidebar_hide') -%}
                     sidebar-collapse
                 {%- endif -%}"
-            {%- endblock -%}
-    >
+        {%- endblock -%}
+>
 
-    <div class="wrapper">
+<div class="">
 
-        {% block sonata_header %}
-            <header class="main-header">
-                {% block sonata_header_noscript_warning %}
-                    <noscript>
-                        <div class="noscript-warning">
-                            {{ 'noscript_warning'|trans({}, 'SonataAdminBundle') }}
-                        </div>
-                    </noscript>
-                {% endblock %}
-                {% block logo %}
-                    {% spaceless %}
-                        <a class="logo" href="{{ path('sonata_admin_dashboard') }}">
-                            {% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
-                                <img src="{{ asset(sonata_admin.adminPool.titlelogo) }}" alt="{{ sonata_admin.adminPool.title }}">
-                            {% endif %}
-                            {% if 'single_text' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
-                                <span>{{ sonata_admin.adminPool.title }}</span>
-                            {% endif %}
-                        </a>
-                    {% endspaceless %}
-                {% endblock %}
-                {% block sonata_nav %}
-                    <nav class="navbar navbar-static-top" role="navigation">
-                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                            <span class="sr-only">Toggle navigation</span>
-                        </a>
+    {#{% block sonata_header %}#}
+    {#<header class="main-header">#}
+    {#{% block sonata_header_noscript_warning %}#}
+    {#<noscript>#}
+    {#<div class="noscript-warning">#}
+    {#{{ 'noscript_warning'|trans({}, 'SonataAdminBundle') }}#}
+    {#</div>#}
+    {#</noscript>#}
+    {#{% endblock %}#}
+    {#{% block logo %}#}
+    {#{% spaceless %}#}
+    {#<a class="logo" href="{{ path('sonata_admin_dashboard') }}">#}
+    {#{% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}#}
+    {#<img src="{{ asset(sonata_admin.adminPool.titlelogo) }}" alt="{{ sonata_admin.adminPool.title }}">#}
+    {#{% endif %}#}
+    {#{% if 'single_text' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}#}
+    {#<span>{{ sonata_admin.adminPool.title }}</span>#}
+    {#{% endif %}#}
+    {#</a>#}
+    {#{% endspaceless %}#}
+    {#{% endblock %}#}
+    {#{% block sonata_nav %}#}
+    {#<nav class="navbar navbar-static-top" role="navigation">#}
+    {#<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">#}
+    {#<span class="sr-only">Toggle navigation</span>#}
+    {#</a>#}
 
-                        <div class="navbar-left">
-                            {% block sonata_breadcrumb %}
-                                <div class="hidden-xs">
-                                    {% if _breadcrumb is not empty or action is defined %}
-                                        <ol class="nav navbar-top-links breadcrumb">
-                                            {% if _breadcrumb is empty %}
-                                                {% if action is defined %}
-                                                    {% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}
-                                                        {%- set translation_domain = menu.extra('translation_domain', 'messages') -%}
-                                                        {%- set label = menu.label -%}
-                                                        {%- if translation_domain is not same as(false) -%}
-                                                            {%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}
-                                                        {%- endif -%}
+    {#<div class="navbar-left">#}
+    {#{% block sonata_breadcrumb %}#}
+    {#<div class="hidden-xs">#}
+    {#{% if _breadcrumb is not empty or action is defined %}#}
+    {#<ol class="nav navbar-top-links breadcrumb">#}
+    {#{% if _breadcrumb is empty %}#}
+    {#{% if action is defined %}#}
+    {#{% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}#}
+    {#{%- set translation_domain = menu.extra('translation_domain', 'messages') -%}#}
+    {#{%- set label = menu.label -%}#}
+    {#{%- if translation_domain is not same as(false) -%}#}
+    {#{%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}#}
+    {#{%- endif -%}#}
 
-                                                        {% if not loop.last %}
-                                                            <li>
-                                                                {% if menu.uri is not empty %}
-                                                                    <a href="{{ menu.uri }}">
-                                                                        {% if menu.extra('safe_label', true) %}
-                                                                            {{- label|raw -}}
-                                                                        {% else %}
-                                                                            {{- label -}}
-                                                                        {% endif %}
-                                                                    </a>
-                                                                {% else %}
-                                                                    <span>{{ label }}</span>
-                                                                {% endif %}
-                                                            </li>
-                                                        {% else %}
-                                                            <li class="active"><span>{{ label }}</span></li>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                {% endif %}
-                                            {% else %}
-                                                {{ _breadcrumb|raw }}
-                                            {% endif %}
-                                        </ol>
-                                    {% endif %}
-                                </div>
-                            {% endblock sonata_breadcrumb %}
-                        </div>
+    {#{% if not loop.last %}#}
+    {#<li>#}
+    {#{% if menu.uri is not empty %}#}
+    {#<a href="{{ menu.uri }}">#}
+    {#{% if menu.extra('safe_label', true) %}#}
+    {#{{- label|raw -}}#}
+    {#{% else %}#}
+    {#{{- label -}}#}
+    {#{% endif %}#}
+    {#</a>#}
+    {#{% else %}#}
+    {#<span>{{ label }}</span>#}
+    {#{% endif %}#}
+    {#</li>#}
+    {#{% else %}#}
+    {#<li class="active"><span>{{ label }}</span></li>#}
+    {#{% endif %}#}
+    {#{% endfor %}#}
+    {#{% endif %}#}
+    {#{% else %}#}
+    {#{{ _breadcrumb|raw }}#}
+    {#{% endif %}#}
+    {#</ol>#}
+    {#{% endif %}#}
+    {#</div>#}
+    {#{% endblock sonata_breadcrumb %}#}
+    {#</div>#}
 
-                        {% block sonata_top_nav_menu %}
-                            {% if app.user and is_granted(sonata_admin.adminPool.getOption('role_admin')) %}
-                                <div class="navbar-custom-menu">
-                                    <ul class="nav navbar-nav">
-                                        {% block sonata_top_nav_menu_add_block %}
-                                            <li class="dropdown">
-                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    <i class="fa fa-plus-square fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                                </a>
-                                                {% include sonata_admin.adminPool.getTemplate('add_block') %}
-                                            </li>
-                                        {% endblock %}
-                                        {% block sonata_top_nav_menu_user_block %}
-                                            <li class="dropdown user-menu">
-                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    <i class="fa fa-user fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-user">
-                                                    {% include sonata_admin.adminPool.getTemplate('user_block') %}
-                                                </ul>
-                                            </li>
-                                        {% endblock %}
-                                    </ul>
-                                </div>
-                            {% endif %}
-                        {% endblock %}
-                    </nav>
-                {% endblock sonata_nav %}
-            </header>
-        {% endblock sonata_header %}
+    {#{% block sonata_top_nav_menu %}#}
+    {#{% if app.user and is_granted(sonata_admin.adminPool.getOption('role_admin')) %}#}
+    {#<div class="navbar-custom-menu">#}
+    {#<ul class="nav navbar-nav">#}
+    {#{% block sonata_top_nav_menu_add_block %}#}
+    {#<li class="dropdown">#}
+    {#<a class="dropdown-toggle" data-toggle="dropdown" href="#">#}
+    {#<i class="fa fa-plus-square fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>#}
+    {#</a>#}
+    {#{% include sonata_admin.adminPool.getTemplate('add_block') %}#}
+    {#</li>#}
+    {#{% endblock %}#}
+    {#{% block sonata_top_nav_menu_user_block %}#}
+    {#<li class="dropdown user-menu">#}
+    {#<a class="dropdown-toggle" data-toggle="dropdown" href="#">#}
+    {#<i class="fa fa-user fa-fw" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i>#}
+    {#</a>#}
+    {#<ul class="dropdown-menu dropdown-user">#}
+    {#{% include sonata_admin.adminPool.getTemplate('user_block') %}#}
+    {#</ul>#}
+    {#</li>#}
+    {#{% endblock %}#}
+    {#</ul>#}
+    {#</div>#}
+    {#{% endif %}#}
+    {#{% endblock %}#}
+    {#</nav>#}
 
-        {% block sonata_wrapper %}
-            {% block sonata_left_side %}
-                <aside class="main-sidebar">
-                    <section class="sidebar">
-                        {% block sonata_side_nav %}
-                            {% block sonata_sidebar_search %}
-                                <form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">
-                                    <div class="input-group custom-search-form">
-                                        <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-flat" type="submit">
-                                                <i class="fa fa-search" aria-hidden="true"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </form>
-                            {% endblock sonata_sidebar_search %}
+    {##}
+    {#{% endblock sonata_nav %}#}
+    {#</header>#}
+    {#{% endblock sonata_header %}#}
 
-                            {% block side_bar_before_nav %} {% endblock %}
-                            {% block side_bar_nav %}
-                                {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
-                            {% endblock side_bar_nav %}
-                            {% block side_bar_after_nav %}
-                                <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
-                                    {% block side_bar_after_nav_content %}
-                                        <a href="https://sonata-project.org" rel="noreferrer" target="_blank">sonata project</a>
-                                    {% endblock %}
-                                </p>
-                            {% endblock %}
-                        {% endblock sonata_side_nav %}
-                    </section>
-                </aside>
-            {% endblock sonata_left_side %}
 
-            <div class="content-wrapper">
-                {% block sonata_page_content %}
-                    <section class="content-header">
+    <header class="an-header">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"
+                       class="reveal-inline-block brand-name">
+                        <img src="{{ asset('Logo.png') }}" alt="Logo"
+                             class="img-responsive center-block">
+                    </a>
+                </div>
 
-                        {% block sonata_page_content_header %}
-                            {% block sonata_page_content_nav %}
-                                {% if _navbar_title is not empty
-                                  or _tab_menu is not empty
-                                  or _actions is not empty
-                                  or _list_filters_actions is not empty
-                                 %}
-                                    <nav class="navbar navbar-default" role="navigation">
-                                        <div class="container-fluid">
-                                            {% block tab_menu_navbar_header %}
-                                                {% if _navbar_title is not empty %}
-                                                    <div class="navbar-header">
-                                                        <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
-                                                    </div>
-                                                {% endif %}
-                                            {% endblock %}
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                                            <div class="navbar-collapse">
-                                                {% if _tab_menu is not empty %}
-                                                    <div class="navbar-left">
-                                                        {{ _tab_menu|raw }}
-                                                    </div>
-                                                {% endif %}
 
-                                                {% if admin is defined and action is defined and action == 'list' and admin.listModes|length > 1 %}
-                                                    <div class="nav navbar-right btn-group">
-                                                        {% for mode, settings in admin.listModes %}
-                                                            <a href="{{ admin.generateUrl('list', app.request.query.all|merge({_list_mode: mode})) }}" class="btn btn-default navbar-btn btn-sm{% if admin.getListMode() == mode %} active{% endif %}"><i class="{{ settings.class }}"></i></a>
-                                                        {% endfor %}
-                                                    </div>
-                                                {% endif %}
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>
 
-                                                {% block sonata_admin_content_actions_wrappers %}
-                                                    {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}
-                                                        <ul class="nav navbar-nav navbar-right">
-                                                        {% if _actions|split('</a>')|length > 2 %}
-                                                            <li class="dropdown sonata-actions">
-                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
-                                                                <ul class="dropdown-menu" role="menu">
-                                                                    {{ _actions|raw }}
-                                                                </ul>
-                                                            </li>
-                                                        {% else %}
-                                                            {{ _actions|raw }}
-                                                        {% endif %}
-                                                        </ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
+                                <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
+                                <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default"
+                                                                               href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a>
+                        </li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;"
+                                                                               class="sign-up-link"
+                                                                               href="{{ path('fos_user_profile_show') }}">
+                                            <span class="glyphicon glyphicon-user"
+                                                  aria-hidden="true"></span> {{ app.user.username }}
+                                </a>
+                            </li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+
+    {% block sonata_wrapper %}
+        {#{% block sonata_left_side %}#}
+        {#<aside class="main-sidebar">#}
+        {#<section class="sidebar">#}
+        {#{% block sonata_side_nav %}#}
+        {#{% block sonata_sidebar_search %}#}
+        {#<form action="{{ path('sonata_admin_search') }}" method="GET" class="sidebar-form" role="search">#}
+        {#<div class="input-group custom-search-form">#}
+        {#<input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">#}
+        {#<span class="input-group-btn">#}
+        {#<button class="btn btn-flat" type="submit">#}
+        {#<i class="fa fa-search" aria-hidden="true"></i>#}
+        {#</button>#}
+        {#</span>#}
+        {#</div>#}
+        {#</form>#}
+        {#{% endblock sonata_sidebar_search %}#}
+
+
+        {#{% block side_bar_after_nav %}#}
+        {#<p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">#}
+        {#{% block side_bar_after_nav_content %}#}
+        {#<a href="http://new-line.by" rel="noreferrer" target="_blank">Разработка - New-line studio</a>#}
+        {#{% endblock %}#}
+        {#</p>#}
+        {#{% endblock %}#}
+        {#{% endblock sonata_side_nav %}#}
+        {#</section>#}
+        {#</aside>#}
+        {#{% endblock sonata_left_side %}#}
+
+        {#<div class="content-wrapper">#}
+        {#{% block sonata_page_content %}#}
+        {#<section class="content-header">#}
+
+        {#{% block sonata_page_content_header %}#}
+        {#{% block sonata_page_content_nav %}#}
+        {#{% if _navbar_title is not empty#}
+        {#or _tab_menu is not empty#}
+        {#or _actions is not empty#}
+        {#or _list_filters_actions is not empty#}
+        {#%}#}
+        {#<nav class="navbar navbar-default" role="navigation">#}
+        {#<div class="container-fluid">#}
+        {#{% block tab_menu_navbar_header %}#}
+        {#{% if _navbar_title is not empty %}#}
+        {#<div class="navbar-header">#}
+        {#<a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>#}
+        {#</div>#}
+        {#{% endif %}#}
+        {#{% endblock %}#}
+
+        {#<div class="navbar-collapse">#}
+        {#{% if _tab_menu is not empty %}#}
+        {#<div class="navbar-left">#}
+        {#{{ _tab_menu|raw }}#}
+        {#</div>#}
+        {#{% endif %}#}
+
+        {#{% if admin is defined and action is defined and action == 'list' and admin.listModes|length > 1 %}#}
+        {#<div class="nav navbar-right btn-group">#}
+        {#{% for mode, settings in admin.listModes %}#}
+        {#<a href="{{ admin.generateUrl('list', app.request.query.all|merge({_list_mode: mode})) }}" class="btn btn-default navbar-btn btn-sm{% if admin.getListMode() == mode %} active{% endif %}"><i class="{{ settings.class }}"></i></a>#}
+        {#{% endfor %}#}
+        {#</div>#}
+        {#{% endif %}#}
+
+        {#{% block sonata_admin_content_actions_wrappers %}#}
+        {#{% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}#}
+        {#<ul class="nav navbar-nav navbar-right">#}
+        {#{% if _actions|split('</a>')|length > 2 %}#}
+        {#<li class="dropdown sonata-actions">#}
+        {#<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>#}
+        {#<ul class="dropdown-menu" role="menu">#}
+        {#{{ _actions|raw }}#}
+        {#</ul>#}
+        {#</li>#}
+        {#{% else %}#}
+        {#{{ _actions|raw }}#}
+        {#{% endif %}#}
+        {#</ul>#}
+        {#{% endif %}#}
+        {#{% endblock sonata_admin_content_actions_wrappers %}#}
+
+        {#{% if _list_filters_actions is not empty %}#}
+        {#{{ _list_filters_actions|raw }}#}
+        {#{% endif %}#}
+        {#</div>#}
+        {#</div>#}
+        {#</nav>#}
+        {#{% endif %}#}
+        {#{% endblock sonata_page_content_nav %}#}
+        {#{% endblock sonata_page_content_header %}#}
+        {#</section>#}
+
+        {#<section class="content">#}
+        {#{% block sonata_admin_content %}#}
+
+        {#{% block notice %}#}
+        {#{% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}#}
+        {#{% endblock notice %}#}
+
+        {#{% if _preview is not empty %}#}
+        {#<div class="sonata-ba-preview">{{ _preview|raw }}</div>#}
+        {#{% endif %}#}
+
+        {#{% if _content is not empty %}#}
+        {#<div class="sonata-ba-content">{{ _content|raw }}</div>#}
+        {#{% endif %}#}
+
+        {#{% if _show is not empty %}#}
+        {#<div class="sonata-ba-show">{{ _show|raw }}</div>#}
+        {#{% endif %}#}
+
+        {#{% if _form is not empty %}#}
+        {#<div class="sonata-ba-form">{{ _form|raw }}</div>#}
+        {#{% endif %}#}
+
+        {#{% if _list_filters is not empty %}#}
+        {#<div class="row">#}
+        {#{{ _list_filters|raw }}#}
+        {#</div>#}
+        {#{% endif %}#}
+
+        {#{% if _list_table is not empty %}#}
+        {#<div class="row">#}
+        {#{{ _list_table|raw }}#}
+        {#</div>#}
+        {#{% endif %}#}
+        {#{% endblock sonata_admin_content %}#}
+        {#</section>#}
+        {#{% endblock sonata_page_content %}#}
+        {#</div>#}
+    {% endblock sonata_wrapper %}
+</div>
+
+
+<div class="an-page-content">
+    <div class="container">
+        <div class="row" style="margin-top:3%;">
+            <div class="col-md-9 col-md-push-3">
+
+
+                <div class="content-wrapper">
+                    {% block sonata_page_content %}
+                        <section class="content-header">
+
+                            {% block sonata_page_content_header %}
+                                {% block sonata_page_content_nav %}
+                                    {% if _navbar_title is not empty
+                                        or _tab_menu is not empty
+                                        or _actions is not empty
+                                        or _list_filters_actions is not empty %}
+                                        <nav class="navbar navbar-default" role="navigation">
+                                            <div class="container-fluid">
+                                                {% block tab_menu_navbar_header %}
+                                                    {% if _navbar_title is not empty %}
+                                                        <div class="navbar-header">
+                                                            <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
+                                                        </div>
                                                     {% endif %}
-                                                {% endblock sonata_admin_content_actions_wrappers %}
+                                                {% endblock %}
 
-                                                {% if _list_filters_actions is not empty %}
-                                                    {{ _list_filters_actions|raw }}
-                                                {% endif %}
+                                                <div class="navbar-collapse">
+                                                    {% if _tab_menu is not empty %}
+                                                        <div class="navbar-left">
+                                                            {{ _tab_menu|raw }}
+                                                        </div>
+                                                    {% endif %}
+
+                                                    {% if admin is defined and action is defined and action == 'list' and admin.listModes|length > 1 %}
+                                                        <div class="nav navbar-right btn-group">
+                                                            {% for mode, settings in admin.listModes %}
+                                                                <a href="{{ admin.generateUrl('list', app.request.query.all|merge({_list_mode: mode})) }}"
+                                                                   class="btn btn-default navbar-btn btn-sm{% if admin.getListMode() == mode %} active{% endif %}"><i
+                                                                            class="{{ settings.class }}"></i></a>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+
+                                                    {% block sonata_admin_content_actions_wrappers %}
+                                                        {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}
+                                                            <ul class="nav navbar-nav navbar-right">
+                                                                {% if _actions|split('</a>')|length > 2 %}
+                                                                    <li class="dropdown sonata-actions">
+                                                                        <a href="#" class="dropdown-toggle"
+                                                                           data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }}
+                                                                            <b class="caret"></b></a>
+                                                                        <ul class="dropdown-menu" role="menu">
+                                                                            {{ _actions|raw }}
+                                                                        </ul>
+                                                                    </li>
+                                                                {% else %}
+                                                                    {{ _actions|raw }}
+                                                                {% endif %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endblock sonata_admin_content_actions_wrappers %}
+
+                                                    {% if _list_filters_actions is not empty %}
+                                                        {{ _list_filters_actions|raw }}
+                                                    {% endif %}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </nav>
+                                        </nav>
+                                    {% endif %}
+                                {% endblock sonata_page_content_nav %}
+                            {% endblock sonata_page_content_header %}
+                        </section>
+
+                        <section class="content">
+                            {% block sonata_admin_content %}
+
+                                {% block notice %}
+                                    {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+                                {% endblock notice %}
+
+                                {% if _preview is not empty %}
+                                    <div class="sonata-ba-preview">{{ _preview|raw }}</div>
                                 {% endif %}
-                            {% endblock sonata_page_content_nav %}
-                        {% endblock sonata_page_content_header %}
-                    </section>
 
-                    <section class="content">
-                        {% block sonata_admin_content %}
+                                {% if _content is not empty %}
+                                    <div class="sonata-ba-content">{{ _content|raw }}</div>
+                                {% endif %}
 
-                            {% block notice %}
-                                {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
-                            {% endblock notice %}
+                                {% if _show is not empty %}
+                                    <div class="sonata-ba-show">{{ _show|raw }}</div>
+                                {% endif %}
 
-                            {% if _preview is not empty %}
-                                <div class="sonata-ba-preview">{{ _preview|raw }}</div>
-                            {% endif %}
+                                {% if _form is not empty %}
+                                    <div class="sonata-ba-form">{{ _form|raw }}</div>
+                                {% endif %}
 
-                            {% if _content is not empty %}
-                                <div class="sonata-ba-content">{{ _content|raw }}</div>
-                            {% endif %}
+                                {% if _list_filters is not empty %}
+                                    <div class="row">
+                                        {{ _list_filters|raw }}
+                                    </div>
+                                {% endif %}
 
-                            {% if _show is not empty %}
-                                <div class="sonata-ba-show">{{ _show|raw }}</div>
-                            {% endif %}
+                                {% if _list_table is not empty %}
+                                    <div class="row">
+                                        {{ _list_table|raw }}
+                                    </div>
+                                {% endif %}
+                            {% endblock sonata_admin_content %}
+                        </section>
+                    {% endblock sonata_page_content %}
+                </div>
 
-                            {% if _form is not empty %}
-                                <div class="sonata-ba-form">{{ _form|raw }}</div>
-                            {% endif %}
 
-                            {% if _list_filters is not empty %}
-                                <div class="row">
-                                    {{ _list_filters|raw }}
+                <div class="content-body">
+                    <div class="an-section-container">
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-1.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            {% endif %}
 
-                            {% if _list_table is not empty %}
-                                <div class="row">
-                                    {{ _list_table|raw }}
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">Lamborgini for sale three month used</a>
+                                            </h3>
+                                            <p class="color-primary">$30 ,0000</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
                                 </div>
-                            {% endif %}
-                        {% endblock sonata_admin_content %}
-                    </section>
-                {% endblock sonata_page_content %}
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-2.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">Turbo chargers for ferari</a></h3>
+                                            <p class="color-primary">$26 300</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-3.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">bike for hire</a></h3>
+                                            <p class="color-primary">$100/day</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-4.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">Custom made car for sale</a></h3>
+                                            <p class="color-primary">$36 300</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-5.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">Sedan SUV for rent</a></h3>
+                                            <p class="color-primary">$300/day</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-listing-single category-listing-single">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-6.jpg') center center no-repeat;
+                          background-size: cover;">
+                                        <div class="listing-hover-content">
+                                            <a class="link-single" href="listing-single.html"><i
+                                                        class="ion-forward"></i></a>
+                                            <p>
+                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
+                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
+                                            </p>
+                                            <button class="an-btn an-btn-black icon-left small-padding"><i
+                                                        class="ion-android-locate"></i>On the map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <div class="listing-content">
+                                        <div class="listing-name">
+                                            <h3><a href="listing-single.html">Custoize your engine with customMade</a>
+                                            </h3>
+                                            <p class="color-primary">$1000</p>
+                                        </div>
+                                        <div class="listing-meta"><span><i
+                                                        class="ion-android-time"></i>16.1.17</span><span><i
+                                                        class="typcn typcn-location"></i>New York</span></div>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
+                                            is not simply random text. It has roots in a piece of classical Latin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end category-listing-single -->
+
+                        <div class="an-pagination">
+                            <a class="an-btn an-btn-default icon-right" href="#">Load More <i
+                                        class="ion-android-add"></i></a>
+
+                            <ul class="an-paganation-list list-inline">
+                                <li><a href="#"><i class="ion-ios-arrow-back"></i>Prev</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">..</a></li>
+                                <li><a href="#">45</a></li>
+                                <li><a href="#">Next<i class="ion-ios-arrow-forward"></i></a></li>
+                            </ul>
+                        </div> <!-- an-pagination -->
+                    </div> <!-- end an-section-container -->
+                </div> <!-- end content-body -->
             </div>
-        {% endblock sonata_wrapper %}
+            <div class="col-md-3 col-md-pull-9">
+                <div class="an-sidebar">
+                    <div class="an-sidebar-search">
+
+
+                        {% block sonata_left_side %}
+
+                            <section class="sidebar">
+                                {% block sonata_side_nav %}
+
+
+                                    {% block side_bar_before_nav %} {% endblock %}
+                                    {% block side_bar_nav %}
+                                        {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
+                                    {% endblock side_bar_nav %}
+
+                                    <ul class="sidebar-menu">
+
+
+                                        <li class="last treeview">
+                                            <a href="#"><i class="fa fa-folder"></i><span>Профиль</span>
+
+
+                                        </li>
+
+
+                                    </ul>
+
+
+
+
+                                    {#{% block side_bar_after_nav %}#}
+                                    {#<p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">#}
+                                    {#{% block side_bar_after_nav_content %}#}
+                                    {#<a href="http://new-line.by" rel="noreferrer" target="_blank">Разработка - New-line studio</a>#}
+                                    {#{% endblock %}#}
+                                    {#</p>#}
+                                    {#{% endblock %}#}
+                                {% endblock sonata_side_nav %}
+                            </section>
+
+                        {% endblock sonata_left_side %}
+
+
+                    </div> <!-- end sidebar-search -->
+                </div> <!-- end an-sidebar -->
+            </div> <!-- end col-md-3 -->
+        </div>
     </div>
+</div>
 
-    {% if sonata_admin.adminPool.getOption('use_bootlint') %}
-        {% block bootlint %}
-            {# Bootlint - https://github.com/twbs/bootlint#in-the-browser #}
-            <script type="text/javascript">
-                javascript:(function(){var s=document.createElement("script");s.onload=function(){bootlint.showLintReportForCurrentDocument([], {hasProblems: false, problemFree: false});};s.src="https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";document.body.appendChild(s)})();
-            </script>
-        {% endblock %}
-    {% endif %}
 
-    </body>
+{% if sonata_admin.adminPool.getOption('use_bootlint') %}
+    {% block bootlint %}
+        {# Bootlint - https://github.com/twbs/bootlint#in-the-browser #}
+        <script type="text/javascript">
+            javascript:(function () {
+                var s = document.createElement("script");
+                s.onload = function () {
+                    bootlint.showLintReportForCurrentDocument([], {hasProblems: false, problemFree: false});
+                };
+                s.src = "https://maxcdn.bootstrapcdn.com/bootlint/latest/bootlint.min.js";
+                document.body.appendChild(s)
+            })();
+        </script>
+    {% endblock %}
+{% endif %}
+
+</body>
 </html>

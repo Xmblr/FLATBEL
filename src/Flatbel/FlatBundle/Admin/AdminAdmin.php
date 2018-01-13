@@ -211,39 +211,49 @@ class AdminAdmin extends AbstractAdmin
     {
 
         $listMapper
+
+
+            ->addIdentifier('id')
+            ->addIdentifier('city',null,array('label'=>'Город'))
+            ->addIdentifier('payornot',null,array('label'=>'Оплачено'))
+            ->addIdentifier('streettype',null,array('label'=>'Тип'))
+            ->addIdentifier('street',null,array('label'=>'Название'))
+            ->addIdentifier('home',null,array('label'=>'Дом'))
+        
+
+
             ->add('_action', null, array(
+                'label'=>'Действия',
                 'actions' => array(
                     'clone' => array(
                         'template' => 'FlatbelFlatBundle:CRUD:list__action_clone.html.twig'
                     )
                 )
             ))
-            ->addIdentifier('id')
-            ->addIdentifier('city')
-            ->addIdentifier('payornot')
-            ->addIdentifier('flattype')
-            ->addIdentifier('numberofbeds')
-            ->addIdentifier('rooms')
-            ->addIdentifier('street')
-            ->addIdentifier('streettype')
-            ->addIdentifier('home')
-            ->addIdentifier('priceday')
-            ->addIdentifier('pricehour')
-            ->addIdentifier('pricenight')
-            ->addIdentifier('floorhome')
-            ->addIdentifier('floor')
-            ->addIdentifier('tv')
-            ->addIdentifier('wifi')
-            ->addIdentifier('parking')
-            ->addIdentifier('microwave')
-            ->addIdentifier('washer')
-            ->addIdentifier('bath')
-            ->addIdentifier('shower')
-            ->addIdentifier('fridge')
-            ->addIdentifier('dishes')
-            ->addIdentifier('linens')
+
+
+//            ->addIdentifier('numberofbeds',null,array('label'=>'Количество спальных мест'))
+//            ->addIdentifier('rooms',null,array('label'=>'Количество комнат'))
+//            ->addIdentifier('priceday')
+//            ->addIdentifier('pricehour')
+//            ->addIdentifier('pricenight')
+//            ->addIdentifier('floorhome')
+//            ->addIdentifier('floor')
+//            ->addIdentifier('tv')
+//            ->addIdentifier('wifi')
+//            ->addIdentifier('parking')
+//            ->addIdentifier('microwave')
+//            ->addIdentifier('washer')
+//            ->addIdentifier('bath')
+//            ->addIdentifier('shower')
+//            ->addIdentifier('fridge')
+//            ->addIdentifier('dishes')
+//            ->addIdentifier('linens')
            ;
     }
+
+
+
 
     public function toString($object)
     {
@@ -256,28 +266,14 @@ class AdminAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('payornot')
-            ->add('flattype')
-            ->add('numberofbeds')
-            ->add('rooms')
-            ->add('street')
-            ->add('streettype')
-            ->add('home')
-            ->add('priceday')
-            ->add('pricehour')
-            ->add('pricenight')
-            ->add('floorhome')
-            ->add('floor')
-            ->add('tv')
-            ->add('wifi')
-            ->add('parking')
-            ->add('microwave')
-            ->add('washer')
-            ->add('bath')
-            ->add('shower')
-            ->add('fridge')
-            ->add('dishes')
-            ->add('linens')
+            ->add('city',null,array('label'=>'Город'))
+            ->add('payornot',null,array('label'=>'Оплачено'))
+            ->add('streettype',null,array('label'=>'Тип'))
+            ->add('street',null,array('label'=>'Название'))
+            ->add('home',null,array('label'=>'Дом'))
+            ->add('flattype',null,array('label'=>'Тип квартиры'))
+            ->add('numberofbeds',null,array('label'=>'Количество спальных мест'))
+            ->add('rooms',null,array('label'=>'Количество комнат'))
         ;
     }
 }
