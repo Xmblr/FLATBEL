@@ -37,11 +37,14 @@ class PageController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $City = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
+
+        $title = $em->getRepository('FlatbelFlatBundle:City')->findOneBy(array('url' => $city))->getTitle();
         $description = $em->getRepository('FlatbelFlatBundle:City')->findOneBy(array('url' => $city))->getDescription();
 
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
-            ->setTitle('Квартиры в городе '. $this->translate($city))
+            ->setTitle($title)
             ->addMeta('name', 'description', $description);
 
         $flat = new Flat();
@@ -79,6 +82,7 @@ class PageController extends Controller
                 'flats' => $flats,
                 'filter_form' => $filter_form->createView(),
                 'city' => $city,
+                'City'=>$City,
             ));
         }
 
@@ -90,7 +94,7 @@ class PageController extends Controller
             'flats' => $flats,
             'filter_form' => $filter_form->createView(),
             'city' => $city,
-
+            'City'=>$City,
         ));
     }
 

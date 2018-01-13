@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-11-04T14:15:10Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="356a192b7913b04c54574d18c28d46e6395428ab" resname="1">
+        <source>1</source>
+        <target state="new">1</target>
+        <jms:reference-file line="30">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="42">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="29">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="41">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="32">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="82">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="32">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="44">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="da4b9237bacccdf19c0760cab7aec4a8359010b0" resname="2">
+        <source>2</source>
+        <target state="new">2</target>
+        <jms:reference-file line="31">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="43">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="30">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="42">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="33">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="83">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="33">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="45">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="77de68daecd823babbb58edb1c8e14d7106e83bb" resname="3">
+        <source>3</source>
+        <target state="new">3</target>
+        <jms:reference-file line="32">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="44">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="31">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="43">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="34">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="84">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="34">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="46">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1b6453892473a467d07372d45eb05abc2031647a" resname="4">
+        <source>4</source>
+        <target state="new">4</target>
+        <jms:reference-file line="33">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="32">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="35">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="35">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6bec19b44bcdac7bca8bc9b10925d2cdc754175b" resname="4+">
+        <source>4+</source>
+        <target state="new">4+</target>
+        <jms:reference-file line="45">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="44">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="85">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="47">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4" resname="5">
+        <source>5</source>
+        <target state="new">5</target>
+        <jms:reference-file line="34">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="33">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="36">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="36">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c1dfd96eea8cc2b62785275bca38ac261256e278" resname="6">
+        <source>6</source>
+        <target state="new">6</target>
+        <jms:reference-file line="35">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="34">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="37">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="37">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1e348249c30542c63ff72c26a0ea1912c0af09f0" resname="6+">
+        <source>6+</source>
+        <target state="new">6+</target>
+        <jms:reference-file line="36">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="35">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="38">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="38">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="601fd5a46f5b8229bc4d458c776858fff1eb23dc" resname="Flat Type">
+        <source>Flat Type</source>
+        <target state="new">Flat Type</target>
+        <jms:reference-file line="27">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c083bff944879d9f528cf185eba0f496bc10a47d" resname="Metro">
+        <source>Metro</source>
+        <target state="new">Metro</target>
+        <jms:reference-file line="77">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2f697dae33e62751a827880eb997ef0968f633a5" resname="Number of beds">
+        <source>Number of beds</source>
+        <target state="new">Number of beds</target>
+        <jms:reference-file line="41">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3a28d6f078fd35a505195a0f8ec6f59e9801d7c2" resname="Rooms">
+        <source>Rooms</source>
+        <target state="new">Rooms</target>
+        <jms:reference-file line="87">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="944b88d06011c7c4cc9ad9252c1846cdd1e62b21" resname="VIP">
+        <source>VIP</source>
+        <target state="new">VIP</target>
+        <jms:reference-file line="22">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="21">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="23">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="24">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="780ff71c8f1f80406725f6b9f760f6c55fb339e6" resname="Wi-Fi">
+        <source>Wi-Fi</source>
+        <target state="new">Wi-Fi</target>
+        <jms:reference-file line="106">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="105">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="102">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="591d29c5377afb6161099f59894e74e27504a197" resname="Автозаводская">
+        <source>Автозаводская</source>
+        <target state="new">Автозаводская</target>
+        <jms:reference-file line="78">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="77">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="58">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="80">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="271acdcced0cd43ba925059ddedbc5a026288ce7" resname="Академия Наук">
+        <source>Академия Наук</source>
+        <target state="new">Академия Наук</target>
+        <jms:reference-file line="89">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="88">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="69">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="91">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9b22e9b9417c66b1da7068d85d99b2fbc09a36d8" resname="Ближайшее метро">
+        <source>Ближайшее метро</source>
+        <target state="new">Ближайшее метро</target>
+        <jms:reference-file line="97">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="96">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="99">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7aaf67b9fc20d3ea3dc39d9a75cf816380ee437a" resname="Борисовский тракт">
+        <source>Борисовский тракт</source>
+        <target state="new">Борисовский тракт</target>
+        <jms:reference-file line="93">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="92">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="73">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="95">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0773ed49428f4ede29a9275ed0f9af38ff480cf2" resname="Бюджет">
+        <source>Бюджет</source>
+        <target state="new">Бюджет</target>
+        <jms:reference-file line="24">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="23">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="25">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="26">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="871579a903361869ab842f48219fd297ebc7080e" resname="Ванна">
+        <source>Ванна</source>
+        <target state="new">Ванна</target>
+        <jms:reference-file line="110">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="109">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="106">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="481b68435dceb02ae72aadd51381a4cfde9fce2d" resname="Восток">
+        <source>Восток</source>
+        <target state="new">Восток</target>
+        <jms:reference-file line="92">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="91">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="72">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="94">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a7a4c4aee13bf4627153b208f02fd8278b303e34" resname="Выбрать...">
+        <source>Выбрать...</source>
+        <target state="new">Выбрать...</target>
+        <jms:reference-file line="26">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="38">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="47">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="55">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="97">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="25">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="37">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="46">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="54">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="96">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="28">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="40">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="49">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="57">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+        <jms:reference-file line="99">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6692004351e16ea58500f34b705d24519b00d62f" resname="Главное фото">
+        <source>Главное фото</source>
+        <target state="new">Главное фото</target>
+        <jms:reference-file line="121">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="65464140dc055be69a874198fec9ead57f7690c1" resname="Грушевка">
+        <source>Грушевка</source>
+        <target state="new">Грушевка</target>
+        <jms:reference-file line="83">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="82">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="63">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="85">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ea9ba450b9323e6dbe31cd3f2748be7b102b1bbf" resname="Душ">
+        <source>Душ</source>
+        <target state="new">Душ</target>
+        <jms:reference-file line="111">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="110">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="107">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="be053f10ef192134dd73c691ff6c15950ad5ae33" resname="Институт Культуры">
+        <source>Институт Культуры</source>
+        <target state="new">Институт Культуры</target>
+        <jms:reference-file line="84">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="83">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="64">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="86">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d7e095387cb24b27f874f0f3418669b1ebb74c1f" resname="Каменная горка">
+        <source>Каменная горка</source>
+        <target state="new">Каменная горка</target>
+        <jms:reference-file line="66">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="65">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="46">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="68">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bbf336ae3d824dca46902d5055bc921471db6cc0" resname="Количество спальных мест">
+        <source>Количество спальных мест</source>
+        <target state="new">Количество спальных мест</target>
+        <jms:reference-file line="38">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="37">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="40">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="abe3887c4bdccb8c1f664c2200e27ffbc9f87d6d" resname="Кунцевщина">
+        <source>Кунцевщина</source>
+        <target state="new">Кунцевщина</target>
+        <jms:reference-file line="67">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="66">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="47">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="69">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c2875ec728ba957cd7cfb52083ad677b396de12e" resname="Купаловская">
+        <source>Купаловская</source>
+        <target state="new">Купаловская</target>
+        <jms:reference-file line="73">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="72">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="53">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="75">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a007dfde787f0e65aac3f9846afad0749dd9f4fd" resname="Малиновка">
+        <source>Малиновка</source>
+        <target state="new">Малиновка</target>
+        <jms:reference-file line="80">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="79">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="60">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="82">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dfc1819fab30468da0b4e60b13c153745cba61c8" resname="Микроволновка">
+        <source>Микроволновка</source>
+        <target state="new">Микроволновка</target>
+        <jms:reference-file line="108">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="107">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="104">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b6f77e3887557b7c1d8c3d09c43cf5c31a7c4714" resname="Михалова">
+        <source>Михалова</source>
+        <target state="new">Михалова</target>
+        <jms:reference-file line="82">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="81">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="62">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="84">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="66e17375246d2639cd82c18e448d2ad94dff298e" resname="Могилевская">
+        <source>Могилевская</source>
+        <target state="new">Могилевская</target>
+        <jms:reference-file line="79">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="78">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="59">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="81">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="389eb04532fd03ad84919ff83be1ce7c37a3b9df" resname="Молодежная">
+        <source>Молодежная</source>
+        <target state="new">Молодежная</target>
+        <jms:reference-file line="70">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="69">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="50">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="72">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1cd4a8e385b25580dda792deab05cb1d734583d9" resname="Московская">
+        <source>Московская</source>
+        <target state="new">Московская</target>
+        <jms:reference-file line="91">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="90">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="71">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="93">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3de49828e86a4016140f16781af6cceba1ad3c3c" resname="Название">
+        <source>Название</source>
+        <target state="new">Название</target>
+        <jms:reference-file line="57">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="56">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="59">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d177d96d50c8c651a07eccca75fbbf39ea6474dc" resname="Не важно">
+        <source>Не важно</source>
+        <target state="new">Не важно</target>
+        <jms:reference-file line="22">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="31">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="45">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="81">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="12e12db932711908b16b46779f5d227e24de28b0" resname="Немига">
+        <source>Немига</source>
+        <target state="new">Немига</target>
+        <jms:reference-file line="72">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="71">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="52">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="74">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7c156da0a7ba091d9f78d3e2f5c1d19d43d49c26" resname="Номер дома">
+        <source>Номер дома</source>
+        <target state="new">Номер дома</target>
+        <jms:reference-file line="58">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="57">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="60">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4a2765349018da065141a18d02e32bceb078249e" resname="Номер телефона">
+        <source>Номер телефона</source>
+        <target state="new">Номер телефона</target>
+        <jms:reference-file line="100">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="99">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="111">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d4b37c339f4dc921390f462e7e93f70ea60ffa37" resname="Октбярьская">
+        <source>Октбярьская</source>
+        <target state="new">Октбярьская</target>
+        <jms:reference-file line="86">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="85">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="66">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="88">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f5441f6aee76222c4120066575e80c2d177ac3c0" resname="Описание">
+        <source>Описание</source>
+        <target state="new">Описание</target>
+        <jms:reference-file line="101">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="100">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="112">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5220f35b673092d5c467ca321e37c01063c7e82c" resname="Парк Челюскинцев">
+        <source>Парк Челюскинцев</source>
+        <target state="new">Парк Челюскинцев</target>
+        <jms:reference-file line="90">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="89">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="70">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="92">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c99b2bef49cd5ec67492be15e769048cbb18c0c" resname="Партизанская">
+        <source>Партизанская</source>
+        <target state="new">Партизанская</target>
+        <jms:reference-file line="77">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="76">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="57">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="79">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="224b5b446828c4748a0840ffcb876c28865c5800" resname="Первомайская">
+        <source>Первомайская</source>
+        <target state="new">Первомайская</target>
+        <jms:reference-file line="74">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="73">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="54">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="76">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="df798fde149f4ee8dba707ae8b2505a500c264a3" resname="Переулок">
+        <source>Переулок</source>
+        <target state="new">Переулок</target>
+        <jms:reference-file line="53">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="52">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="55">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="61df57a903f1946adfb2f4059194686360c83f04" resname="Петровщина">
+        <source>Петровщина</source>
+        <target state="new">Петровщина</target>
+        <jms:reference-file line="81">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="80">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="61">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="83">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="26749fe79a3f463f9502f60da4c8102b9d183279" resname="Площадь Ленина">
+        <source>Площадь Ленина</source>
+        <target state="new">Площадь Ленина</target>
+        <jms:reference-file line="85">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="84">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="65">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="87">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="58be765c78ed9409738c46cb33a6be22a733ef09" resname="Площадь Победы">
+        <source>Площадь Победы</source>
+        <target state="new">Площадь Победы</target>
+        <jms:reference-file line="87">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="86">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="67">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="89">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f5d0c72a443da14289b9fc2ee656832569ffd9f9" resname="Площадь Якуба Коласа">
+        <source>Площадь Якуба Коласа</source>
+        <target state="new">Площадь Якуба Коласа</target>
+        <jms:reference-file line="88">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="87">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="68">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="90">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="22c8952da14145a802629c24fa26b5490c691a79" resname="Постельное бельё">
+        <source>Постельное бельё</source>
+        <target state="new">Постельное бельё</target>
+        <jms:reference-file line="114">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="113">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="110">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4af9ee31f765a37a6d0178bf4fb697df3d6b0c89" resname="Посуда">
+        <source>Посуда</source>
+        <target state="new">Посуда</target>
+        <jms:reference-file line="113">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="112">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="109">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="865d134c232d1a539532bed44064f46c6123c71f" resname="Пролетарская">
+        <source>Пролетарская</source>
+        <target state="new">Пролетарская</target>
+        <jms:reference-file line="75">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="74">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="55">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="77">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e064ad566940abada8c2e2ed8a48d8e9515ede27" resname="Проспект">
+        <source>Проспект</source>
+        <target state="new">Проспект</target>
+        <jms:reference-file line="51">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="50">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="53">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ecc928f019c90b697f0141f399748fc90eff98bf" resname="Пушкинская">
+        <source>Пушкинская</source>
+        <target state="new">Пушкинская</target>
+        <jms:reference-file line="69">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="68">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="49">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="71">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f9efadece8c75f55160bc2f5b3605514d11db0c" resname="Спортивная">
+        <source>Спортивная</source>
+        <target state="new">Спортивная</target>
+        <jms:reference-file line="68">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="67">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="48">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="70">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3dd0ebed278065b98bd9c7f0f492e738f2ee5965" resname="Стандарт">
+        <source>Стандарт</source>
+        <target state="new">Стандарт</target>
+        <jms:reference-file line="23">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="22">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="24">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="25">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="efd07920a64630929ea20315ce5930ae5f29d650" resname="Стиральная Машина">
+        <source>Стиральная Машина</source>
+        <target state="new">Стиральная Машина</target>
+        <jms:reference-file line="109">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="108">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="105">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0d88557b1c08641114311c9d65adb3551647b79a" resname="Стоянка">
+        <source>Стоянка</source>
+        <target state="new">Стоянка</target>
+        <jms:reference-file line="107">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="106">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="103">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fac04a231ce5eedecf09cade16c367c98eef60ec" resname="Телевизор">
+        <source>Телевизор</source>
+        <target state="new">Телевизор</target>
+        <jms:reference-file line="105">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="104">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="101">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d25691ca401e329bd3e6d527a7ca005eedff5019" resname="Тип">
+        <source>Тип</source>
+        <target state="new">Тип</target>
+        <jms:reference-file line="55">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="54">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="57">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e4a2db1367ed78d99084b42d4d99b753a3dd1f1d" resname="Тип квартиры">
+        <source>Тип квартиры</source>
+        <target state="new">Тип квартиры</target>
+        <jms:reference-file line="26">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="25">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="28">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="29ef4cdcf8fe94880670d766b3c0c8ace4201339" resname="Тракторный завод">
+        <source>Тракторный завод</source>
+        <target state="new">Тракторный завод</target>
+        <jms:reference-file line="76">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="75">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="56">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="78">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d0baaff9adcb1393cc5f34c8a1443f8e15216f7e" resname="Улица">
+        <source>Улица</source>
+        <target state="new">Улица</target>
+        <jms:reference-file line="52">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="51">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="54">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="04948bbb9c7f13b06b2d15ceb93a0f28118598e1" resname="Уручье">
+        <source>Уручье</source>
+        <target state="new">Уручье</target>
+        <jms:reference-file line="94">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="93">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="74">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="96">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8d65a9f7c5e2e5f548d3ba676ef1260d72c19c6b" resname="Фото №1">
+        <source>Фото №1</source>
+        <target state="new">Фото №1</target>
+        <jms:reference-file line="126">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="43ee9135699673091449ff0c2f44c0879c0b617b" resname="Фото №2">
+        <source>Фото №2</source>
+        <target state="new">Фото №2</target>
+        <jms:reference-file line="131">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3cf316ab35433478f9470703d40feacd405eb25c" resname="Фото №3">
+        <source>Фото №3</source>
+        <target state="new">Фото №3</target>
+        <jms:reference-file line="136">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="debbf92be17a7fed0c47152f334fc7238cbc527f" resname="Фрунзенская">
+        <source>Фрунзенская</source>
+        <target state="new">Фрунзенская</target>
+        <jms:reference-file line="71">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="70">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="51">\..\src\Flatbel\FlatBundle\Form\FilterType.php</jms:reference-file>
+        <jms:reference-file line="73">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ffa0760b06d6862dd68b17accbcab6b380649677" resname="Холодильник">
+        <source>Холодильник</source>
+        <target state="new">Холодильник</target>
+        <jms:reference-file line="112">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="111">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="108">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="02f545c5894e0eac16c82199ca245ffd41b8d31a" resname="Цена за день">
+        <source>Цена за день</source>
+        <target state="new">Цена за день</target>
+        <jms:reference-file line="59">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="58">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="61">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="36a7fc67662678e5f5cac024efe040bc3468e0f2" resname="Цена за ночь">
+        <source>Цена за ночь</source>
+        <target state="new">Цена за ночь</target>
+        <jms:reference-file line="61">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="60">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="63">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fe7e6432b1f8e683993c92ff474ff702847b0b09" resname="Цена за час">
+        <source>Цена за час</source>
+        <target state="new">Цена за час</target>
+        <jms:reference-file line="60">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="59">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="62">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="116250e62cf598cf0698033fdfa10caf61c4c10e" resname="Число комнат">
+        <source>Число комнат</source>
+        <target state="new">Число комнат</target>
+        <jms:reference-file line="47">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="46">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="49">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7090d77b6703400f79a0e6460c6749fd7519f894" resname="Число этажей в дома">
+        <source>Число этажей в дома</source>
+        <target state="new">Число этажей в дома</target>
+        <jms:reference-file line="62">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="61">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="64">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f882a780ae884fb759229838d1477d18b9c83353" resname="Этаж">
+        <source>Этаж</source>
+        <target state="new">Этаж</target>
+        <jms:reference-file line="63">\..\src\Flatbel\FlatBundle\Admin\AdminAdmin.php</jms:reference-file>
+        <jms:reference-file line="62">\..\src\Flatbel\FlatBundle\Admin\FlatAdmin.php</jms:reference-file>
+        <jms:reference-file line="65">\..\src\Flatbel\FlatBundle\Form\FlatType.php</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
