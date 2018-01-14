@@ -107,7 +107,7 @@ class FlatType extends AbstractType
                         ->orderBy('u.name', 'ASC');
                 },
             ))
-            ->add('city', EntityType::class, array('class' => 'FlatbelFlatBundle:City',
+            ->add('city', EntityType::class, array('class' => 'FlatbelFlatBundle:City', 'label'=>'Город',
                 'choice_label' => 'getName',
                 'multiple' => false,
                 'expanded' => false,

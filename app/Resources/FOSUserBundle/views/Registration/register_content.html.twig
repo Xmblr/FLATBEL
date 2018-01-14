@@ -12,18 +12,32 @@
 
 
             {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'an-form'}}) }}
-            {{ form_errors(form) }}
+
             <div class="row">
-                <div class="form-group">
+                <div class="form-group" style="color:white; padding-left:0px; list-style-type: none;">
+
+                        {{ form_errors(form.username) }}
+
                     {{ form_widget(form.username, {'attr':{'class':'an-form-control light', 'placeholder':'Имя пользователя'}}) }}
+
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="color:white;">
+
+                        {{ form_errors(form.email) }}
+
                     {{ form_widget(form.email, {'attr':{'class':'an-form-control light', 'placeholder':'E-mail'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="color:white;">
+
+                        {{ form_errors(form.plainPassword.first) }}
+
+
                     {{ form_widget(form.plainPassword.first, {'attr':{'class':'an-form-control light', 'placeholder':'Пароль'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="color:white; ">
+
+                        {{ form_errors(form.plainPassword.second) }}
+
                     {{ form_widget(form.plainPassword.second, {'attr':{'class':'an-form-control light', 'placeholder':'Повторите пароль'}}) }}
                 </div>
                 <div>
@@ -35,16 +49,12 @@
             </div>
 
 
-
-
-
-
         </div>
     </div>
-        </div>
+</div>
 
 
-        {#<section class="section-80 section-md-120">#}
+{#<section class="section-80 section-md-120">#}
             {#<div class="shell">#}
                 {#<ul class="nav-custom">#}
                     {#<li><a href="{{ path('fos_user_security_login') }}">Login</a></li>#}

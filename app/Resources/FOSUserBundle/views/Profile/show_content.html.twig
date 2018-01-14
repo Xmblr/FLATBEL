@@ -18,7 +18,49 @@
 <div class="an-page-content">
     <div class="container">
         <div class="row" style="margin-top:3%;">
-            <div class="col-md-9 col-md-push-3">
+            <div class="col-md-3">
+                <div class="an-sidebar">
+                    <div class="an-sidebar-search">
+
+
+                        <div class="slimScrollDiv"
+                             style="position: relative; overflow: hidden; width: auto; height: 454px;">
+                            <section class="sidebar" style="height: 454px; overflow: hidden; width: auto;">
+                                <ul class="sidebar-menu">
+                                    {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                        <li class="last treeview">
+                                            <a href="/admin/flatbel/flat/user/list"><i class="fa fa-link"></i><span>Пользователи</span></a>
+                                            <a href="/admin/admin/list"><i class="fa fa-link"></i><span>Все квартиры</span></a>
+                                            <a href="/admin/flatbel/flat/city/list"><i class="fa fa-link"></i><span>SEO</span></a>
+                                            <a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-link"></i><span>Профиль</span></a>
+                                            <a href="/admin/user/list"><i class="fa fa-link"></i><span>Мои квартиры</span></a>
+                                        </li>
+                                    {% else %}
+                                        <li class="last treeview">
+                                            <a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-link"></i><span>Профиль</span></a>
+                                            <a href="/admin/user/list"><i class="fa fa-link"></i><span>Список Квартир</span></a>
+                                            <a href="/admin/user/create"><i class="fa fa-link"></i><span>Создать Квартиру</span></a>
+
+                                        </li>
+
+                                    {% endif %}
+                                </ul>
+
+                            </section>
+                            <div class="slimScrollBar"
+                                 style="background: rgba(0, 0, 0, 0.2) none repeat scroll 0% 0%; width: 3px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 454px;"></div>
+                            <div class="slimScrollRail"
+                                 style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+                        </div>
+                        <a href="#">
+
+
+                        </a></div>
+                    <a href="#"> <!-- end sidebar-search -->
+                    </a></div>
+                <a href="#"> <!-- end an-sidebar -->
+                </a></div>
+            <div class="col-md-9">
 
 
                 <div class="content-wrapper" style="min-height: 454px;">
@@ -71,8 +113,8 @@
                                         <div class="row">
                                             <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
                                             <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-                                            <a href="{{ 'edit' }}">Изменить пароль</a>
-                                            <a href="{{ '../admin' }}">Мои квартиры</a>
+                                            <a href="{{ path('fos_user_profile_edit') }}">Редактировать профиль</a></br>
+                                            <a href="{{ path('fos_user_change_password') }}">Изменить пароль</a>
                                         </div>
                                     </div>
 
@@ -89,286 +131,9 @@
                 </div>
 
 
-                <div class="content-body">
-                    <div class="an-section-container">
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-1.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">Lamborgini for sale three month used</a>
-                                            </h3>
-                                            <p class="color-primary">$30 ,0000</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-2.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">Turbo chargers for ferari</a></h3>
-                                            <p class="color-primary">$26 300</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-3.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">bike for hire</a></h3>
-                                            <p class="color-primary">$100/day</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-4.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">Custom made car for sale</a></h3>
-                                            <p class="color-primary">$36 300</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-5.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">Sedan SUV for rent</a></h3>
-                                            <p class="color-primary">$300/day</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-listing-single category-listing-single">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="listing-img-container" style="background: url('./assets/img/category-listing/l-6.jpg') center center no-repeat;
-                          background-size: cover;">
-                                        <div class="listing-hover-content">
-                                            <a class="link-single" href="listing-single.html"><i
-                                                        class="ion-forward"></i></a>
-                                            <p>
-                                                <span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>
-                                                <span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>
-                                            </p>
-                                            <button class="an-btn an-btn-black icon-left small-padding"><i
-                                                        class="ion-android-locate"></i>On the map
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-                                    <div class="listing-content">
-                                        <div class="listing-name">
-                                            <h3><a href="listing-single.html">Custoize your engine with customMade</a>
-                                            </h3>
-                                            <p class="color-primary">$1000</p>
-                                        </div>
-                                        <div class="listing-meta"><span><i
-                                                        class="ion-android-time"></i>16.1.17</span><span><i
-                                                        class="typcn typcn-location"></i>New York</span></div>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classical Latin.Contrary to popular belief, Lorem Ipsum
-                                            is not simply random text. It has roots in a piece of classical Latin.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end category-listing-single -->
-
-                        <div class="an-pagination">
-                            <a class="an-btn an-btn-default icon-right" href="#">Load More <i
-                                        class="ion-android-add"></i></a>
-
-                            <ul class="an-paganation-list list-inline">
-                                <li><a href="#"><i class="ion-ios-arrow-back"></i>Prev</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">..</a></li>
-                                <li><a href="#">45</a></li>
-                                <li><a href="#">Next<i class="ion-ios-arrow-forward"></i></a></li>
-                            </ul>
-                        </div> <!-- an-pagination -->
-                    </div> <!-- end an-section-container -->
-                </div> <!-- end content-body -->
             </div>
-            <div class="col-md-3 col-md-pull-9">
-                <div class="an-sidebar">
-                    <div class="an-sidebar-search">
 
-
-                        <div class="slimScrollDiv"
-                             style="position: relative; overflow: hidden; width: auto; height: 454px;">
-                            <section class="sidebar" style="height: 454px; overflow: hidden; width: auto;">
-
-                                <ul class="sidebar-menu">
-                                    <li class="last treeview">
-                                        <a href="#">
-                                            <i class="fa fa-folder"></i>
-                                            <span>Пользователь</span>
-                                            <span class="pull-right-container">
-                                                <i class="fa pull-right fa-angle-left"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="active treeview-menu menu_level_1" style="display: none;">
-                                            <li class="first last">
-                                                <a href="/admin/user/list">
-                                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                    Квартиры
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-
-                            </section>
-                            <div class="slimScrollBar"
-                                 style="background: rgba(0, 0, 0, 0.2) none repeat scroll 0% 0%; width: 3px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 454px;"></div>
-                            <div class="slimScrollRail"
-                                 style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
-                        </div>
-                        <a href="#">
-
-
-                        </a></div>
-                    <a href="#"> <!-- end sidebar-search -->
-                    </a></div>
-                <a href="#"> <!-- end an-sidebar -->
-                </a></div>
             <a href="#"> <!-- end col-md-3 -->
             </a></div>
         <a href="#">

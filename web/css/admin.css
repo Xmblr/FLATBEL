@@ -41,4 +41,19 @@ body.fixed .content-header .navbar.stuck {
 
 footer {
     position:relative;
+    background-color: white;
+    height:auto;
 }
+
+.an-sidebar {
+    height: auto;
+}
+
+.slimScrollDiv {
+    height: auto !important;
+}
+
+.sidebar {
+    height: auto !important;
+}
+

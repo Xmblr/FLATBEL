@@ -1,206 +1,206 @@
 <div class="container" style="margin-top: 4%;">
-                <h1 class="offset-top-20 text-ubold" style="font-size: 34px;">Добавьте свою квартиру</h1>
+    <h1 class="offset-top-20 text-ubold" style="font-size: 34px;">Добавьте свою квартиру</h1>
 
 
-                {{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': ' text-left'} }) }}
-                {{ form_errors(create_form) }}
-            <div class="row">
+    {{ form_start(create_form, { 'action': path('FlatbelFlatBundle_flat_create'), 'method': 'POST', 'attr': {'class': ' text-left'} }) }}
+    {{ form_errors(create_form) }}
+    <div class="row">
 
-                <div class="col-md-4">
-                    <div class="inset-lg-left-80">
-                        <h3 class="offset-top-30">Основная информация</h3>
-                        <hr class="divider divider-lg-left divider-primary divider-80">
-                    </div>
-                    <div class="inset-lg-left-80 section-md-top-30 ">
-                        <div class="range">
-                            <div class="range">
-                                <div class="cell-md-12">
-                                    <div class="form-group">
-                                        {{ form_row(create_form.flattype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+        <div class="col-md-4">
+            <div class="inset-lg-left-80">
+                <h3 class="offset-top-30">Основная информация</h3>
+                <hr class="divider divider-lg-left divider-primary divider-80">
+            </div>
+            <div class="inset-lg-left-80 section-md-top-30 ">
+                <div class="range">
+                    <div class="range">
+                        <div class="cell-md-12">
+                            <div class="form-group">
+                                {{ form_row(create_form.flattype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.numberofbeds, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.rooms, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-5">
+                                        {{ form_row(create_form.streettype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                                     </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.numberofbeds, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.rooms, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-5">
-                                                {{ form_row(create_form.streettype, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
-                                            </div>
-                                            <div class="cell-md-7">
-                                                {{ form_row(create_form.street, {'attr' : {'class':'form-control'}}) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.home, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.pricehour, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.priceday, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.pricenight, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.floorhome, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.floor, {'attr' : {'class':'form-control'}}) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.metro, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.city, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                                    <div class="cell-md-7">
+                                        {{ form_row(create_form.street, {'attr' : {'class':'form-control'}}) }}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inset-lg-left-80">
-                        <h3 class="offset-top-30">Дополнительная информация</h3>
-                        <hr class="divider divider-lg-left divider-primary divider-80">
-                    </div>
-                    <div class="inset-lg-left-80 section-md-top-30 ">
-                        <div class="range">
-                            <div class="range">
-                                <div class="cell-md-12">
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.tv) }}
-                                                {{ form_label(create_form.tv) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.wifi) }}
-                                                {{ form_label(create_form.wifi) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.parking) }}
-                                                {{ form_label(create_form.parking) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.microwave) }}
-                                                {{ form_label(create_form.microwave) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.washer) }}
-                                                {{ form_label(create_form.washer) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.bath) }}
-                                                {{ form_label(create_form.bath) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.shower) }}
-                                                {{ form_label(create_form.shower) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.fridge) }}
-                                                {{ form_label(create_form.fridge) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.dishes) }}
-                                                {{ form_label(create_form.dishes) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="range">
-                                            <div class="cell-md-6">
-                                                {{ form_widget(create_form.linens) }}
-                                                {{ form_label(create_form.linens) }}
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.about, {'attr' : {'class':'form-control'}}) }}
-                                        {{ form_row(create_form.telnumber, {'attr' : {'class':'form-control','placeholder':'Пример: +375291234567'} }) }}
-                                    </div>
-
-                                </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.home, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.pricehour, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.priceday, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.pricenight, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.floorhome, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.floor, {'attr' : {'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.metro, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.city, { 'attr': {'class': 'selectize-input items full has-options has-items select2-hidden-accessible'} }) }}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="inset-lg-left-80">
-                        <h3 class="offset-top-30">Фото</h3>
-                        <hr class="divider divider-lg-left divider-primary divider-80">
-                    </div>
-                    <div class="inset-lg-left-80 section-md-top-30 ">
-                        <div class="range">
-                            <div class="range">
-                                <div class="cell-md-12">
-                                    <div class="form-group">
-                                        {{ form_row(create_form.mainphoto) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.photo1) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.photo2) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_row(create_form.photo3) }}
-                                    </div>
-                                    {{ form_rest (create_form) }}
-                                    <input type="submit" value="Добавить квартиру"
-                                           class="btn btn-primary btn-sm btn-naira btn-naira-up">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
+        </div>
+        <div class="col-md-4">
+            <div class="inset-lg-left-80">
+                <h3 class="offset-top-30">Дополнительная информация</h3>
+                <hr class="divider divider-lg-left divider-primary divider-80">
+            </div>
+            <div class="inset-lg-left-80 section-md-top-30 ">
+                <div class="range">
+                    <div class="range">
+                        <div class="cell-md-12">
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.tv) }}
+                                        {{ form_label(create_form.tv) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.wifi) }}
+                                        {{ form_label(create_form.wifi) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.parking) }}
+                                        {{ form_label(create_form.parking) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.microwave) }}
+                                        {{ form_label(create_form.microwave) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.washer) }}
+                                        {{ form_label(create_form.washer) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.bath) }}
+                                        {{ form_label(create_form.bath) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.shower) }}
+                                        {{ form_label(create_form.shower) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.fridge) }}
+                                        {{ form_label(create_form.fridge) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.dishes) }}
+                                        {{ form_label(create_form.dishes) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.linens) }}
+                                        {{ form_label(create_form.linens) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.about, {'attr' : {'class':'form-control'}}) }}
+                                {{ form_row(create_form.telnumber, {'attr' : {'class':'form-control','placeholder':'Пример: +375291234567'} }) }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="inset-lg-left-80">
+                <h3 class="offset-top-30">Фото</h3>
+                <hr class="divider divider-lg-left divider-primary divider-80">
+            </div>
+            <div class="inset-lg-left-80 section-md-top-30 ">
+                <div class="range">
+                    <div class="range">
+                        <div class="cell-md-12">
+                            <div class="form-group">
+                                {{ form_row(create_form.mainphoto) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo1) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo2) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo3) }}
+                            </div>
+                            {{ form_rest (create_form) }}
+                            <input type="submit" value="Добавить квартиру"
+                                   class="btn btn-primary btn-sm btn-naira btn-naira-up">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 
 </div>
 

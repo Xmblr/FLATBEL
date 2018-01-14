@@ -18,16 +18,18 @@
 {#{% endblock %}#}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-4">
-            {% for City in City %}
-                <h1>{{ City.h1 }}</h1>
-                <a>{{ City.text }}</a>
-            {% endfor %}
-        </div>
-    </div>
 
-    <div class="container" style="margin-top: 4%;">
+
+    <div class="container" style="margin-top: 1%;">
+
+        <div class="row">
+
+                {% for City in City %}
+                    <h1 style="text-align:center;">{{ City.h1 }}</h1>
+
+                {% endfor %}
+
+        </div>
 
         {% for flat in flats %}
             <div class="col-md-4 col-sm-4">
@@ -86,6 +88,22 @@
 
             <h2>Квартиры не найдены</h2>
         {% endfor %}
+
+
+
+    </div>
+
+
+
+    <div class="container" style="margin-top: 2%;">
+
+        <div class="row">
+
+    {% for City in City %}
+
+        {{ City.text }}
+    {% endfor %}
+    </div>
     </div>
 
 {% endblock %}
