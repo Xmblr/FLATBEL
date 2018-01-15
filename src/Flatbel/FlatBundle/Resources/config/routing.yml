@@ -24,14 +24,14 @@ FlatbelFlatBundle_flat_create:
 #        methods: GET|POST
 
 FlatbelFlatBundle_flat_show:
-    path:  /kvartiry-na-sytki-{city}/{description}id={id}
+    path:  /{city}/{description}id={id}
     defaults: { _controller: "FlatbelFlatBundle:Flat:show" }
     requirements:
         methods:  GET|POST
         id: \d+
 
 FlatbelFlatBundle_city:
-    path:     /kvartiry-na-sytki-{city}
+    path:     /{city}
     defaults: { _controller: "FlatbelFlatBundle:Page:city" }
     requirements:
          methods:  GET|POST

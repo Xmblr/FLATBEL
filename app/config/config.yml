@@ -105,9 +105,9 @@ fos_user:
             validation_groups:  [ChangePassword, Default]
     registration:
         confirmation:
-            from_email: # Use this node only if you don't want the global email address for the confirmation email
-                address:        registration@flatbel.by
-                sender_name:    Registration
+#            from_email: # Use this node only if you don't want the global email address for the confirmation email
+#                address:        registration@flatbel.by
+#                sender_name:    Registration
             enabled:    true # change to true for required email confirmation
             template:   '@FOSUser/Registration/email.txt.twig'
         form:
@@ -117,9 +117,9 @@ fos_user:
     resetting:
         token_ttl: 86400
         email:
-            from_email: # Use this node only if you don't want the global email address for the resetting email
-                address:        resetting@flatbel.by
-                sender_name:    Resetting
+#            from_email: # Use this node only if you don't want the global email address for the resetting email
+                                          #                address:        resetting@flatbel.by
+                                          #                sender_name:    Resetting
             template:   email/password_resetting.email.twig
         form:
             type:               fos_user_resetting # or 'fos_user_resetting' on Symfony < 2.8
@@ -282,7 +282,7 @@ sonata_seo:
 
                 # Open Graph information
                 # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
-                'og:site_name':       Sonata Project Sandbox
+                'og:site_name':       Flatbel
                 'og:description':     A demo of the some rich bundles for your Symfony2 projects
 
             http-equiv:

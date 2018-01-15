@@ -30,10 +30,24 @@ class FlatController extends Controller
             throw $this->createNotFoundException('Уупс... Квартиры не найдены');
         }
 
+
+        $text = $flat->getAbout();
+        $pretext = '';
+        for ($i=0; $i<strlen($text); $i++){
+            // условие определения конца предложения (может быть более сложным)
+            if ($text[$i]=="." || $text[$i]=="!" || $text[$i]=="?") {
+                $pretext .= $text[$i]; break;
+            }
+            $pretext .= $text[$i];
+        }
+
+        $seoDescription = 'Квартира на сутки по адресу г.'. $flat->getCity().' '.$flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome().'. '.$pretext;
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
             ->setTitle('Flatbel - '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
-            ->addMeta('name', 'description', $description);
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
 
         return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat));
     }

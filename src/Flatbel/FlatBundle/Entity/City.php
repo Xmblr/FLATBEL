@@ -48,7 +48,7 @@ class City
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="text", length=100)
      */
     protected $text;
 

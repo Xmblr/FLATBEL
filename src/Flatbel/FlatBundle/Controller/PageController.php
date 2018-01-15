@@ -45,7 +45,8 @@ class PageController extends Controller
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
             ->setTitle($title)
-            ->addMeta('name', 'description', $description);
+            ->addMeta('name', 'description', $description)
+            ;
 
         $flat = new Flat();
 

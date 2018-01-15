@@ -24,10 +24,10 @@
 
         <div class="row">
 
-                {% for City in City %}
-                    <h1 style="text-align:center;">{{ City.h1 }}</h1>
+            {% for City in City %}
+                <h1 style="text-align:center;">{{ City.h1 }}</h1>
 
-                {% endfor %}
+            {% endfor %}
 
         </div>
 
@@ -61,7 +61,8 @@
 
                             <div class="col-md-8" style="padding-left:0px; padding-right:0px;">
                                 <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}- {{ flat.home }}</a>
+                                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}
+                                        - {{ flat.home }}</a>
                                 </h3>
                             </div>
                             <div class="col-md-4" style="padding-right:0px; font-size:14px;">
@@ -90,7 +91,6 @@
         {% endfor %}
 
 
-
     </div>
 
 
@@ -99,11 +99,10 @@
 
         <div class="row">
 
-    {% for City in City %}
-
-        {{ City.text }}
-    {% endfor %}
-    </div>
+            {% for City in City %}
+                {{ City.text|raw }}
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
