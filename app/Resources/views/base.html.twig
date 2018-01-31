@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="wide smoothscroll wow-animation">
+<html lang="en" >
 <head>
     <!-- Site Title-->
     {{ sonata_seo_title() }}
@@ -13,9 +13,10 @@
         {% stylesheets '@bootstrap_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
         <link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
@@ -130,6 +131,7 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+
 
 
 {% endblock %}

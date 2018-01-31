@@ -49,7 +49,30 @@ class FlatController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat));
+
+        $priceday = $flat->getPriceday();
+
+        $usd = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
+        $pos = strpos($usd, 'USD');
+        $usd = substr($usd, $pos);
+        $pos = strpos($usd, '</td>
+	</tr><tr>
+');
+        $usd = substr($usd, 0, $pos);
+        $usd = str_replace('USD</td><td style="white-space:nowrap;font-size:60%;">1 US Dollar</td><td align="right">','', $usd);
+        $usd = number_format(($priceday / $usd), 2, '.', '');
+
+        $rub = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
+        $pos = strpos($rub, 'RUB');
+        $rub = substr($rub, $pos);
+        $pos = strpos($rub, '</td>
+	</tr><tr>
+');
+        $rub = substr($rub, 0, $pos);
+        $rub = str_replace('RUB</td><td style="white-space:nowrap;font-size:60%;">100 Russian Rubles</td><td align="right">','', $rub);
+        $rub = number_format(((100 / $rub) * $priceday), 2, '.', '');
+
+        return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat, 'usd'=>$usd, 'rub'=>$rub));
     }
 
     public function createAction(Request $request)

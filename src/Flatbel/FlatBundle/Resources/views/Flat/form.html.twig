@@ -161,6 +161,20 @@
                             <div class="form-group">
                                 {{ form_row(create_form.about, {'attr' : {'class':'form-control'}}) }}
                                 {{ form_row(create_form.telnumber, {'attr' : {'class':'form-control','placeholder':'Пример: +375291234567'} }) }}
+                                <div class="row">
+                                    <div >
+                                        {{ form_widget(create_form.viber) }}
+                                        {{ form_label(create_form.viber) }}
+                                    </div>
+                                    <div >
+                                        {{ form_widget(create_form.whatsapp) }}
+                                        {{ form_label(create_form.whatsapp) }}
+                                    </div>
+                                    <div >
+                                        {{ form_widget(create_form.telegram) }}
+                                        {{ form_label(create_form.telegram) }}
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -188,6 +202,12 @@
                             </div>
                             <div class="form-group">
                                 {{ form_row(create_form.photo3) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo4) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_row(create_form.photo5) }}
                             </div>
                             {{ form_rest (create_form) }}
                             <input type="submit" value="Добавить квартиру"

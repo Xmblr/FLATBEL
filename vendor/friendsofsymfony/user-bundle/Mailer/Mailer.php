@@ -15,6 +15,13 @@ use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+use Symfony\Bundle\MonologBundle\SwiftMailer;
+use Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle;
+use Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator;
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
+
 /**
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */
@@ -85,23 +92,52 @@ class Mailer implements MailerInterface
     }
 
     /**
-     * @param string $renderedTemplate
-     * @param string $fromEmail
-     * @param string $toEmail
+     * @param string       $renderedTemplate
+     * @param array|string $fromEmail
+     * @param array|string $toEmail
      */
     protected function sendEmailMessage($renderedTemplate, $fromEmail, $toEmail)
     {
+        // Create the Transport
+        $transport = Swift_SmtpTransport::newInstance('smtp.mail.ru', 465, 'ssl')
+            ->setUsername('flatbel@mail.ru')
+            ->setPassword('kvartira147')
+        ;
+
+        // Create the Mailer using your created Transport
+        $mailer = Swift_Mailer::newInstance($transport);
+
+
         // Render the email, use the first line as the subject, and the rest as the body
         $renderedLines = explode("\n", trim($renderedTemplate));
         $subject = array_shift($renderedLines);
         $body = implode("\n", $renderedLines);
 
-        $message = \Swift_Message::newInstance()
+        $message = Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom($fromEmail)
             ->setTo($toEmail)
             ->setBody($body);
 
-        $this->mailer->send($message);
+        //$this->mailer->send($message);
+
+//        // Create the Transport
+//        $transport = Swift_SmtpTransport::newInstance('smtp.mail.ru', 465, 'ssl')
+//            ->setUsername('flatbel@mail.ru')
+//            ->setPassword('kvartira147')
+//        ;
+//
+//        // Create the Mailer using your created Transport
+//        $mailer = Swift_Mailer::newInstance($transport);
+//
+//        // Create a message
+//        $message = Swift_Message::newInstance('Wonderful Subject')
+//            ->setFrom(array('flatbel@mail.ru' => 'John Doe'))
+//            ->setTo(array('mkirill97@mail.ru', 'mkirill97@gmail.com' => 'A name'))
+//            ->setBody('Here is the message itself')
+//        ;
+
+        // Send the message
+        $numSent = $mailer->send($message);
     }
 }

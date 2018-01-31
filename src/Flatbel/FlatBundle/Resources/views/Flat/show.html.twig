@@ -41,10 +41,10 @@
                                         <p style="margin-bottom:0px;">{{ flat.priceday }}/сутки</p>
                                     </div>
                                     <div class="tab-pane h1" id="tab2" style="margin-bottom:0px; margin-top:0px;">
-                                        <p style="margin-bottom:0px;"> {{ flat.priceday }}*2/сутки</p>
+                                        <p style="margin-bottom:0px;"> {{ usd }}/сутки</p>
                                     </div>
                                     <div class="tab-pane h1" id="tab3" style="margin-bottom:0px; margin-top:0px;">
-                                        <p style="margin-bottom:0px;">{{ flat.priceday }}/сутки</p>
+                                        <p style="margin-bottom:0px;">{{ rub }}/сутки</p>
                                     </div>
                                 </div>
                                 <span class="listing-meta">
@@ -96,6 +96,24 @@
                         <div class="">
                             <div class="slider-item"
                                  style="background: url('{% path flat.photo2, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.photo3, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.photo4, 'big' %}') center center no-repeat;
+                                         background-size:auto 100%;">
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="slider-item"
+                                 style="background: url('{% path flat.photo5, 'big' %}') center center no-repeat;
                                          background-size:auto 100%;">
                             </div>
                         </div>
@@ -181,8 +199,19 @@
                         <h4>Контактные данные:</h4>
                         <div class="hours-list-single">
 
-                            <span><i class="fa fa-phone" aria-hidden="true"></i> Телефон: <a style="color:white;"
-                                                                                             href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a></span>
+                            <span>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                Телефон: <a style="color:white;" href="callto: {{ flat.telnumber }}">{{ flat.telnumber }}</a>
+                            </span>
+                            {% if flat.viber == 1 %}
+                                <img src="{{ asset('viber.png') }}" width="25px" height="25px"/>
+                            {% endif %}
+                            {% if flat.whatsapp == 1 %}
+                                <img src="{{ asset('whatsapp.png') }}" width="25px" height="25px"/>
+                            {% endif %}
+                            {% if flat.telegram == 1 %}
+                                <img src="{{ asset('telegram.png') }}" width="25px" height="25px"/>
+                            {% endif %}
                         </div>
 
                     </div>

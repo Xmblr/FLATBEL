@@ -124,6 +124,9 @@ class FlatType extends AbstractType
             ->add('dishes',null,array('label'=>'Посуда'))
             ->add('linens',null,array('label'=>'Постельное бельё'))
             ->add('telnumber',null,array('label'=>'Номер телефона'))
+            ->add('viber',null,array('label'=>'Viber'))
+            ->add('whatsapp',null,array('label'=>'Whatsapp'))
+            ->add('telegram',null,array('label'=>'Telegram'))
             ->add('about',null,array('label'=>'Описание'))
             ->add('mainphoto', 'sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
@@ -145,6 +148,17 @@ class FlatType extends AbstractType
                 'context'  => 'flatphotos',
                 'label'=>'Фото №3'
             ))
+            ->add('photo4','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Фото №4'
+            ))
+            ->add('photo5','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'label'=>'Фото №5'
+            ))
+
         ;
     }
     

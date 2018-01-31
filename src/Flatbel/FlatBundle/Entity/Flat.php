@@ -152,6 +152,69 @@ class Flat
     protected $telnumber;
 
     /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    protected $viber;
+
+    /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    protected $whatsapp;
+
+    /**
+     * @return mixed
+     */
+    public function getViber()
+    {
+        return $this->viber;
+    }
+
+    /**
+     * @param mixed $viber
+     */
+    public function setViber($viber)
+    {
+        $this->viber = $viber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhatsapp()
+    {
+        return $this->whatsapp;
+    }
+
+    /**
+     * @param mixed $whatsapp
+     */
+    public function setWhatsapp($whatsapp)
+    {
+        $this->whatsapp = $whatsapp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelegram()
+    {
+        return $this->telegram;
+    }
+
+    /**
+     * @param mixed $telegram
+     */
+    public function setTelegram($telegram)
+    {
+        $this->telegram = $telegram;
+    }
+
+    /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    protected $telegram;
+
+    /**
      * @ORM\Column(type="text", length=1000)
      *
      */
@@ -200,6 +263,55 @@ class Flat
 
     protected $photo3;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+//     * @ORM\Column(type="string", length=1000)
+//     * @Assert\File(mimeTypes={ "image/jpeg" })
+
+    protected $photo4;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+//     * @ORM\Column(type="string", length=1000)
+//     * @Assert\File(mimeTypes={ "image/jpeg" })
+
+    protected $photo5;
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto4()
+    {
+        return $this->photo4;
+    }
+
+    /**
+     * @param mixed $photo4
+     */
+    public function setPhoto4($photo4)
+    {
+        $this->photo4 = $photo4;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto5()
+    {
+        return $this->photo5;
+    }
+
+    /**
+     * @param mixed $photo5
+     */
+    public function setPhoto5($photo5)
+    {
+        $this->photo5 = $photo5;
+    }
 
 
     /**
