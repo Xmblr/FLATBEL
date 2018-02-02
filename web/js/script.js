@@ -46,7 +46,7 @@
     if(plugins.popover.length){if(window.innerWidth<767){plugins.popover.attr('data-placement','bottom');plugins.popover.popover();}
     else{plugins.popover.popover();}}
     if(plugins.statefulButton.length){$(plugins.statefulButton).on('click',function(){var statefulButtonLoading=$(this).button('loading');setTimeout(function(){statefulButtonLoading.button('reset')},2000);})}
-    if(isDesktop){$().UItoTop({easingType:'easeOutQuart',containerClass:'ui-to-top fa fa-angle-up'});}
+    // if(isDesktop){$().UItoTop({easingType:'easeOutQuart',containerClass:'ui-to-top fa fa-angle-up'});}
     if(plugins.customWaypoints.length){var i;for(i=0;i<plugins.customWaypoints.length;i++){var $this=$(plugins.customWaypoints[i]);$this.on('click',function(e){e.preventDefault();$("body, html").stop().animate({scrollTop:$("#"+ $(this).attr('data-custom-scroll-to')).offset().top- 100},1000,function(){$(window).trigger("resize");});});}}
     if(plugins.rdNavbar.length){plugins.rdNavbar.RDNavbar({stickUpClone:(plugins.rdNavbar.attr("data-stick-up-clone"))?plugins.rdNavbar.attr("data-stick-up-clone")==='true':false});if(plugins.rdNavbar.attr("data-body-class")){document.body.className+=' '+ plugins.rdNavbar.attr("data-body-class");}}
     if(plugins.viewAnimate.length){var i;for(i=0;i<plugins.viewAnimate.length;i++){var $view=$(plugins.viewAnimate[i]).not('.active');$document.on("scroll",$.proxy(function(){if(isScrolledIntoView(this)){this.addClass("active");}},$view)).trigger("scroll");}}

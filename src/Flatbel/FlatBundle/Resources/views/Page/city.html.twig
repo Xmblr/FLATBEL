@@ -20,16 +20,15 @@
 {% block body %}
 
 
-    <div class="container" style="margin-top: 1%;">
 
-        <div class="row">
 
+<div class="container">
+<div class="row">
                 {% for City in City %}
                     <h1 style="text-align:center;">{{ City.h1 }}</h1>
 
                 {% endfor %}
 
-        </div>
 
         {% for flat in flats %}
             <div class="col-md-4 col-sm-4">
@@ -38,6 +37,8 @@
                          style="background: url('{% path flat.mainphoto, 'big' %}') center center no-repeat;
                                  background-size: cover;">
                         <span class="an-badge bg-property">{{ flat.city }}</span>
+
+
                         <div class="listing-hover-content">
 
                             <p>
@@ -59,26 +60,29 @@
                     <div class="listing-content">
                         <div class="listing-name">
 
-                            <div class="col-md-8" style="padding-left:0px; padding-right:0px;">
+
                                 <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}- {{ flat.home }}</a>
                                 </h3>
-                            </div>
-                            <div class="col-md-4" style="padding-right:0px; font-size:14px;">
-                                <p>{{ flat.priceday }} BYN/сут</p></div>
+
+
 
 
                         </div>
+
+
+
                         <div class="listing-meta"><span><i class="fa fa-building-o"
                                                            aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i
-                                        class="fa fa-bed" aria-hidden="true"></i>{{ flat.numberofbeds }} спальное место</span>
-                            {% if flat.wifi == 1 %}
-                                <i class="fa fa-wifi" aria-hidden="true"></i>
-                            {% endif %}
+                                        class="fa fa-bed" aria-hidden="true"></i>{{ flat.numberofbeds }}</span>
+                            {#{% if flat.wifi == 1 %}#}
+                                {#<i class="fa fa-wifi" aria-hidden="true"></i>#}
+                            {#{% endif %}#}
 
-                            {% if flat.parking == 1 %}
-                                <i class="fa fa-car" aria-hidden="true"></i>
-                            {% endif %}
+                            {#{% if flat.parking == 1 %}#}
+                                {#<i class="fa fa-car" aria-hidden="true"></i>#}
+                            {#{% endif %}#}
+                            <span style="float:right; font-size: 16px; font-weight: 600; color: #864bff;">{{ flat.priceday }} BYN/сут</span>
                         </div>
                     </div>
                 </div> <!-- end listing-single -->
@@ -90,8 +94,6 @@
         {% endfor %}
 
 
-
-    </div>
 
 
 
@@ -105,8 +107,11 @@
     {% endfor %}
     </div>
     </div>
-
+</div>
+</div>
 {% endblock %}
+
+
 
 {% block javascripts %}
 

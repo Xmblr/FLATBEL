@@ -1,130 +1,1071 @@
-<!DOCTYPE html>
-<html lang="en" class="wide smoothscroll wow-animation">
+<html lang="en">
 <head>
-    <!-- Site Title-->
-    {{ sonata_seo_title() }}
-    {{ sonata_seo_metadatas() }}
-    {#<title>{% block title %}Flatbel{% endblock %} - Flatbel</title>#}
-    {#<meta name="format-detection" content="telephone=no">#}
-    {#<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">#}
-    {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
-    <link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catalog Directory</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+
     {% block stylesheets %}
         {% stylesheets '@bootstrap_css' %}
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7COpen+Sans:400,600%7CCabin:400i"
+                  rel="stylesheet">
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">
     {% endblock %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
+<div id="an-main-wrapper">
 
 
-<!-- Page-->
-
-<div class="page">
-    <!-- Page Header-->
-    <div>
-
-        <header class="an-header">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"
-                                                            class="reveal-inline-block brand-name">
-                                <img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"
-                                     class="img-responsive center-block">
-                            </a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
-                                    <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
-                                    <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
-                                </ul>
-                            </li>
-
-
-
-
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default" href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a></li>
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;" class="sign-up-link" href="{{ path('fos_user_profile_show') }}">
-                                            <span class="glyphicon glyphicon-user"
-                                                  aria-hidden="true"></span> {{ app.user.username }}
-                                    </a>
-                                </li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
-                            {% else %}
-                                <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
-                                <li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
-        </header>
-
-        <!-- Swiper-->
-        <section>
-            <div class="swiper-slide-wrapper">
-                {% block slide %}{% endblock %}
-                {% block filter %}{% endblock %}
-            </div>
-        </section>
-    </div>
-    <!-- Page Content-->
-    <main class="page-content">
-        {% block body %}{% endblock %}
-    </main>
-    <!-- Page Footer-->
-    <footer class="page-footer">
-        <div class="shell shell-wide page-footer-min small">
-            <div class="range range-xs-middle">
-                <div class="cell-sm-6 text-sm-left">
-                    <ul class="list-inline" style="padding: 3%">
-                        {#<li><a href="#" class="icon fa-facebook"></a></li>#}
-                        {#<li><a href="#" class="icon fa-twitter"></a></li>#}
-                        {#<li><a href="#" class="icon fa-pinterest-p"></a></li>#}
-                        {#<li><a href="#" class="icon fa-vimeo"></a></li>#}
-                        {#<li><a href="#" class="icon fa-google-plus"></a></li>#}
-                        {#<li><a href="#" class="icon fa-rss"></a></li>#}
-                        <p>&#169; <span id="copyright-year"></span> Все права защищены.
-                        </p>
-                    </ul>
+    <header class="an-header">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"
+                       class="reveal-inline-block brand-name">
+                        <img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"
+                             class="img-responsive center-block">
+                    </a>
                 </div>
 
-            </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="callto:375299407515">+375 29 940-75-15</a></li>
+                                <li><a href="callto:375259408617">+375 25 940-86-17</a></li>
+                                <li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default"
+                                                                               href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a>
+                        </li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;"
+                                                                               class="sign-up-link"
+                                                                               href="{{ path('fos_user_profile_show') }}">
+    <span class="glyphicon glyphicon-user"
+          aria-hidden="true"></span> {{ app.user.username }}
+                                </a>
+                            </li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <section>
+        <div class="swiper-slide-wrapper">
+            {% block slide %}{% endblock %}
+            {% block filter %}{% endblock %}
         </div>
-    </footer>
-</div>
-<!-- Java script-->
+    </section>
+
+    <div class="an-page-content">
+
+                {% block body %}{% endblock %}
+
+                {#<div class="col-md-12">#}
+                {#<div class="content-body no-bottom-padding">#}
+                {#<div class="an-section-container no-padding">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Categories</h1>#}
+                {#<a class="an-btn an-btn-default icon-right" href="category.html">All Categories<i class="fa fa-th-large"></i></a>#}
+                {#</div> <!-- end title container -->#}
+
+                {#<div class="row">#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<div class="an-category-single">#}
+                {#<a href="category.html">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/property.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-building-o color-property"></i></div>#}
+                {#<h3>Property <span class="color-property">(139)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</a>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/motors.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-car color-motor"></i></div>#}
+                {#<h3>Motors <span class="color-motor">(60)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/for-sal.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-tag color-sale"></i></div>#}
+                {#<h3>For sale <span class="color-sale">(160)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/jobs.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-briefcase color-job"></i></div>#}
+                {#<h3>Jobs <span class="color-job">(238)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/service.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-bullhorn color-service"></i></div>#}
+                {#<h3>Services <span class="color-service">(96)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/restaurant.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-cutlery color-restaurant"></i></div>#}
+                {#<h3>Restaurants <span class="color-restaurant">(230)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/hotel.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-leaf color-hotel"></i></div>#}
+                {#<h3>Hotels &amp; Travels <span class="color-hotel">(269)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-4">#}
+                {#<a href="category.html">#}
+                {#<div class="an-category-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/category/pets.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<div class="overlay"></div>#}
+                {#<div class="category-content">#}
+                {#<div class="category-icon"><i class="fa fa-paw color-pet"></i></div>#}
+                {#<h3>Pets <span class="color-pet">(55)</span></h3>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-category-single -->#}
+                {#</a>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-section-container -->#}
+
+                {#<div class="an-advertise">#}
+                {#<div class="row">#}
+                {#<div class="col-sm-8">#}
+                {#<div class="ad-details">#}
+                {#<i class="ion-leaf color-hotel"></i>#}
+                {#<h1><a href="listing-single.html">Luxury 5 star hotel</a></h1>#}
+                {#<div class="listing-meta">#}
+                {#<span><a class="color-hotel" href="#">Restaurant/Fine Dining</a></span>#}
+                {#<span class="user"><span class="meta-italic">By:</span><a href="#">Fiona Wilson</a></span>#}
+                {#<span><i class="typcn typcn-time"></i>16.1.17</span>#}
+                {#<span><i class="typcn typcn-location"></i>New York</span>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="col-sm-4">#}
+                {#<div class="ad-price">#}
+                {#<h1><small><i class="ion-social-usd"></i></small>120/day</h1>#}
+                {#<div class="listing-meta">#}
+                {#<span><span class="meta-italic">Convert to:</span>#}
+                {#<a href="#">EUR</a>#}
+                {#<a href="#">GBR</a>#}
+                {#<a class="active" href="#">USD</a>#}
+                {#</span>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-advertise -->#}
+
+                {#<div class="an-section-container">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Featured listing</h1>#}
+                {#<a class="an-btn an-btn-default icon-right" href="listing.html">All Listings<i class="fa fa-bars"></i></a>#}
+                {#</div> <!-- end title container -->#}
+
+                {#<div class="row">#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-jobs.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-property">Property</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Lumberjack</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$6 300</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-cars.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-motor">Motor</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Mercedes S13</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$326 300</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>London, UK</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-sale.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-sale">sale</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Bike For hire</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$5/hr</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-pets.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-pet">Pets</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Cute Dog</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$800</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-service.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-service">Service</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Plumber fitting</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$80/day</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-hotels.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-hotel">Hotel</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Land remark hotel</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$250/day</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-restaurant.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-restaurant">Restaurant</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Morning breakfast</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$10(30% off)</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-property.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-property">Property</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Full Furnished House</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$124 400</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#<div class="col-md-4 col-sm-4">#}
+                {#<div class="an-listing-single">#}
+                {#<div class="listing-img-container"#}
+                {#style="background: url('./assets/img/listing/listing-sale.jpg') center center no-repeat;#}
+                {#background-size: cover;">#}
+                {#<span class="an-badge bg-sale">Sale</span>#}
+                {#<div class="listing-hover-content">#}
+                {#<a class="link-single" href="listing-single.html"><i class="ion-forward"></i></a>#}
+                {#<p>#}
+                {#<span><i class="typcn typcn-eye-outline color-job"></i> 10 234</span>#}
+                {#<span><i class="typcn typcn-heart-outline color-accents"></i> 234</span>#}
+                {#</p>#}
+                {#<button class="an-btn an-btn-black icon-left small-padding"><i class="ion-android-locate"></i>On the map</button>#}
+                {#</div>#}
+                {#</div>#}
+                {#<div class="listing-content">#}
+                {#<div class="listing-name">#}
+                {#<h3><a href="listing-single.html">Bike For hire</a></h3>#}
+                {#<div class="price">#}
+                {#<p class="color-primary">$15/hr</p>#}
+                {#<ul class="an-rating-list list-inline">#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star"></i></li>#}
+                {#<li><i class="fa fa-star-half-o"></i></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#</div>#}
+                {#<div class="listing-meta"><span><i class="ion-android-time"></i>16.1.17</span><span><i class="typcn typcn-location"></i>New York</span></div>#}
+                {#</div>#}
+                {#</div> <!-- end listing-single -->#}
+                {#</div>#}
+                {#</div> <!-- end row -->#}
+                {#</div> <!-- end an-section-container -->#}
+
+                {#<div class="an-section-container">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Classifieds Listing</h1>#}
+                {#<a class="an-btn an-btn-default icon-right" href="listing.html">All Listing<i class="fa fa-list"></i></a>#}
+                {#</div> <!-- end title container -->#}
+
+                {#<div class="an-classified-listing">#}
+                {#<div class="row">#}
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-property"><i class="fa fa-building-o"></i>Properties</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-hotel"><i class="fa fa-leaf"></i>Hotels</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+
+                {#</ul>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-service"><i class="fa fa-bullhorn"></i>Services</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-motor"><i class="fa fa-car"></i>Motors</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-pet"><i class="fa fa-paw"></i>Pets</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-job"><i class="fa fa-briefcase"></i>Jobs</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-sale"><i class="fa fa-tag"></i>Sales</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Furnishing</span><span>55</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+
+                {#<div class="classified-single">#}
+                {#<h3 class="bg-restaurant"><i class="fa fa-cutlery"></i>Restaurants</h3>#}
+                {#<ul class="list-unstyled">#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#<li><a href="#"><span>Land &amp; Estate</span><span>84</span></a></li>#}
+                {#<li><a href="#"><span>To Rent</span><span>2</span></a></li>#}
+                {#<li><a href="#"><span>To Share</span><span>8</span></a></li>#}
+                {#<li><a href="#"><span>Commercial &amp; Local</span><span>15</span></a></li>#}
+                {#<li><a href="#"><span>For Sale</span><span>12</span></a></li>#}
+                {#</ul>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end row -->#}
+
+                {#</div> <!-- end an-classified-listing -->#}
+                {#</div> <!-- end an-section-container -->#}
+
+                {#<div class="an-section-container">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Register now</h1>#}
+                {#<a class="an-btn an-btn-default icon-right" href="#">All Pricing<i class="fa fa-usd"></i></a>#}
+                {#</div> <!-- end title container -->#}
+                {#<div class="an-pricing pt0">#}
+                {#<div class="row">#}
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="an-pricing-table-single with-shadow-dark wow fadeIn" data-wow-delay=".1s">#}
+                {#<div class="price-header">#}
+                {#<h3 class="plan-name">Basic</h3>#}
+                {#<h1 class="plan-price"><span>$</span>17.69</h1>#}
+                {#<p>Per Month</p>#}
+                {#</div>#}
+                {#<div class="helper-text">#}
+                {#<p>It is a long established fact that a reader will be dist racted by the readable.</p>#}
+                {#</div>#}
+                {#<ul class="feature-lists">#}
+                {#<li>10 Members</li>#}
+                {#<li>2GB Downloads</li>#}
+                {#<li>Unlimited browsing</li>#}
+                {#</ul>#}
+                {#<div class="price-footer">#}
+                {#<a href="#" class="an-btn an-btn-default fluid">Chose Plan</a>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<!-- end .AN-SINGEL-uSEr-MAIN-BODY -->#}
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="an-pricing-table-single with-shadow-dark wow fadeIn" data-wow-delay=".1s">#}
+                {#<div class="price-header">#}
+                {#<h3 class="plan-name">Standard</h3>#}
+                {#<h1 class="plan-price"><span>$</span>20.69</h1>#}
+                {#<p>Per Month</p>#}
+                {#</div>#}
+                {#<div class="helper-text">#}
+                {#<p>It is a long established fact that a reader will be dist racted by the readable.</p>#}
+                {#</div>#}
+                {#<ul class="feature-lists">#}
+                {#<li>10 Members</li>#}
+                {#<li>2GB Downloads</li>#}
+                {#<li>Unlimited browsing</li>#}
+                {#</ul>#}
+                {#<div class="price-footer">#}
+                {#<a href="#" class="an-btn an-btn-default fluid">Chose Plan</a>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<!-- end .AN-SINGEL-uSEr-MAIN-BODY -->#}
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="an-pricing-table-single with-shadow-dark wow fadeIn" data-wow-delay=".1s">#}
+                {#<div class="price-header">#}
+                {#<h3 class="plan-name">Platinum</h3>#}
+                {#<h1 class="plan-price"><span>$</span>300</h1>#}
+                {#<p>Per Month</p>#}
+                {#</div>#}
+                {#<div class="helper-text">#}
+                {#<p>It is a long established fact that a reader will be dist racted by the readable.</p>#}
+                {#</div>#}
+                {#<ul class="feature-lists">#}
+                {#<li>10 Members</li>#}
+                {#<li>2GB Downloads</li>#}
+                {#<li>Unlimited browsing</li>#}
+                {#</ul>#}
+                {#<div class="price-footer">#}
+                {#<a href="#" class="an-btn an-btn-default fluid">Chose Plan</a>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<!-- end .AN-SINGEL-uSEr-MAIN-BODY -->#}
+                {#</div>#}
+
+                {#<div class="col-md-3 col-sm-6">#}
+                {#<div class="an-pricing-table-single with-shadow-dark wow fadeIn" data-wow-delay=".1s">#}
+                {#<div class="price-header">#}
+                {#<h3 class="plan-name">Enterprise</h3>#}
+                {#<h1 class="plan-price"><span>$</span>500</h1>#}
+                {#<p>Per Month</p>#}
+                {#</div>#}
+                {#<div class="helper-text">#}
+                {#<p>It is a long established fact that a reader will be dist racted by the readable.</p>#}
+                {#</div>#}
+                {#<ul class="feature-lists">#}
+                {#<li>10 Members</li>#}
+                {#<li>2GB Downloads</li>#}
+                {#<li>Unlimited browsing</li>#}
+                {#</ul>#}
+                {#<div class="price-footer">#}
+                {#<a href="#" class="an-btn an-btn-default fluid">Chose Plan</a>#}
+                {#</div>#}
+                {#</div>#}
+
+                {#<!-- end .AN-SINGEL-uSEr-MAIN-BODY -->#}
+                {#</div>#}
+
+                {#</div> <!-- end row -->#}
+                {#</div>#}
+                {#</div> <!-- end an-section-contaienr -->#}
+
+                {#<div class="an-section-container no-bottom-padding">#}
+                {#<div class="row">#}
+                {#<div class="col-md-6 col-sm-6">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Clients Says</h1>#}
+                {#</div> <!-- end title container -->#}
+                {#<div class="an-testimonial">#}
+                {#<div class="owl-carousel testimonial-slider owl-theme">#}
+                {#<div class="item">#}
+                {#<div class="testimonial-single">#}
+                {#<div class="image" style="background: url('./assets/img/users/user1.jpg') center center no-repeat; background-size: cover;"></div>#}
+                {#<p class="accents">Reviewed by</p>#}
+                {#<a href="#">Floina wilson</a>#}
+                {#<i class="ion-quote"></i>#}
+                {#<p class="testimonial-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>#}
+                {#</div> <!-- end testimonial-single -->#}
+                {#</div>#}
+                {#<div class="item">#}
+                {#<div class="testimonial-single">#}
+                {#<div class="image" style="background: url('./assets/img/users/user-3.jpg') center center no-repeat; background-size: cover;"></div>#}
+                {#<p class="accents">Reviewed by</p>#}
+                {#<a href="#">Floina wilson</a>#}
+                {#<i class="ion-quote"></i>#}
+                {#<p class="testimonial-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>#}
+                {#</div> <!-- end testimonial-single -->#}
+                {#</div>#}
+                {#<div class="item">#}
+                {#<div class="testimonial-single">#}
+                {#<div class="image" style="background: url('./assets/img/users/user-2.jpg') center center no-repeat; background-size: cover;"></div>#}
+                {#<p class="accents">Reviewed by</p>#}
+                {#<a href="#">Floina wilson</a>#}
+                {#<i class="ion-quote"></i>#}
+                {#<p class="testimonial-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>#}
+                {#</div> <!-- end testimonial-single -->#}
+                {#</div>#}
+                {#</div> <!-- end slider -->#}
+                {#</div> <!-- end an-testimonial -->#}
+                {#</div>#}
+                {#<div class="col-md-5 col-md-push-1 col-sm-6">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Latest Listing</h1>#}
+                {#</div> <!-- end title container -->#}
+                {#<div class="an-news-container">#}
+                {#<div class="an-news-single latest-listing">#}
+                {#<div class="an-top-meta">#}
+                {#<span class="an-badge bg-hotel">Hotels &amp; Travels</span>#}
+                {#<span class="price">$18.00/day</span>#}
+                {#</div>#}
+                {#<a href="#">Integar palivier spier erat.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span>12.03.17/USA, New York</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single latest-listing">#}
+                {#<div class="an-top-meta">#}
+                {#<span class="an-badge bg-property">Property</span>#}
+                {#<span class="price">$118 678</span>#}
+                {#</div>#}
+                {#<a href="#">Bed and terrace house for sale</a>#}
+                {#<div class="listing-meta">#}
+                {#<span>12.03.17/USA, New York</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single latest-listing">#}
+                {#<div class="an-top-meta">#}
+                {#<span class="an-badge bg-service">service</span>#}
+                {#<span class="price">$80/day</span>#}
+                {#</div>#}
+                {#<a href="#">Professional information technology services.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span>12.03.17/USA, New York</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single latest-listing">#}
+                {#<div class="an-top-meta">#}
+                {#<span class="an-badge bg-motor">Motors</span>#}
+                {#<span class="price">$14000</span>#}
+                {#</div>#}
+                {#<a href="#">Lorem Ipsum is simply dummy text of the printing and.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span>12.03.17/USA, New York</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+                {#</div> <!-- end an-news-container -->#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-section-contaienr -->#}
+
+                {#<div class="an-section-container">#}
+                {#<div class="an-title-container">#}
+                {#<h1 class="an-title">Latest from blog</h1>#}
+                {#<a class="an-btn an-btn-default icon-right" href="#">View Blog<i class="fa fa-book"></i></a>#}
+                {#</div> <!-- end title container -->#}
+                {#<div class="an-news-container">#}
+                {#<div class="row">#}
+                {#<div class="col-sm-6">#}
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p1.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Hotel</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p5.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Service</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p8.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Tours &amp; Travels</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+                {#</div>#}
+                {#<div class="col-sm-6">#}
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p10.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Pets</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p3.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Jobs</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+
+                {#<div class="an-news-single with-thumb">#}
+                {#<img src="./assets/img/blog/p7.jpg" alt="">#}
+                {#<a href="blog-post.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>#}
+                {#<div class="listing-meta">#}
+                {#<span class="an-badge default">Restaurant</span>#}
+                {#<span><i class="ion-android-time"></i>16.1.17</span>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-single -->#}
+                {#</div>#}
+                {#</div>#}
+                {#</div> <!-- end an-news-container -->#}
+                {#</div> <!-- end an-section-contaienr -->#}
+                {#</div> <!-- end content-body -->#}
+                {#</div>#}
+
+
+    </div> <!-- end an-page-content -->
+
+    <footer class="an-footer">
+        <div class="container">
+            <div class="an-footer-bottom">
+                <div class="row">
+                    {#<div class="col-md-2 col-sm-6">#}
+                        {#<div class="an-widget">#}
+                            {#<h4 class="an-small-title light-color">Menu</h4>#}
+                            {#<ul>#}
+                                {#<li><a href="#">Home</a></li>#}
+                                {#<li><a href="#">Category</a></li>#}
+                                {#<li><a href="#">Listing</a></li>#}
+                                {#<li><a href="#">Blog</a></li>#}
+                                {#<li><a href="#">Contact</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-2 col-sm-6">#}
+                        {#<div class="an-widget">#}
+                            {#<h4 class="an-small-title light-color">Support</h4>#}
+                            {#<ul>#}
+                                {#<li><a href="#">Prvecy Policy</a></li>#}
+                                {#<li><a href="#">FAQ</a></li>#}
+                                {#<li><a href="#">Terms &amp; Service</a></li>#}
+                                {#<li><a href="#">Blog</a></li>#}
+                                {#<li><a href="#">Contact</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
+                    {#</div>#}
+
+                    {#<div class="col-md-2 col-sm-6">#}
+                        {#<div class="an-widget">#}
+                            {#<h4 class="an-small-title light-color">Manage</h4>#}
+                            {#<ul>#}
+                                {#<li><a href="#">Account</a></li>#}
+                                {#<li><a href="#">Listing</a></li>#}
+                                {#<li><a href="#">Register</a></li>#}
+                                {#<li><a href="#">Subscription</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-2 col-sm-6">#}
+                        {#<div class="an-widget">#}
+                            {#<h4 class="an-small-title light-color">Quick Links</h4>#}
+                            {#<ul>#}
+                                {#<li><a href="#">Dashboard</a></li>#}
+                                {#<li><a href="#">Profile</a></li>#}
+                                {#<li><a href="#">Agency Profile</a></li>#}
+                                {#<li><a href="#">Activity</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col-md-3 col-md-push-1 col-sm-6">#}
+                        {#<div class="an-widget newsletter">#}
+                            {#<h4 class="an-small-title light-color">Subscribe to our news</h4>#}
+                            {#<p>Contrary to popular belief, Lorem Ipsum is not simply random text.#}
+                                {#It has roots in a piece of classical Latin.</p>#}
+                            {#<form action="#" class="an-form">#}
+                                {#<input type="email" class="an-form-control dark" placeholder="E-mail">#}
+                                {#<button type="submit" class="an-btn an-btn-default btn-submit-full"><i#}
+                                            {#class="ion-ios-paperplane"></i></button>#}
+                            {#</form>#}
+
+                        {#</div>#}
+                    {#</div>#}
+                </div>
+            </div>
+        </div> <!-- end container -->
+
+    </footer> <!-- end an-footer -->
+    {#<div class="an-loader">#}
+    {#<div class="fl spinner2">#}
+    {#<div class="spinner-container container1">#}
+    {#<div class="circle1"></div>#}
+    {#<div class="circle2"></div>#}
+    {#<div class="circle3"></div>#}
+    {#<div class="circle4"></div>#}
+    {#</div>#}
+    {#<div class="spinner-container container2">#}
+    {#<div class="circle1"></div>#}
+    {#<div class="circle2"></div>#}
+    {#<div class="circle3"></div>#}
+    {#<div class="circle4"></div>#}
+    {#</div>#}
+    {#<div class="spinner-container container3">#}
+    {#<div class="circle1"></div>#}
+    {#<div class="circle2"></div>#}
+    {#<div class="circle3"></div>#}
+    {#<div class="circle4"></div>#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+</div> <!-- end main wrapper -->
 {% block javascripts %}
     {% javascripts '@jquery' '@bootstrap_js' %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script src="{{ asset('js/core.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
@@ -135,3 +1076,238 @@
 {% endblock %}
 </body>
 </html>
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+    {#<!-- Site Title-->#}
+    {#{{ sonata_seo_title() }}#}
+    {#{{ sonata_seo_metadatas() }}#}
+    {#<title>{% block title %}Flatbel{% endblock %} - Flatbel</title>#}
+    {#<meta name="format-detection" content="telephone=no">#}
+    {#<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">#}
+    {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+    {#<link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>#}
+    {#{% block stylesheets %}#}
+        {#{% stylesheets '@bootstrap_css' %}#}
+            {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
+        {#{% endstylesheets %}#}
+        {#<link href="{{ asset('css/style.css') }}" rel="stylesheet">#}
+        {#<link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">#}
+        {#<link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">#}
+    {#{% endblock %}#}
+{#</head>#}
+{#<body>#}
+
+
+{#<!-- Page-->#}
+
+{#<div class="page">#}
+    {#<!-- Page Header-->#}
+    {#<div>#}
+
+        {#<header class="an-header">#}
+            {#<nav class="navbar navbar-default">#}
+                {#<div class="container">#}
+                    {#<!-- Brand and toggle get grouped for better mobile display -->#}
+                    {#<div class="navbar-header">#}
+                        {#<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">#}
+                            {#<span class="sr-only">Toggle navigation</span>#}
+                            {#<span class="icon-bar"></span>#}
+                            {#<span class="icon-bar"></span>#}
+                            {#<span class="icon-bar"></span>#}
+                        {#</button>#}
+                        {#<a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"#}
+                                                            {#class="reveal-inline-block brand-name">#}
+                                {#<img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"#}
+                                     {#class="img-responsive center-block">#}
+                            {#</a>#}
+                    {#</div>#}
+
+                    {#<!-- Collect the nav links, forms, and other content for toggling -->#}
+                    {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+
+
+
+
+
+                        {#<ul class="nav navbar-nav">#}
+                            {#<li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>#}
+
+                            {#<li class="dropdown">#}
+                                {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>#}
+                                {#<ul class="dropdown-menu">#}
+                                    {#<li><a href="callto:375299407515">+375 29 940-75-15</a></li>#}
+                                    {#<li><a href="callto:375259408617">+375 25 940-86-17</a></li>#}
+                                    {#<li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+
+
+
+
+                        {#</ul>#}
+                        {#<ul class="nav navbar-nav navbar-right">#}
+                            {#<li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default" href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a></li>#}
+                            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                                {#<li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;" class="sign-up-link" href="{{ path('fos_user_profile_show') }}">#}
+                                            {#<span class="glyphicon glyphicon-user"#}
+                                                  {#aria-hidden="true"></span> {{ app.user.username }}#}
+                                    {#</a>#}
+                                {#</li>#}
+                                {#<li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>#}
+                            {#{% else %}#}
+                                {#<li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>#}
+                                {#<li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a>#}
+                                {#</li>#}
+                            {#{% endif %}#}
+                        {#</ul>#}
+                    {#</div><!-- /.navbar-collapse -->#}
+                {#</div><!-- /.container-fluid -->#}
+            {#</nav>#}
+        {#</header>#}
+
+        {#<!-- Swiper-->#}
+        {#<section>#}
+            {#<div class="swiper-slide-wrapper">#}
+                {#{% block slide %}{% endblock %}#}
+                {#{% block filter %}{% endblock %}#}
+            {#</div>#}
+        {#</section>#}
+    {#</div>#}
+
+
+    {#<header class="an-header">#}
+        {#<nav class="navbar navbar-default">#}
+            {#<div class="container">#}
+                {#<!-- Brand and toggle get grouped for better mobile display -->#}
+                {#<div class="navbar-header">#}
+                    {#<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">#}
+                        {#<span class="sr-only">Toggle navigation</span>#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                    {#</button>#}
+                    {#<a class="navbar-brand" href="#"><i class="fa fa-globe color-primary"></i>Catalog</a>#}
+                {#</div>#}
+
+                {#<!-- Collect the nav links, forms, and other content for toggling -->#}
+                {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+                    {#<ul class="nav navbar-nav">#}
+                        {#<li class="dropdown active">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="index.html">Home default</a></li>#}
+                                {#<li><a href="home-search-dark.html">Home Search Dark bg</a></li>#}
+                                {#<li><a href="home-search-primary.html">Home primary bg</a></li>#}
+                                {#<li><a href="home-slider.html">Home slider</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li class="dropdown">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="category.html">Categories</a></li>#}
+                                {#<li><a href="category-listing.html">Category listing</a></li>#}
+                                {#<li><a href="category-listing-left-sidebar.html">Listing left sidebar</a></li>#}
+                                {#<li><a href="listing-single.html">Listing single</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li class="dropdown">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="listing.html">Listing</a></li>#}
+                                {#<li><a href="listing-right-map.html">Listing right map</a></li>#}
+                                {#<li><a href="listing-right-search.html">Listing right search</a></li>#}
+                                {#<li><a href="listing-single.html">Listing single</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li class="dropdown">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agency<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="agency.html">Agency Listing</a></li>#}
+                                {#<li><a href="agency-profile.html">Agency profile</a></li>#}
+                                {#<li><a href="agency-profile-2.html">Agency profile banner</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li class="dropdown">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agents<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="agents.html">Agent listing</a></li>#}
+                                {#<li><a href="agent-profile.html">Agent profile</a></li>#}
+                                {#<li><a href="agent-profile-2.html">Agent profile banner</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li class="dropdown">#}
+                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<span class="caret"></span></a>#}
+                            {#<ul class="dropdown-menu">#}
+                                {#<li><a href="locations.html">Location listing</a></li>#}
+                                {#<li><a href="blog.html">Blog</a></li>#}
+                                {#<li><a href="blog-post.html">Blog post</a></li>#}
+                                {#<li><a href="pricing.html">Pricing table</a></li>#}
+                                {#<li><a href="login.html">Login</a></li>#}
+                                {#<li><a href="register.html">Register</a></li>#}
+                                {#<li><a href="elements.html">Elements</a></li>#}
+                                {#<li><a href="404.html">404 page</a></li>#}
+                                {#<li><a href="agent-edit-profile.html">Edit profile</a></li>#}
+                            {#</ul>#}
+                        {#</li>#}
+
+                        {#<li><a href="contact.html">Contact</a></li>#}
+                    {#</ul>#}
+                    {#<ul class="nav navbar-nav navbar-right">#}
+                        {#<li><a class="an-btn an-btn-default" href="#"><span>Add New </span><i class="typcn typcn-location-outline"></i></a></li>#}
+                        {#<li><a class="sign-up-link" href="register.html"><span>Login/Signup</span><i class="fa fa-user"></i></a></li>#}
+                    {#</ul>#}
+                {#</div><!-- /.navbar-collapse -->#}
+            {#</div><!-- /.container-fluid -->#}
+        {#</nav>#}
+    {#</header> <!-- end an-header -->#}
+
+
+
+
+    {#<!-- Page Content-->#}
+    {#<main class="page-content">#}
+        {#{% block body %}{% endblock %}#}
+    {#</main>#}
+    {#<!-- Page Footer-->#}
+    {#<footer class="page-footer">#}
+        {#<div class="shell shell-wide page-footer-min small">#}
+            {#<div class="range range-xs-middle">#}
+                {#<div class="cell-sm-6 text-sm-left">#}
+                    {#<ul class="list-inline" style="padding: 3%">#}
+                        {#<li><a href="#" class="icon fa-facebook"></a></li>#}
+                        {#<li><a href="#" class="icon fa-twitter"></a></li>#}
+                        {#<li><a href="#" class="icon fa-pinterest-p"></a></li>#}
+                        {#<li><a href="#" class="icon fa-vimeo"></a></li>#}
+                        {#<li><a href="#" class="icon fa-google-plus"></a></li>#}
+                        {#<li><a href="#" class="icon fa-rss"></a></li>#}
+                        {#<p>&#169; <span id="copyright-year"></span> Все права защищены.#}
+                        {#</p>#}
+                    {#</ul>#}
+                {#</div>#}
+
+            {#</div>#}
+        {#</div>#}
+    {#</footer>#}
+{#</div>#}
+{#<!-- Java script-->#}
+{#{% block javascripts %}#}
+    {#{% javascripts '@jquery' '@bootstrap_js' %}#}
+        {#<script type="text/javascript" src="{{ asset_url }}"></script>#}
+    {#{% endjavascripts %}#}
+    {#<script src="{{ asset('js/core.min.js') }}"></script>#}
+    {#<script src="{{ asset('js/owl.carousel.min.js') }}"></script>#}
+    {#<script src="{{ asset('js/script.js') }}"></script>#}
+    {#<script src="{{ asset('js/scripts.js') }}"></script>#}
+
+
+{#{% endblock %}#}
+{#</body>#}
+{#</html>#}
