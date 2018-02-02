@@ -12,7 +12,7 @@ use Composer\DependencyResolver\Request;
  */
 class FlatRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getFlats($flattype, $numberofbeds, $metro, $limit, $city, $pricehour, $priceday)
+    public function getFlats($flattype, $numberofbeds, $metro, $limit, $city, $pricehour, $priceday, $rooms)
     {
         $qb = $this->createQueryBuilder('f')
             ->select('f')
@@ -49,6 +49,15 @@ class FlatRepository extends \Doctrine\ORM\EntityRepository
         $qb -> andWhere('f.priceday BETWEEN :pricehour AND :priceday')
             ->setParameter('pricehour', $pricehour)
             ->setParameter('priceday', $priceday);
+
+        $qb -> andWhere('f.payornot = :payornot')
+            -> setParameter('payornot', 1);
+
+        if ($rooms != null)
+        {
+            $qb->andWhere('f.rooms = :rooms')
+                ->setParameter('rooms', $rooms);
+        }
 
         return $qb->getQuery()
             ->getResult();

@@ -12,6 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Bundle\MonologBundle\SwiftMailer;
+use Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle;
+use Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator;
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
+
 
 
 class PageController extends Controller
@@ -34,7 +41,6 @@ class PageController extends Controller
 
     public function cityAction(Request $request, $city)
     {
-
         $em = $this->getDoctrine()->getManager();
 
         $City = $em->getRepository('FlatbelFlatBundle:City')->getCity($city);
@@ -45,7 +51,8 @@ class PageController extends Controller
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
             ->setTitle($title)
-            ->addMeta('name', 'description', $description);
+            ->addMeta('name', 'description', $description)
+            ;
 
         $flat = new Flat();
 
@@ -72,7 +79,8 @@ class PageController extends Controller
                     null,
                     $cityId,
                     $flat->getPricehour(),
-                    $flat->getPriceday());
+                    $flat->getPriceday(),
+                    $flat->getRooms());
 
 
             // Redirect - This is important to prevent users re-posting
@@ -88,7 +96,7 @@ class PageController extends Controller
 
 
 
-        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, $cityId, 0,200);
+        $flats = $em->getRepository('FlatbelFlatBundle:Flat')->getFlats('Не важно', 'Не важно', 'Не важно', null, $cityId, 0,200, 0);
 
         return $this->render('FlatbelFlatBundle:Page:city.html.twig', array(
             'flats' => $flats,

@@ -101,11 +101,10 @@
 
         <div class="row">
 
-    {% for City in City %}
-
-        {{ City.text }}
-    {% endfor %}
-    </div>
+            {% for City in City %}
+                {{ City.text|raw }}
+            {% endfor %}
+        </div>
     </div>
 </div>
 </div>

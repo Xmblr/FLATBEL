@@ -7,9 +7,19 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class UserAdmin extends AbstractAdmin
 {
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('export')
+            ->remove('delete')
+//            ->remove('edit')
+        ;
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -18,6 +28,7 @@ class UserAdmin extends AbstractAdmin
                 ->add('email', 'text')
                 ->add('enabled')
             ->end()
+
         ;
     }
 

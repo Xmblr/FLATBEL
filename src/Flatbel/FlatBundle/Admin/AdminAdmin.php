@@ -168,8 +168,11 @@ class AdminAdmin extends AbstractAdmin
                     'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
                 ))
 
-                ->add('telnumber',null,array('label'=>'Номер телефона'))
                 ->add('about',null,array('label'=>'Описание'))
+                ->add('telnumber',null,array('label'=>'Номер телефона'))
+                ->add('viber',null,array('label'=>'Viber'))
+                ->add('whatsapp',null,array('label'=>'Whatsapp'))
+                ->add('telegram',null,array('label'=>'Telegram'))
             ->end()
 
             ->with('Дополнительная информация',array('class'=>'col-md-4'))
@@ -190,23 +193,40 @@ class AdminAdmin extends AbstractAdmin
 
                 ->add('mainphoto', 'sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
-                    'context'  => 'flatphotos'
+                    'context'  => 'flatphotos',
+                    'label'=>'Главное фото'
                 ))
                 ->add('photo1','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
                     'required' => false,
+                    'label'=>'Фото № 1'
                 ))
                 ->add('photo2','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
                     'required' => false,
+                    'label'=>'Фото № 2'
                 ))
                 ->add('photo3','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
                     'required' => false,
+                    'label'=>'Фото № 3'
                 ))
+                ->add('photo4','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 4'
+                ))
+                ->add('photo5','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 5'
+                ))
+
             ->end()
         ;
     }

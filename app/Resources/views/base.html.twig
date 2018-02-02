@@ -1,22 +1,22 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Catalog Directory</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-
+    <!-- Site Title-->
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {#<title>{% block title %}Flatbel{% endblock %} - Flatbel</title>#}
+    {#<meta name="format-detection" content="telephone=no">#}
+    {#<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">#}
+    {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+    <link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>
     {% block stylesheets %}
         {% stylesheets '@bootstrap_css' %}
-            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500%7COpen+Sans:400,600%7CCabin:400i"
-                  rel="stylesheet">
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
         <link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     {% endblock %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -1065,7 +1065,7 @@
 </div> <!-- end main wrapper -->
 {% block javascripts %}
     {% javascripts '@jquery' '@bootstrap_js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
+        <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script src="{{ asset('js/core.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
@@ -1073,241 +1073,7 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
 
 
+
 {% endblock %}
 </body>
 </html>
-
-
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-    {#<!-- Site Title-->#}
-    {#{{ sonata_seo_title() }}#}
-    {#{{ sonata_seo_metadatas() }}#}
-    {#<title>{% block title %}Flatbel{% endblock %} - Flatbel</title>#}
-    {#<meta name="format-detection" content="telephone=no">#}
-    {#<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">#}
-    {#<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
-    {#<link rel="shortcut icon" href="{{ asset('Logo.png') }}"/>#}
-    {#{% block stylesheets %}#}
-        {#{% stylesheets '@bootstrap_css' %}#}
-            {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
-        {#{% endstylesheets %}#}
-        {#<link href="{{ asset('css/style.css') }}" rel="stylesheet">#}
-        {#<link href="{{ asset('css/vendor-styles.css') }}" rel="stylesheet">#}
-        {#<link href="{{ asset('fontawesome/css/font-awesome.css') }}" rel="stylesheet">#}
-    {#{% endblock %}#}
-{#</head>#}
-{#<body>#}
-
-
-{#<!-- Page-->#}
-
-{#<div class="page">#}
-    {#<!-- Page Header-->#}
-    {#<div>#}
-
-        {#<header class="an-header">#}
-            {#<nav class="navbar navbar-default">#}
-                {#<div class="container">#}
-                    {#<!-- Brand and toggle get grouped for better mobile display -->#}
-                    {#<div class="navbar-header">#}
-                        {#<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">#}
-                            {#<span class="sr-only">Toggle navigation</span>#}
-                            {#<span class="icon-bar"></span>#}
-                            {#<span class="icon-bar"></span>#}
-                            {#<span class="icon-bar"></span>#}
-                        {#</button>#}
-                        {#<a class="navbar-brand" href="{{ path('FlatbelFlatBundle_homepage') }}"#}
-                                                            {#class="reveal-inline-block brand-name">#}
-                                {#<img src="{{ asset('Logo.png') }}" height="60px" width="60px" alt="Logo"#}
-                                     {#class="img-responsive center-block">#}
-                            {#</a>#}
-                    {#</div>#}
-
-                    {#<!-- Collect the nav links, forms, and other content for toggling -->#}
-                    {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-
-
-
-
-
-                        {#<ul class="nav navbar-nav">#}
-                            {#<li><a href="{{ path('FlatbelFlatBundle_homepage') }}">Домашняя</a></li>#}
-
-                            {#<li class="dropdown">#}
-                                {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обратная связь<span class="caret"></span></a>#}
-                                {#<ul class="dropdown-menu">#}
-                                    {#<li><a href="callto:375299407515">+375 29 940-75-15</a></li>#}
-                                    {#<li><a href="callto:375259408617">+375 25 940-86-17</a></li>#}
-                                    {#<li><a href="mailto:flatbel@mail.ru">flatbel@mail.ru</a></li>#}
-                                {#</ul>#}
-                            {#</li>#}
-
-
-
-
-                        {#</ul>#}
-                        {#<ul class="nav navbar-nav navbar-right">#}
-                            {#<li style="padding-top: 15px; padding-bottom:15px;"><a class="an-btn an-btn-default" href="{{ path('FlatbelFlatBundle_flat_create') }}"><span>Добавьте свою квартиру</span></a></li>#}
-                            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-                                {#<li style="padding-top:8px; padding-bottom:8px"><a style="font-size:12px;" class="sign-up-link" href="{{ path('fos_user_profile_show') }}">#}
-                                            {#<span class="glyphicon glyphicon-user"#}
-                                                  {#aria-hidden="true"></span> {{ app.user.username }}#}
-                                    {#</a>#}
-                                {#</li>#}
-                                {#<li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>#}
-                            {#{% else %}#}
-                                {#<li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>#}
-                                {#<li><a href="{{ path('fos_user_registration_register') }}">Регистрация</a>#}
-                                {#</li>#}
-                            {#{% endif %}#}
-                        {#</ul>#}
-                    {#</div><!-- /.navbar-collapse -->#}
-                {#</div><!-- /.container-fluid -->#}
-            {#</nav>#}
-        {#</header>#}
-
-        {#<!-- Swiper-->#}
-        {#<section>#}
-            {#<div class="swiper-slide-wrapper">#}
-                {#{% block slide %}{% endblock %}#}
-                {#{% block filter %}{% endblock %}#}
-            {#</div>#}
-        {#</section>#}
-    {#</div>#}
-
-
-    {#<header class="an-header">#}
-        {#<nav class="navbar navbar-default">#}
-            {#<div class="container">#}
-                {#<!-- Brand and toggle get grouped for better mobile display -->#}
-                {#<div class="navbar-header">#}
-                    {#<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">#}
-                        {#<span class="sr-only">Toggle navigation</span>#}
-                        {#<span class="icon-bar"></span>#}
-                        {#<span class="icon-bar"></span>#}
-                        {#<span class="icon-bar"></span>#}
-                    {#</button>#}
-                    {#<a class="navbar-brand" href="#"><i class="fa fa-globe color-primary"></i>Catalog</a>#}
-                {#</div>#}
-
-                {#<!-- Collect the nav links, forms, and other content for toggling -->#}
-                {#<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-                    {#<ul class="nav navbar-nav">#}
-                        {#<li class="dropdown active">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="index.html">Home default</a></li>#}
-                                {#<li><a href="home-search-dark.html">Home Search Dark bg</a></li>#}
-                                {#<li><a href="home-search-primary.html">Home primary bg</a></li>#}
-                                {#<li><a href="home-slider.html">Home slider</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class="dropdown">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="category.html">Categories</a></li>#}
-                                {#<li><a href="category-listing.html">Category listing</a></li>#}
-                                {#<li><a href="category-listing-left-sidebar.html">Listing left sidebar</a></li>#}
-                                {#<li><a href="listing-single.html">Listing single</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class="dropdown">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="listing.html">Listing</a></li>#}
-                                {#<li><a href="listing-right-map.html">Listing right map</a></li>#}
-                                {#<li><a href="listing-right-search.html">Listing right search</a></li>#}
-                                {#<li><a href="listing-single.html">Listing single</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class="dropdown">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agency<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="agency.html">Agency Listing</a></li>#}
-                                {#<li><a href="agency-profile.html">Agency profile</a></li>#}
-                                {#<li><a href="agency-profile-2.html">Agency profile banner</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class="dropdown">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agents<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="agents.html">Agent listing</a></li>#}
-                                {#<li><a href="agent-profile.html">Agent profile</a></li>#}
-                                {#<li><a href="agent-profile-2.html">Agent profile banner</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class="dropdown">#}
-                            {#<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages<span class="caret"></span></a>#}
-                            {#<ul class="dropdown-menu">#}
-                                {#<li><a href="locations.html">Location listing</a></li>#}
-                                {#<li><a href="blog.html">Blog</a></li>#}
-                                {#<li><a href="blog-post.html">Blog post</a></li>#}
-                                {#<li><a href="pricing.html">Pricing table</a></li>#}
-                                {#<li><a href="login.html">Login</a></li>#}
-                                {#<li><a href="register.html">Register</a></li>#}
-                                {#<li><a href="elements.html">Elements</a></li>#}
-                                {#<li><a href="404.html">404 page</a></li>#}
-                                {#<li><a href="agent-edit-profile.html">Edit profile</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li><a href="contact.html">Contact</a></li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-right">#}
-                        {#<li><a class="an-btn an-btn-default" href="#"><span>Add New </span><i class="typcn typcn-location-outline"></i></a></li>#}
-                        {#<li><a class="sign-up-link" href="register.html"><span>Login/Signup</span><i class="fa fa-user"></i></a></li>#}
-                    {#</ul>#}
-                {#</div><!-- /.navbar-collapse -->#}
-            {#</div><!-- /.container-fluid -->#}
-        {#</nav>#}
-    {#</header> <!-- end an-header -->#}
-
-
-
-
-    {#<!-- Page Content-->#}
-    {#<main class="page-content">#}
-        {#{% block body %}{% endblock %}#}
-    {#</main>#}
-    {#<!-- Page Footer-->#}
-    {#<footer class="page-footer">#}
-        {#<div class="shell shell-wide page-footer-min small">#}
-            {#<div class="range range-xs-middle">#}
-                {#<div class="cell-sm-6 text-sm-left">#}
-                    {#<ul class="list-inline" style="padding: 3%">#}
-                        {#<li><a href="#" class="icon fa-facebook"></a></li>#}
-                        {#<li><a href="#" class="icon fa-twitter"></a></li>#}
-                        {#<li><a href="#" class="icon fa-pinterest-p"></a></li>#}
-                        {#<li><a href="#" class="icon fa-vimeo"></a></li>#}
-                        {#<li><a href="#" class="icon fa-google-plus"></a></li>#}
-                        {#<li><a href="#" class="icon fa-rss"></a></li>#}
-                        {#<p>&#169; <span id="copyright-year"></span> Все права защищены.#}
-                        {#</p>#}
-                    {#</ul>#}
-                {#</div>#}
-
-            {#</div>#}
-        {#</div>#}
-    {#</footer>#}
-{#</div>#}
-{#<!-- Java script-->#}
-{#{% block javascripts %}#}
-    {#{% javascripts '@jquery' '@bootstrap_js' %}#}
-        {#<script type="text/javascript" src="{{ asset_url }}"></script>#}
-    {#{% endjavascripts %}#}
-    {#<script src="{{ asset('js/core.min.js') }}"></script>#}
-    {#<script src="{{ asset('js/owl.carousel.min.js') }}"></script>#}
-    {#<script src="{{ asset('js/script.js') }}"></script>#}
-    {#<script src="{{ asset('js/scripts.js') }}"></script>#}
-
-
-{#{% endblock %}#}
-{#</body>#}
-{#</html>#}
