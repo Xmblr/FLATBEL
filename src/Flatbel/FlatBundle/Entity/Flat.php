@@ -75,12 +75,7 @@ class Flat
     /**
      * @ORM\Column(type="integer", length=50)
      */
-    protected $pricenight;
 
-
-    /**
-     * @ORM\Column(type="integer", length=50)
-     */
     protected $floorhome;
 
     /**
@@ -97,6 +92,11 @@ class Flat
      * @ORM\Column(type="boolean", length=50)
      */
     protected $tv;
+
+    /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    protected $lcdtv;
 
     /**
      * @ORM\Column(type="boolean", length=50)
@@ -127,6 +127,11 @@ class Flat
      * @ORM\Column(type="boolean", length=50)
      */
     protected $shower;
+
+    /**
+     * @ORM\Column(type="boolean", length=50)
+     */
+    protected $jacuzzi;
 
     /**
      * @ORM\Column(type="boolean", length=50)
@@ -565,31 +570,6 @@ class Flat
     }
 
     /**
-     * Set pricenight
-     *
-     * @param integer $pricenight
-     *
-     * @return Flat
-     */
-    public function setPricenight($pricenight)
-    {
-        $this->pricenight = $pricenight;
-
-        return $this;
-    }
-
-    /**
-     * Get pricenight
-     *
-     * @return integer
-     */
-    public function getPricenight()
-    {
-        return $this->pricenight;
-    }
-
-
-    /**
      * Set floorhome
      *
      * @param integer $floorhome
@@ -683,6 +663,30 @@ class Flat
     public function getTv()
     {
         return $this->tv;
+    }
+
+    /**
+     * Set lcdtv
+     *
+     * @param boolean $lcdtv
+     *
+     * @return Flat
+     */
+    public function setlcdtv($lcdtv)
+    {
+        $this->lcdtv = $lcdtv;
+
+        return $this;
+    }
+
+    /**
+     * Get lcdtv
+     *
+     * @return boolean
+     */
+    public function getlcdtv()
+    {
+        return $this->lcdtv;
     }
 
     /**
@@ -828,6 +832,31 @@ class Flat
     {
         return $this->shower;
     }
+
+    /**
+     * Set jacuzzi
+     *
+     * @param boolean $jacuzzi
+     *
+     * @return Flat
+     */
+    public function setjacuzzi($jacuzzi)
+    {
+        $this->lcdtv = $jacuzzi;
+
+        return $this;
+    }
+
+    /**
+     * Get lcdtv
+     *
+     * @return boolean
+     */
+    public function getjacuzzi()
+    {
+        return $this->jacuzzi;
+    }
+
 
     /**
      * Set fridge

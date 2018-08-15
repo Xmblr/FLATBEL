@@ -52,6 +52,7 @@
                                     <span class="active"><a href="#tab1" data-toggle="tab">BYN</a></span>
                                     <span><a href="#tab2" data-toggle="tab">USD</a></span>
                                     <span><a href="#tab3" data-toggle="tab">RUS</a></span>
+                                    <span>(По курсу НБРБ на текущий день)</span>
                                 </span>
 
                             </div>
@@ -130,6 +131,9 @@
                             <li><i class="fa fa-{% if flat.tv == 1 %}check{% else %}times{% endif %}"
                                    aria-hidden="true"></i>Телевизор
                             </li>
+                            <li><i class="fa fa-{% if flat.lcdtv == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>ЖК-Телевизор
+                            </li>
                             <li><i class="fa fa-{% if flat.wifi == 1 %}check{% else %}times{% endif %}"
                                    aria-hidden="true"></i>Wi-fi
                             </li>
@@ -147,6 +151,9 @@
                             </li>
                             <li><i class="fa fa-{% if flat.shower == 1 %}check{% else %}times{% endif %}"
                                    aria-hidden="true"></i>Душ
+                            </li>
+                            <li><i class="fa fa-{% if flat.jacuzzi == 1 %}check{% else %}times{% endif %}"
+                                   aria-hidden="true"></i>Джакузи
                             </li>
 
                             <li><i class="fa fa-{% if flat.fridge == 1 %}check{% else %}times{% endif %}"
@@ -183,7 +190,7 @@
                                     {{ flat.rooms }}</span>
                                 <span><a href="#"><i class="fa fa-subway" aria-hidden="true"></i>Ближайшее метро:
                                         {{ flat.metro }}</a></span>
-                                <span><a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена за день:
+                                <span><a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена за сутки:
                                         {{ flat.priceday }} BYN</a></span>
                                 <span><a href="#"><i class="fa fa-money" aria-hidden="true"></i>Цена за час:
                                                 от {{ flat.pricehour }} BYN</a></span>

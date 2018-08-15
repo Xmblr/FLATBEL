@@ -24,6 +24,7 @@ class FlatType extends AbstractType
             ->add('flattype', ChoiceType::class, array(
                 'choices'  => array(
                     'VIP' => 'VIP',
+                    'Евро' => 'Евро',
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
                 ),
@@ -31,12 +32,12 @@ class FlatType extends AbstractType
             ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
-                    '1' => '1',
                     '2' => '2',
-                    '3' => '3',
-                    '4' => '4',
-                    '5' => '5',
-                    '6' => '6',
+                    '2+1' => '3',
+                    '2+2' => '4',
+                    '2+1+1' => '4',
+                    '2+2+1' => '5',
+                    '2+2+2' => '6',
                     '6+' => '7',
                 ),
                 'choices_as_values' => true, 'label'=>'Количество спальных мест', 'placeholder'=>'Выбрать...'
@@ -60,9 +61,8 @@ class FlatType extends AbstractType
             ))
             ->add('street', TextType::class, array('label'=>'Название'))
             ->add('home',TextType::class,array('label'=>'Номер дома'))
-            ->add('priceday',TextType::class,array('label'=>'Цена за день'))
+            ->add('priceday',TextType::class,array('label'=>'Цена за сутки'))
             ->add('pricehour',TextType::class,array('label'=>'Цена за час'))
-            ->add('pricenight',TextType::class,array('label'=>'Цена за ночь'))
             ->add('floorhome',TextType::class,array('label'=>'Число этажей в дома'))
             ->add('floor',TextType::class,array('label'=>'Этаж'))
             ->add('metro',ChoiceType::class, array(
@@ -114,12 +114,14 @@ class FlatType extends AbstractType
                 'required' => false,
             ))
             ->add('tv',null,array('label'=>'Телевизор'))
+            ->add('lcdtv',null,array('label'=>'ЖК-Телевизор'))
             ->add('wifi',null,array('label'=>'Wi-Fi'))
             ->add('parking',null,array('label'=>'Стоянка'))
             ->add('microwave',null,array('label'=>'Микроволновка'))
             ->add('washer',null,array('label'=>'Стиральная Машина'))
             ->add('bath',null,array('label'=>'Ванна'))
             ->add('shower',null,array('label'=>'Душ'))
+            ->add('jacuzzi',null,array('label'=>'Джакузи'))
             ->add('fridge',null,array('label'=>'Холодильник'))
             ->add('dishes',null,array('label'=>'Посуда'))
             ->add('linens',null,array('label'=>'Постельное бельё'))

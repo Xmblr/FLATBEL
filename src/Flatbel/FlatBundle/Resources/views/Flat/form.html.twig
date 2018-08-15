@@ -44,9 +44,6 @@
                                 {{ form_row(create_form.priceday, {'attr' : {'class':'form-control'}}) }}
                             </div>
                             <div class="form-group">
-                                {{ form_row(create_form.pricenight, {'attr' : {'class':'form-control'}}) }}
-                            </div>
-                            <div class="form-group">
                                 {{ form_row(create_form.floorhome, {'attr' : {'class':'form-control'}}) }}
                             </div>
                             <div class="form-group">
@@ -77,6 +74,15 @@
                                     <div class="cell-md-6">
                                         {{ form_widget(create_form.tv) }}
                                         {{ form_label(create_form.tv) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.lcdtv) }}
+                                        {{ form_label(create_form.lcdtv) }}
                                     </div>
 
                                 </div>
@@ -129,6 +135,14 @@
                                     <div class="cell-md-6">
                                         {{ form_widget(create_form.shower) }}
                                         {{ form_label(create_form.shower) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range">
+                                    <div class="cell-md-6">
+                                        {{ form_widget(create_form.jacuzzi) }}
+                                        {{ form_label(create_form.jacuzzi) }}
                                     </div>
                                 </div>
                             </div>

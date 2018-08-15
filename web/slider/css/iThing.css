@@ -172,8 +172,8 @@
 }
 
 .ui-rangeSlider-handle{
-	width:10px;
-	height:30px;
+	width:50px;
+	height:50px;
 	background: transparent;
 	cursor:col-resize;
 }

@@ -54,6 +54,7 @@ class FlatAdmin extends AbstractAdmin
                 ->add('flattype', 'choice', array(
                     'choices'  => array(
                         'VIP' => 'VIP',
+                        'Евро' => 'Евро',
                         'Стандарт' => 'Стандарт',
                         'Бюджет' => 'Бюджет'
                     ),
@@ -61,12 +62,12 @@ class FlatAdmin extends AbstractAdmin
                 ))
                 ->add('numberofbeds','choice', array(
                     'choices'  => array(
-                        '1' => '1',
                         '2' => '2',
-                        '3' => '3',
-                        '4' => '4',
-                        '5' => '5',
-                        '6' => '6',
+                        '2+1' => '3',
+                        '2+2' => '4',
+                        '2+1+1' => '4',
+                        '2+2+1' => '5',
+                        '2+2+2' => '6',
                         '6+' => '7',
                     ),
                     'choices_as_values' => true, 'label'=>'Количество спальных мест', 'placeholder'=>'Выбрать...'
@@ -90,9 +91,8 @@ class FlatAdmin extends AbstractAdmin
                 ))
                 ->add('street', 'text', array('label'=>'Название'))
                 ->add('home',null,array('label'=>'Номер дома'))
-                ->add('priceday',null,array('label'=>'Цена за день'))
+                ->add('priceday',null,array('label'=>'Цена за сутки'))
                 ->add('pricehour',null,array('label'=>'Цена за час'))
-                ->add('pricenight',null,array('label'=>'Цена за ночь'))
                 ->add('floorhome',null,array('label'=>'Число этажей в дома'))
                 ->add('floor',null,array('label'=>'Этаж'))
                 ->add('metro','choice', array(
@@ -148,12 +148,14 @@ class FlatAdmin extends AbstractAdmin
 
             ->with('Дополнительная информация',array('class'=>'col-md-4'))
                 ->add('tv',null,array('label'=>'Телевизор'))
+                ->add('lcdtv',null,array('label'=>'ЖК-Телевизор'))
                 ->add('wifi',null,array('label'=>'Wi-Fi'))
                 ->add('parking',null,array('label'=>'Стоянка'))
                 ->add('microwave',null,array('label'=>'Микроволновка'))
                 ->add('washer',null,array('label'=>'Стиральная Машина'))
                 ->add('bath',null,array('label'=>'Ванна'))
                 ->add('shower',null,array('label'=>'Душ'))
+                ->add('jacuzzi',null,array('label'=>'Джакузи'))
                 ->add('fridge',null,array('label'=>'Холодильник'))
                 ->add('dishes',null,array('label'=>'Посуда'))
                 ->add('linens',null,array('label'=>'Постельное бельё'))
@@ -215,7 +217,6 @@ class FlatAdmin extends AbstractAdmin
             ->addIdentifier('home')
             ->addIdentifier('priceday')
             ->addIdentifier('pricehour')
-            ->addIdentifier('pricenight')
             ->addIdentifier('floorhome')
             ->addIdentifier('floor')
             ->addIdentifier('tv')
@@ -252,7 +253,6 @@ class FlatAdmin extends AbstractAdmin
             ->add('home')
             ->add('priceday')
             ->add('pricehour')
-            ->add('pricenight')
             ->add('floorhome')
             ->add('floor')
             ->add('tv')

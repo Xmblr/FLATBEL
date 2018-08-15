@@ -33,6 +33,7 @@
         {% for flat in flats %}
             <div class="col-md-4 col-sm-4">
                 <div class="an-listing-single">
+                    <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">
                     <div class="listing-img-container"
                          style="background: url('{% path flat.mainphoto, 'big' %}') center center no-repeat;
                                  background-size: cover;">
@@ -46,31 +47,28 @@
 
                             </p>
 
-                            <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">
+
                                 <span class="an-btn an-btn-black icon-left small-padding">
 
                                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                                         Подробнее...
 
                                 </span>
-                            </a>
+
                             <p style="color:white; text-align:center; font-size:11px;">{{ flat.about(140) }}...</p>
                         </div>
                     </div>
+                    </a>
                     <div class="listing-content">
                         <div class="listing-name">
 
 
-                                <h3 style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <h3 style="font-size:16px; "><i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <a href="{{ path('FlatbelFlatBundle_flat_show', { 'city':city,'description': flat.description,'id': flat.id }) }}">{{ flat.streettype }} {{ flat.street }}- {{ flat.home }}</a>
                                 </h3>
 
-
-
-
+                            <i class="fa fa-subway" style="color: #637783;" aria-hidden="true"></i><span style="color: #637783; font-size:13px;"> Ст. м. {{ flat.metro }}</span>
                         </div>
-
-
 
                         <div class="listing-meta"><span><i class="fa fa-building-o"
                                                            aria-hidden="true"></i> {{ flat.rooms }} комн.</span><span><i
