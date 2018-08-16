@@ -23,133 +23,133 @@ class Flat
     protected $id;
 
     /**
-     * @ORM\Column(type="integer", length=50, nullable=true)
+     * @ORM\Column(type="integer")
      */
     protected $userid;
 
     /**
-     * @ORM\Column(type="boolean", length=50, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     protected $payornot;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $flattype;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $numberofbeds;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $rooms;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $street;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $streettype;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $home;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $priceday;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $pricehour;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
 
     protected $floorhome;
 
     /**
-     * @ORM\Column(type="integer", length=50)
+     * @ORM\Column(type="integer")
      */
     protected $floor;
 
     /**
-     * @ORM\Column(type="text", length=100)
+     * @ORM\Column(type="text")
      */
     protected $metro;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $tv;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $lcdtv;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $wifi;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $parking;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $microwave;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $washer;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $bath;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $shower;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $jacuzzi;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $fridge;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $dishes;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $linens;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="string")
      * @Assert\Regex(
      *     pattern     = "/^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/",
      *     htmlPattern = "^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$")
@@ -157,12 +157,12 @@ class Flat
     protected $telnumber;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $viber;
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $whatsapp;
 
@@ -215,18 +215,18 @@ class Flat
     }
 
     /**
-     * @ORM\Column(type="boolean", length=50)
+     * @ORM\Column(type="boolean")
      */
     protected $telegram;
 
     /**
-     * @ORM\Column(type="text", length=1000)
+     * @ORM\Column(type="text")
      *
      */
     protected $about;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="string")
      */
     protected $description;
 
