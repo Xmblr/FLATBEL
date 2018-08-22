@@ -5,6 +5,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+
     public function registerBundles()
     {
         $bundles = array(
@@ -36,6 +37,12 @@ class AppKernel extends Kernel
 
             // SonataSeoBundle
             new Sonata\SeoBundle\SonataSeoBundle(),
+
+            // google map
+            new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
+            // Optionally google map
+            new Ivory\SerializerBundle\IvorySerializerBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
@@ -52,4 +59,5 @@ class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
+
 }

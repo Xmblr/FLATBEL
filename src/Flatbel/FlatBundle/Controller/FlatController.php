@@ -2,6 +2,7 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use Flatbel\FlatBundle\Entity\City;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Entity\User;
 use Flatbel\FlatBundle\Form\FlatType;
@@ -9,7 +10,11 @@ use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Flatbel\FlatBundle\Service\FileUploader;
+use Ivory\GoogleMap\Base\Coordinate;
+use Ivory\GoogleMap\Map;
+use Ivory\GoogleMap\Overlay\Marker;
 
+use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
@@ -20,7 +25,7 @@ class FlatController extends Controller
     /**
      * Show a flat entry
      */
-    public function showAction($city, $description, $id)
+    public function showAction(Request $request, $city, $description, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -29,7 +34,6 @@ class FlatController extends Controller
         if (!$flat) {
             throw $this->createNotFoundException('Уупс... Квартиры не найдены');
         }
-
 
         $text = $flat->getAbout();
         $pretext = '';
@@ -41,10 +45,10 @@ class FlatController extends Controller
             $pretext .= $text[$i];
         }
 
-        $seoDescription = 'Квартира на сутки по адресу г.'. $flat->getCity().' '.$flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome().'. '.$pretext;
+        $seoDescription = 'Квартира на сутки по адресу г. '. $flat->getCity().' '.$flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome().'. '.$pretext;
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
-            ->setTitle('Flatbel - '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
+            ->setTitle('Квартира на сутки в городе '. $flat->getCity().' по адресу '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
             ->addMeta('name', 'description', $seoDescription)
             ->addMeta('property', 'og:description', $seoDescription)
         ;
@@ -59,8 +63,9 @@ class FlatController extends Controller
 	</tr><tr>
 ');
         $usd = substr($usd, 0, $pos);
-        $usd = str_replace('USD</td><td style="white-space:nowrap;font-size:60%;">1 US Dollar</td><td align="right">','', $usd);
-        $usd = number_format(($priceday / $usd), 2, '.', '');
+
+        $usd = str_replace('USD</td><td style="white-space: nowrap; font-size: 80%">&nbsp;1 US Dollar</td><td align="right">','', $usd);
+        $usd = number_format(round(($priceday / 2.05)), 2, '.', '');
 
         $rub = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
         $pos = strpos($rub, 'RUB');
@@ -70,9 +75,10 @@ class FlatController extends Controller
 ');
         $rub = substr($rub, 0, $pos);
         $rub = str_replace('RUB</td><td style="white-space:nowrap;font-size:60%;">100 Russian Rubles</td><td align="right">','', $rub);
-        $rub = number_format(((100 / $rub) * $priceday), 2, '.', '');
+        $rub = number_format(round(((100 / 3.05) * $priceday), -2), 2, '.', '');
 
         return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat, 'usd'=>$usd, 'rub'=>$rub));
+
     }
 
     public function createAction(Request $request)

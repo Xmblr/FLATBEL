@@ -79,8 +79,8 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    port:      "%mailer_port%"
-    encryption: "%mailer_encryption%"
+#    port:      "%mailer_port%"
+#    encryption: "%mailer_encryption%"
     spool:     { type: memory }
 
 #FOSUserBundle Configuration
@@ -299,3 +299,8 @@ sonata_seo:
             'xmlns':              http://www.w3.org/1999/xhtml
             'xmlns:og':           http://opengraphprotocol.org/schema/
             #'xmlns:fb':           "http://www.facebook.com/2008/fbml"
+
+ivory_google_map:
+    map:
+        api_key: AIzaSyB7yPhkSBY2GKqlY6UxkmSzAOjZDA2So3s
+        language: "%locale%"

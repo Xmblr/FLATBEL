@@ -1,0 +1,27 @@
+User-agent: *
+Disallow: /*login
+Disallow: /*admin
+Disallow: /*register
+Disallow: /*profile
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.pdf
+Allow: /*.doc
+
+User-agent: Yandex
+Disallow: /*login
+Disallow: /*admin
+Disallow: /*register
+Disallow: /*profile
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.pdf
+Allow: /*.doc
+Clean-param: tracking
+
+# Sitemap
+Host: http://flatbel.by/
