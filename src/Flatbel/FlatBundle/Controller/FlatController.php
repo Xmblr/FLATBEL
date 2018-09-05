@@ -2,6 +2,9 @@
 
 namespace Flatbel\FlatBundle\Controller;
 
+use Doctrine\DBAL\Types\DateTimeType;
+use Doctrine\DBAL\Types\DateType;
+use Doctrine\DBAL\Types\StringType;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Entity\User;
 use Flatbel\FlatBundle\Form\FlatType;
@@ -9,7 +12,7 @@ use Flatbel\FlatBundle\Form\FilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Flatbel\FlatBundle\Service\FileUploader;
-
+use Symfony\Component\Validator\Constraints\Date;
 
 
 /**
@@ -52,27 +55,27 @@ class FlatController extends Controller
 
         $priceday = $flat->getPriceday();
 
-        $usd = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
-        $pos = strpos($usd, 'USD');
-        $usd = substr($usd, $pos);
-        $pos = strpos($usd, '</td>
-	</tr><tr>
-');
-        $usd = substr($usd, 0, $pos);
-        $usd = str_replace('USD</td><td style="white-space:nowrap;font-size:60%;">1 US Dollar</td><td align="right">','', $usd);
-        $usd = number_format(($priceday / $usd), 2, '.', '');
+//        $usd = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
+//        $pos = strpos($usd, 'USD');
+//        $usd = substr($usd, $pos);
+//        $pos = strpos($usd, '</td>
+//	</tr><tr>
+//');
+//        $usd = substr($usd, 0, $pos);
+//        $usd = str_replace('USD</td><td style="white-space:nowrap;font-size:60%;">1 US Dollar</td><td align="right">','', $usd);
+//        $usd = number_format(($priceday / $usd), 2, '.', '');
+//
+//        $rub = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
+//        $pos = strpos($rub, 'RUB');
+//        $rub = substr($rub, $pos);
+//        $pos = strpos($rub, '</td>
+//	</tr><tr>
+//');
+//        $rub = substr($rub, 0, $pos);
+//        $rub = str_replace('RUB</td><td style="white-space:nowrap;font-size:60%;">100 Russian Rubles</td><td align="right">','', $rub);
+//        $rub = number_format(((100 / $rub) * $priceday), 2, '.', '');
 
-        $rub = file_get_contents('http://www.nbrb.by/publications/wmastersd.asp?lan=en&datatype=0');
-        $pos = strpos($rub, 'RUB');
-        $rub = substr($rub, $pos);
-        $pos = strpos($rub, '</td>
-	</tr><tr>
-');
-        $rub = substr($rub, 0, $pos);
-        $rub = str_replace('RUB</td><td style="white-space:nowrap;font-size:60%;">100 Russian Rubles</td><td align="right">','', $rub);
-        $rub = number_format(((100 / $rub) * $priceday), 2, '.', '');
-
-        return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat, 'usd'=>$usd, 'rub'=>$rub));
+        return $this->render('FlatbelFlatBundle:Flat:show.html.twig', array('flat' => $flat, 'usd'=>'usd', 'rub'=>'rub'));
     }
 
     public function createAction(Request $request)
@@ -92,10 +95,10 @@ class FlatController extends Controller
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
 
             $user = $this->get('security.token_storage')->getToken()->getUser();
-            $flat
-                ->setUserid($user->getId())
-                ->setPayornot(0)
-                ->setDescription($description)
+            $flat->setUserid($user->getId());
+            $flat->setPayornot(0);
+            $flat->setDescription($description);
+            $flat->setDate(new \DateTime("now"))
 
                 ;
             $em = $this->getDoctrine()

@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 
@@ -22,6 +23,13 @@ class FlatAdmin extends AbstractAdmin
         return $userid;
     }
 
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->add('clone', $this->getRouterIdParameter().'/clone')
+            ->remove('export');
+
+    }
     public function translate($_str) {
         $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
         $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
@@ -163,27 +171,22 @@ class FlatAdmin extends AbstractAdmin
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))
-                ->add('mainphoto', 'sonata_media_type', array(
-                    'provider' => 'sonata.media.provider.image',
-                    'context'  => 'flatphotos',
-                    'label'=>'Главное фото'
-                ))
                 ->add('photo1','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 1'
                 ))
                 ->add('photo2','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 2'
                 ))
                 ->add('photo3','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 3'
                 ))
                 ->add('photo4','sonata_media_type', array(
@@ -197,6 +200,36 @@ class FlatAdmin extends AbstractAdmin
                     'context'  => 'flatphotos',
                     'required' => false,
                     'label'=>'Фото № 5'
+                ))
+                ->add('photo6','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 6'
+                ))
+                ->add('photo7','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 7'
+                ))
+                ->add('photo8','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 8'
+                ))
+                ->add('photo9','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 9'
+                ))
+                ->add('photo10','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 10'
                 ))
             ->end()
         ;

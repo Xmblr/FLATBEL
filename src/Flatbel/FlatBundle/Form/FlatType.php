@@ -28,7 +28,7 @@ class FlatType extends AbstractType
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
                 ),
-                'choices_as_values' => true, 'label' => 'Тип квартиры', 'placeholder'=>'Выбрать...'
+                'choices_as_values' => true, 'label' => 'Тип квартиры *', 'placeholder'=>'Выбрать...'
             ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
@@ -40,7 +40,7 @@ class FlatType extends AbstractType
                     '2+2+2' => '6',
                     '6+' => '7',
                 ),
-                'choices_as_values' => true, 'label'=>'Количество спальных мест', 'placeholder'=>'Выбрать...'
+                'choices_as_values' => true, 'label'=>'Количество спальных мест *', 'placeholder'=>'Выбрать...'
             ))
             ->add('rooms',ChoiceType::class, array(
                 'choices'  => array(
@@ -49,7 +49,7 @@ class FlatType extends AbstractType
                     '3' => '3',
                     '4+' => '4',
                 ),
-                'choices_as_values' => true, 'label'=>'Число комнат', 'placeholder'=>'Выбрать...'
+                'choices_as_values' => true, 'label'=>'Число комнат *', 'placeholder'=>'Выбрать...'
             ))
             ->add('streettype', ChoiceType::class, array(
                 'choices' => array(
@@ -57,14 +57,14 @@ class FlatType extends AbstractType
                     'Улица'=>'Улица',
                     'Переулок'=>'Переулок'
                 ),
-                'choices_as_values' => true, 'label'=>'Тип', 'placeholder'=>'Выбрать...'
+                'choices_as_values' => true, 'label'=>'Тип *', 'placeholder'=>'Выбрать...'
             ))
-            ->add('street', TextType::class, array('label'=>'Название'))
-            ->add('home',TextType::class,array('label'=>'Номер дома'))
-            ->add('priceday',TextType::class,array('label'=>'Цена за сутки'))
-            ->add('pricehour',TextType::class,array('label'=>'Цена за час'))
-            ->add('floorhome',TextType::class,array('label'=>'Число этажей в дома'))
-            ->add('floor',TextType::class,array('label'=>'Этаж'))
+            ->add('street', TextType::class, array('label'=>'Название *'))
+            ->add('home',TextType::class,array('label'=>'Номер дома *'))
+            ->add('priceday',TextType::class,array('label'=>'Цена за сутки *'))
+            ->add('pricehour',TextType::class,array('label'=>'Цена за час *'))
+            ->add('floorhome',TextType::class,array('label'=>'Число этажей в дома *'))
+            ->add('floor',TextType::class,array('label'=>'Этаж *'))
             ->add('metro',ChoiceType::class, array(
                 'choices'  => array(
                     'Каменная горка'=>'Каменная горка',
@@ -98,20 +98,22 @@ class FlatType extends AbstractType
                     'Уручье'=>'Уручье'
 
                 ),
-                'choices_as_values' => true, 'label'=>'Ближайшее метро', 'placeholder'=>'Выбрать...'
+                'choices_as_values' => true, 'label'=>'Ближайшее метро *', 'placeholder'=>'Выбрать...'
             ))
-            ->add('city',EntityType::class, array(
-                'class'  => 'FlatbelFlatBundle:City',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('u')
-                        ->orderBy('u.name', 'ASC');
-                },
-            ))
-            ->add('city', EntityType::class, array('class' => 'FlatbelFlatBundle:City', 'label'=>'Город',
+//            ->add('city',EntityType::class, array(
+//                'class'  => 'FlatbelFlatBundle:City',
+//                'label'=>'Город',
+//                'query_builder' => function (EntityRepository $er) {
+//                    return $er->createQueryBuilder('u')
+//                        ->orderBy('u.name', 'ASC');
+//                },
+//            ))
+            ->add('city', EntityType::class, array('class' => 'FlatbelFlatBundle:City', 'label'=>'Город *',
                 'choice_label' => 'getName',
-                'multiple' => false,
-                'expanded' => false,
-                'required' => false,
+                'placeholder'=>'Выбрать...',
+//                'multiple' => false,
+//                'expanded' => false,
+//                'required' => false,
             ))
             ->add('tv',null,array('label'=>'Телевизор'))
             ->add('lcdtv',null,array('label'=>'ЖК-Телевизор'))
@@ -125,30 +127,29 @@ class FlatType extends AbstractType
             ->add('fridge',null,array('label'=>'Холодильник'))
             ->add('dishes',null,array('label'=>'Посуда'))
             ->add('linens',null,array('label'=>'Постельное бельё'))
-            ->add('telnumber',null,array('label'=>'Номер телефона'))
+            ->add('telnumber',null,array('label'=>'Номер телефона *'))
             ->add('viber',null,array('label'=>'Viber'))
             ->add('whatsapp',null,array('label'=>'Whatsapp'))
             ->add('telegram',null,array('label'=>'Telegram'))
-            ->add('about',null,array('label'=>'Описание'))
-            ->add('mainphoto', 'sonata_media_type', array(
-                'provider' => 'sonata.media.provider.image',
-                'context'  => 'flatphotos',
-                'label'=>'Главное фото'
-            ))
+            ->add('about',null,array('label'=>'Описание *'))
+
             ->add('photo1','sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context'  => 'flatphotos',
-                'label'=>'Фото №1'
+                'required' => true,
+                'label'=>'Фото №1 *'
             ))
             ->add('photo2','sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context'  => 'flatphotos',
-                'label'=>'Фото №2'
+                'required' => true,
+                'label'=>'Фото №2 *'
             ))
             ->add('photo3','sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
                 'context'  => 'flatphotos',
-                'label'=>'Фото №3'
+                'required' => true,
+                'label'=>'Фото №3 *'
             ))
             ->add('photo4','sonata_media_type', array(
                 'provider' => 'sonata.media.provider.image',
@@ -159,6 +160,36 @@ class FlatType extends AbstractType
                 'provider' => 'sonata.media.provider.image',
                 'context'  => 'flatphotos',
                 'label'=>'Фото №5'
+            ))
+            ->add('photo6','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'required' => false,
+                'label'=>'Фото № 6'
+            ))
+            ->add('photo7','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'required' => false,
+                'label'=>'Фото № 7'
+            ))
+            ->add('photo8','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'required' => false,
+                'label'=>'Фото № 8'
+            ))
+            ->add('photo9','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'required' => false,
+                'label'=>'Фото № 9'
+            ))
+            ->add('photo10','sonata_media_type', array(
+                'provider' => 'sonata.media.provider.image',
+                'context'  => 'flatphotos',
+                'required' => false,
+                'label'=>'Фото № 10'
             ))
 
         ;

@@ -249,15 +249,15 @@ sonata_media:
                 - sonata.media.provider.vimeo
 
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
+                small: { height: 100 , quality: 70}
+                big:   { height: 500 , quality: 100}
         flatphotos:
             providers:
                 - sonata.media.provider.image
 
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
+                small: { height: 100 , quality: 70}
+                big:   { height: 500 , quality: 100}
     cdn:
         server:
             path: /uploads/media # http://media.sonata-project.org/

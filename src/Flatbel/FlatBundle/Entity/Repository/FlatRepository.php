@@ -16,7 +16,7 @@ class FlatRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $this->createQueryBuilder('f')
             ->select('f')
-            ->addOrderBy('f.id', 'DESC');
+            ->addOrderBy('f.date', 'DESC');
 
         if ($flattype != 'Не важно')
         {
@@ -53,7 +53,7 @@ class FlatRepository extends \Doctrine\ORM\EntityRepository
         $qb -> andWhere('f.payornot = :payornot')
             -> setParameter('payornot', 1);
 
-        if ($rooms != null)
+        if ($rooms != 'Не важно')
         {
             $qb->andWhere('f.rooms = :rooms')
                 ->setParameter('rooms', $rooms);

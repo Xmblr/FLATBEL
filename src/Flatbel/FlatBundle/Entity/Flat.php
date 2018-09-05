@@ -34,57 +34,75 @@ class Flat
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $flattype;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $numberofbeds;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $rooms;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $street;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $streettype;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $home;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *     min="0",
+     *     max="1000",
+     *     invalidMessage="Введите цену в числовом виде"
+     * )
      */
     protected $priceday;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *     min="0",
+     *     max="1000",
+     *     invalidMessage="Введите цену в числовом виде"
+     * )
      */
     protected $pricehour;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
-
     protected $floorhome;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $floor;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Заполните это поле")
      */
     protected $metro;
 
@@ -152,7 +170,9 @@ class Flat
      * @ORM\Column(type="string")
      * @Assert\Regex(
      *     pattern     = "/^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/",
-     *     htmlPattern = "^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$")
+     *     htmlPattern = "^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$",
+     *     message="Введите телефон в виде: +375291234567 или 80291234567"
+     *  )
      */
     protected $telnumber;
 
@@ -165,6 +185,555 @@ class Flat
      * @ORM\Column(type="boolean")
      */
     protected $whatsapp;
+
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $telegram;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Заполните это поле")
+     *
+     */
+    protected $about;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $date;
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City")
+     * @Assert\NotBlank(message="Заполните это поле")
+     */
+    protected $city;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     *
+     */
+    protected $photo1;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     *
+     */
+    protected $photo2;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     *
+     */
+    protected $photo3;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo4;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo5;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo6;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo7;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo8;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo9;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    protected $photo10;
+
+
+    /**
+     * Set about
+     *
+     * @param string $about
+     *
+     * @return Flat
+     */
+    public function setAbout($about)
+    {
+        $this->about = $about;
+
+        return $this;
+    }
+
+    /**
+     * Get about
+     *
+     * @return string
+     */
+    public function getAbout($length = null)
+    {
+        if (false === is_null($length) && $length > 0)
+            return substr($this->about, 0, $length);
+        else
+            return $this->about;
+
+//        return $this->about;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+
+    /**
+     * @param mixed $userid
+     */
+    public function setUserid($userid)
+    {
+        return $this->userid = $userid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayornot()
+    {
+        return $this->payornot;
+    }
+
+    /**
+     * @param mixed $payornot
+     */
+    public function setPayornot($payornot)
+    {
+         return $this->payornot = $payornot;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlattype()
+    {
+        return $this->flattype;
+    }
+
+    /**
+     * @param mixed $flattype
+     */
+    public function setFlattype($flattype)
+    {
+        $this->flattype = $flattype;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumberofbeds()
+    {
+        return $this->numberofbeds;
+    }
+
+    /**
+     * @param mixed $numberofbeds
+     */
+    public function setNumberofbeds($numberofbeds)
+    {
+        $this->numberofbeds = $numberofbeds;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRooms()
+    {
+        return $this->rooms;
+    }
+
+    /**
+     * @param mixed $rooms
+     */
+    public function setRooms($rooms)
+    {
+        $this->rooms = $rooms;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * @param mixed $street
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreettype()
+    {
+        return $this->streettype;
+    }
+
+    /**
+     * @param mixed $streettype
+     */
+    public function setStreettype($streettype)
+    {
+        $this->streettype = $streettype;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHome()
+    {
+        return $this->home;
+    }
+
+    /**
+     * @param mixed $home
+     */
+    public function setHome($home)
+    {
+        $this->home = $home;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriceday()
+    {
+        return $this->priceday;
+    }
+
+    /**
+     * @param mixed $priceday
+     */
+    public function setPriceday($priceday)
+    {
+        $this->priceday = $priceday;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPricehour()
+    {
+        return $this->pricehour;
+    }
+
+    /**
+     * @param mixed $pricehour
+     */
+    public function setPricehour($pricehour)
+    {
+        $this->pricehour = $pricehour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFloorhome()
+    {
+        return $this->floorhome;
+    }
+
+    /**
+     * @param mixed $floorhome
+     */
+    public function setFloorhome($floorhome)
+    {
+        $this->floorhome = $floorhome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
+    /**
+     * @param mixed $floor
+     */
+    public function setFloor($floor)
+    {
+        $this->floor = $floor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMetro()
+    {
+        return $this->metro;
+    }
+
+    /**
+     * @param mixed $metro
+     */
+    public function setMetro($metro)
+    {
+        $this->metro = $metro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTv()
+    {
+        return $this->tv;
+    }
+
+    /**
+     * @param mixed $tv
+     */
+    public function setTv($tv)
+    {
+        $this->tv = $tv;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLcdtv()
+    {
+        return $this->lcdtv;
+    }
+
+    /**
+     * @param mixed $lcdtv
+     */
+    public function setLcdtv($lcdtv)
+    {
+        $this->lcdtv = $lcdtv;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWifi()
+    {
+        return $this->wifi;
+    }
+
+    /**
+     * @param mixed $wifi
+     */
+    public function setWifi($wifi)
+    {
+        $this->wifi = $wifi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
+
+    /**
+     * @param mixed $parking
+     */
+    public function setParking($parking)
+    {
+        $this->parking = $parking;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMicrowave()
+    {
+        return $this->microwave;
+    }
+
+    /**
+     * @param mixed $microwave
+     */
+    public function setMicrowave($microwave)
+    {
+        $this->microwave = $microwave;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWasher()
+    {
+        return $this->washer;
+    }
+
+    /**
+     * @param mixed $washer
+     */
+    public function setWasher($washer)
+    {
+        $this->washer = $washer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBath()
+    {
+        return $this->bath;
+    }
+
+    /**
+     * @param mixed $bath
+     */
+    public function setBath($bath)
+    {
+        $this->bath = $bath;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShower()
+    {
+        return $this->shower;
+    }
+
+    /**
+     * @param mixed $shower
+     */
+    public function setShower($shower)
+    {
+        $this->shower = $shower;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJacuzzi()
+    {
+        return $this->jacuzzi;
+    }
+
+    /**
+     * @param mixed $jacuzzi
+     */
+    public function setJacuzzi($jacuzzi)
+    {
+        $this->jacuzzi = $jacuzzi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFridge()
+    {
+        return $this->fridge;
+    }
+
+    /**
+     * @param mixed $fridge
+     */
+    public function setFridge($fridge)
+    {
+        $this->fridge = $fridge;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDishes()
+    {
+        return $this->dishes;
+    }
+
+    /**
+     * @param mixed $dishes
+     */
+    public function setDishes($dishes)
+    {
+        $this->dishes = $dishes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinens()
+    {
+        return $this->linens;
+    }
+
+    /**
+     * @param mixed $linens
+     */
+    public function setLinens($linens)
+    {
+        $this->linens = $linens;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelnumber()
+    {
+        return $this->telnumber;
+    }
+
+    /**
+     * @param mixed $telnumber
+     */
+    public function setTelnumber($telnumber)
+    {
+        $this->telnumber = $telnumber;
+    }
 
     /**
      * @return mixed
@@ -215,76 +784,84 @@ class Flat
     }
 
     /**
-     * @ORM\Column(type="boolean")
+     * @return mixed
      */
-    protected $telegram;
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     /**
-     * @ORM\Column(type="text")
-     *
+     * @param mixed $description
      */
-    protected $about;
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
     /**
-     * @ORM\Column(type="string")
+     * @return mixed
      */
-    protected $description;
+    public function getCity()
+    {
+        return $this->city;
+    }
 
     /**
-     *
-     * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City")
+     * @param mixed $city
      */
-    protected $city;
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
 
     /**
-     *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
-     *
+     * @return mixed
      */
-    protected $mainphoto;
+    public function getPhoto1()
+    {
+        return $this->photo1;
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @param mixed $photo1
      */
-//     * @ORM\Column(type="string", length=1000)
-//     * @Assert\File(mimeTypes={ "image/jpeg" })
-
-    protected $photo1;
+    public function setPhoto1($photo1)
+    {
+        $this->photo1 = $photo1;
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @return mixed
      */
-//     * @ORM\Column(type="string", length=1000)
-//     * @Assert\File(mimeTypes={ "image/jpeg" })
-
-    protected $photo2;
-
+    public function getPhoto2()
+    {
+        return $this->photo2;
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @param mixed $photo2
      */
-//     * @ORM\Column(type="string", length=1000)
-//     * @Assert\File(mimeTypes={ "image/jpeg" })
-
-    protected $photo3;
-
+    public function setPhoto2($photo2)
+    {
+        $this->photo2 = $photo2;
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @return mixed
      */
-//     * @ORM\Column(type="string", length=1000)
-//     * @Assert\File(mimeTypes={ "image/jpeg" })
-
-    protected $photo4;
-
+    public function getPhoto3()
+    {
+        return $this->photo3;
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @param mixed $photo3
      */
-//     * @ORM\Column(type="string", length=1000)
-//     * @Assert\File(mimeTypes={ "image/jpeg" })
-
-    protected $photo5;
+    public function setPhoto3($photo3)
+    {
+        $this->photo3 = $photo3;
+    }
 
     /**
      * @return mixed
@@ -318,803 +895,102 @@ class Flat
         $this->photo5 = $photo5;
     }
 
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set userid
-     *
-     * @param integer $userid
-     *
-     * @return Flat
-     */
-    public function setUserid($userid)
-    {
-        $this->userid = $userid;
-
-        return $this;
-    }
-
-    /**
-     * Get userid
-     *
-     * @return integer
-     */
-    public function getUserid()
-    {
-        return $this->userid;
-    }
-
-    /**
-     * Set payornot
-     *
-     * @param boolean $payornot
-     *
-     * @return Flat
-     */
-    public function setPayornot($payornot)
-    {
-        $this->payornot = $payornot;
-
-        return $this;
-    }
-
-    /**
-     * Get payornot
-     *
-     * @return boolean
-     */
-    public function getPayornot()
-    {
-        return $this->payornot;
-    }
-
-    /**
-     * Set flattype
-     *
-     * @param string $flattype
-     *
-     * @return Flat
-     */
-    public function setFlattype($flattype)
-    {
-        $this->flattype = $flattype;
-
-        return $this;
-    }
-
-    /**
-     * Get flattype
-     *
-     * @return string
-     */
-    public function getFlattype()
-    {
-        return $this->flattype;
-    }
-
-    /**
-     * Set numberofbeds
-     *
-     * @param integer $numberofbeds
-     *
-     * @return Flat
-     */
-    public function setNumberofbeds($numberofbeds)
-    {
-        $this->numberofbeds = $numberofbeds;
-
-        return $this;
-    }
-
-    /**
-     * Get numberofbeds
-     *
-     * @return integer
-     */
-    public function getNumberofbeds()
-    {
-        return $this->numberofbeds;
-    }
-
-    /**
-     * Set rooms
-     *
-     * @param integer $rooms
-     *
-     * @return Flat
-     */
-    public function setRooms($rooms)
-    {
-        $this->rooms = $rooms;
-
-        return $this;
-    }
-
-    /**
-     * Get rooms
-     *
-     * @return integer
-     */
-    public function getRooms()
-    {
-        return $this->rooms;
-    }
-
-    /**
-     * Set street
-     *
-     * @param string $street
-     *
-     * @return Flat
-     */
-    public function setStreet($street)
-    {
-        $this->street = $street;
-
-        return $this;
-    }
-
-    /**
-     * Get street
-     *
-     * @return string
-     */
-    public function getStreet()
-    {
-        return $this->street;
-    }
-
-    /**
-     * Set streettype
-     *
-     * @param string $streettype
-     *
-     * @return Flat
-     */
-    public function setStreettype($streettype)
-    {
-        $this->streettype = $streettype;
-
-        return $this;
-    }
-
-    /**
-     * Get streettype
-     *
-     * @return string
-     */
-    public function getStreettype()
-    {
-        return $this->streettype;
-    }
-
-    /**
-     * Set home
-     *
-     * @param integer $home
-     *
-     * @return Flat
-     */
-    public function setHome($home)
-    {
-        $this->home = $home;
-
-        return $this;
-    }
-
-    /**
-     * Get home
-     *
-     * @return integer
-     */
-    public function getHome()
-    {
-        return $this->home;
-    }
-
-    /**
-     * Set priceday
-     *
-     * @param integer $priceday
-     *
-     * @return Flat
-     */
-    public function setPriceday($priceday)
-    {
-        $this->priceday = $priceday;
-
-        return $this;
-    }
-
-    /**
-     * Get priceday
-     *
-     * @return integer
-     */
-    public function getPriceday()
-    {
-        return $this->priceday;
-    }
-
-    /**
-     * Set pricehour
-     *
-     * @param integer $pricehour
-     *
-     * @return Flat
-     */
-    public function setPricehour($pricehour)
-    {
-        $this->pricehour = $pricehour;
-
-        return $this;
-    }
-
-    /**
-     * Get pricehour
-     *
-     * @return integer
-     */
-    public function getPricehour()
-    {
-        return $this->pricehour;
-    }
-
-    /**
-     * Set floorhome
-     *
-     * @param integer $floorhome
-     *
-     * @return Flat
-     */
-    public function setFloorhome($floorhome)
-    {
-        $this->floorhome = $floorhome;
-
-        return $this;
-    }
-
-    /**
-     * Get floorhome
-     *
-     * @return integer
-     */
-    public function getFloorhome()
-    {
-        return $this->floorhome;
-    }
-
-    /**
-     * Set floor
-     *
-     * @param integer $floor
-     *
-     * @return Flat
-     */
-    public function setFloor($floor)
-    {
-        $this->floor = $floor;
-
-        return $this;
-    }
-
-    /**
-     * Get floor
-     *
-     * @return integer
-     */
-    public function getFloor()
-    {
-        return $this->floor;
-    }
-
-    /**
-     * Set metro
-     *
-     * @param string $metro
-     *
-     * @return Flat
-     */
-    public function setMetro($metro)
-    {
-        $this->metro = $metro;
-
-        return $this;
-    }
-
-    /**
-     * Get metro
-     *
-     * @return string
-     */
-    public function getMetro()
-    {
-        return $this->metro;
-    }
-
-    /**
-     * Set tv
-     *
-     * @param boolean $tv
-     *
-     * @return Flat
-     */
-    public function setTv($tv)
-    {
-        $this->tv = $tv;
-
-        return $this;
-    }
-
-    /**
-     * Get tv
-     *
-     * @return boolean
-     */
-    public function getTv()
-    {
-        return $this->tv;
-    }
-
-    /**
-     * Set lcdtv
-     *
-     * @param boolean $lcdtv
-     *
-     * @return Flat
-     */
-    public function setlcdtv($lcdtv)
-    {
-        $this->lcdtv = $lcdtv;
-
-        return $this;
-    }
-
-    /**
-     * Get lcdtv
-     *
-     * @return boolean
-     */
-    public function getlcdtv()
-    {
-        return $this->lcdtv;
-    }
-
-    /**
-     * Set wifi
-     *
-     * @param boolean $wifi
-     *
-     * @return Flat
-     */
-    public function setWifi($wifi)
-    {
-        $this->wifi = $wifi;
-
-        return $this;
-    }
-
-    /**
-     * Get wifi
-     *
-     * @return boolean
-     */
-    public function getWifi()
-    {
-        return $this->wifi;
-    }
-
-    /**
-     * Set parking
-     *
-     * @param boolean $parking
-     *
-     * @return Flat
-     */
-    public function setParking($parking)
-    {
-        $this->parking = $parking;
-
-        return $this;
-    }
-
-    /**
-     * Get parking
-     *
-     * @return boolean
-     */
-    public function getParking()
-    {
-        return $this->parking;
-    }
-
-    /**
-     * Set microwave
-     *
-     * @param boolean $microwave
-     *
-     * @return Flat
-     */
-    public function setMicrowave($microwave)
-    {
-        $this->microwave = $microwave;
-
-        return $this;
-    }
-
-    /**
-     * Get microwave
-     *
-     * @return boolean
-     */
-    public function getMicrowave()
-    {
-        return $this->microwave;
-    }
-
-    /**
-     * Set washer
-     *
-     * @param boolean $washer
-     *
-     * @return Flat
-     */
-    public function setWasher($washer)
-    {
-        $this->washer = $washer;
-
-        return $this;
-    }
-
-    /**
-     * Get washer
-     *
-     * @return boolean
-     */
-    public function getWasher()
-    {
-        return $this->washer;
-    }
-
-    /**
-     * Set bath
-     *
-     * @param boolean $bath
-     *
-     * @return Flat
-     */
-    public function setBath($bath)
-    {
-        $this->bath = $bath;
-
-        return $this;
-    }
-
-    /**
-     * Get bath
-     *
-     * @return boolean
-     */
-    public function getBath()
-    {
-        return $this->bath;
-    }
-
-    /**
-     * Set shower
-     *
-     * @param boolean $shower
-     *
-     * @return Flat
-     */
-    public function setShower($shower)
-    {
-        $this->shower = $shower;
-
-        return $this;
-    }
-
-    /**
-     * Get shower
-     *
-     * @return boolean
-     */
-    public function getShower()
-    {
-        return $this->shower;
-    }
-
-    /**
-     * Set jacuzzi
-     *
-     * @param boolean $jacuzzi
-     *
-     * @return Flat
-     */
-    public function setjacuzzi($jacuzzi)
-    {
-        $this->lcdtv = $jacuzzi;
-
-        return $this;
-    }
-
-    /**
-     * Get lcdtv
-     *
-     * @return boolean
-     */
-    public function getjacuzzi()
-    {
-        return $this->jacuzzi;
-    }
-
-
-    /**
-     * Set fridge
-     *
-     * @param boolean $fridge
-     *
-     * @return Flat
-     */
-    public function setFridge($fridge)
-    {
-        $this->fridge = $fridge;
-
-        return $this;
-    }
-
-    /**
-     * Get fridge
-     *
-     * @return boolean
-     */
-    public function getFridge()
-    {
-        return $this->fridge;
-    }
-
-    /**
-     * Set dishes
-     *
-     * @param boolean $dishes
-     *
-     * @return Flat
-     */
-    public function setDishes($dishes)
-    {
-        $this->dishes = $dishes;
-
-        return $this;
-    }
-
-    /**
-     * Get dishes
-     *
-     * @return boolean
-     */
-    public function getDishes()
-    {
-        return $this->dishes;
-    }
-
-    /**
-     * Set linens
-     *
-     * @param boolean $linens
-     *
-     * @return Flat
-     */
-    public function setLinens($linens)
-    {
-        $this->linens = $linens;
-
-        return $this;
-    }
-
-    /**
-     * Get linens
-     *
-     * @return boolean
-     */
-    public function getLinens()
-    {
-        return $this->linens;
-    }
-
-    /**
-     * Set telnumber
-     *
-     * @param integer $telnumber
-     *
-     * @return Flat
-     */
-    public function setTelnumber($telnumber)
-    {
-        $this->telnumber = $telnumber;
-
-        return $this;
-    }
-
-    /**
-     * Get telnumber
-     *
-     * @return integer
-     */
-    public function getTelnumber()
-    {
-        return $this->telnumber;
-    }
-
     /**
-     * Set about
-     *
-     * @param string $about
-     *
-     * @return Flat
+     * @return mixed
      */
-    public function setAbout($about)
+    public function getPhoto6()
     {
-        $this->about = $about;
-
-        return $this;
+        return $this->photo6;
     }
 
     /**
-     * Get about
-     *
-     * @return string
+     * @param mixed $photo6
      */
-    public function getAbout($length = null)
+    public function setPhoto6($photo6)
     {
-        if (false === is_null($length) && $length > 0)
-            return substr($this->about, 0, $length);
-        else
-            return $this->about;
-
-//        return $this->about;
+        $this->photo6 = $photo6;
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Flat
+     * @return mixed
      */
-    public function setDescription($description)
+    public function getPhoto7()
     {
-        $this->description = $description;
-
-        return $this;
+        return $this->photo7;
     }
 
     /**
-     * Get description
-     *
-     * @return string
+     * @param mixed $photo7
      */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function getCity()
+    public function setPhoto7($photo7)
     {
-        return $this->city;
+        $this->photo7 = $photo7;
     }
 
     /**
-     * @param mixed $city
+     * @return mixed
      */
-    public function setCity($city)
+    public function getPhoto8()
     {
-        $this->city = $city;
+        return $this->photo8;
     }
 
     /**
-     * Set mainphoto
-     *
-     * @param string $mainphoto
-     *
-     * @return Flat
+     * @param mixed $photo8
      */
-    public function setMainphoto($mainphoto)
+    public function setPhoto8($photo8)
     {
-        $this->mainphoto = $mainphoto;
-
-        return $this;
+        $this->photo8 = $photo8;
     }
 
     /**
-     * Get mainphoto
-     *
-     * @return string
+     * @return mixed
      */
-    public function getMainphoto()
+    public function getPhoto9()
     {
-        return $this->mainphoto;
+        return $this->photo9;
     }
 
     /**
-     * Set photo1
-     *
-     * @param string $photo1
-     *
-     * @return Flat
+     * @param mixed $photo9
      */
-    public function setPhoto1($photo1)
+    public function setPhoto9($photo9)
     {
-        $this->photo1 = $photo1;
-
-        return $this;
+        $this->photo9 = $photo9;
     }
 
     /**
-     * Get photo1
-     *
-     * @return string
+     * @return mixed
      */
-    public function getPhoto1()
+    public function getPhoto10()
     {
-        return $this->photo1;
+        return $this->photo10;
     }
 
     /**
-     * Set photo2
-     *
-     * @param string $photo2
-     *
-     * @return Flat
+     * @param mixed $photo10
      */
-    public function setPhoto2($photo2)
+    public function setPhoto10($photo10)
     {
-        $this->photo2 = $photo2;
-
-        return $this;
+        $this->photo10 = $photo10;
     }
 
     /**
-     * Get photo2
-     *
-     * @return string
+     * @return mixed
      */
-    public function getPhoto2()
+    public function getDate()
     {
-        return $this->photo2;
+        return $this->date;
     }
 
     /**
-     * Set photo3
-     *
-     * @param string $photo3
-     *
-     * @return Flat
+     * @param mixed $date
      */
-    public function setPhoto3($photo3)
+    public function setDate($date)
     {
-        $this->photo3 = $photo3;
-
-        return $this;
+        $this->date = $date;
     }
 
-    /**
-     * Get photo3
-     *
-     * @return string
-     */
-    public function getPhoto3()
-    {
-        return $this->photo3;
-    }
 
 
 }

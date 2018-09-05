@@ -31,7 +31,7 @@ class FilterType extends AbstractType
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
                     'Не важно' => 'Не важно',
-                    '1' => '1',
+                    '2' => '2',
                     '2+1' => '3',
                     '2+2' => '4',
                     '2+1+1' => '4',
@@ -88,7 +88,7 @@ class FilterType extends AbstractType
                     ),
                 'choices_as_values' => true,'label'=>'Кол-во комнат'
             ))
-//            ->add('pricehour', IntegerType::class)
+            ->add('pricehour', IntegerType::class)
             ->add('priceday', IntegerType::class)
         ;
     }

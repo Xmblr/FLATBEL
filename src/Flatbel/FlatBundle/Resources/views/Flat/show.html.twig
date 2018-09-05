@@ -82,42 +82,79 @@
                     ================================================== -->
                     <div class="owl-carousel listing-slider owl-theme"
                          style="box-shadow: 0 6px 25px 0 rgba(55, 66, 73, 0.2);">
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.mainphoto, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+
+                        {% if flat.photo1 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo1, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.photo1, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+                        {% endif %}
+                        {% if flat.photo2 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo2, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.photo2, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+                        {% endif %}{% if flat.photo3 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo3, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.photo3, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+                        {% endif %}{% if flat.photo4 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo4, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.photo4, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+                        {% endif %}{% if flat.photo5 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo5, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="">
-                            <div class="slider-item"
-                                 style="background: url('{% path flat.photo5, 'big' %}') center center no-repeat;
-                                         background-size:auto 100%;">
+                        {% endif %}{% if flat.photo6 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo6, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}{% if flat.photo7 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo7, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
+                            </div>
+                        {% endif %}{% if flat.photo8 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo8, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
+                            </div>
+                        {% endif %}{% if flat.photo9 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo9, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
+                            </div>
+                        {% endif %}{% if flat.photo10 is not empty %}
+                            <div class="">
+                                <div class="slider-item"
+                                     style="background: url('{% path flat.photo10, 'big' %}') center center no-repeat;
+                                             background-size:auto 100%;">
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
 
                 </div><!-- /.carousel -->

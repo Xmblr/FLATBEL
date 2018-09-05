@@ -39,7 +39,9 @@ class AdminAdmin extends AbstractAdmin
 
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('clone', $this->getRouterIdParameter().'/clone');
+        $collection
+            ->add('clone', $this->getRouterIdParameter().'/clone')
+            ->remove('export');
 
     }
     public function translate($_str) {
@@ -63,6 +65,7 @@ class AdminAdmin extends AbstractAdmin
         {
             $description = $this->translate($flat->getStreet()) . '-' . $flat->getHome();
             $flat->setDescription($description);
+            $flat->setPayornot(0);
 //            $flat->setCity($flat->getCity()->getUrl());
         }
         else
@@ -72,10 +75,10 @@ class AdminAdmin extends AbstractAdmin
 
     }
 
-    public function preEdit($flat)
-    {
-        throw new AccessDeniedException();
-    }
+//    public function preEdit($flat)
+//    {
+//        throw new AccessDeniedException();
+//    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -192,28 +195,22 @@ class AdminAdmin extends AbstractAdmin
             ->end()
 
             ->with('Фотографии',array('class'=>'col-md-8'))
-
-                ->add('mainphoto', 'sonata_media_type', array(
-                    'provider' => 'sonata.media.provider.image',
-                    'context'  => 'flatphotos',
-                    'label'=>'Главное фото'
-                ))
                 ->add('photo1','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 1'
                 ))
                 ->add('photo2','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 2'
                 ))
                 ->add('photo3','sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
                     'context'  => 'flatphotos',
-                    'required' => false,
+                    'required' => true,
                     'label'=>'Фото № 3'
                 ))
                 ->add('photo4','sonata_media_type', array(
@@ -228,6 +225,36 @@ class AdminAdmin extends AbstractAdmin
                     'required' => false,
                     'label'=>'Фото № 5'
                 ))
+                ->add('photo6','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 6'
+                ))
+                ->add('photo7','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 7'
+                ))
+                ->add('photo8','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 8'
+                ))
+                ->add('photo9','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 9'
+                ))
+                ->add('photo10','sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'flatphotos',
+                    'required' => false,
+                    'label'=>'Фото № 10'
+                ))
 
             ->end()
         ;
@@ -240,7 +267,7 @@ class AdminAdmin extends AbstractAdmin
 
             ->addIdentifier('id')
             ->addIdentifier('city',null,array('label'=>'Город'))
-            ->addIdentifier('payornot',null,array('label'=>'Оплачено'))
+            ->addIdentifier('payornot',null,array('label'=>'Подтверждено'))
             ->addIdentifier('streettype',null,array('label'=>'Тип'))
             ->addIdentifier('street',null,array('label'=>'Название'))
             ->addIdentifier('home',null,array('label'=>'Дом'))
@@ -290,7 +317,7 @@ class AdminAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('city',null,array('label'=>'Город'))
-            ->add('payornot',null,array('label'=>'Оплачено'))
+            ->add('payornot',null,array('label'=>'Подтверждено'))
             ->add('streettype',null,array('label'=>'Тип'))
             ->add('street',null,array('label'=>'Название'))
             ->add('home',null,array('label'=>'Дом'))
