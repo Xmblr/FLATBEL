@@ -5,6 +5,7 @@ namespace Flatbel\FlatBundle\Controller;
 use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\DBAL\Types\DateType;
 use Doctrine\DBAL\Types\StringType;
+use Flatbel\FlatBundle\Entity\City;
 use Flatbel\FlatBundle\Entity\Flat;
 use Flatbel\FlatBundle\Entity\User;
 use Flatbel\FlatBundle\Form\FlatType;
@@ -13,6 +14,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Flatbel\FlatBundle\Service\FileUploader;
 use Symfony\Component\Validator\Constraints\Date;
+use Ivory\GoogleMap\Base\Coordinate;
+use Ivory\GoogleMap\Map;
+use Ivory\GoogleMap\Overlay\Marker;
+
+use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
@@ -23,7 +29,7 @@ class FlatController extends Controller
     /**
      * Show a flat entry
      */
-    public function showAction($city, $description, $id)
+    public function showAction(Request $request, $city, $description, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -44,10 +50,10 @@ class FlatController extends Controller
             $pretext .= $text[$i];
         }
 
-        $seoDescription = 'Квартира на сутки по адресу г.'. $flat->getCity().' '.$flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome().'. '.$pretext;
+        $seoDescription = 'Квартира на сутки по адресу г. '. $flat->getCity().' '.$flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome().'. '.$pretext;
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
-            ->setTitle('Flatbel - '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
+            ->setTitle('Квартира на сутки в городе '. $flat->getCity().' по адресу '. $flat->getStreettype(). ' '. $flat->getStreet(). ' '. $flat->getHome())
             ->addMeta('name', 'description', $seoDescription)
             ->addMeta('property', 'og:description', $seoDescription)
         ;

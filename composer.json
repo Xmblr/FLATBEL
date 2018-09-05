@@ -32,7 +32,11 @@
         "symfony/assetic-bundle": "dev-master",
         "symfony-cmf/media-bundle" : "^1.3",
         "sonata-project/media-bundle" : "^3.6",
-        "sonata-project/seo-bundle": "^2.5"
+        "sonata-project/seo-bundle": "^2.5",
+        "egeloen/google-map-bundle": "^3.0",
+        "egeloen/serializer-bundle": "^1.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/httplug-bundle": "^1.11"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
