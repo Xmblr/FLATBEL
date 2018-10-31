@@ -300,7 +300,7 @@ sonata_seo:
             'xmlns:og':           http://opengraphprotocol.org/schema/
             #'xmlns:fb':           "http://www.facebook.com/2008/fbml"
 
-ivory_google_map:
-    map:
-        api_key: AIzaSyB7yPhkSBY2GKqlY6UxkmSzAOjZDA2So3s
-        language: "%locale%"
+#ivory_google_map:
+#    map:
+#        api_key: AIzaSyB7yPhkSBY2GKqlY6UxkmSzAOjZDA2So3s
+#        language: "%locale%"

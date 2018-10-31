@@ -39,10 +39,10 @@ class AppKernel extends Kernel
             new Sonata\SeoBundle\SonataSeoBundle(),
 
             // google map
-            new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
-            // Optionally google map
-            new Ivory\SerializerBundle\IvorySerializerBundle(),
-            new Http\HttplugBundle\HttplugBundle(),
+//            new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
+//            // Optionally google map
+//            new Ivory\SerializerBundle\IvorySerializerBundle(),
+//            new Http\HttplugBundle\HttplugBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

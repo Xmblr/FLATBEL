@@ -34,37 +34,37 @@ class Flat
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $flattype;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $numberofbeds;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $rooms;
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $street;
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $streettype;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $home;
 
@@ -90,19 +90,19 @@ class Flat
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $floorhome;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $floor;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $metro;
 
@@ -194,7 +194,7 @@ class Flat
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      *
      */
     protected $about;
@@ -212,7 +212,7 @@ class Flat
     /**
      *
      * @ORM\ManyToOne(targetEntity="Flatbel\FlatBundle\Entity\City")
-     * @Assert\NotBlank(message="Заполните это поле")
+     *
      */
     protected $city;
 

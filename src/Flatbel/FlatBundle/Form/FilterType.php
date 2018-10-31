@@ -26,7 +26,7 @@ class FilterType extends AbstractType
                     'Стандарт' => 'Стандарт',
                     'Бюджет' => 'Бюджет'
                 ),
-                'choices_as_values' => true, 'label' => 'Тип квартиры',
+                'choices_as_values' => true, 'label' => 'Тип квартиры'
             ))
             ->add('numberofbeds',ChoiceType::class, array(
                 'choices'  => array(
